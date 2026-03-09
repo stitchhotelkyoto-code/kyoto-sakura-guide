@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kyoto Sakura Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f8f5f2;
+      --surface: rgba(255, 255, 255, 0.72);
+      --surface-strong: rgba(255, 255, 255, 0.9);
+      --text: #2f2a2c;
+      --muted: #6b6266;
+      --line: rgba(47, 42, 44, 0.08);
+      --accent: #c98d9e;
+      --accent-dark: #a56f80;
+      --shadow: 0 20px 60px rgba(68, 42, 54, 0.12);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --max-width: 1240px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Noto Sans JP", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      color: var(--text);
+      background: linear-gradient(180deg, #fffafc 0%, var(--bg) 40%, #ffffff 100%);
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 100px 0;
+    }
+
+    .section-header {
+      margin-bottom: 40px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent-dark);
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(32px, 4vw, 54px);
+      line-height: 1.08;
+      margin: 0 0 14px;
+      font-weight: 600;
+    }
+
+    .section-desc {
+      max-width: 680px;
+      color: var(--muted);
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 24px 0 48px;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(31, 21, 26, 0.30), rgba(31, 21, 26, 0.46)),
+        radial-gradient(circle at top right, rgba(255,255,255,0.18), transparent 26%),
+        linear-gradient(135deg, #dba9b6 0%, #f5d8df 45%, #f8f0ef 100%);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -10% -10% auto;
+      width: 42vw;
+      height: 42vw;
+      max-width: 540px;
+      max-height: 540px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.14);
+      filter: blur(10px);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      width: min(var(--max-width), calc(100% - 40px));
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: calc(100vh - 72px);
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .lang-switch {
+      display: inline-flex;
+      gap: 8px;
+      padding: 8px;
+      background: rgba(255,255,255,0.16);
+      border: 1px solid rgba(255,255,255,0.18);
+      backdrop-filter: blur(14px);
+      border-radius: 999px;
+    }
+
+    .lang-btn {
+      border: 0;
+      background: transparent;
+      color: rgba(255,255,255,0.88);
+      padding: 8px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: 0.25s ease;
+    }
+
+    .lang-btn.active,
+    .lang-btn:hover {
+      background: rgba(255,255,255,0.9);
+      color: var(--text);
+    }
+
+    .hero-content {
+      display: grid;
+      gap: 26px;
+      align-items: end;
+      padding: 60px 0 20px;
+    }
+
+    .hero-kicker {
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 12px;
+      color: rgba(255,255,255,0.84);
+    }
+
+    .hero h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(52px, 9vw, 104px);
+      line-height: 0.92;
+      letter-spacing: -0.03em;
+      color: #fff;
+      margin: 0;
+      max-width: 760px;
+    }
+
+    .hero p {
+      max-width: 620px;
+      margin: 0;
+      color: rgba(255,255,255,0.86);
+      font-size: clamp(16px, 2vw, 19px);
+      line-height: 1.9;
+    }
+
+    .hero-actions {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(240px, 320px));
+      gap: 18px;
+      margin-top: 16px;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.16);
+      box-shadow: 0 16px 40px rgba(12, 4, 9, 0.12);
+      border-radius: var(--radius-xl);
+      padding: 26px;
+      backdrop-filter: blur(18px);
+      min-height: 190px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.35s ease, background 0.35s ease;
+    }
+
+    .hero-card:hover {
+      transform: translateY(-6px);
+      background: rgba(255,255,255,0.24);
+    }
+
+    .hero-card small {
+      color: rgba(255,255,255,0.76);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 11px;
+    }
+
+    .hero-card h2 {
+      color: white;
+      font-size: clamp(24px, 2.8vw, 34px);
+      line-height: 1.15;
+      margin: 12px 0 10px;
+      font-family: "Playfair Display", serif;
+      font-weight: 600;
+    }
+
+    .hero-card span {
+      color: rgba(255,255,255,0.82);
+      line-height: 1.8;
+      font-size: 14px;
+    }
+
+    .hero-card strong {
+      margin-top: 18px;
+      color: white;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .scroll-note {
+      color: rgba(255,255,255,0.74);
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-top: 18px;
+    }
+
+    .hotel-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .hotel-card {
+      background: var(--surface-strong);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hotel-photo {
+      aspect-ratio: 16 / 10;
+      background: linear-gradient(135deg, #f2dce3, #ead8cc);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .placeholder-label {
+      position: absolute;
+      inset: 18px auto auto 18px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.82);
+      font-size: 12px;
+      color: var(--accent-dark);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .hotel-body {
+      padding: 24px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .hotel-body h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 28px;
+      margin: 0;
+      font-weight: 600;
+    }
+
+    .hotel-body p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .button-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn,
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 13px 20px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: 0.25s ease;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .btn {
+      background: var(--text);
+      color: #fff;
+    }
+
+    .btn:hover {
+      background: #1e1a1b;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border-color: rgba(47, 42, 44, 0.14);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(47, 42, 44, 0.04);
+      transform: translateY(-1px);
+    }
+
+    .spot-list {
+      display: grid;
+      gap: 36px;
+    }
+
+    .spot-item {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: stretch;
+      background: var(--surface-strong);
+      border: 1px solid var(--line);
+      border-radius: 34px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      min-height: 460px;
+    }
+
+    .spot-item.reverse {
+      grid-template-columns: 0.95fr 1.05fr;
+    }
+
+    .spot-visual {
+      position: relative;
+      min-height: 100%;
+      background: linear-gradient(135deg, #f1d6df, #e7ddd6, #f4ecef);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 28px;
+    }
+
+    .spot-frame {
+      width: 100%;
+      height: 100%;
+      min-height: 400px;
+      border-radius: 28px;
+      border: 1px dashed rgba(47, 42, 44, 0.14);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.36), rgba(255,255,255,0.14)),
+        repeating-linear-gradient(45deg, rgba(255,255,255,0.18) 0 14px, rgba(255,255,255,0.08) 14px 28px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .spot-frame::before {
+      content: "Image / Slider Placeholder";
+      position: absolute;
+      inset: 50% auto auto 50%;
+      transform: translate(-50%, -50%);
+      font-size: 14px;
+      color: var(--accent-dark);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-align: center;
+      background: rgba(255,255,255,0.72);
+      padding: 10px 16px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .slider-ui {
+      position: absolute;
+      left: 22px;
+      right: 22px;
+      bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .slider-nav {
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      border: 1px solid rgba(47, 42, 44, 0.1);
+      background: rgba(255,255,255,0.82);
+      color: var(--text);
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+    }
+
+    .slider-dots {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .slider-dots span {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(47, 42, 44, 0.18);
+    }
+
+    .slider-dots span.active {
+      width: 28px;
+      background: var(--text);
+    }
+
+    .spot-copy {
+      padding: 52px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .spot-tag {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(201, 141, 158, 0.12);
+      color: var(--accent-dark);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .spot-copy h3 {
+      margin: 0 0 14px;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.05;
+      font-weight: 600;
+    }
+
+    .spot-copy p {
+      margin: 0 0 22px;
+      color: var(--muted);
+      line-height: 1.95;
+      font-size: 15px;
+    }
+
+    .spot-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 6px;
+    }
+
+    .footer {
+      padding: 40px 0 70px;
+      color: var(--muted);
+    }
+
+    .footer-card {
+      padding: 24px;
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.74);
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .footer small {
+      line-height: 1.8;
+      display: block;
+    }
+
+    @media (max-width: 1024px) {
+      .hero-actions {
+        grid-template-columns: 1fr;
+        max-width: 440px;
+      }
+
+      .hotel-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .spot-item,
+      .spot-item.reverse {
+        grid-template-columns: 1fr;
+      }
+
+      .spot-copy {
+        padding: 36px 28px 40px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container,
+      .hero-inner {
+        width: min(100% - 24px, var(--max-width));
+      }
+
+      .section {
+        padding: 72px 0;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-inner {
+        min-height: auto;
+      }
+
+      .hero-content {
+        padding: 46px 0 10px;
+      }
+
+      .hero-card {
+        min-height: 168px;
+      }
+
+      .spot-copy h3 {
+        font-size: 32px;
+      }
+
+      .spot-copy,
+      .hotel-body {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .button-row,
+      .spot-actions {
+        flex-direction: column;
+      }
+
+      .btn,
+      .btn-secondary {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero" id="top">
+    <div class="hero-inner">
+      <div class="topbar">
+        <div class="lang-switch" aria-label="Language selector">
+          <button class="lang-btn active" type="button" data-lang="jp">JP</button>
+          <button class="lang-btn" type="button" data-lang="en">EN</button>
+          <button class="lang-btn" type="button" data-lang="kr">KR</button>
+        </div>
+      </div>
+
+      <div class="hero-content">
+        <div>
+          <div class="hero-kicker" data-i18n="heroKicker">Spring in Kyoto</div>
+          <h1 data-i18n="heroTitle">Kyoto Sakura Guide</h1>
+          <p data-i18n="heroDesc">
+            Discover our hotels and explore Kyoto’s most beautiful cherry blossom spots through a refined seasonal guide.
+          </p>
+        </div>
+
+        <div class="hero-actions">
+          <a class="hero-card" href="#hotels">
+            <div>
+              <small data-i18n="heroCard1Label">Stay</small>
+              <h2 data-i18n="heroCard1Title">Explore Hotels</h2>
+              <span data-i18n="heroCard1Desc">View four hotel destinations with direct access to their official website and Instagram.</span>
+            </div>
+            <strong data-i18n="heroCardAction">Enter</strong>
+          </a>
+
+          <a class="hero-card" href="#spots">
+            <div>
+              <small data-i18n="heroCard2Label">Discover</small>
+              <h2 data-i18n="heroCard2Title">Sakura Spots</h2>
+              <span data-i18n="heroCard2Desc">Browse curated cherry blossom locations with visual storytelling and direct map guidance.</span>
+            </div>
+            <strong data-i18n="heroCardAction">Enter</strong>
+          </a>
+        </div>
+
+        <div class="scroll-note" data-i18n="scrollNote">Scroll to explore</div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="hotels">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow" data-i18n="hotelsEyebrow">Our Hotels</span>
+          <h2 class="section-title" data-i18n="hotelsTitle">Choose Your Stay</h2>
+          <p class="section-desc" data-i18n="hotelsDesc">
+            This section is designed for four hotels. Replace each image placeholder with your hotel photos and connect the buttons to your official website and Instagram.
+          </p>
+        </div>
+
+        <div class="hotel-grid">
+          <article class="hotel-card">
+            <div class="hotel-photo">
+              <span class="placeholder-label">Hotel Photo</span>
+            </div>
+            <div class="hotel-body">
+              <h3>Hotel Name 01</h3>
+              <p>Short one-line brand introduction or location note for this hotel.</p>
+              <div class="button-row">
+                <a class="btn" href="#" target="_blank" rel="noopener">Official Website</a>
+                <a class="btn-secondary" href="#" target="_blank" rel="noopener">Instagram</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="hotel-card">
+            <div class="hotel-photo">
+              <span class="placeholder-label">Hotel Photo</span>
+            </div>
+            <div class="hotel-body">
+              <h3>Hotel Name 02</h3>
+              <p>Short one-line brand introduction or location note for this hotel.</p>
+              <div class="button-row">
+                <a class="btn" href="#" target="_blank" rel="noopener">Official Website</a>
+                <a class="btn-secondary" href="#" target="_blank" rel="noopener">Instagram</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="hotel-card">
+            <div class="hotel-photo">
+              <span class="placeholder-label">Hotel Photo</span>
+            </div>
+            <div class="hotel-body">
+              <h3>Hotel Name 03</h3>
+              <p>Short one-line brand introduction or location note for this hotel.</p>
+              <div class="button-row">
+                <a class="btn" href="#" target="_blank" rel="noopener">Official Website</a>
+                <a class="btn-secondary" href="#" target="_blank" rel="noopener">Instagram</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="hotel-card">
+            <div class="hotel-photo">
+              <span class="placeholder-label">Hotel Photo</span>
+            </div>
+            <div class="hotel-body">
+              <h3>Hotel Name 04</h3>
+              <p>Short one-line brand introduction or location note for this hotel.</p>
+              <div class="button-row">
+                <a class="btn" href="#" target="_blank" rel="noopener">Official Website</a>
+                <a class="btn-secondary" href="#" target="_blank" rel="noopener">Instagram</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="spots">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow" data-i18n="spotsEyebrow">Sakura Spots</span>
+          <h2 class="section-title" data-i18n="spotsTitle">Spring Highlights in Kyoto</h2>
+          <p class="section-desc" data-i18n="spotsDesc">
+            The layout below is a ready-made frame for your cherry blossom locations. Keep the descriptions short and replace each placeholder with single images or a photo slider later.
+          </p>
+        </div>
+
+        <div class="spot-list">
+          <article class="spot-item">
+            <div class="spot-visual">
+              <div class="spot-frame">
+                <div class="slider-ui">
+                  <button class="slider-nav" type="button">‹</button>
+                  <div class="slider-dots"><span class="active"></span><span></span><span></span></div>
+                  <button class="slider-nav" type="button">›</button>
+                </div>
+              </div>
+            </div>
+            <div class="spot-copy">
+              <span class="spot-tag">Top Sakura Spot</span>
+              <h3>Philosopher's Path</h3>
+              <p>Peaceful canal-side path lined with cherry blossoms. Use one or two lines only to keep the section elegant and easy to scan.</p>
+              <div class="spot-actions">
+                <a class="btn" href="#" target="_blank" rel="noopener">Get Directions</a>
+                <button class="btn-secondary" type="button">View More Photos</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="spot-item reverse">
+            <div class="spot-copy">
+              <span class="spot-tag">Popular</span>
+              <h3>Maruyama Park</h3>
+              <p>Kyoto’s iconic hanami location with a classic spring atmosphere. Replace this text with your final short description later.</p>
+              <div class="spot-actions">
+                <a class="btn" href="#" target="_blank" rel="noopener">Get Directions</a>
+                <button class="btn-secondary" type="button">View More Photos</button>
+              </div>
+            </div>
+            <div class="spot-visual">
+              <div class="spot-frame">
+                <div class="slider-ui">
+                  <button class="slider-nav" type="button">‹</button>
+                  <div class="slider-dots"><span class="active"></span><span></span><span></span></div>
+                  <button class="slider-nav" type="button">›</button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="spot-item">
+            <div class="spot-visual"><div class="spot-frame"></div></div>
+            <div class="spot-copy">
+              <span class="spot-tag">Historic</span>
+              <h3>Keage Incline</h3>
+              <p>Placeholder text for your sakura spot. Duplicate this block until you reach all 12 destinations.</p>
+              <div class="spot-actions">
+                <a class="btn" href="#" target="_blank" rel="noopener">Get Directions</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="spot-item reverse">
+            <div class="spot-copy">
+              <span class="spot-tag">Scenic</span>
+              <h3>Arashiyama</h3>
+              <p>Placeholder text for your sakura spot. Later, you can attach a real image slider with 2 to 3 photos here.</p>
+              <div class="spot-actions">
+                <a class="btn" href="#" target="_blank" rel="noopener">Get Directions</a>
+              </div>
+            </div>
+            <div class="spot-visual"><div class="spot-frame"></div></div>
+          </article>
+
+          <article class="spot-item">
+            <div class="spot-visual"><div class="spot-frame"></div></div>
+            <div class="spot-copy">
+              <span class="spot-tag">Local Favorite</span>
+              <h3>Kamo River</h3>
+              <p>Placeholder text for your sakura spot. Keep every explanation to one short paragraph for consistency.</p>
+              <div class="spot-actions">
+                <a class="btn" href="#" target="_blank" rel="noopener">Get Directions</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="spot-item reverse">
+            <div class="spot-copy">
+              <span class="spot-tag">Temple View</span>
+              <h3>Kiyomizu-dera</h3>
+              <p>Placeholder text for your sakura spot. This alternating layout keeps the page elegant even with many sections.</p>
+              <div class="spot-actions">
+                <a class="btn" href="#" target="_blank" rel="noopener">Get Directions</a>
+              </div>
+            </div>
+            <div class="spot-visual"><div class="spot-frame"></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-card">
+        <small>
+          Template note: this version is a visual frame only. Replace placeholders with real photos, links, translations, and additional sakura sections.
+        </small>
+        <a class="btn-secondary" href="#top">Back to Top</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const translations = {
+      en: {
+        heroKicker: 'Spring in Kyoto',
+        heroTitle: 'Kyoto Sakura Guide',
+        heroDesc: 'Discover our hotels and explore Kyoto’s most beautiful cherry blossom spots through a refined seasonal guide.',
+        heroCard1Label: 'Stay',
+        heroCard1Title: 'Explore Hotels',
+        heroCard1Desc: 'View four hotel destinations with direct access to their official website and Instagram.',
+        heroCard2Label: 'Discover',
+        heroCard2Title: 'Sakura Spots',
+        heroCard2Desc: 'Browse curated cherry blossom locations with visual storytelling and direct map guidance.',
+        heroCardAction: 'Enter',
+        scrollNote: 'Scroll to explore',
+        hotelsEyebrow: 'Our Hotels',
+        hotelsTitle: 'Choose Your Stay',
+        hotelsDesc: 'This section is designed for four hotels. Replace each image placeholder with your hotel photos and connect the buttons to your official website and Instagram.',
+        spotsEyebrow: 'Sakura Spots',
+        spotsTitle: 'Spring Highlights in Kyoto',
+        spotsDesc: 'The layout below is a ready-made frame for your cherry blossom locations. Keep the descriptions short and replace each placeholder with single images or a photo slider later.'
+      },
+      jp: {
+        heroKicker: 'Spring in Kyoto',
+        heroTitle: 'Kyoto Sakura Guide',
+        heroDesc: '4つのホテルと京都の桜スポットを、美しくシンプルに案内する季節限定ガイドです。',
+        heroCard1Label: 'Stay',
+        heroCard1Title: 'Explore Hotels',
+        heroCard1Desc: '4つのホテル情報を一覧で確認し、公式サイトやInstagramへ移動できます。',
+        heroCard2Label: 'Discover',
+        heroCard2Title: 'Sakura Spots',
+        heroCard2Desc: '厳選した桜スポットを、写真とシンプルな案内でご覧いただけます。',
+        heroCardAction: 'Enter',
+        scrollNote: 'Scroll to explore',
+        hotelsEyebrow: 'Our Hotels',
+        hotelsTitle: 'Choose Your Stay',
+        hotelsDesc: 'このセクションには4つのホテルを配置します。写真を差し替え、公式サイトとInstagramのリンクを設定してください。',
+        spotsEyebrow: 'Sakura Spots',
+        spotsTitle: 'Spring Highlights in Kyoto',
+        spotsDesc: 'この下のレイアウトは桜スポット用の土台です。説明文は短くし、あとから写真やスライダーに差し替えてください。'
+      },
+      kr: {
+        heroKicker: 'Spring in Kyoto',
+        heroTitle: 'Kyoto Sakura Guide',
+        heroDesc: '4개의 호텔과 교토의 대표 벚꽃 명소를 감각적으로 소개하는 시즌 한정 가이드입니다.',
+        heroCard1Label: 'Stay',
+        heroCard1Title: 'Explore Hotels',
+        heroCard1Desc: '4개 호텔 정보를 보고 공식 홈페이지와 인스타그램으로 바로 이동할 수 있습니다.',
+        heroCard2Label: 'Discover',
+        heroCard2Title: 'Sakura Spots',
+        heroCard2Desc: '엄선한 벚꽃 명소를 사진과 간단한 안내, 지도 연결과 함께 둘러볼 수 있습니다.',
+        heroCardAction: 'Enter',
+        scrollNote: 'Scroll to explore',
+        hotelsEyebrow: 'Our Hotels',
+        hotelsTitle: 'Choose Your Stay',
+        hotelsDesc: '이 섹션은 4개 호텔용입니다. 호텔 사진으로 교체하고 홈페이지와 인스타그램 링크를 연결하면 됩니다.',
+        spotsEyebrow: 'Sakura Spots',
+        spotsTitle: 'Spring Highlights in Kyoto',
+        spotsDesc: '아래 레이아웃은 벚꽃 명소용 틀입니다. 설명은 짧게 유지하고, 나중에 실제 사진이나 슬라이더로 교체하면 됩니다.'
+      }
+    };
+
+    const langButtons = document.querySelectorAll('.lang-btn');
+    const i18nNodes = document.querySelectorAll('[data-i18n]');
+
+    function setLanguage(lang) {
+      const dict = translations[lang];
+      if (!dict) return;
+
+      i18nNodes.forEach((node) => {
+        const key = node.dataset.i18n;
+        if (dict[key]) node.textContent = dict[key];
+      });
+
+      langButtons.forEach((btn) => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+    }
+
+    langButtons.forEach((btn) => {
+      btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+    });
+
+    setLanguage('jp');
+  </script>
+</body>
+</html>
