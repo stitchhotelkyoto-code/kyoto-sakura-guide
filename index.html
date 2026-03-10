@@ -650,14 +650,16 @@
         width: min(100% - 24px, var(--max-width));
         padding: 10px 0 8px;
         display: grid;
-        grid-template-columns: 1fr auto;
-        gap: 8px 12px;
+        grid-template-columns: auto auto auto 1fr auto;
+        gap: 8px 10px;
         align-items: center;
       }
 
       .brand-mini {
         gap: 9px;
         min-width: 0;
+        grid-column: 1 / 5;
+        grid-row: 1;
       }
 
       .brand-mini strong {
@@ -676,7 +678,7 @@
       }
 
       .page-actions .lang-switch {
-        grid-column: 2;
+        grid-column: 5;
         grid-row: 1;
         justify-self: end;
         padding: 4px;
@@ -691,23 +693,21 @@
       .page-actions > .nav-btn {
         grid-row: 2;
         width: auto;
-        padding: 8px 14px;
+        padding: 8px 12px;
         font-size: 12px;
+        justify-self: start;
       }
 
       .page-actions > .nav-btn[data-screen-target="home"] {
         grid-column: 1;
-        justify-self: start;
       }
 
       .page-actions > .nav-btn[data-screen-target="hotels"] {
-        grid-column: 1;
-        justify-self: center;
+        grid-column: 2;
       }
 
       .page-actions > .nav-btn[data-screen-target="spots"] {
-        grid-column: 1;
-        justify-self: end;
+        grid-column: 3;
       }
 
       .spot-item,
@@ -748,6 +748,10 @@
       }
     }
 
+    #screen-home .screen-scroll {
+      overflow-y: auto;
+    }
+
     @media (max-width: 640px) {
       .container,
       .hero-inner,
@@ -776,16 +780,26 @@
       }
 
       .page-topbar-inner {
-        padding: 8px 0 6px;
-        grid-template-columns: 1fr auto;
-        gap: 8px 10px;
+        padding: calc(env(safe-area-inset-top, 0px) + 8px) 0 6px;
+        grid-template-columns: auto auto auto 1fr auto;
+        gap: 6px 8px;
+        align-items: center;
+      }
+
+      .brand-mini {
+        min-width: 0;
+        flex-wrap: nowrap;
+        grid-column: 1 / 5;
       }
 
       .brand-mini strong {
-        font-size: 15px;
+        font-size: 14px;
+        white-space: nowrap;
       }
 
       .page-actions .lang-switch {
+        grid-column: 5;
+        grid-row: 1;
         padding: 3px;
       }
 
@@ -795,7 +809,7 @@
       }
 
       .page-actions > .nav-btn {
-        padding: 7px 12px;
+        padding: 7px 10px;
         font-size: 11px;
         width: fit-content;
       }
@@ -1029,8 +1043,8 @@
                       <p data-i18n="spotCrowd1">Best time: Early morning. Usually busiest from late morning to mid-afternoon.</p>
                       <div class="spot-actions">
                         <button class="btn direction-btn" type="button" data-destination="Philosopher's Path Kyoto" data-i18n="getDirections">Get Directions</button>
-                        <a class="btn-secondary" href="https://global.kyoto.travel/en/comfort/" target="_blank" rel="noopener" data-i18n="crowdForecast">Crowd Forecast</a>
-                        <button class="btn-secondary" type="button" data-i18n="viewMorePhotos">View More Photos</button>
+                        <a class="btn-secondary" href="https://global.kyoto.travel/en/comfort/tetsugaku-okazaki/" target="_blank" rel="noopener" data-i18n="crowdForecast">Crowd Forecast</a>
+                        <button class="btn-secondary photo-hashtag-btn" type="button" data-hashtag="哲学の道" data-i18n="viewMorePhotos">View More Photos</button>
                       </div>
                     </div>
                   </article>
@@ -1043,8 +1057,9 @@
                       <p data-i18n="spotCrowd2">Best time: Before 9:00 AM. Crowds usually build from midday into the evening.</p>
                       <div class="spot-actions">
                         <button class="btn direction-btn" type="button" data-destination="Maruyama Park Kyoto" data-i18n="getDirections">Get Directions</button>
-                        <a class="btn-secondary" href="https://global.kyoto.travel/en/comfort/" target="_blank" rel="noopener" data-i18n="crowdForecast">Crowd Forecast</a>
-                        <button class="btn-secondary" type="button" data-i18n="viewMorePhotos">View More Photos</button>
+                        <a class="btn-secondary" href="https://global.kyoto.travel/en/comfort/gion-kiyomizu/" target="_blank" rel="noopener" data-i18n="crowdForecast">Crowd Forecast</a>
+                        <button class="btn-secondary photo-hashtag-btn" type="button" data-hashtag="円山公園" data-i18n="viewMorePhotos">View More Photos</button>
+                        <button class="btn-secondary photo-hashtag-btn" type="button" data-hashtag="哲学の道" data-i18n="viewMorePhotos">View More Photos</button>
                       </div>
                     </div>
                     <div class="spot-visual">
@@ -1067,7 +1082,8 @@
                       <p data-i18n="spotCrowd3">Best time: Morning. The area tends to feel busiest around late morning and early afternoon.</p>
                       <div class="spot-actions">
                         <button class="btn direction-btn" type="button" data-destination="Keage Incline Kyoto" data-i18n="getDirections">Get Directions</button>
-                        <a class="btn-secondary" href="https://global.kyoto.travel/en/comfort/" target="_blank" rel="noopener" data-i18n="crowdForecast">Crowd Forecast</a>
+                        <a class="btn-secondary" href="https://global.kyoto.travel/en/comfort/tetsugaku-okazaki/" target="_blank" rel="noopener" data-i18n="crowdForecast">Crowd Forecast</a>
+                        <button class="btn-secondary photo-hashtag-btn" type="button" data-hashtag="蹴上インクライン" data-i18n="viewMorePhotos">View More Photos</button>
                       </div>
                     </div>
                   </article>
@@ -1080,7 +1096,8 @@
                       <p data-i18n="spotCrowd4">Best time: Very early morning. This area is often most crowded from around 10:00 AM to 4:00 PM.</p>
                       <div class="spot-actions">
                         <button class="btn direction-btn" type="button" data-destination="Arashiyama Kyoto" data-i18n="getDirections">Get Directions</button>
-                        <a class="btn-secondary" href="https://global.kyoto.travel/en/comfort/" target="_blank" rel="noopener" data-i18n="crowdForecast">Crowd Forecast</a>
+                        <a class="btn-secondary" href="https://global.kyoto.travel/en/comfort/saga-arashiyama/" target="_blank" rel="noopener" data-i18n="crowdForecast">Crowd Forecast</a>
+                        <button class="btn-secondary photo-hashtag-btn" type="button" data-hashtag="嵐山" data-i18n="viewMorePhotos">View More Photos</button>
                       </div>
                     </div>
                     <div class="spot-visual"><div class="spot-frame"></div></div>
@@ -1096,6 +1113,7 @@
                       <div class="spot-actions">
                         <button class="btn direction-btn" type="button" data-destination="Kamo River Kyoto" data-i18n="getDirections">Get Directions</button>
                         <a class="btn-secondary" href="https://global.kyoto.travel/en/comfort/" target="_blank" rel="noopener" data-i18n="crowdForecast">Crowd Forecast</a>
+                        <button class="btn-secondary photo-hashtag-btn" type="button" data-hashtag="鴨川" data-i18n="viewMorePhotos">View More Photos</button>
                       </div>
                     </div>
                   </article>
@@ -1108,7 +1126,8 @@
                       <p data-i18n="spotCrowd6">Best time: Early morning. This area can become very busy from late morning through the afternoon.</p>
                       <div class="spot-actions">
                         <button class="btn direction-btn" type="button" data-destination="Kiyomizu-dera Kyoto" data-i18n="getDirections">Get Directions</button>
-                        <a class="btn-secondary" href="https://global.kyoto.travel/en/comfort/" target="_blank" rel="noopener" data-i18n="crowdForecast">Crowd Forecast</a>
+                        <a class="btn-secondary" href="https://global.kyoto.travel/en/comfort/gion-kiyomizu/" target="_blank" rel="noopener" data-i18n="crowdForecast">Crowd Forecast</a>
+                        <button class="btn-secondary photo-hashtag-btn" type="button" data-hashtag="清水寺" data-i18n="viewMorePhotos">View More Photos</button>
                       </div>
                     </div>
                     <div class="spot-visual"><div class="spot-frame"></div></div>
@@ -1334,7 +1353,7 @@
       const fallbackUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodedDestination}&travelmode=walking`;
 
       if (!navigator.geolocation) {
-        window.open(fallbackUrl, '_blank', 'noopener');
+        window.location.href = fallbackUrl;
         return;
       }
 
@@ -1342,10 +1361,10 @@
         (position) => {
           const origin = `${position.coords.latitude},${position.coords.longitude}`;
           const url = `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(origin)}&destination=${encodedDestination}&travelmode=walking`;
-          window.open(url, '_blank', 'noopener');
+          window.location.href = url;
         },
         () => {
-          window.open(fallbackUrl, '_blank', 'noopener');
+          window.location.href = fallbackUrl;
         },
         {
           enableHighAccuracy: true,
@@ -1355,10 +1374,22 @@
       );
     }
 
+    function openInstagramHashtag(hashtag) {
+      const url = `https://www.instagram.com/explore/tags/${encodeURIComponent(hashtag)}/`;
+      window.location.href = url;
+    }
+
     document.querySelectorAll('.direction-btn').forEach((button) => {
       button.addEventListener('click', () => {
         const destination = button.dataset.destination;
         if (destination) openGoogleDirections(destination);
+      });
+    });
+
+    document.querySelectorAll('.photo-hashtag-btn').forEach((button) => {
+      button.addEventListener('click', () => {
+        const hashtag = button.dataset.hashtag;
+        if (hashtag) openInstagramHashtag(hashtag);
       });
     });
 
