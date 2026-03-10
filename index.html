@@ -648,48 +648,66 @@
 
       .page-topbar-inner {
         width: min(100% - 24px, var(--max-width));
-        padding: 12px 0;
+        padding: 10px 0 8px;
         display: grid;
-        grid-template-columns: 1fr;
-        gap: 10px;
+        grid-template-columns: 1fr auto;
+        gap: 8px 12px;
+        align-items: center;
       }
 
       .brand-mini {
-        gap: 10px;
+        gap: 9px;
+        min-width: 0;
       }
 
       .brand-mini strong {
-        font-size: 18px;
+        font-size: 17px;
+        line-height: 1.1;
       }
 
       .brand-dot {
-        width: 10px;
-        height: 10px;
+        width: 9px;
+        height: 9px;
         box-shadow: 0 0 0 6px rgba(201, 137, 154, 0.1);
       }
 
       .page-actions {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 8px;
-        align-items: center;
+        display: contents;
       }
 
       .page-actions .lang-switch {
-        grid-column: 1 / -1;
+        grid-column: 2;
+        grid-row: 1;
+        justify-self: end;
+        padding: 4px;
+        gap: 4px;
+      }
+
+      .page-actions .lang-switch .lang-btn {
+        padding: 6px 10px;
+        font-size: 12px;
+      }
+
+      .page-actions > .nav-btn {
+        grid-row: 2;
+        width: auto;
+        padding: 8px 14px;
+        font-size: 12px;
+      }
+
+      .page-actions > .nav-btn[data-screen-target="home"] {
+        grid-column: 1;
         justify-self: start;
-        padding: 6px;
       }
 
-      .nav-btn {
-        padding: 10px 12px;
-        font-size: 13px;
-        min-width: 0;
+      .page-actions > .nav-btn[data-screen-target="hotels"] {
+        grid-column: 1;
+        justify-self: center;
       }
 
-      .lang-btn {
-        padding: 7px 12px;
-        font-size: 13px;
+      .page-actions > .nav-btn[data-screen-target="spots"] {
+        grid-column: 1;
+        justify-self: end;
       }
 
       .spot-item,
@@ -734,7 +752,7 @@
       .container,
       .hero-inner,
       .page-topbar-inner {
-        width: min(100% - 24px, var(--max-width));
+        width: min(100% - 20px, var(--max-width));
       }
 
       .section {
@@ -758,22 +776,28 @@
       }
 
       .page-topbar-inner {
-        padding: 10px 0;
+        padding: 8px 0 6px;
+        grid-template-columns: 1fr auto;
+        gap: 8px 10px;
       }
 
-      .page-actions {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+      .brand-mini strong {
+        font-size: 15px;
       }
 
       .page-actions .lang-switch {
-        grid-column: 1 / -1;
-        justify-self: start;
+        padding: 3px;
       }
 
-      .nav-btn,
-      .btn,
-      .btn-secondary {
-        width: 100%;
+      .page-actions .lang-switch .lang-btn {
+        padding: 5px 8px;
+        font-size: 11px;
+      }
+
+      .page-actions > .nav-btn {
+        padding: 7px 12px;
+        font-size: 11px;
+        width: fit-content;
       }
 
       .button-row {
@@ -1002,8 +1026,10 @@
                       <span class="spot-tag" data-i18n="tagTopSpot">Top Sakura Spot</span>
                       <h3>Philosopher's Path</h3>
                       <p data-i18n="spotPlaceholderDesc1">Peaceful canal-side path lined with cherry blossoms. Use one or two lines only to keep the section elegant and easy to scan.</p>
+                      <p data-i18n="spotCrowd1">Best time: Early morning. Usually busiest from late morning to mid-afternoon.</p>
                       <div class="spot-actions">
-                        <a class="btn" href="#" target="_blank" rel="noopener" data-i18n="getDirections">Get Directions</a>
+                        <button class="btn direction-btn" type="button" data-destination="Philosopher's Path Kyoto" data-i18n="getDirections">Get Directions</button>
+                        <a class="btn-secondary" href="https://global.kyoto.travel/en/comfort/" target="_blank" rel="noopener" data-i18n="crowdForecast">Crowd Forecast</a>
                         <button class="btn-secondary" type="button" data-i18n="viewMorePhotos">View More Photos</button>
                       </div>
                     </div>
@@ -1014,8 +1040,10 @@
                       <span class="spot-tag" data-i18n="tagPopular">Popular</span>
                       <h3>Maruyama Park</h3>
                       <p data-i18n="spotPlaceholderDesc2">Kyoto’s iconic hanami location with a classic spring atmosphere. Replace this text with your final short description later.</p>
+                      <p data-i18n="spotCrowd2">Best time: Before 9:00 AM. Crowds usually build from midday into the evening.</p>
                       <div class="spot-actions">
-                        <a class="btn" href="#" target="_blank" rel="noopener" data-i18n="getDirections">Get Directions</a>
+                        <button class="btn direction-btn" type="button" data-destination="Maruyama Park Kyoto" data-i18n="getDirections">Get Directions</button>
+                        <a class="btn-secondary" href="https://global.kyoto.travel/en/comfort/" target="_blank" rel="noopener" data-i18n="crowdForecast">Crowd Forecast</a>
                         <button class="btn-secondary" type="button" data-i18n="viewMorePhotos">View More Photos</button>
                       </div>
                     </div>
@@ -1036,8 +1064,10 @@
                       <span class="spot-tag" data-i18n="tagHistoric">Historic</span>
                       <h3>Keage Incline</h3>
                       <p data-i18n="spotPlaceholderDesc3">Placeholder text for your sakura spot. Duplicate this block until you reach all 12 destinations.</p>
+                      <p data-i18n="spotCrowd3">Best time: Morning. The area tends to feel busiest around late morning and early afternoon.</p>
                       <div class="spot-actions">
-                        <a class="btn" href="#" target="_blank" rel="noopener" data-i18n="getDirections">Get Directions</a>
+                        <button class="btn direction-btn" type="button" data-destination="Keage Incline Kyoto" data-i18n="getDirections">Get Directions</button>
+                        <a class="btn-secondary" href="https://global.kyoto.travel/en/comfort/" target="_blank" rel="noopener" data-i18n="crowdForecast">Crowd Forecast</a>
                       </div>
                     </div>
                   </article>
@@ -1047,8 +1077,10 @@
                       <span class="spot-tag" data-i18n="tagScenic">Scenic</span>
                       <h3>Arashiyama</h3>
                       <p data-i18n="spotPlaceholderDesc4">Placeholder text for your sakura spot. Later, you can attach a real image slider with 2 to 3 photos here.</p>
+                      <p data-i18n="spotCrowd4">Best time: Very early morning. This area is often most crowded from around 10:00 AM to 4:00 PM.</p>
                       <div class="spot-actions">
-                        <a class="btn" href="#" target="_blank" rel="noopener" data-i18n="getDirections">Get Directions</a>
+                        <button class="btn direction-btn" type="button" data-destination="Arashiyama Kyoto" data-i18n="getDirections">Get Directions</button>
+                        <a class="btn-secondary" href="https://global.kyoto.travel/en/comfort/" target="_blank" rel="noopener" data-i18n="crowdForecast">Crowd Forecast</a>
                       </div>
                     </div>
                     <div class="spot-visual"><div class="spot-frame"></div></div>
@@ -1060,8 +1092,10 @@
                       <span class="spot-tag" data-i18n="tagLocalFavorite">Local Favorite</span>
                       <h3>Kamo River</h3>
                       <p data-i18n="spotPlaceholderDesc5">Placeholder text for your sakura spot. Keep every explanation to one short paragraph for consistency.</p>
+                      <p data-i18n="spotCrowd5">Best time: Morning or near sunset. It is usually more relaxed than major tourist hotspots.</p>
                       <div class="spot-actions">
-                        <a class="btn" href="#" target="_blank" rel="noopener" data-i18n="getDirections">Get Directions</a>
+                        <button class="btn direction-btn" type="button" data-destination="Kamo River Kyoto" data-i18n="getDirections">Get Directions</button>
+                        <a class="btn-secondary" href="https://global.kyoto.travel/en/comfort/" target="_blank" rel="noopener" data-i18n="crowdForecast">Crowd Forecast</a>
                       </div>
                     </div>
                   </article>
@@ -1071,8 +1105,10 @@
                       <span class="spot-tag" data-i18n="tagTempleView">Temple View</span>
                       <h3>Kiyomizu-dera</h3>
                       <p data-i18n="spotPlaceholderDesc6">Placeholder text for your sakura spot. This alternating layout keeps the page elegant even with many sections.</p>
+                      <p data-i18n="spotCrowd6">Best time: Early morning. This area can become very busy from late morning through the afternoon.</p>
                       <div class="spot-actions">
-                        <a class="btn" href="#" target="_blank" rel="noopener" data-i18n="getDirections">Get Directions</a>
+                        <button class="btn direction-btn" type="button" data-destination="Kiyomizu-dera Kyoto" data-i18n="getDirections">Get Directions</button>
+                        <a class="btn-secondary" href="https://global.kyoto.travel/en/comfort/" target="_blank" rel="noopener" data-i18n="crowdForecast">Crowd Forecast</a>
                       </div>
                     </div>
                     <div class="spot-visual"><div class="spot-frame"></div></div>
@@ -1135,6 +1171,27 @@
         spotPlaceholderDesc5: 'Placeholder text for your sakura spot. Keep every explanation to one short paragraph for consistency.',
         spotPlaceholderDesc6: 'Placeholder text for your sakura spot. This alternating layout keeps the page elegant even with many sections.',
         getDirections: 'Get Directions',
+        crowdForecast: 'Crowd Forecast',
+        spotCrowd1: '추천 시간대: 이른 아침. 늦은 오전부터 오후 사이에 비교적 붐비는 편입니다.',
+        spotCrowd2: '추천 시간대: 오전 9시 이전. 점심 무렵부터 저녁까지 사람이 늘어나는 편입니다.',
+        spotCrowd3: '추천 시간대: 오전. 늦은 오전부터 이른 오후까지 혼잡해지기 쉽습니다.',
+        spotCrowd4: '추천 시간대: 아주 이른 아침. 보통 오전 10시부터 오후 4시 사이가 가장 붐빕니다.',
+        spotCrowd5: '추천 시간대: 아침 또는 해질 무렵. 주요 관광지보다는 비교적 여유롭게 보기 좋은 편입니다.',
+        spotCrowd6: '추천 시간대: 이른 아침. 늦은 오전부터 오후까지 매우 붐빌 수 있는 지역입니다.',
+        crowdForecast: 'Crowd Forecast',
+        spotCrowd1: 'おすすめ時間帯：朝早め。遅い午前から午後にかけて混みやすい傾向があります。',
+        spotCrowd2: 'おすすめ時間帯：午前9時前。昼頃から夕方にかけて人が増えやすいスポットです。',
+        spotCrowd3: 'おすすめ時間帯：午前中。遅い午前から午後前半にかけて混雑しやすくなります。',
+        spotCrowd4: 'おすすめ時間帯：早朝。10時頃から16時頃まで特に混みやすいエリアです。',
+        spotCrowd5: 'おすすめ時間帯：朝または夕方前。主要観光地に比べると比較的ゆったり見やすい場所です。',
+        spotCrowd6: 'おすすめ時間帯：朝早め。遅い午前から午後にかけてかなり混みやすいエリアです。',
+        crowdForecast: 'Crowd Forecast',
+        spotCrowd1: 'Best time: Early morning. Usually busiest from late morning to mid-afternoon.',
+        spotCrowd2: 'Best time: Before 9:00 AM. Crowds usually build from midday into the evening.',
+        spotCrowd3: 'Best time: Morning. The area tends to feel busiest around late morning and early afternoon.',
+        spotCrowd4: 'Best time: Very early morning. This area is often most crowded from around 10:00 AM to 4:00 PM.',
+        spotCrowd5: 'Best time: Morning or near sunset. It is usually more relaxed than major tourist hotspots.',
+        spotCrowd6: 'Best time: Early morning. This area can become very busy from late morning through the afternoon.',
         viewMorePhotos: 'View More Photos',
         spotsFooter: 'Use this screen for your sakura destinations only. Later, you can duplicate the existing blocks until you have all 12 locations.',
         backHome: 'Back to Home'
@@ -1269,6 +1326,39 @@
     langButtons.forEach((button) => {
       button.addEventListener('click', () => {
         applyLanguage(button.dataset.lang);
+      });
+    });
+
+    function openGoogleDirections(destination) {
+      const encodedDestination = encodeURIComponent(destination);
+      const fallbackUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodedDestination}&travelmode=walking`;
+
+      if (!navigator.geolocation) {
+        window.open(fallbackUrl, '_blank', 'noopener');
+        return;
+      }
+
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const origin = `${position.coords.latitude},${position.coords.longitude}`;
+          const url = `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(origin)}&destination=${encodedDestination}&travelmode=walking`;
+          window.open(url, '_blank', 'noopener');
+        },
+        () => {
+          window.open(fallbackUrl, '_blank', 'noopener');
+        },
+        {
+          enableHighAccuracy: true,
+          timeout: 10000,
+          maximumAge: 60000
+        }
+      );
+    }
+
+    document.querySelectorAll('.direction-btn').forEach((button) => {
+      button.addEventListener('click', () => {
+        const destination = button.dataset.destination;
+        if (destination) openGoogleDirections(destination);
       });
     });
 
