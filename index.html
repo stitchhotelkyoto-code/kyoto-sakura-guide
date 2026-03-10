@@ -10,8 +10,8 @@
   <style>
     :root {
       --bg: #fbf8f6;
-      --surface: rgba(255, 255, 255, 0.78);
-      --surface-strong: rgba(255, 255, 255, 0.92);
+      --surface: rgba(255, 255, 255, 0.84);
+      --surface-strong: rgba(255, 255, 255, 0.95);
       --text: #312a2d;
       --muted: #6f666b;
       --line: rgba(49, 42, 45, 0.08);
@@ -26,7 +26,6 @@
 
     * { box-sizing: border-box; }
     html, body { height: 100%; }
-    html { scroll-behavior: smooth; }
     body {
       margin: 0;
       font-family: "Noto Sans JP", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
@@ -51,8 +50,8 @@
       inset: 0;
       opacity: 0;
       visibility: hidden;
-      transform: translateY(22px) scale(0.985);
-      transition: opacity 0.55s ease, transform 0.55s ease, visibility 0.55s ease;
+      transform: translateY(18px) scale(0.99);
+      transition: opacity 0.45s ease, transform 0.45s ease, visibility 0.45s ease;
       pointer-events: none;
     }
 
@@ -102,7 +101,7 @@
     }
 
     .section-desc {
-      max-width: 720px;
+      max-width: 760px;
       margin: 0;
       color: var(--muted);
       line-height: 1.9;
@@ -126,7 +125,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.12));
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.12));
       pointer-events: none;
     }
 
@@ -164,8 +163,8 @@
       display: inline-flex;
       gap: 8px;
       padding: 8px;
-      background: rgba(255,255,255,0.24);
-      border: 1px solid rgba(255,255,255,0.32);
+      background: rgba(255,255,255,0.28);
+      border: 1px solid rgba(255,255,255,0.34);
       box-shadow: 0 10px 22px rgba(120, 88, 100, 0.06);
       backdrop-filter: blur(14px);
       border-radius: 999px;
@@ -241,8 +240,8 @@
       padding: 26px;
       min-height: 190px;
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      align-items: center;
+      justify-content: center;
       transition: transform 0.3s ease, background 0.3s ease;
       cursor: pointer;
     }
@@ -252,36 +251,15 @@
       background: rgba(255,255,255,0.3);
     }
 
-    .hero-card small {
-      color: rgba(78, 66, 72, 0.62);
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      font-size: 11px;
-      font-weight: 700;
-    }
-
     .hero-card h2 {
-      margin: 12px 0 10px;
+      margin: 0;
       color: rgba(255,255,255,0.98);
       text-shadow: 0 6px 18px rgba(119, 87, 100, 0.08);
       font-family: "Playfair Display", serif;
       font-size: clamp(24px, 2.7vw, 34px);
       line-height: 1.16;
       font-weight: 600;
-    }
-
-    .hero-card span {
-      color: rgba(72, 60, 66, 0.86);
-      line-height: 1.8;
-      font-size: 14px;
-      font-weight: 500;
-    }
-
-    .hero-card strong {
-      margin-top: 18px;
-      color: rgba(49, 42, 45, 0.88);
-      font-size: 14px;
-      font-weight: 700;
+      text-align: center;
     }
 
     .scroll-note {
@@ -301,9 +279,9 @@
     .page-topbar {
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 20;
       backdrop-filter: blur(18px);
-      background: rgba(255,255,255,0.72);
+      background: rgba(255,255,255,0.78);
       border-bottom: 1px solid rgba(49, 42, 45, 0.06);
     }
 
@@ -321,6 +299,7 @@
       display: flex;
       align-items: center;
       gap: 14px;
+      min-width: 0;
     }
 
     .brand-dot {
@@ -329,12 +308,14 @@
       border-radius: 999px;
       background: linear-gradient(135deg, #e9bbc9, #c9899a);
       box-shadow: 0 0 0 8px rgba(201, 137, 154, 0.12);
+      flex-shrink: 0;
     }
 
     .brand-mini strong {
       font-family: "Playfair Display", serif;
       font-size: 22px;
       font-weight: 600;
+      white-space: nowrap;
     }
 
     .page-actions {
@@ -410,10 +391,16 @@
     }
 
     .hotel-photo {
+      position: relative;
       aspect-ratio: 16 / 10;
       background: linear-gradient(135deg, #f2dce3, #ead8cc);
-      position: relative;
       overflow: hidden;
+    }
+
+    .hotel-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .placeholder-label {
@@ -427,6 +414,7 @@
       letter-spacing: 0.08em;
       text-transform: uppercase;
       font-weight: 700;
+      z-index: 1;
     }
 
     .hotel-body {
@@ -440,6 +428,7 @@
       font-family: "Playfair Display", serif;
       font-size: 28px;
       font-weight: 600;
+      line-height: 1.25;
     }
 
     .hotel-body p {
@@ -588,9 +577,9 @@
     }
 
     .spot-copy p {
-      margin: 0 0 22px;
+      margin: 0 0 18px;
       color: var(--muted);
-      line-height: 1.95;
+      line-height: 1.9;
       font-size: 15px;
     }
 
@@ -598,7 +587,7 @@
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
-      margin-top: 6px;
+      margin-top: 8px;
     }
 
     .screen-footer {
@@ -641,30 +630,23 @@
     }
 
     @media (max-width: 768px) {
-      .page-topbar {
-        position: sticky;
-        top: 0;
-      }
-
       .page-topbar-inner {
         width: min(100% - 24px, var(--max-width));
-        padding: 10px 0 8px;
+        padding: calc(env(safe-area-inset-top, 0px) + 8px) 0 8px;
         display: grid;
-        grid-template-columns: auto auto auto 1fr auto;
+        grid-template-columns: 1fr auto;
         gap: 8px 10px;
         align-items: center;
       }
 
       .brand-mini {
-        gap: 9px;
-        min-width: 0;
-        grid-column: 1 / 5;
+        grid-column: 1;
         grid-row: 1;
+        gap: 9px;
       }
 
       .brand-mini strong {
         font-size: 17px;
-        line-height: 1.1;
       }
 
       .brand-dot {
@@ -673,16 +655,24 @@
         box-shadow: 0 0 0 6px rgba(201, 137, 154, 0.1);
       }
 
+      .page-topbar-inner {
+        grid-template-columns: 1fr auto;
+      }
+
       .page-actions {
         display: contents;
       }
 
+      .page-actions > .nav-btn[data-screen-target="home"] { grid-column: 1; grid-row: 2; }
+      .page-actions > .nav-btn[data-screen-target="hotels"] { grid-column: 2; grid-row: 2; }
+      .page-actions > .nav-btn[data-screen-target="spots"] { grid-column: 3; grid-row: 2; }
+
       .page-actions .lang-switch {
-        grid-column: 5;
+        grid-column: 2;
         grid-row: 1;
-        justify-self: end;
         padding: 4px;
         gap: 4px;
+        justify-self: end;
       }
 
       .page-actions .lang-switch .lang-btn {
@@ -691,61 +681,27 @@
       }
 
       .page-actions > .nav-btn {
-        grid-row: 2;
-        width: auto;
         padding: 8px 12px;
         font-size: 12px;
-        justify-self: start;
-      }
-
-      .page-actions > .nav-btn[data-screen-target="home"] {
-        grid-column: 1;
-      }
-
-      .page-actions > .nav-btn[data-screen-target="hotels"] {
-        grid-column: 2;
-      }
-
-      .page-actions > .nav-btn[data-screen-target="spots"] {
-        grid-column: 3;
+        width: fit-content;
       }
 
       .spot-item,
       .spot-item.reverse {
-        grid-template-columns: 1.02fr 0.98fr;
-        min-height: 340px;
+        grid-template-columns: 1fr;
+        min-height: auto;
       }
 
-      .spot-visual {
-        padding: 18px;
-      }
+      .spot-item.reverse .spot-copy { order: 2; }
+      .spot-item.reverse .spot-visual { order: 1; }
 
-      .spot-frame {
-        min-height: 300px;
-      }
-
-      .spot-copy {
-        padding: 26px 20px;
-      }
-
-      .spot-copy h3 {
-        font-size: clamp(24px, 5vw, 34px);
-      }
-
-      .spot-copy p {
-        font-size: 14px;
-        line-height: 1.8;
-      }
-
-      .spot-actions {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
+      .spot-visual { padding: 18px 18px 0; }
+      .spot-frame { min-height: 300px; }
+      .spot-copy { padding: 26px 20px; }
+      .spot-copy h3 { font-size: clamp(24px, 5vw, 34px); }
+      .spot-copy p { font-size: 14px; line-height: 1.8; }
       .spot-actions .btn,
-      .spot-actions .btn-secondary {
-        width: 100%;
-      }
+      .spot-actions .btn-secondary { width: 100%; }
     }
 
     #screen-home .screen-scroll {
@@ -763,49 +719,86 @@
         padding: 64px 0;
       }
 
-      .hero-inner {
-        min-height: calc(100vh - 32px);
+      #screen-home .screen-scroll {
+        overflow: hidden;
       }
 
-      .hero-content {
-        padding: 40px 0 10px;
+      #screen-home .hero {
+        min-height: 100dvh;
+        padding: calc(env(safe-area-inset-top, 0px) + 6px) 0 14px;
       }
 
-      .hero h1 {
-        font-size: clamp(50px, 18vw, 78px);
+      #screen-home .hero-inner {
+        min-height: calc(100dvh - 14px);
+        justify-content: flex-start;
+        gap: 12px;
       }
 
-      .hero-card {
-        min-height: 168px;
+      #screen-home .topbar {
+        position: sticky;
+        top: calc(env(safe-area-inset-top, 0px) + 6px);
+        z-index: 5;
+      }
+
+      #screen-home .hero-content {
+        padding: 0;
+        gap: 14px;
+        align-items: stretch;
+      }
+
+      #screen-home .hero-kicker,
+      #screen-home .hero p,
+      #screen-home .scroll-note {
+        display: none;
+      }
+
+      #screen-home .hero h1 {
+        font-size: clamp(44px, 13vw, 58px);
+        max-width: 270px;
+        margin-top: 0;
+      }
+
+      #screen-home .hero-actions {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        max-width: none;
+        margin-top: 0;
+      }
+
+      #screen-home .hero-card {
+        min-height: 84px;
+        padding: 16px 18px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border-radius: 22px;
+      }
+
+      #screen-home .hero-card h2 {
+        margin: 0;
+        font-size: clamp(24px, 7vw, 30px);
+        line-height: 1.1;
+      }
+
+      .page-topbar {
+        top: 0;
       }
 
       .page-topbar-inner {
         padding: calc(env(safe-area-inset-top, 0px) + 8px) 0 6px;
-        grid-template-columns: auto auto auto 1fr auto;
+        grid-template-columns: 1fr auto;
         gap: 6px 8px;
-        align-items: center;
       }
 
       .brand-mini {
+        grid-column: 1;
+        grid-row: 1;
         min-width: 0;
-        flex-wrap: nowrap;
-        grid-column: 1 / 5;
       }
 
       .brand-mini strong {
         font-size: 14px;
         white-space: nowrap;
-      }
-
-      .page-actions .lang-switch {
-        grid-column: 5;
-        grid-row: 1;
-        padding: 3px;
-      }
-
-      .page-actions .lang-switch .lang-btn {
-        padding: 5px 8px;
-        font-size: 11px;
       }
 
       .page-actions > .nav-btn {
@@ -814,26 +807,17 @@
         width: fit-content;
       }
 
+      .page-actions .lang-switch {
+        padding: 3px;
+      }
+
+      .page-actions .lang-switch .lang-btn {
+        padding: 5px 8px;
+        font-size: 11px;
+      }
+
       .button-row {
         flex-direction: column;
-      }
-
-      .spot-item,
-      .spot-item.reverse {
-        grid-template-columns: 1fr;
-        min-height: auto;
-      }
-
-      .spot-item.reverse .spot-copy {
-        order: 2;
-      }
-
-      .spot-item.reverse .spot-visual {
-        order: 1;
-      }
-
-      .spot-visual {
-        padding: 18px 18px 0;
       }
 
       .spot-frame {
@@ -871,21 +855,10 @@
 
               <div class="hero-actions">
                 <button class="hero-card" type="button" data-screen-target="hotels">
-                  <div>
-                    <small data-i18n="heroCard1Label">Stay</small>
-                    <h2 data-i18n="heroCard1Title">Explore Hotels</h2>
-                    <span data-i18n="heroCard1Desc">4つのホテル情報を一覧で確認し、公式サイトやInstagramへ移動できます。</span>
-                  </div>
-                  <strong data-i18n="heroCardAction">Enter</strong>
+                  <h2 data-i18n="heroCard1Title">Hotels</h2>
                 </button>
-
                 <button class="hero-card" type="button" data-screen-target="spots">
-                  <div>
-                    <small data-i18n="heroCard2Label">Discover</small>
-                    <h2 data-i18n="heroCard2Title">Sakura Spots</h2>
-                    <span data-i18n="heroCard2Desc">厳選した桜スポットを、写真とシンプルな案内でご覧いただけます。</span>
-                  </div>
-                  <strong data-i18n="heroCardAction">Enter</strong>
+                  <h2 data-i18n="heroCard2Title">Sakura Spots</h2>
                 </button>
               </div>
 
@@ -925,54 +898,66 @@
                 <div class="section-header">
                   <span class="eyebrow" data-i18n="hotelsEyebrow">Our Hotels</span>
                   <h2 class="section-title" data-i18n="hotelsTitle">Choose Your Stay</h2>
-                  <p class="section-desc" data-i18n="hotelsDesc">このセクションには4つのホテルを配置します。写真を差し替え、公式サイトとInstagramのリンクを設定してください。</p>
+                  <p class="section-desc" data-i18n="hotelsDesc">4つの京都ステイを、公式サイトとInstagramへの導線つきでご覧いただけます。</p>
                 </div>
 
                 <div class="hotel-grid">
                   <article class="hotel-card">
-                    <div class="hotel-photo"><span class="placeholder-label">Hotel Photo</span></div>
+                    <div class="hotel-photo">
+                      <span class="placeholder-label" data-i18n="hotelLabel1">Hotel 01</span>
+                      <img src="images/soraniwa.png" alt="四条河原町温泉 空庭テラス京都">
+                    </div>
                     <div class="hotel-body">
-                      <h3>Hotel Name 01</h3>
-                      <p data-i18n="hotelPlaceholderDesc">Short one-line brand introduction or location note for this hotel.</p>
+                      <h3>四条河原町温泉 空庭テラス京都</h3>
+                      <p data-i18n="hotelDesc1">河原町の中心にあり、京都の景色と温泉を楽しめる上質なステイ。</p>
                       <div class="button-row">
-                        <a class="btn" href="#" target="_blank" rel="noopener" data-i18n="officialWebsite">Official Website</a>
-                        <a class="btn-secondary" href="#" target="_blank" rel="noopener">Instagram</a>
+                        <a class="btn" href="https://soraniwa-hotel.jp/" target="_blank" rel="noopener" data-i18n="officialWebsite">Official Website</a>
+                        <a class="btn-secondary" href="https://www.instagram.com/soraniwa.kyoto/" target="_blank" rel="noopener">Instagram</a>
                       </div>
                     </div>
                   </article>
 
                   <article class="hotel-card">
-                    <div class="hotel-photo"><span class="placeholder-label">Hotel Photo</span></div>
+                    <div class="hotel-photo">
+                      <span class="placeholder-label" data-i18n="hotelLabel2">Hotel 02</span>
+                      <img src="images/bettei.png" alt="四条河原町温泉 空庭テラス京都 別邸">
+                    </div>
                     <div class="hotel-body">
-                      <h3>Hotel Name 02</h3>
-                      <p data-i18n="hotelPlaceholderDesc">Short one-line brand introduction or location note for this hotel.</p>
+                      <h3>四条河原町温泉 空庭テラス京都 別邸</h3>
+                      <p data-i18n="hotelDesc2">落ち着いた和の空気感と、より静かな滞在を叶える別邸スタイル。</p>
                       <div class="button-row">
-                        <a class="btn" href="#" target="_blank" rel="noopener" data-i18n="officialWebsite">Official Website</a>
-                        <a class="btn-secondary" href="#" target="_blank" rel="noopener">Instagram</a>
+                        <a class="btn" href="https://shijo-bettei.jp/" target="_blank" rel="noopener" data-i18n="officialWebsite">Official Website</a>
+                        <a class="btn-secondary" href="https://www.instagram.com/soraniwa.bettei/" target="_blank" rel="noopener">Instagram</a>
                       </div>
                     </div>
                   </article>
 
                   <article class="hotel-card">
-                    <div class="hotel-photo"><span class="placeholder-label">Hotel Photo</span></div>
+                    <div class="hotel-photo">
+                      <span class="placeholder-label" data-i18n="hotelLabel3">Hotel 03</span>
+                      <img src="images/hiyori.png" alt="日和ステイ京都鴨川">
+                    </div>
                     <div class="hotel-body">
-                      <h3>Hotel Name 03</h3>
-                      <p data-i18n="hotelPlaceholderDesc">Short one-line brand introduction or location note for this hotel.</p>
+                      <h3>日和ステイ京都鴨川</h3>
+                      <p data-i18n="hotelDesc3">鴨川のそばでゆったり過ごせる、暮らすように泊まる京都ステイ。</p>
                       <div class="button-row">
-                        <a class="btn" href="#" target="_blank" rel="noopener" data-i18n="officialWebsite">Official Website</a>
-                        <a class="btn-secondary" href="#" target="_blank" rel="noopener">Instagram</a>
+                        <a class="btn" href="https://kyoto-kamogawa.hiyori-hotel.jp/" target="_blank" rel="noopener" data-i18n="officialWebsite">Official Website</a>
+                        <a class="btn-secondary" href="https://www.instagram.com/kyotokamogawa.hiyori.stay/" target="_blank" rel="noopener">Instagram</a>
                       </div>
                     </div>
                   </article>
 
                   <article class="hotel-card">
-                    <div class="hotel-photo"><span class="placeholder-label">Hotel Photo</span></div>
+                    <div class="hotel-photo">
+                      <span class="placeholder-label" data-i18n="hotelLabel4">Hotel 04</span>
+                      <img src="images/stitch.png" alt="STITCH HOTEL KYOTO">
+                    </div>
                     <div class="hotel-body">
-                      <h3>Hotel Name 04</h3>
-                      <p data-i18n="hotelPlaceholderDesc">Short one-line brand introduction or location note for this hotel.</p>
+                      <h3>STITCH HOTEL KYOTO</h3>
+                      <p data-i18n="hotelDesc4">個性あるデザインと街歩きのしやすさが魅力のブティックホテル。</p>
                       <div class="button-row">
-                        <a class="btn" href="#" target="_blank" rel="noopener" data-i18n="officialWebsite">Official Website</a>
-                        <a class="btn-secondary" href="#" target="_blank" rel="noopener">Instagram</a>
+                        <a class="btn" href="https://stitch-hotel.jp/" target="_blank" rel="noopener" data-i18n="officialWebsite">Official Website</a>
+                        <a class="btn-secondary" href="https://www.instagram.com/stitchhotelkyoto/" target="_blank" rel="noopener">Instagram</a>
                       </div>
                     </div>
                   </article>
@@ -984,7 +969,7 @@
           <footer class="screen-footer">
             <div class="container">
               <div class="footer-card">
-                <small data-i18n="hotelsFooter">Replace the placeholders with your four hotel images and links. This screen is separated from the home view, so it feels more like a real brand site.</small>
+                <small data-i18n="hotelsFooter">各ホテルの写真とリンクを設定済みです。必要に応じて説明文のみ差し替えてください。</small>
                 <button class="btn-secondary" type="button" data-screen-target="home" data-i18n="backHome">Back to Home</button>
               </div>
             </div>
@@ -992,8 +977,7 @@
         </div>
       </div>
     </section>
-
-    <section class="screen" id="screen-spots">
+        <section class="screen" id="screen-spots">
       <div class="screen-scroll">
         <div class="page-shell">
           <div class="page-topbar">
@@ -1022,7 +1006,7 @@
                 <div class="section-header">
                   <span class="eyebrow" data-i18n="spotsEyebrow">Sakura Spots</span>
                   <h2 class="section-title" data-i18n="spotsTitle">Spring Highlights in Kyoto</h2>
-                  <p class="section-desc" data-i18n="spotsDesc">このレイアウトは桜スポット用の土台です。説明文は短くし、あとから写真やスライダーに差し替えてください。</p>
+                  <p class="section-desc" data-i18n="spotsDesc">京都の桜スポットを、雰囲気・混雑傾向・写真検索とあわせてご覧いただけます。</p>
                 </div>
 
                 <div class="spot-list">
@@ -1039,7 +1023,7 @@
                     <div class="spot-copy">
                       <span class="spot-tag" data-i18n="tagTopSpot">Top Sakura Spot</span>
                       <h3>Philosopher's Path</h3>
-                      <p data-i18n="spotPlaceholderDesc1">Peaceful canal-side path lined with cherry blossoms. Use one or two lines only to keep the section elegant and easy to scan.</p>
+                      <p data-i18n="spotPlaceholderDesc1">Peaceful canal-side path lined with cherry blossoms.</p>
                       <p data-i18n="spotCrowd1">Best time: Early morning. Usually busiest from late morning to mid-afternoon.</p>
                       <div class="spot-actions">
                         <button class="btn direction-btn" type="button" data-destination="Philosopher's Path Kyoto" data-i18n="getDirections">Get Directions</button>
@@ -1053,13 +1037,12 @@
                     <div class="spot-copy">
                       <span class="spot-tag" data-i18n="tagPopular">Popular</span>
                       <h3>Maruyama Park</h3>
-                      <p data-i18n="spotPlaceholderDesc2">Kyoto’s iconic hanami location with a classic spring atmosphere. Replace this text with your final short description later.</p>
+                      <p data-i18n="spotPlaceholderDesc2">Kyoto’s iconic hanami location with a classic spring atmosphere.</p>
                       <p data-i18n="spotCrowd2">Best time: Before 9:00 AM. Crowds usually build from midday into the evening.</p>
                       <div class="spot-actions">
                         <button class="btn direction-btn" type="button" data-destination="Maruyama Park Kyoto" data-i18n="getDirections">Get Directions</button>
                         <a class="btn-secondary" href="https://global.kyoto.travel/en/comfort/gion-kiyomizu/" target="_blank" rel="noopener" data-i18n="crowdForecast">Crowd Forecast</a>
                         <button class="btn-secondary photo-hashtag-btn" type="button" data-hashtag="円山公園" data-i18n="viewMorePhotos">View More Photos</button>
-                        <button class="btn-secondary photo-hashtag-btn" type="button" data-hashtag="哲学の道" data-i18n="viewMorePhotos">View More Photos</button>
                       </div>
                     </div>
                     <div class="spot-visual">
@@ -1078,7 +1061,7 @@
                     <div class="spot-copy">
                       <span class="spot-tag" data-i18n="tagHistoric">Historic</span>
                       <h3>Keage Incline</h3>
-                      <p data-i18n="spotPlaceholderDesc3">Placeholder text for your sakura spot. Duplicate this block until you reach all 12 destinations.</p>
+                      <p data-i18n="spotPlaceholderDesc3">Historic railway track framed by sakura in spring.</p>
                       <p data-i18n="spotCrowd3">Best time: Morning. The area tends to feel busiest around late morning and early afternoon.</p>
                       <div class="spot-actions">
                         <button class="btn direction-btn" type="button" data-destination="Keage Incline Kyoto" data-i18n="getDirections">Get Directions</button>
@@ -1092,7 +1075,7 @@
                     <div class="spot-copy">
                       <span class="spot-tag" data-i18n="tagScenic">Scenic</span>
                       <h3>Arashiyama</h3>
-                      <p data-i18n="spotPlaceholderDesc4">Placeholder text for your sakura spot. Later, you can attach a real image slider with 2 to 3 photos here.</p>
+                      <p data-i18n="spotPlaceholderDesc4">A famous sakura area with river, bridge, and mountain scenery.</p>
                       <p data-i18n="spotCrowd4">Best time: Very early morning. This area is often most crowded from around 10:00 AM to 4:00 PM.</p>
                       <div class="spot-actions">
                         <button class="btn direction-btn" type="button" data-destination="Arashiyama Kyoto" data-i18n="getDirections">Get Directions</button>
@@ -1108,7 +1091,7 @@
                     <div class="spot-copy">
                       <span class="spot-tag" data-i18n="tagLocalFavorite">Local Favorite</span>
                       <h3>Kamo River</h3>
-                      <p data-i18n="spotPlaceholderDesc5">Placeholder text for your sakura spot. Keep every explanation to one short paragraph for consistency.</p>
+                      <p data-i18n="spotPlaceholderDesc5">A relaxed riverside walk with seasonal cherry blossom scenery.</p>
                       <p data-i18n="spotCrowd5">Best time: Morning or near sunset. It is usually more relaxed than major tourist hotspots.</p>
                       <div class="spot-actions">
                         <button class="btn direction-btn" type="button" data-destination="Kamo River Kyoto" data-i18n="getDirections">Get Directions</button>
@@ -1122,7 +1105,7 @@
                     <div class="spot-copy">
                       <span class="spot-tag" data-i18n="tagTempleView">Temple View</span>
                       <h3>Kiyomizu-dera</h3>
-                      <p data-i18n="spotPlaceholderDesc6">Placeholder text for your sakura spot. This alternating layout keeps the page elegant even with many sections.</p>
+                      <p data-i18n="spotPlaceholderDesc6">A classic Kyoto temple view with spring cherry blossoms.</p>
                       <p data-i18n="spotCrowd6">Best time: Early morning. This area can become very busy from late morning through the afternoon.</p>
                       <div class="spot-actions">
                         <button class="btn direction-btn" type="button" data-destination="Kiyomizu-dera Kyoto" data-i18n="getDirections">Get Directions</button>
@@ -1140,7 +1123,7 @@
           <footer class="screen-footer">
             <div class="container">
               <div class="footer-card">
-                <small data-i18n="spotsFooter">Use this screen for your sakura destinations only. Later, you can duplicate the existing blocks until you have all 12 locations.</small>
+                <small data-i18n="spotsFooter">桜スポットは必要に応じてこのブロックを複製し、12か所まで増やせます。</small>
                 <button class="btn-secondary" type="button" data-screen-target="home" data-i18n="backHome">Back to Home</button>
               </div>
             </div>
@@ -1156,13 +1139,8 @@
         heroKicker: 'Spring in Kyoto',
         heroTitle: 'Kyoto Sakura Guide',
         heroDesc: 'A seasonal guide that introduces four hotels and Kyoto’s signature cherry blossom spots in a refined and elegant way.',
-        heroCard1Label: 'Stay',
-        heroCard1Title: 'Explore Hotels',
-        heroCard1Desc: 'View four hotel destinations with direct access to their official website and Instagram.',
-        heroCard2Label: 'Discover',
+        heroCard1Title: 'Hotels',
         heroCard2Title: 'Sakura Spots',
-        heroCard2Desc: 'Browse curated cherry blossom locations with visual storytelling and direct map guidance.',
-        heroCardAction: 'Enter',
         homeHint: 'Choose a category to continue',
         brandMini: 'Kyoto Sakura Guide',
         navHome: 'Home',
@@ -1170,62 +1148,50 @@
         navSpots: 'Sakura Spots',
         hotelsEyebrow: 'Our Hotels',
         hotelsTitle: 'Choose Your Stay',
-        hotelsDesc: 'This section is designed for four hotels. Replace each image placeholder with your hotel photos and connect the buttons to your official website and Instagram.',
-        hotelPlaceholderDesc: 'Short one-line brand introduction or location note for this hotel.',
+        hotelsDesc: 'Explore four Kyoto stays with direct access to each official website and Instagram page.',
+        hotelLabel1: 'Hotel 01',
+        hotelLabel2: 'Hotel 02',
+        hotelLabel3: 'Hotel 03',
+        hotelLabel4: 'Hotel 04',
+        hotelDesc1: 'A refined stay in the heart of Kawaramachi with scenic Kyoto views and onsen comfort.',
+        hotelDesc2: 'A quieter annex-style stay with a calm Kyoto atmosphere and elegant design.',
+        hotelDesc3: 'A relaxed Kamogawa-side stay designed for a comfortable, residential Kyoto experience.',
+        hotelDesc4: 'A stylish boutique stay with a distinctive personality and easy access to the city.',
         officialWebsite: 'Official Website',
-        hotelsFooter: 'Replace the placeholders with your four hotel images and links. This screen is separated from the home view, so it feels more like a real brand site.',
+        hotelsFooter: 'The hotel photos and links are already set. You can revise the descriptions later if needed.',
         spotsEyebrow: 'Sakura Spots',
         spotsTitle: 'Spring Highlights in Kyoto',
-        spotsDesc: 'The layout below is a ready-made frame for your cherry blossom locations. Keep the descriptions short and replace each placeholder with single images or a photo slider later.',
+        spotsDesc: 'Explore Kyoto sakura spots with atmosphere, crowd tendency, and quick access to directions and photo inspiration.',
         tagTopSpot: 'Top Sakura Spot',
         tagPopular: 'Popular',
         tagHistoric: 'Historic',
         tagScenic: 'Scenic',
         tagLocalFavorite: 'Local Favorite',
         tagTempleView: 'Temple View',
-        spotPlaceholderDesc1: 'Peaceful canal-side path lined with cherry blossoms. Use one or two lines only to keep the section elegant and easy to scan.',
-        spotPlaceholderDesc2: 'Kyoto’s iconic hanami location with a classic spring atmosphere. Replace this text with your final short description later.',
-        spotPlaceholderDesc3: 'Placeholder text for your sakura spot. Duplicate this block until you reach all 12 destinations.',
-        spotPlaceholderDesc4: 'Placeholder text for your sakura spot. Later, you can attach a real image slider with 2 to 3 photos here.',
-        spotPlaceholderDesc5: 'Placeholder text for your sakura spot. Keep every explanation to one short paragraph for consistency.',
-        spotPlaceholderDesc6: 'Placeholder text for your sakura spot. This alternating layout keeps the page elegant even with many sections.',
-        getDirections: 'Get Directions',
-        crowdForecast: 'Crowd Forecast',
-        spotCrowd1: '추천 시간대: 이른 아침. 늦은 오전부터 오후 사이에 비교적 붐비는 편입니다.',
-        spotCrowd2: '추천 시간대: 오전 9시 이전. 점심 무렵부터 저녁까지 사람이 늘어나는 편입니다.',
-        spotCrowd3: '추천 시간대: 오전. 늦은 오전부터 이른 오후까지 혼잡해지기 쉽습니다.',
-        spotCrowd4: '추천 시간대: 아주 이른 아침. 보통 오전 10시부터 오후 4시 사이가 가장 붐빕니다.',
-        spotCrowd5: '추천 시간대: 아침 또는 해질 무렵. 주요 관광지보다는 비교적 여유롭게 보기 좋은 편입니다.',
-        spotCrowd6: '추천 시간대: 이른 아침. 늦은 오전부터 오후까지 매우 붐빌 수 있는 지역입니다.',
-        crowdForecast: 'Crowd Forecast',
-        spotCrowd1: 'おすすめ時間帯：朝早め。遅い午前から午後にかけて混みやすい傾向があります。',
-        spotCrowd2: 'おすすめ時間帯：午前9時前。昼頃から夕方にかけて人が増えやすいスポットです。',
-        spotCrowd3: 'おすすめ時間帯：午前中。遅い午前から午後前半にかけて混雑しやすくなります。',
-        spotCrowd4: 'おすすめ時間帯：早朝。10時頃から16時頃まで特に混みやすいエリアです。',
-        spotCrowd5: 'おすすめ時間帯：朝または夕方前。主要観光地に比べると比較的ゆったり見やすい場所です。',
-        spotCrowd6: 'おすすめ時間帯：朝早め。遅い午前から午後にかけてかなり混みやすいエリアです。',
-        crowdForecast: 'Crowd Forecast',
+        spotPlaceholderDesc1: 'Peaceful canal-side path lined with cherry blossoms.',
+        spotPlaceholderDesc2: 'Kyoto’s iconic hanami location with a classic spring atmosphere.',
+        spotPlaceholderDesc3: 'Historic railway track framed by sakura in spring.',
+        spotPlaceholderDesc4: 'A famous sakura area with river, bridge, and mountain scenery.',
+        spotPlaceholderDesc5: 'A relaxed riverside walk with seasonal cherry blossom scenery.',
+        spotPlaceholderDesc6: 'A classic Kyoto temple view with spring cherry blossoms.',
         spotCrowd1: 'Best time: Early morning. Usually busiest from late morning to mid-afternoon.',
         spotCrowd2: 'Best time: Before 9:00 AM. Crowds usually build from midday into the evening.',
         spotCrowd3: 'Best time: Morning. The area tends to feel busiest around late morning and early afternoon.',
         spotCrowd4: 'Best time: Very early morning. This area is often most crowded from around 10:00 AM to 4:00 PM.',
         spotCrowd5: 'Best time: Morning or near sunset. It is usually more relaxed than major tourist hotspots.',
         spotCrowd6: 'Best time: Early morning. This area can become very busy from late morning through the afternoon.',
+        getDirections: 'Get Directions',
+        crowdForecast: 'Crowd Forecast',
         viewMorePhotos: 'View More Photos',
-        spotsFooter: 'Use this screen for your sakura destinations only. Later, you can duplicate the existing blocks until you have all 12 locations.',
+        spotsFooter: 'You can duplicate the existing sakura spot blocks later and expand this page to 12 locations.',
         backHome: 'Back to Home'
       },
       jp: {
         heroKicker: 'Spring in Kyoto',
         heroTitle: 'Kyoto Sakura Guide',
         heroDesc: '4つのホテルと京都の桜スポットを、美しくシンプルに案内する季節限定ガイドです。',
-        heroCard1Label: 'Stay',
-        heroCard1Title: 'Explore Hotels',
-        heroCard1Desc: '4つのホテル情報を一覧で確認し、公式サイトやInstagramへ移動できます。',
-        heroCard2Label: 'Discover',
+        heroCard1Title: 'Hotels',
         heroCard2Title: 'Sakura Spots',
-        heroCard2Desc: '厳選した桜スポットを、写真とシンプルな案内でご覧いただけます。',
-        heroCardAction: 'Enter',
         homeHint: 'Choose a category to continue',
         brandMini: 'Kyoto Sakura Guide',
         navHome: 'Home',
@@ -1233,41 +1199,50 @@
         navSpots: 'Sakura Spots',
         hotelsEyebrow: 'Our Hotels',
         hotelsTitle: 'Choose Your Stay',
-        hotelsDesc: 'このセクションには4つのホテルを配置します。写真を差し替え、公式サイトとInstagramのリンクを設定してください。',
-        hotelPlaceholderDesc: 'ホテルの特徴や立地を一言で入れる想定の仮テキストです。',
+        hotelsDesc: '4つの京都ステイを、公式サイトとInstagramへの導線つきでご覧いただけます。',
+        hotelLabel1: 'Hotel 01',
+        hotelLabel2: 'Hotel 02',
+        hotelLabel3: 'Hotel 03',
+        hotelLabel4: 'Hotel 04',
+        hotelDesc1: '河原町の中心にあり、京都の景色と温泉を楽しめる上質なステイ。',
+        hotelDesc2: '落ち着いた和の空気感と、より静かな滞在を叶える別邸スタイル。',
+        hotelDesc3: '鴨川のそばでゆったり過ごせる、暮らすように泊まる京都ステイ。',
+        hotelDesc4: '個性あるデザインと街歩きのしやすさが魅力のブティックホテル。',
         officialWebsite: 'Official Website',
-        hotelsFooter: '4つのホテル画像とリンクに差し替えて使ってください。ホーム画面と分かれているので、ブランドサイトのような見え方になります。',
+        hotelsFooter: '各ホテルの写真とリンクを設定済みです。必要に応じて説明文のみ差し替えてください。',
         spotsEyebrow: 'Sakura Spots',
         spotsTitle: 'Spring Highlights in Kyoto',
-        spotsDesc: 'このレイアウトは桜スポット用の土台です。説明文は短くし、あとから写真やスライダーに差し替えてください。',
+        spotsDesc: '京都の桜スポットを、雰囲気・混雑傾向・写真検索とあわせてご覧いただけます。',
         tagTopSpot: 'Top Sakura Spot',
         tagPopular: 'Popular',
         tagHistoric: 'Historic',
         tagScenic: 'Scenic',
         tagLocalFavorite: 'Local Favorite',
         tagTempleView: 'Temple View',
-        spotPlaceholderDesc1: '桜並木が続く静かな散策路です。説明文は1〜2行ほどで短くまとめると上品に見えます。',
-        spotPlaceholderDesc2: '京都を代表するお花見スポット。最終版ではここに短い紹介文を入れてください。',
-        spotPlaceholderDesc3: '桜スポット用の仮テキストです。12か所に増やすときはこのブロックを複製してください。',
-        spotPlaceholderDesc4: '桜スポット用の仮テキストです。あとから2〜3枚の写真スライダーを入れる想定です。',
-        spotPlaceholderDesc5: '桜スポット用の仮テキストです。全体の統一感のため、説明文は短めがおすすめです。',
-        spotPlaceholderDesc6: 'この左右交互のレイアウトなら、スポット数が増えても上品な印象を保ちやすくなります。',
+        spotPlaceholderDesc1: '桜並木が続く静かな散策路。',
+        spotPlaceholderDesc2: '京都を代表するお花見スポット。',
+        spotPlaceholderDesc3: '春の桜に包まれる歴史ある線路跡。',
+        spotPlaceholderDesc4: '川・橋・山の景色と桜を楽しめる人気エリア。',
+        spotPlaceholderDesc5: '桜の季節にゆったり歩ける鴨川沿いの風景。',
+        spotPlaceholderDesc6: '春の桜とともに楽しむ京都らしい寺院風景。',
+        spotCrowd1: 'おすすめ時間帯：朝早め。遅い午前から午後にかけて混みやすい傾向があります。',
+        spotCrowd2: 'おすすめ時間帯：午前9時前。昼頃から夕方にかけて人が増えやすいスポットです。',
+        spotCrowd3: 'おすすめ時間帯：午前中。遅い午前から午後前半にかけて混雑しやすくなります。',
+        spotCrowd4: 'おすすめ時間帯：早朝。10時頃から16時頃まで特に混みやすいエリアです。',
+        spotCrowd5: 'おすすめ時間帯：朝または夕方前。主要観光地に比べると比較的ゆったり見やすい場所です。',
+        spotCrowd6: 'おすすめ時間帯：朝早め。遅い午前から午後にかけてかなり混みやすいエリアです。',
         getDirections: 'Get Directions',
+        crowdForecast: 'Crowd Forecast',
         viewMorePhotos: 'View More Photos',
-        spotsFooter: 'この画面は桜スポット専用です。あとから既存のブロックを複製して12か所に増やせます。',
+        spotsFooter: '桜スポットは必要に応じてこのブロックを複製し、12か所まで増やせます。',
         backHome: 'Back to Home'
       },
       kr: {
         heroKicker: 'Spring in Kyoto',
         heroTitle: 'Kyoto Sakura Guide',
         heroDesc: '4개의 호텔과 교토의 대표 벚꽃 명소를 감각적이고 고급스럽게 소개하는 시즌 한정 가이드입니다.',
-        heroCard1Label: 'Stay',
-        heroCard1Title: 'Explore Hotels',
-        heroCard1Desc: '4개 호텔 정보를 보고 공식 홈페이지와 인스타그램으로 바로 이동할 수 있습니다.',
-        heroCard2Label: 'Discover',
+        heroCard1Title: 'Hotels',
         heroCard2Title: 'Sakura Spots',
-        heroCard2Desc: '엄선한 벚꽃 명소를 사진과 간단한 안내, 지도 연결과 함께 둘러볼 수 있습니다.',
-        heroCardAction: 'Enter',
         homeHint: '원하는 카테고리를 선택하세요',
         brandMini: 'Kyoto Sakura Guide',
         navHome: 'Home',
@@ -1275,28 +1250,42 @@
         navSpots: 'Sakura Spots',
         hotelsEyebrow: 'Our Hotels',
         hotelsTitle: 'Choose Your Stay',
-        hotelsDesc: '이 섹션은 4개 호텔용입니다. 호텔 사진으로 교체하고 홈페이지와 인스타그램 링크를 연결하면 됩니다.',
-        hotelPlaceholderDesc: '호텔의 분위기나 위치를 한 줄로 설명하는 자리입니다.',
+        hotelsDesc: '4개의 교토 호텔을 공식 홈페이지와 인스타그램 연결과 함께 확인할 수 있습니다.',
+        hotelLabel1: 'Hotel 01',
+        hotelLabel2: 'Hotel 02',
+        hotelLabel3: 'Hotel 03',
+        hotelLabel4: 'Hotel 04',
+        hotelDesc1: '가와라마치 중심에서 교토 전망과 온천을 함께 즐길 수 있는 고급스러운 스테이.',
+        hotelDesc2: '차분한 일본 감성과 더 조용한 체류를 원하는 분께 어울리는 별채 스타일.',
+        hotelDesc3: '가모가와 근처에서 여유롭게 머물 수 있는 생활형 교토 스테이.',
+        hotelDesc4: '개성 있는 디자인과 뛰어난 도보 접근성이 매력인 부티크 호텔.',
         officialWebsite: 'Official Website',
-        hotelsFooter: '플레이스홀더를 실제 호텔 사진과 링크로 바꾸면 됩니다. 홈 화면과 분리되어 있어서 브랜드 사이트처럼 보입니다.',
+        hotelsFooter: '호텔 사진과 링크는 모두 반영되어 있습니다. 필요하면 설명문만 바꾸면 됩니다.',
         spotsEyebrow: 'Sakura Spots',
         spotsTitle: 'Spring Highlights in Kyoto',
-        spotsDesc: '아래 레이아웃은 벚꽃 명소용 틀입니다. 설명은 짧게 유지하고, 나중에 실제 사진이나 슬라이더로 교체하면 됩니다.',
+        spotsDesc: '교토의 벚꽃 명소를 분위기, 혼잡 경향, 길찾기와 사진 탐색 기능과 함께 볼 수 있습니다.',
         tagTopSpot: 'Top Sakura Spot',
         tagPopular: 'Popular',
         tagHistoric: 'Historic',
         tagScenic: 'Scenic',
         tagLocalFavorite: 'Local Favorite',
         tagTempleView: 'Temple View',
-        spotPlaceholderDesc1: '벚꽃이 이어지는 조용한 산책로입니다. 설명은 1~2줄 정도로 짧게 유지하는 편이 더 고급스럽게 보입니다.',
-        spotPlaceholderDesc2: '교토를 대표하는 하나미 명소입니다. 최종 버전에서는 여기에 짧은 소개 문구를 넣으면 됩니다.',
-        spotPlaceholderDesc3: '벚꽃 명소용 임시 문구입니다. 12곳까지 늘릴 때는 이 블록을 복제하면 됩니다.',
-        spotPlaceholderDesc4: '벚꽃 명소용 임시 문구입니다. 나중에 2~3장의 사진 슬라이더를 붙이는 용도로 생각하면 됩니다.',
-        spotPlaceholderDesc5: '벚꽃 명소용 임시 문구입니다. 전체 통일감을 위해 설명은 짧은 문단 하나 정도가 좋습니다.',
-        spotPlaceholderDesc6: '이 좌우 교차 레이아웃은 명소 수가 많아져도 페이지가 지루해 보이지 않게 해줍니다.',
+        spotPlaceholderDesc1: '벚꽃이 이어지는 조용한 운하 산책길.',
+        spotPlaceholderDesc2: '교토를 대표하는 클래식한 하나미 명소.',
+        spotPlaceholderDesc3: '봄의 벚꽃으로 둘러싸인 역사적인 철로 자리.',
+        spotPlaceholderDesc4: '강, 다리, 산 풍경과 함께 즐기는 대표 벚꽃 지역.',
+        spotPlaceholderDesc5: '벚꽃 시즌에 여유롭게 걷기 좋은 가모가와 강변 풍경.',
+        spotPlaceholderDesc6: '봄 벚꽃과 함께 보는 전형적인 교토 사찰 풍경.',
+        spotCrowd1: '추천 시간대: 이른 아침. 늦은 오전부터 오후 사이에 비교적 붐비는 편입니다.',
+        spotCrowd2: '추천 시간대: 오전 9시 이전. 점심 무렵부터 저녁까지 사람이 늘어나는 편입니다.',
+        spotCrowd3: '추천 시간대: 오전. 늦은 오전부터 이른 오후까지 혼잡해지기 쉽습니다.',
+        spotCrowd4: '추천 시간대: 아주 이른 아침. 보통 오전 10시부터 오후 4시 사이가 가장 붐빕니다.',
+        spotCrowd5: '추천 시간대: 아침 또는 해질 무렵. 주요 관광지보다는 비교적 여유롭게 보기 좋은 편입니다.',
+        spotCrowd6: '추천 시간대: 이른 아침. 늦은 오전부터 오후까지 매우 붐빌 수 있는 지역입니다.',
         getDirections: 'Get Directions',
+        crowdForecast: 'Crowd Forecast',
         viewMorePhotos: 'View More Photos',
-        spotsFooter: '이 화면은 벚꽃 명소 전용입니다. 나중에 기존 블록을 복제해서 12곳까지 늘리면 됩니다.',
+        spotsFooter: '벚꽃 명소 블록은 나중에 복제해서 12곳까지 확장할 수 있습니다.',
         backHome: 'Back to Home'
       }
     };
@@ -1312,7 +1301,7 @@
       });
 
       document.querySelectorAll('.screen.active .screen-scroll').forEach((panel) => {
-        panel.scrollTo({ top: 0, behavior: 'instant' in window ? 'instant' : 'auto' });
+        panel.scrollTo({ top: 0, behavior: 'auto' });
       });
 
       document.querySelectorAll('.nav-btn').forEach((btn) => {
@@ -1322,7 +1311,6 @@
 
     function applyLanguage(lang) {
       const dict = translations[lang] || translations.jp;
-
       i18nNodes.forEach((node) => {
         const key = node.dataset.i18n;
         if (dict[key]) node.textContent = dict[key];
