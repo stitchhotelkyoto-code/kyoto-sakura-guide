@@ -635,13 +635,98 @@
         grid-template-columns: 1fr;
       }
 
+      .spot-copy {
+        padding: 34px 26px 38px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .page-topbar {
+        position: sticky;
+        top: 0;
+      }
+
+      .page-topbar-inner {
+        width: min(100% - 24px, var(--max-width));
+        padding: 12px 0;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .brand-mini {
+        gap: 10px;
+      }
+
+      .brand-mini strong {
+        font-size: 18px;
+      }
+
+      .brand-dot {
+        width: 10px;
+        height: 10px;
+        box-shadow: 0 0 0 6px rgba(201, 137, 154, 0.1);
+      }
+
+      .page-actions {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 8px;
+        align-items: center;
+      }
+
+      .page-actions .lang-switch {
+        grid-column: 1 / -1;
+        justify-self: start;
+        padding: 6px;
+      }
+
+      .nav-btn {
+        padding: 10px 12px;
+        font-size: 13px;
+        min-width: 0;
+      }
+
+      .lang-btn {
+        padding: 7px 12px;
+        font-size: 13px;
+      }
+
       .spot-item,
       .spot-item.reverse {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1.02fr 0.98fr;
+        min-height: 340px;
+      }
+
+      .spot-visual {
+        padding: 18px;
+      }
+
+      .spot-frame {
+        min-height: 300px;
       }
 
       .spot-copy {
-        padding: 36px 28px 40px;
+        padding: 26px 20px;
+      }
+
+      .spot-copy h3 {
+        font-size: clamp(24px, 5vw, 34px);
+      }
+
+      .spot-copy p {
+        font-size: 14px;
+        line-height: 1.8;
+      }
+
+      .spot-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .spot-actions .btn,
+      .spot-actions .btn-secondary {
+        width: 100%;
       }
     }
 
@@ -653,7 +738,7 @@
       }
 
       .section {
-        padding: 72px 0;
+        padding: 64px 0;
       }
 
       .hero-inner {
@@ -673,12 +758,16 @@
       }
 
       .page-topbar-inner {
-        align-items: flex-start;
-        flex-direction: column;
+        padding: 10px 0;
       }
 
       .page-actions {
-        width: 100%;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .page-actions .lang-switch {
+        grid-column: 1 / -1;
+        justify-self: start;
       }
 
       .nav-btn,
@@ -687,9 +776,36 @@
         width: 100%;
       }
 
-      .button-row,
-      .spot-actions {
+      .button-row {
         flex-direction: column;
+      }
+
+      .spot-item,
+      .spot-item.reverse {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .spot-item.reverse .spot-copy {
+        order: 2;
+      }
+
+      .spot-item.reverse .spot-visual {
+        order: 1;
+      }
+
+      .spot-visual {
+        padding: 18px 18px 0;
+      }
+
+      .spot-frame {
+        min-height: 250px;
+      }
+
+      .spot-copy,
+      .hotel-body {
+        padding-left: 20px;
+        padding-right: 20px;
       }
     }
   </style>
