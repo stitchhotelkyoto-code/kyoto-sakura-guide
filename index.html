@@ -93,10 +93,10 @@
     }
 
     .section-title {
-      margin: 0 0 14px;
+      margin: 0 0 18px;
       font-family: "Playfair Display", serif;
       font-size: clamp(34px, 4vw, 54px);
-      line-height: 1.08;
+      line-height: 1.2;
       font-weight: 600;
     }
 
@@ -143,15 +143,16 @@
     }
 
     .hero-inner {
-      position: relative;
-      z-index: 1;
-      width: min(var(--max-width), calc(100% - 40px));
-      margin: 0 auto;
-      min-height: calc(100vh - 64px);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
+  position: relative;
+  z-index: 1;
+  width: min(var(--max-width), calc(100% - 40px));
+  margin: 0 auto;
+  min-height: calc(100vh - 64px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 20px;
+}
 
     .topbar {
       display: flex;
@@ -321,8 +322,9 @@
     .page-actions {
       display: flex;
       align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
+      row-gap: 10px;
     }
 
     .nav-btn,
@@ -613,7 +615,8 @@
     }
 
     @media (max-width: 1024px) {
-      body { overflow: hidden; }
+     - body { overflow: hidden; }
+     + body { overflow-x: hidden; }
 
       .hero-actions {
         grid-template-columns: 1fr;
@@ -659,20 +662,19 @@
         grid-template-columns: 1fr auto;
       }
 
+     
       .page-actions {
-        display: contents;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
       }
-
-      .page-actions > .nav-btn[data-screen-target="home"] { grid-column: 1; grid-row: 2; }
-      .page-actions > .nav-btn[data-screen-target="hotels"] { grid-column: 2; grid-row: 2; }
-      .page-actions > .nav-btn[data-screen-target="spots"] { grid-column: 3; grid-row: 2; }
-
+  
       .page-actions .lang-switch {
-        grid-column: 2;
-        grid-row: 1;
         padding: 4px;
         gap: 4px;
-        justify-self: end;
+        justify-self: auto;
       }
 
       .page-actions .lang-switch .lang-btn {
@@ -752,10 +754,11 @@
         display: none;
       }
 
-      #screen-home .hero h1 {
-        font-size: clamp(44px, 13vw, 58px);
-        max-width: 270px;
-        margin-top: 0;
+     #screen-home .hero h1 {
+       font-size: clamp(44px, 13vw, 58px);
+       max-width: none;
+       line-height: 1.2;
+       margin-top: 0;
       }
 
       #screen-home .hero-actions {
@@ -1842,10 +1845,9 @@
     });
   });
 
-  const savedLang = localStorage.getItem('kyotoSakuraGuideLang') || 'jp';
-  applyLanguage(savedLang);
-  showScreen('home');
-</script>
+const savedLang = localStorage.getItem('kyotoSakuraGuideLang') || 'jp';
+applyLanguage(savedLang);
+showScreen('home');
       }
     };
 
@@ -2021,6 +2023,6 @@ function updateSpotLanguage(lang) {
     if (lang === "kr") el.dataset.hashtag = el.dataset.hashtagKr;
   });
 }  
-  </script>
+ </script>
 </body>
 </html>
