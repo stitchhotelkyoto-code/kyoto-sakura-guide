@@ -615,8 +615,7 @@
     }
 
     @media (max-width: 1024px) {
-     - body { overflow: hidden; }
-     + body { overflow-x: hidden; }
+     body { overflow-x: hidden; }
 
       .hero-actions {
         grid-template-columns: 1fr;
@@ -1792,7 +1791,7 @@
     const fallbackUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodedDestination}&travelmode=walking`;
 
     if (!navigator.geolocation) {
-      window.location.href = fallbackUrl;
+      window.open(fallbackUrl, '_blank');
       return;
     }
 
@@ -1800,10 +1799,10 @@
       (position) => {
         const origin = `${position.coords.latitude},${position.coords.longitude}`;
         const url = `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(origin)}&destination=${encodedDestination}&travelmode=walking`;
-        window.location.href = url;
+        window.open(url, '_blank');
       },
       () => {
-        window.location.href = fallbackUrl;
+        window.open(fallbackUrl, '_blank');
       },
       {
         enableHighAccuracy: true,
@@ -1816,7 +1815,7 @@
   function openInstagramHashtag(hashtag) {
     const normalizedHashtag = hashtag.replace(/#/g, '').replace(/\s+/g, '');
     const url = `https://www.instagram.com/explore/tags/${encodeURIComponent(normalizedHashtag)}/`;
-    window.location.href = url;
+    window.open(url, '_blank');
   }
 
   screenButtons.forEach((button) => {
@@ -1845,184 +1844,9 @@
     });
   });
 
-const savedLang = localStorage.getItem('kyotoSakuraGuideLang') || 'jp';
-applyLanguage(savedLang);
-showScreen('home');
-      }
-    };
-
-    const screens = document.querySelectorAll('.screen');
-    const screenButtons = document.querySelectorAll('[data-screen-target]');
-    const langButtons = document.querySelectorAll('.lang-btn');
-    const i18nNodes = document.querySelectorAll('[data-i18n]');
-
-    function showScreen(name) {
-      screens.forEach((screen) => {
-        screen.classList.toggle('active', screen.id === `screen-${name}`);
-      });
-
-      document.querySelectorAll('.screen.active .screen-scroll').forEach((panel) => {
-        panel.scrollTo({ top: 0, behavior: 'auto' });
-      });
-
-      document.querySelectorAll('.nav-btn').forEach((btn) => {
-        btn.classList.toggle('active', btn.dataset.screenTarget === name);
-      });
-    }
-
-    function applyLanguage(lang) {
-      const dict = translations[lang] || translations.jp;
-      i18nNodes.forEach((node) => {
-        const key = node.dataset.i18n;
-        if (dict[key]) node.textContent = dict[key];
-      });
-
-      langButtons.forEach((btn) => {
-        btn.classList.toggle('active', btn.dataset.lang === lang);
-      });
-
-      localStorage.setItem('kyotoSakuraGuideLang', lang);
-      document.documentElement.lang = lang === 'kr' ? 'ko' : lang;
-    }
-
-    screenButtons.forEach((button) => {
-      button.addEventListener('click', () => {
-        showScreen(button.dataset.screenTarget);
-      });
-    });
-
-    langButtons.forEach((button) => {
-      button.addEventListener('click', () => {
-        applyLanguage(button.dataset.lang);
-      });
-    });
-
-    function openGoogleDirections(destination) {
-      const encodedDestination = encodeURIComponent(destination);
-      const fallbackUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodedDestination}&travelmode=walking`;
-
-      if (!navigator.geolocation) {
-        window.location.href = fallbackUrl;
-        return;
-      }
-
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const origin = `${position.coords.latitude},${position.coords.longitude}`;
-          const url = `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(origin)}&destination=${encodedDestination}&travelmode=walking`;
-          window.location.href = url;
-        },
-        () => {
-          window.location.href = fallbackUrl;
-        },
-        {
-          enableHighAccuracy: true,
-          timeout: 10000,
-          maximumAge: 60000
-        }
-      );
-    }
-
-    function openInstagramHashtag(hashtag) {
-      const url = `https://www.instagram.com/explore/tags/${encodeURIComponent(hashtag)}/`;
-      window.location.href = url;
-    }
-
-    document.querySelectorAll('.direction-btn').forEach((button) => {
-      button.addEventListener('click', () => {
-        const destination = button.dataset.destination;
-        if (destination) openGoogleDirections(destination);
-      });
-    });
-
-    document.querySelectorAll('.photo-hashtag-btn').forEach((button) => {
-      button.addEventListener('click', () => {
-        const hashtag = button.dataset.hashtag;
-        if (hashtag) openInstagramHashtag(hashtag);
-      });
-    });
-
-    const savedLang = localStorage.getItem('kyotoSakuraGuideLang') || 'jp';
-    applyLanguage(savedLang);
-    showScreen('home');
-    /* =========================
-   Sakura Spots - Actions
-   ========================= */
-
-document.querySelectorAll(".direction-btn").forEach((button) => {
-  button.addEventListener("click", () => {
-    const destination = button.dataset.destination;
-    if (!destination) return;
-
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const originLat = position.coords.latitude;
-          const originLng = position.coords.longitude;
-
-          const mapsUrl =
-            `https://www.google.com/maps/dir/?api=1` +
-            `&origin=${originLat},${originLng}` +
-            `&destination=${encodeURIComponent(destination)}` +
-            `&travelmode=walking`;
-
-          window.open(mapsUrl, "_blank");
-        },
-        () => {
-          const fallbackUrl =
-            `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(destination)}`;
-
-          window.open(fallbackUrl, "_blank");
-        }
-      );
-    } else {
-      const fallbackUrl =
-        `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(destination)}`;
-
-      window.open(fallbackUrl, "_blank");
-    }
-  });
-});
-
-document.querySelectorAll(".photo-hashtag-btn").forEach((button) => {
-  button.addEventListener("click", () => {
-    const hashtag = button.dataset.hashtag;
-    if (!hashtag) return;
-
-    const normalizedHashtag = hashtag.replace(/#/g, "").replace(/\s+/g, "");
-    const instagramUrl = `https://www.instagram.com/explore/tags/${encodeURIComponent(normalizedHashtag)}/`;
-
-    window.open(instagramUrl, "_blank");
-  });
-});
-
-/* =========================
-   Sakura Spots - Language Update
-   ========================= */
-
-function updateSpotLanguage(lang) {
-  document.querySelectorAll(".spot-name").forEach((el) => {
-    const text = el.dataset[lang];
-    if (text) el.textContent = text;
-  });
-
-  document.querySelectorAll(".spot-tags").forEach((el) => {
-    const text = el.dataset[lang];
-    if (text) el.textContent = text;
-  });
-
-  document.querySelectorAll(".direction-btn").forEach((el) => {
-    if (lang === "jp") el.dataset.destination = el.dataset.destinationJp;
-    if (lang === "en") el.dataset.destination = el.dataset.destinationEn;
-    if (lang === "kr") el.dataset.destination = el.dataset.destinationKr;
-  });
-
-  document.querySelectorAll(".photo-hashtag-btn").forEach((el) => {
-    if (lang === "jp") el.dataset.hashtag = el.dataset.hashtagJp;
-    if (lang === "en") el.dataset.hashtag = el.dataset.hashtagEn;
-    if (lang === "kr") el.dataset.hashtag = el.dataset.hashtagKr;
-  });
-}  
+  const savedLang = localStorage.getItem('kyotoSakuraGuideLang') || 'jp';
+  applyLanguage(savedLang);
+  showScreen('home');
  </script>
 </body>
 </html>
