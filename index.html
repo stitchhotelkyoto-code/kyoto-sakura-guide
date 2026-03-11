@@ -830,6 +830,174 @@
         padding-right: 20px;
       }
     }
+    /* =========================
+   Sakura Spots - New Layout
+   ========================= */
+
+.spot-item,
+.spot-item.reverse {
+  display: block;
+  margin: 0 0 56px;
+}
+
+.spot-copy,
+.spot-visual,
+.spot-frame,
+.slider-ui,
+.spot-actions {
+  display: none;
+}
+
+.spot-hero {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 28px;
+}
+
+.spot-hero img {
+  display: block;
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 28px;
+}
+
+.spot-hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 48%;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.60),
+    rgba(0, 0, 0, 0.22),
+    rgba(0, 0, 0, 0)
+  );
+  pointer-events: none;
+}
+
+.spot-overlay {
+  position: absolute;
+  right: 28px;
+  bottom: 24px;
+  z-index: 2;
+  text-align: right;
+  color: #fff;
+  max-width: 62%;
+}
+
+.spot-tags {
+  margin-bottom: 8px;
+  font-size: 12px;
+  line-height: 1.45;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.92);
+  font-family: "Noto Sans JP", "Noto Sans KR", sans-serif;
+}
+
+.spot-name {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(28px, 4vw, 46px);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  font-weight: 600;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.18);
+}
+
+.spot-meta {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  padding: 14px 6px 0;
+}
+
+.spot-meta-btn {
+  appearance: none;
+  border: 0;
+  background: none;
+  padding: 0;
+  margin: 0;
+  color: #4a3a3f;
+  font: inherit;
+  font-size: 14px;
+  line-height: 1.4;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.spot-meta-btn:hover {
+  opacity: 0.68;
+  transform: translateY(-1px);
+}
+
+.spot-divider {
+  width: calc(100% - 120px);
+  max-width: 980px;
+  height: 1px;
+  margin: 26px auto 0;
+  background: rgba(74, 58, 63, 0.18);
+}
+
+/* image crop tuning */
+.heian .spot-hero img { object-position: left center; }
+.arashiyama .spot-hero img { object-position: center center; }
+.kamogawa .spot-hero img { object-position: center right; }
+.incline .spot-hero img { object-position: center center; }
+.kiyomizu .spot-hero img { object-position: right center; }
+.maruyama .spot-hero img { object-position: center center; }
+.takasegawa .spot-hero img { object-position: center right; }
+.tetsugaku .spot-hero img { object-position: center center; }
+
+@media (max-width: 768px) {
+  .spot-item,
+  .spot-item.reverse {
+    margin: 0 0 42px;
+  }
+
+  .spot-hero,
+  .spot-hero img {
+    border-radius: 22px;
+  }
+
+  .spot-hero img {
+    height: 280px;
+  }
+
+  .spot-overlay {
+    right: 18px;
+    bottom: 18px;
+    max-width: 74%;
+  }
+
+  .spot-tags {
+    margin-bottom: 6px;
+    font-size: 10px;
+  }
+
+  .spot-name {
+    font-size: clamp(22px, 7vw, 34px);
+  }
+
+  .spot-meta {
+    gap: 16px 18px;
+    padding: 12px 2px 0;
+  }
+
+  .spot-meta-btn {
+    font-size: 13px;
+  }
+
+  .spot-divider {
+    width: calc(100% - 56px);
+    margin-top: 20px;
+  }
+
   </style>
 </head>
 <body>
@@ -1010,129 +1178,464 @@
                 </div>
 
                 <div class="spot-list">
-                  <article class="spot-item">
-                    <div class="spot-visual">
-                      <div class="spot-frame">
-                        <div class="slider-ui">
-                          <button class="slider-nav" type="button">‹</button>
-                          <div class="slider-dots"><span class="active"></span><span></span><span></span></div>
-                          <button class="slider-nav" type="button">›</button>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="spot-copy">
-                      <span class="spot-tag" data-i18n="tagTopSpot">Top Sakura Spot</span>
-                      <h3>Philosopher's Path</h3>
-                      <p data-i18n="spotPlaceholderDesc1">Peaceful canal-side path lined with cherry blossoms.</p>
-                      <p data-i18n="spotCrowd1">Best time: Early morning. Usually busiest from late morning to mid-afternoon.</p>
-                      <div class="spot-actions">
-                        <button class="btn direction-btn" type="button" data-destination="Philosopher's Path Kyoto" data-i18n="getDirections">Get Directions</button>
-                        <a class="btn-secondary" href="https://global.kyoto.travel/en/comfort/tetsugaku-okazaki/" target="_blank" rel="noopener" data-i18n="crowdForecast">Crowd Forecast</a>
-                        <button class="btn-secondary photo-hashtag-btn" type="button" data-hashtag="哲学の道" data-i18n="viewMorePhotos">View More Photos</button>
-                      </div>
-                    </div>
-                  </article>
+                 <article class="spot-item heian">
+  <div class="spot-hero">
+    <img src="images/heianjingu31.png" alt="Heian Shrine in spring">
 
-                  <article class="spot-item reverse">
-                    <div class="spot-copy">
-                      <span class="spot-tag" data-i18n="tagPopular">Popular</span>
-                      <h3>Maruyama Park</h3>
-                      <p data-i18n="spotPlaceholderDesc2">Kyoto’s iconic hanami location with a classic spring atmosphere.</p>
-                      <p data-i18n="spotCrowd2">Best time: Before 9:00 AM. Crowds usually build from midday into the evening.</p>
-                      <div class="spot-actions">
-                        <button class="btn direction-btn" type="button" data-destination="Maruyama Park Kyoto" data-i18n="getDirections">Get Directions</button>
-                        <a class="btn-secondary" href="https://global.kyoto.travel/en/comfort/gion-kiyomizu/" target="_blank" rel="noopener" data-i18n="crowdForecast">Crowd Forecast</a>
-                        <button class="btn-secondary photo-hashtag-btn" type="button" data-hashtag="円山公園" data-i18n="viewMorePhotos">View More Photos</button>
-                      </div>
-                    </div>
-                    <div class="spot-visual">
-                      <div class="spot-frame">
-                        <div class="slider-ui">
-                          <button class="slider-nav" type="button">‹</button>
-                          <div class="slider-dots"><span class="active"></span><span></span><span></span></div>
-                          <button class="slider-nav" type="button">›</button>
-                        </div>
-                      </div>
-                    </div>
-                  </article>
-
-                  <article class="spot-item">
-                    <div class="spot-visual"><div class="spot-frame"></div></div>
-                    <div class="spot-copy">
-                      <span class="spot-tag" data-i18n="tagHistoric">Historic</span>
-                      <h3>Keage Incline</h3>
-                      <p data-i18n="spotPlaceholderDesc3">Historic railway track framed by sakura in spring.</p>
-                      <p data-i18n="spotCrowd3">Best time: Morning. The area tends to feel busiest around late morning and early afternoon.</p>
-                      <div class="spot-actions">
-                        <button class="btn direction-btn" type="button" data-destination="Keage Incline Kyoto" data-i18n="getDirections">Get Directions</button>
-                        <a class="btn-secondary" href="https://global.kyoto.travel/en/comfort/tetsugaku-okazaki/" target="_blank" rel="noopener" data-i18n="crowdForecast">Crowd Forecast</a>
-                        <button class="btn-secondary photo-hashtag-btn" type="button" data-hashtag="蹴上インクライン" data-i18n="viewMorePhotos">View More Photos</button>
-                      </div>
-                    </div>
-                  </article>
-
-                  <article class="spot-item reverse">
-                    <div class="spot-copy">
-                      <span class="spot-tag" data-i18n="tagScenic">Scenic</span>
-                      <h3>Arashiyama</h3>
-                      <p data-i18n="spotPlaceholderDesc4">A famous sakura area with river, bridge, and mountain scenery.</p>
-                      <p data-i18n="spotCrowd4">Best time: Very early morning. This area is often most crowded from around 10:00 AM to 4:00 PM.</p>
-                      <div class="spot-actions">
-                        <button class="btn direction-btn" type="button" data-destination="Arashiyama Kyoto" data-i18n="getDirections">Get Directions</button>
-                        <a class="btn-secondary" href="https://global.kyoto.travel/en/comfort/saga-arashiyama/" target="_blank" rel="noopener" data-i18n="crowdForecast">Crowd Forecast</a>
-                        <button class="btn-secondary photo-hashtag-btn" type="button" data-hashtag="嵐山" data-i18n="viewMorePhotos">View More Photos</button>
-                      </div>
-                    </div>
-                    <div class="spot-visual"><div class="spot-frame"></div></div>
-                  </article>
-
-                  <article class="spot-item">
-                    <div class="spot-visual"><div class="spot-frame"></div></div>
-                    <div class="spot-copy">
-                      <span class="spot-tag" data-i18n="tagLocalFavorite">Local Favorite</span>
-                      <h3>Kamo River</h3>
-                      <p data-i18n="spotPlaceholderDesc5">A relaxed riverside walk with seasonal cherry blossom scenery.</p>
-                      <p data-i18n="spotCrowd5">Best time: Morning or near sunset. It is usually more relaxed than major tourist hotspots.</p>
-                      <div class="spot-actions">
-                        <button class="btn direction-btn" type="button" data-destination="Kamo River Kyoto" data-i18n="getDirections">Get Directions</button>
-                        <a class="btn-secondary" href="https://global.kyoto.travel/en/comfort/" target="_blank" rel="noopener" data-i18n="crowdForecast">Crowd Forecast</a>
-                        <button class="btn-secondary photo-hashtag-btn" type="button" data-hashtag="鴨川" data-i18n="viewMorePhotos">View More Photos</button>
-                      </div>
-                    </div>
-                  </article>
-
-                  <article class="spot-item reverse">
-                    <div class="spot-copy">
-                      <span class="spot-tag" data-i18n="tagTempleView">Temple View</span>
-                      <h3>Kiyomizu-dera</h3>
-                      <p data-i18n="spotPlaceholderDesc6">A classic Kyoto temple view with spring cherry blossoms.</p>
-                      <p data-i18n="spotCrowd6">Best time: Early morning. This area can become very busy from late morning through the afternoon.</p>
-                      <div class="spot-actions">
-                        <button class="btn direction-btn" type="button" data-destination="Kiyomizu-dera Kyoto" data-i18n="getDirections">Get Directions</button>
-                        <a class="btn-secondary" href="https://global.kyoto.travel/en/comfort/gion-kiyomizu/" target="_blank" rel="noopener" data-i18n="crowdForecast">Crowd Forecast</a>
-                        <button class="btn-secondary photo-hashtag-btn" type="button" data-hashtag="清水寺" data-i18n="viewMorePhotos">View More Photos</button>
-                      </div>
-                    </div>
-                    <div class="spot-visual"><div class="spot-frame"></div></div>
-                  </article>
-                </div>
-              </div>
-            </section>
-          </main>
-
-          <footer class="screen-footer">
-            <div class="container">
-              <div class="footer-card">
-                <small data-i18n="spotsFooter">桜スポットは必要に応じてこのブロックを複製し、12か所まで増やせます。</small>
-                <button class="btn-secondary" type="button" data-screen-target="home" data-i18n="backHome">Back to Home</button>
-              </div>
-            </div>
-          </footer>
-        </div>
+    <div class="spot-overlay bottom-right">
+      <div class="spot-tags">
+        <span>#shrine</span>
+        <span>#weeping-sakura</span>
+        <span>#classic-kyoto</span>
       </div>
-    </section>
+      <h3 class="spot-name">Heian Shrine</h3>
+    </div>
   </div>
 
+  <div class="spot-meta">
+    <button class="spot-meta-btn direction-btn" type="button" data-destination="Heian Shrine Kyoto">
+      Direction
+    </button>
+
+    <a class="spot-meta-btn" href="https://global.trafficinfo.westjr.co.jp/en/readable/keihanshin/" target="_blank" rel="noopener noreferrer">
+      Crowd
+    </a>
+
+    <button class="spot-meta-btn photo-hashtag-btn" type="button" data-hashtag="平安神宮">
+      View More Photos
+    </button>
+  </div>
+
+  <div class="spot-divider"></div>
+</article>
+
+<div class="spot-list">
+
+  <article class="spot-item heian">
+    <div class="spot-hero">
+      <img src="images/heianjingu31.png" alt="Heian Shrine">
+
+      <div class="spot-overlay">
+        <div class="spot-tags"
+          data-jp="#平安神宮 #しだれ桜 #京都春"
+          data-en="#heianshrine #weepingsakura #kyotospring"
+          data-kr="#헤이안신궁 #수양벚꽃 #교토봄">
+          #heianshrine #weepingsakura #kyotospring
+        </div>
+
+        <h3 class="spot-name"
+          data-jp="平安神宮"
+          data-en="Heian Shrine"
+          data-kr="헤이안신궁">
+          Heian Shrine
+        </h3>
+      </div>
+    </div>
+
+    <div class="spot-meta">
+      <button class="spot-meta-btn direction-btn"
+        type="button"
+        data-destination-jp="平安神宮 京都"
+        data-destination-en="Heian Shrine Kyoto"
+        data-destination-kr="헤이안신궁 교토"
+        data-i18n="directionLabel">
+        Direction
+      </button>
+
+      <a class="spot-meta-btn crowd-link"
+        href="https://global.trafficinfo.westjr.co.jp/en/readable/keihanshin/"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-i18n="crowdLabel">
+        Crowd
+      </a>
+
+      <button class="spot-meta-btn photo-hashtag-btn"
+        type="button"
+        data-hashtag-jp="平安神宮"
+        data-hashtag-en="heianshrine"
+        data-hashtag-kr="헤이안신궁"
+        data-i18n="photosLabel">
+        View More Photos
+      </button>
+    </div>
+
+    <div class="spot-divider"></div>
+  </article>
+
+
+  <article class="spot-item arashiyama">
+    <div class="spot-hero">
+      <img src="images/togetsukyou6.png" alt="Arashiyama">
+
+      <div class="spot-overlay">
+        <div class="spot-tags"
+          data-jp="#嵐山 #渡月橋 #桜散歩"
+          data-en="#arashiyama #togetsukyo #sakurawalk"
+          data-kr="#아라시야마 #도게츠교 #벚꽃산책">
+          #arashiyama #togetsukyo #sakurawalk
+        </div>
+
+        <h3 class="spot-name"
+          data-jp="嵐山"
+          data-en="Arashiyama"
+          data-kr="아라시야마">
+          Arashiyama
+        </h3>
+      </div>
+    </div>
+
+    <div class="spot-meta">
+      <button class="spot-meta-btn direction-btn"
+        type="button"
+        data-destination-jp="嵐山 京都"
+        data-destination-en="Arashiyama Kyoto"
+        data-destination-kr="아라시야마 교토"
+        data-i18n="directionLabel">
+        Direction
+      </button>
+
+      <a class="spot-meta-btn crowd-link"
+        href="https://global.trafficinfo.westjr.co.jp/en/readable/keihanshin/"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-i18n="crowdLabel">
+        Crowd
+      </a>
+
+      <button class="spot-meta-btn photo-hashtag-btn"
+        type="button"
+        data-hashtag-jp="嵐山"
+        data-hashtag-en="arashiyama"
+        data-hashtag-kr="아라시야마"
+        data-i18n="photosLabel">
+        View More Photos
+      </button>
+    </div>
+
+    <div class="spot-divider"></div>
+  </article>
+
+
+  <article class="spot-item kamogawa">
+    <div class="spot-hero">
+      <img src="images/kamogawa20.png" alt="Kamo River">
+
+      <div class="spot-overlay">
+        <div class="spot-tags"
+          data-jp="#鴨川 #川沿い散歩 #京都桜"
+          data-en="#kamoriver #riversidewalk #kyotosakura"
+          data-kr="#가모강 #강변산책 #교토벚꽃">
+          #kamoriver #riversidewalk #kyotosakura
+        </div>
+
+        <h3 class="spot-name"
+          data-jp="鴨川"
+          data-en="Kamo River"
+          data-kr="가모강">
+          Kamo River
+        </h3>
+      </div>
+    </div>
+
+    <div class="spot-meta">
+      <button class="spot-meta-btn direction-btn"
+        type="button"
+        data-destination-jp="鴨川 京都"
+        data-destination-en="Kamo River Kyoto"
+        data-destination-kr="가모강 교토"
+        data-i18n="directionLabel">
+        Direction
+      </button>
+
+      <a class="spot-meta-btn crowd-link"
+        href="https://global.trafficinfo.westjr.co.jp/en/readable/keihanshin/"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-i18n="crowdLabel">
+        Crowd
+      </a>
+
+      <button class="spot-meta-btn photo-hashtag-btn"
+        type="button"
+        data-hashtag-jp="鴨川"
+        data-hashtag-en="kamoriver"
+        data-hashtag-kr="가모강"
+        data-i18n="photosLabel">
+        View More Photos
+      </button>
+    </div>
+
+    <div class="spot-divider"></div>
+  </article>
+
+
+  <article class="spot-item incline">
+    <div class="spot-hero">
+      <img src="images/incline10.png" alt="Keage Incline">
+
+      <div class="spot-overlay">
+        <div class="spot-tags"
+          data-jp="#蹴上インクライン #線路と桜 #春の絶景"
+          data-en="#keageincline #railwaysakura #springview"
+          data-kr="#케아게인클라인 #철길벚꽃 #봄절경">
+          #keageincline #railwaysakura #springview
+        </div>
+
+        <h3 class="spot-name"
+          data-jp="蹴上インクライン"
+          data-en="Keage Incline"
+          data-kr="케아게 인클라인">
+          Keage Incline
+        </h3>
+      </div>
+    </div>
+
+    <div class="spot-meta">
+      <button class="spot-meta-btn direction-btn"
+        type="button"
+        data-destination-jp="蹴上インクライン 京都"
+        data-destination-en="Keage Incline Kyoto"
+        data-destination-kr="케아게 인클라인 교토"
+        data-i18n="directionLabel">
+        Direction
+      </button>
+
+      <a class="spot-meta-btn crowd-link"
+        href="https://global.trafficinfo.westjr.co.jp/en/readable/keihanshin/"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-i18n="crowdLabel">
+        Crowd
+      </a>
+
+      <button class="spot-meta-btn photo-hashtag-btn"
+        type="button"
+        data-hashtag-jp="蹴上インクライン"
+        data-hashtag-en="keageincline"
+        data-hashtag-kr="케아게인클라인"
+        data-i18n="photosLabel">
+        View More Photos
+      </button>
+    </div>
+
+    <div class="spot-divider"></div>
+  </article>
+
+
+  <article class="spot-item kiyomizu">
+    <div class="spot-hero">
+      <img src="images/kiyomizudera25.png" alt="Kiyomizu-dera">
+
+      <div class="spot-overlay">
+        <div class="spot-tags"
+          data-jp="#清水寺 #京都の景色 #桜名所"
+          data-en="#kiyomizudera #kyotoview #sakuraspot"
+          data-kr="#청수사 #교토전망 #벚꽃명소">
+          #kiyomizudera #kyotoview #sakuraspot
+        </div>
+
+        <h3 class="spot-name"
+          data-jp="清水寺"
+          data-en="Kiyomizu-dera"
+          data-kr="청수사">
+          Kiyomizu-dera
+        </h3>
+      </div>
+    </div>
+
+    <div class="spot-meta">
+      <button class="spot-meta-btn direction-btn"
+        type="button"
+        data-destination-jp="清水寺 京都"
+        data-destination-en="Kiyomizu-dera Kyoto"
+        data-destination-kr="청수사 교토"
+        data-i18n="directionLabel">
+        Direction
+      </button>
+
+      <a class="spot-meta-btn crowd-link"
+        href="https://global.trafficinfo.westjr.co.jp/en/readable/keihanshin/"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-i18n="crowdLabel">
+        Crowd
+      </a>
+
+      <button class="spot-meta-btn photo-hashtag-btn"
+        type="button"
+        data-hashtag-jp="清水寺"
+        data-hashtag-en="kiyomizudera"
+        data-hashtag-kr="청수사"
+        data-i18n="photosLabel">
+        View More Photos
+      </button>
+    </div>
+
+    <div class="spot-divider"></div>
+  </article>
+
+
+  <article class="spot-item maruyama">
+    <div class="spot-hero">
+      <img src="images/maruyama5.png" alt="Maruyama Park">
+
+      <div class="spot-overlay">
+        <div class="spot-tags"
+          data-jp="#円山公園 #花見スポット #しだれ桜"
+          data-en="#maruyamapark #hanamispot #weepingsakura"
+          data-kr="#마루야마공원 #하나미명소 #수양벚꽃">
+          #maruyamapark #hanamispot #weepingsakura
+        </div>
+
+        <h3 class="spot-name"
+          data-jp="円山公園"
+          data-en="Maruyama Park"
+          data-kr="마루야마공원">
+          Maruyama Park
+        </h3>
+      </div>
+    </div>
+
+    <div class="spot-meta">
+      <button class="spot-meta-btn direction-btn"
+        type="button"
+        data-destination-jp="円山公園 京都"
+        data-destination-en="Maruyama Park Kyoto"
+        data-destination-kr="마루야마공원 교토"
+        data-i18n="directionLabel">
+        Direction
+      </button>
+
+      <a class="spot-meta-btn crowd-link"
+        href="https://global.trafficinfo.westjr.co.jp/en/readable/keihanshin/"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-i18n="crowdLabel">
+        Crowd
+      </a>
+
+      <button class="spot-meta-btn photo-hashtag-btn"
+        type="button"
+        data-hashtag-jp="円山公園"
+        data-hashtag-en="maruyamapark"
+        data-hashtag-kr="마루야마공원"
+        data-i18n="photosLabel">
+        View More Photos
+      </button>
+    </div>
+
+    <div class="spot-divider"></div>
+  </article>
+
+
+  <article class="spot-item takasegawa">
+    <div class="spot-hero">
+      <img src="images/takasegawa2.png" alt="Takase River">
+
+      <div class="spot-overlay">
+        <div class="spot-tags"
+          data-jp="#高瀬川 #水辺の桜 #静かな京都"
+          data-en="#takasegawa #canalsakura #quietkyoto"
+          data-kr="#타카세강 #물가벚꽃 #조용한교토">
+          #takasegawa #canalsakura #quietkyoto
+        </div>
+
+        <h3 class="spot-name"
+          data-jp="高瀬川"
+          data-en="Takase River"
+          data-kr="타카세강">
+          Takase River
+        </h3>
+      </div>
+    </div>
+
+    <div class="spot-meta">
+      <button class="spot-meta-btn direction-btn"
+        type="button"
+        data-destination-jp="高瀬川 京都"
+        data-destination-en="Takase River Kyoto"
+        data-destination-kr="타카세강 교토"
+        data-i18n="directionLabel">
+        Direction
+      </button>
+
+      <a class="spot-meta-btn crowd-link"
+        href="https://global.trafficinfo.westjr.co.jp/en/readable/keihanshin/"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-i18n="crowdLabel">
+        Crowd
+      </a>
+
+      <button class="spot-meta-btn photo-hashtag-btn"
+        type="button"
+        data-hashtag-jp="高瀬川"
+        data-hashtag-en="takasegawa"
+        data-hashtag-kr="타카세강"
+        data-i18n="photosLabel">
+        View More Photos
+      </button>
+    </div>
+
+    <div class="spot-divider"></div>
+  </article>
+
+
+  <article class="spot-item tetsugaku">
+    <div class="spot-hero">
+      <img src="images/tetsugaku9.png" alt="Philosopher's Path">
+
+      <div class="spot-overlay">
+        <div class="spot-tags"
+          data-jp="#哲学の道 #桜の小径 #春の散歩道"
+          data-en="#philosopherspath #sakurapath #springstroll"
+          data-kr="#철학의길 #벚꽃산책로 #봄산책길">
+          #philosopherspath #sakurapath #springstroll
+        </div>
+
+        <h3 class="spot-name"
+          data-jp="哲学の道"
+          data-en="Philosopher's Path"
+          data-kr="철학의 길">
+          Philosopher's Path
+        </h3>
+      </div>
+    </div>
+
+    <div class="spot-meta">
+      <button class="spot-meta-btn direction-btn"
+        type="button"
+        data-destination-jp="哲学の道 京都"
+        data-destination-en="Philosopher's Path Kyoto"
+        data-destination-kr="철학의 길 교토"
+        data-i18n="directionLabel">
+        Direction
+      </button>
+
+      <a class="spot-meta-btn crowd-link"
+        href="https://global.trafficinfo.westjr.co.jp/en/readable/keihanshin/"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-i18n="crowdLabel">
+        Crowd
+      </a>
+
+      <button class="spot-meta-btn photo-hashtag-btn"
+        type="button"
+        data-hashtag-jp="哲学の道"
+        data-hashtag-en="philosopherspath"
+        data-hashtag-kr="철학의길"
+        data-i18n="photosLabel">
+        View More Photos
+      </button>
+    </div>
+
+    <div class="spot-divider"></div>
+  </article>
+
+</div>
+                  
   <script>
     const translations = {
       en: {
@@ -1384,6 +1887,83 @@
     const savedLang = localStorage.getItem('kyotoSakuraGuideLang') || 'jp';
     applyLanguage(savedLang);
     showScreen('home');
+    /* =========================
+   Sakura Spots - Actions
+   ========================= */
+
+document.querySelectorAll(".direction-btn").forEach((button) => {
+  button.addEventListener("click", () => {
+    const destination = button.dataset.destination;
+    if (!destination) return;
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const originLat = position.coords.latitude;
+          const originLng = position.coords.longitude;
+
+          const mapsUrl =
+            `https://www.google.com/maps/dir/?api=1` +
+            `&origin=${originLat},${originLng}` +
+            `&destination=${encodeURIComponent(destination)}` +
+            `&travelmode=walking`;
+
+          window.open(mapsUrl, "_blank");
+        },
+        () => {
+          const fallbackUrl =
+            `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(destination)}`;
+
+          window.open(fallbackUrl, "_blank");
+        }
+      );
+    } else {
+      const fallbackUrl =
+        `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(destination)}`;
+
+      window.open(fallbackUrl, "_blank");
+    }
+  });
+});
+
+document.querySelectorAll(".photo-hashtag-btn").forEach((button) => {
+  button.addEventListener("click", () => {
+    const hashtag = button.dataset.hashtag;
+    if (!hashtag) return;
+
+    const normalizedHashtag = hashtag.replace(/#/g, "").replace(/\s+/g, "");
+    const instagramUrl = `https://www.instagram.com/explore/tags/${encodeURIComponent(normalizedHashtag)}/`;
+
+    window.open(instagramUrl, "_blank");
+  });
+});
+
+/* =========================
+   Sakura Spots - Language Update
+   ========================= */
+
+function updateSpotLanguage(lang) {
+  document.querySelectorAll(".spot-name").forEach((el) => {
+    const text = el.dataset[lang];
+    if (text) el.textContent = text;
+  });
+
+  document.querySelectorAll(".spot-tags").forEach((el) => {
+    const text = el.dataset[lang];
+    if (text) el.textContent = text;
+  });
+
+  document.querySelectorAll(".direction-btn").forEach((el) => {
+    if (lang === "jp") el.dataset.destination = el.dataset.destinationJp;
+    if (lang === "en") el.dataset.destination = el.dataset.destinationEn;
+    if (lang === "kr") el.dataset.destination = el.dataset.destinationKr;
+  });
+
+  document.querySelectorAll(".photo-hashtag-btn").forEach((el) => {
+    if (lang === "jp") el.dataset.hashtag = el.dataset.hashtagJp;
+    if (lang === "en") el.dataset.hashtag = el.dataset.hashtagEn;
+    if (lang === "kr") el.dataset.hashtag = el.dataset.hashtagKr;
+  });
   </script>
 </body>
 </html>
