@@ -997,6 +997,7 @@
     width: calc(100% - 56px);
     margin-top: 20px;
   }
+}  
 
   </style>
 </head>
@@ -1178,36 +1179,7 @@
                 </div>
 
                 <div class="spot-list">
-                 <article class="spot-item heian">
-  <div class="spot-hero">
-    <img src="images/heianjingu31.png" alt="Heian Shrine in spring">
-
-    <div class="spot-overlay bottom-right">
-      <div class="spot-tags">
-        <span>#shrine</span>
-        <span>#weeping-sakura</span>
-        <span>#classic-kyoto</span>
-      </div>
-      <h3 class="spot-name">Heian Shrine</h3>
-    </div>
-  </div>
-
-  <div class="spot-meta">
-    <button class="spot-meta-btn direction-btn" type="button" data-destination="Heian Shrine Kyoto">
-      Direction
-    </button>
-
-    <a class="spot-meta-btn" href="https://global.trafficinfo.westjr.co.jp/en/readable/keihanshin/" target="_blank" rel="noopener noreferrer">
-      Crowd
-    </a>
-
-    <button class="spot-meta-btn photo-hashtag-btn" type="button" data-hashtag="平安神宮">
-      View More Photos
-    </button>
-  </div>
-
-  <div class="spot-divider"></div>
-</article>
+                
 
 <div class="spot-list">
 
@@ -1628,168 +1600,255 @@
         data-hashtag-kr="철학의길"
         data-i18n="photosLabel">
         View More Photos
-      </button>
+</button>
     </div>
 
     <div class="spot-divider"></div>
   </article>
 
-</div>
+</div> <!-- .spot-list -->
+</div> <!-- .container -->
+</section>
+</main>
+
+<footer class="screen-footer">
+  <div class="container">
+    <div class="footer-card">
+      <small data-i18n="spotsFooter">桜スポットは必要に応じてこのブロックを複製し、12か所まで増やせます。</small>
+      <button class="btn-secondary" type="button" data-screen-target="home" data-i18n="backHome">Back to Home</button>
+    </div>
+  </div>
+</footer>
+</div> <!-- .page-shell -->
+</div> <!-- .screen-scroll -->
+</section>
                   
-  <script>
-    const translations = {
-      en: {
-        heroKicker: 'Spring in Kyoto',
-        heroTitle: 'Kyoto Sakura Guide',
-        heroDesc: 'A seasonal guide that introduces four hotels and Kyoto’s signature cherry blossom spots in a refined and elegant way.',
-        heroCard1Title: 'Hotels',
-        heroCard2Title: 'Sakura Spots',
-        homeHint: 'Choose a category to continue',
-        brandMini: 'Kyoto Sakura Guide',
-        navHome: 'Home',
-        navHotels: 'Hotels',
-        navSpots: 'Sakura Spots',
-        hotelsEyebrow: 'Our Hotels',
-        hotelsTitle: 'Choose Your Stay',
-        hotelsDesc: 'Explore four Kyoto stays with direct access to each official website and Instagram page.',
-        hotelLabel1: 'Hotel 01',
-        hotelLabel2: 'Hotel 02',
-        hotelLabel3: 'Hotel 03',
-        hotelLabel4: 'Hotel 04',
-        hotelDesc1: 'A new Japanese-style hotel with two ways to enjoy the scenery of Kyoto.',
-        hotelDesc2: 'A new Japanese-style hotel with two ways to enjoy the scenery of Kyoto.',
-        hotelDesc3: '“Love & Natural Friendly” A fun Kyoto trip for families.',
-        hotelDesc4: 'TRADITION, ELEVATED.',
-        officialWebsite: 'Official Website',
-        hotelsFooter: 'The hotel photos and links are already set. You can revise the descriptions later if needed.',
-        spotsEyebrow: 'Sakura Spots',
-        spotsTitle: 'Spring Highlights in Kyoto',
-        spotsDesc: 'Explore Kyoto sakura spots with atmosphere, crowd tendency, and quick access to directions and photo inspiration.',
-        tagTopSpot: 'Top Sakura Spot',
-        tagPopular: 'Popular',
-        tagHistoric: 'Historic',
-        tagScenic: 'Scenic',
-        tagLocalFavorite: 'Local Favorite',
-        tagTempleView: 'Temple View',
-        spotPlaceholderDesc1: 'Peaceful canal-side path lined with cherry blossoms.',
-        spotPlaceholderDesc2: 'Kyoto’s iconic hanami location with a classic spring atmosphere.',
-        spotPlaceholderDesc3: 'Historic railway track framed by sakura in spring.',
-        spotPlaceholderDesc4: 'A famous sakura area with river, bridge, and mountain scenery.',
-        spotPlaceholderDesc5: 'A relaxed riverside walk with seasonal cherry blossom scenery.',
-        spotPlaceholderDesc6: 'A classic Kyoto temple view with spring cherry blossoms.',
-        spotCrowd1: 'Best time: Early morning. Usually busiest from late morning to mid-afternoon.',
-        spotCrowd2: 'Best time: Before 9:00 AM. Crowds usually build from midday into the evening.',
-        spotCrowd3: 'Best time: Morning. The area tends to feel busiest around late morning and early afternoon.',
-        spotCrowd4: 'Best time: Very early morning. This area is often most crowded from around 10:00 AM to 4:00 PM.',
-        spotCrowd5: 'Best time: Morning or near sunset. It is usually more relaxed than major tourist hotspots.',
-        spotCrowd6: 'Best time: Early morning. This area can become very busy from late morning through the afternoon.',
-        getDirections: 'Get Directions',
-        crowdForecast: 'Crowd Forecast',
-        viewMorePhotos: 'View More Photos',
-        spotsFooter: 'You can duplicate the existing sakura spot blocks later and expand this page to 12 locations.',
-        backHome: 'Back to Home'
+ <script>
+  const translations = {
+    en: {
+      heroKicker: 'Spring in Kyoto',
+      heroTitle: 'Kyoto Sakura Guide',
+      heroDesc: 'A seasonal guide that introduces four hotels and Kyoto’s signature cherry blossom spots in a refined and elegant way.',
+      heroCard1Title: 'Hotels',
+      heroCard2Title: 'Sakura Spots',
+      homeHint: 'Choose a category to continue',
+      brandMini: 'Kyoto Sakura Guide',
+      navHome: 'Home',
+      navHotels: 'Hotels',
+      navSpots: 'Sakura Spots',
+      hotelsEyebrow: 'Our Hotels',
+      hotelsTitle: 'Choose Your Stay',
+      hotelsDesc: 'Explore four Kyoto stays with direct access to each official website and Instagram page.',
+      hotelLabel1: 'Hotel 01',
+      hotelLabel2: 'Hotel 02',
+      hotelLabel3: 'Hotel 03',
+      hotelLabel4: 'Hotel 04',
+      hotelDesc1: 'A new Japanese-style hotel with two ways to enjoy the scenery of Kyoto.',
+      hotelDesc2: 'A new Japanese-style hotel with two ways to enjoy the scenery of Kyoto.',
+      hotelDesc3: '“Love & Natural Friendly” A fun Kyoto trip for families.',
+      hotelDesc4: 'TRADITION, ELEVATED.',
+      officialWebsite: 'Official Website',
+      hotelsFooter: 'The hotel photos and links are already set. You can revise the descriptions later if needed.',
+      spotsEyebrow: 'Sakura Spots',
+      spotsTitle: 'Spring Highlights in Kyoto',
+      spotsDesc: 'Explore Kyoto sakura spots with atmosphere, crowd tendency, and quick access to directions and photo inspiration.',
+      directionLabel: 'Direction',
+      crowdLabel: 'Crowd',
+      photosLabel: 'View More Photos',
+      spotsFooter: 'You can duplicate the existing sakura spot blocks later and expand this page to 12 locations.',
+      backHome: 'Back to Home'
+    },
+    jp: {
+      heroKicker: 'Spring in Kyoto',
+      heroTitle: 'Kyoto Sakura Guide',
+      heroDesc: '4つのホテルと京都の桜スポットを、美しくシンプルに案内する季節限定ガイドです。',
+      heroCard1Title: 'Hotels',
+      heroCard2Title: 'Sakura Spots',
+      homeHint: 'Choose a category to continue',
+      brandMini: 'Kyoto Sakura Guide',
+      navHome: 'Home',
+      navHotels: 'Hotels',
+      navSpots: 'Sakura Spots',
+      hotelsEyebrow: 'Our Hotels',
+      hotelsTitle: 'Choose Your Stay',
+      hotelsDesc: '4つの京都ステイを、公式サイトとInstagramへの導線つきでご覧いただけます。',
+      hotelLabel1: 'Hotel 01',
+      hotelLabel2: 'Hotel 02',
+      hotelLabel3: 'Hotel 03',
+      hotelLabel4: 'Hotel 04',
+      hotelDesc1: '京都の景観を楽しむ2つのスタイルを持つ「新しい日本の宿」',
+      hotelDesc2: '京都の景観を楽しむ2つのスタイルを持つ「新しい日本の宿」',
+      hotelDesc3: '“Love & Natural Friendly” ファミリーで過ごす楽しい京都旅',
+      hotelDesc4: 'TRADITION, ELEVATED.',
+      officialWebsite: 'Official Website',
+      hotelsFooter: '各ホテルの写真とリンクを設定済みです。必要に応じて説明文のみ差し替えてください。',
+      spotsEyebrow: 'Sakura Spots',
+      spotsTitle: 'Spring Highlights in Kyoto',
+      spotsDesc: '京都の桜スポットを、雰囲気・混雑傾向・写真検索とあわせてご覧いただけます。',
+      directionLabel: '経路',
+      crowdLabel: '混雑',
+      photosLabel: '写真を見る',
+      spotsFooter: '桜スポットは必要に応じてこのブロックを複製し、12か所まで増やせます。',
+      backHome: 'Back to Home'
+    },
+    kr: {
+      heroKicker: 'Spring in Kyoto',
+      heroTitle: 'Kyoto Sakura Guide',
+      heroDesc: '4개의 호텔과 교토의 대표 벚꽃 명소를 감각적이고 고급스럽게 소개하는 시즌 한정 가이드입니다.',
+      heroCard1Title: 'Hotels',
+      heroCard2Title: 'Sakura Spots',
+      homeHint: '원하는 카테고리를 선택하세요',
+      brandMini: 'Kyoto Sakura Guide',
+      navHome: 'Home',
+      navHotels: 'Hotels',
+      navSpots: 'Sakura Spots',
+      hotelsEyebrow: 'Our Hotels',
+      hotelsTitle: 'Choose Your Stay',
+      hotelsDesc: '4개의 교토 호텔을 공식 홈페이지와 인스타그램 연결과 함께 확인할 수 있습니다.',
+      hotelLabel1: 'Hotel 01',
+      hotelLabel2: 'Hotel 02',
+      hotelLabel3: 'Hotel 03',
+      hotelLabel4: 'Hotel 04',
+      hotelDesc1: '교토의 경관을 즐길 수 있는 두 가지 스타일을 갖춘 새로운 일본식 숙소.',
+      hotelDesc2: '교토의 경관을 즐길 수 있는 두 가지 스타일을 갖춘 새로운 일본식 숙소.',
+      hotelDesc3: '“Love & Natural Friendly” 가족과 함께 즐기는 즐거운 교토 여행.',
+      hotelDesc4: 'TRADITION, ELEVATED.',
+      officialWebsite: 'Official Website',
+      hotelsFooter: '호텔 사진과 링크는 모두 반영되어 있습니다. 필요하면 설명문만 바꾸면 됩니다.',
+      spotsEyebrow: 'Sakura Spots',
+      spotsTitle: 'Spring Highlights in Kyoto',
+      spotsDesc: '교토의 벚꽃 명소를 분위기, 혼잡 경향, 길찾기와 사진 탐색 기능과 함께 볼 수 있습니다.',
+      directionLabel: '경로',
+      crowdLabel: '군중',
+      photosLabel: '사진 더보기',
+      spotsFooter: '벚꽃 명소 블록은 나중에 복제해서 12곳까지 확장할 수 있습니다.',
+      backHome: 'Back to Home'
+    }
+  };
+
+  const screens = document.querySelectorAll('.screen');
+  const screenButtons = document.querySelectorAll('[data-screen-target]');
+  const langButtons = document.querySelectorAll('.lang-btn');
+  const i18nNodes = document.querySelectorAll('[data-i18n]');
+
+  function showScreen(name) {
+    screens.forEach((screen) => {
+      screen.classList.toggle('active', screen.id === `screen-${name}`);
+    });
+
+    document.querySelectorAll('.screen.active .screen-scroll').forEach((panel) => {
+      panel.scrollTo({ top: 0, behavior: 'auto' });
+    });
+
+    document.querySelectorAll('.nav-btn').forEach((btn) => {
+      btn.classList.toggle('active', btn.dataset.screenTarget === name);
+    });
+  }
+
+  function updateSpotLanguage(lang) {
+    document.querySelectorAll('.spot-name').forEach((el) => {
+      const text = el.dataset[lang];
+      if (text) el.textContent = text;
+    });
+
+    document.querySelectorAll('.spot-tags').forEach((el) => {
+      const text = el.dataset[lang];
+      if (text) el.textContent = text;
+    });
+
+    document.querySelectorAll('.direction-btn').forEach((el) => {
+      if (lang === 'jp') el.dataset.destination = el.dataset.destinationJp;
+      if (lang === 'en') el.dataset.destination = el.dataset.destinationEn;
+      if (lang === 'kr') el.dataset.destination = el.dataset.destinationKr;
+    });
+
+    document.querySelectorAll('.photo-hashtag-btn').forEach((el) => {
+      if (lang === 'jp') el.dataset.hashtag = el.dataset.hashtagJp;
+      if (lang === 'en') el.dataset.hashtag = el.dataset.hashtagEn;
+      if (lang === 'kr') el.dataset.hashtag = el.dataset.hashtagKr;
+    });
+  }
+
+  function applyLanguage(lang) {
+    const dict = translations[lang] || translations.jp;
+
+    i18nNodes.forEach((node) => {
+      const key = node.dataset.i18n;
+      if (dict[key]) node.textContent = dict[key];
+    });
+
+    langButtons.forEach((btn) => {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+
+    updateSpotLanguage(lang);
+
+    localStorage.setItem('kyotoSakuraGuideLang', lang);
+    document.documentElement.lang = lang === 'kr' ? 'ko' : lang;
+  }
+
+  function openGoogleDirections(destination) {
+    const encodedDestination = encodeURIComponent(destination);
+    const fallbackUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodedDestination}&travelmode=walking`;
+
+    if (!navigator.geolocation) {
+      window.location.href = fallbackUrl;
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const origin = `${position.coords.latitude},${position.coords.longitude}`;
+        const url = `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(origin)}&destination=${encodedDestination}&travelmode=walking`;
+        window.location.href = url;
       },
-      jp: {
-        heroKicker: 'Spring in Kyoto',
-        heroTitle: 'Kyoto Sakura Guide',
-        heroDesc: '4つのホテルと京都の桜スポットを、美しくシンプルに案内する季節限定ガイドです。',
-        heroCard1Title: 'Hotels',
-        heroCard2Title: 'Sakura Spots',
-        homeHint: 'Choose a category to continue',
-        brandMini: 'Kyoto Sakura Guide',
-        navHome: 'Home',
-        navHotels: 'Hotels',
-        navSpots: 'Sakura Spots',
-        hotelsEyebrow: 'Our Hotels',
-        hotelsTitle: 'Choose Your Stay',
-        hotelsDesc: '4つの京都ステイを、公式サイトとInstagramへの導線つきでご覧いただけます。',
-        hotelLabel1: 'Hotel 01',
-        hotelLabel2: 'Hotel 02',
-        hotelLabel3: 'Hotel 03',
-        hotelLabel4: 'Hotel 04',
-        hotelDesc1: '京都の景観を楽しむ2つのスタイルを持つ「新しい日本の宿」',
-        hotelDesc2: '京都の景観を楽しむ2つのスタイルを持つ「新しい日本の宿」',
-        hotelDesc3: '“Love & Natural Friendly” ファミリーで過ごす楽しい京都旅',
-        hotelDesc4: 'TRADITION, ELEVATED.',
-        officialWebsite: 'Official Website',
-        hotelsFooter: '各ホテルの写真とリンクを設定済みです。必要に応じて説明文のみ差し替えてください。',
-        spotsEyebrow: 'Sakura Spots',
-        spotsTitle: 'Spring Highlights in Kyoto',
-        spotsDesc: '京都の桜スポットを、雰囲気・混雑傾向・写真検索とあわせてご覧いただけます。',
-        tagTopSpot: 'Top Sakura Spot',
-        tagPopular: 'Popular',
-        tagHistoric: 'Historic',
-        tagScenic: 'Scenic',
-        tagLocalFavorite: 'Local Favorite',
-        tagTempleView: 'Temple View',
-        spotPlaceholderDesc1: '桜並木が続く静かな散策路。',
-        spotPlaceholderDesc2: '京都を代表するお花見スポット。',
-        spotPlaceholderDesc3: '春の桜に包まれる歴史ある線路跡。',
-        spotPlaceholderDesc4: '川・橋・山の景色と桜を楽しめる人気エリア。',
-        spotPlaceholderDesc5: '桜の季節にゆったり歩ける鴨川沿いの風景。',
-        spotPlaceholderDesc6: '春の桜とともに楽しむ京都らしい寺院風景。',
-        spotCrowd1: 'おすすめ時間帯：朝早め。遅い午前から午後にかけて混みやすい傾向があります。',
-        spotCrowd2: 'おすすめ時間帯：午前9時前。昼頃から夕方にかけて人が増えやすいスポットです。',
-        spotCrowd3: 'おすすめ時間帯：午前中。遅い午前から午後前半にかけて混雑しやすくなります。',
-        spotCrowd4: 'おすすめ時間帯：早朝。10時頃から16時頃まで特に混みやすいエリアです。',
-        spotCrowd5: 'おすすめ時間帯：朝または夕方前。主要観光地に比べると比較的ゆったり見やすい場所です。',
-        spotCrowd6: 'おすすめ時間帯：朝早め。遅い午前から午後にかけてかなり混みやすいエリアです。',
-        getDirections: 'Get Directions',
-        crowdForecast: 'Crowd Forecast',
-        viewMorePhotos: 'View More Photos',
-        spotsFooter: '桜スポットは必要に応じてこのブロックを複製し、12か所まで増やせます。',
-        backHome: 'Back to Home'
+      () => {
+        window.location.href = fallbackUrl;
       },
-      kr: {
-        heroKicker: 'Spring in Kyoto',
-        heroTitle: 'Kyoto Sakura Guide',
-        heroDesc: '4개의 호텔과 교토의 대표 벚꽃 명소를 감각적이고 고급스럽게 소개하는 시즌 한정 가이드입니다.',
-        heroCard1Title: 'Hotels',
-        heroCard2Title: 'Sakura Spots',
-        homeHint: '원하는 카테고리를 선택하세요',
-        brandMini: 'Kyoto Sakura Guide',
-        navHome: 'Home',
-        navHotels: 'Hotels',
-        navSpots: 'Sakura Spots',
-        hotelsEyebrow: 'Our Hotels',
-        hotelsTitle: 'Choose Your Stay',
-        hotelsDesc: '4개의 교토 호텔을 공식 홈페이지와 인스타그램 연결과 함께 확인할 수 있습니다.',
-        hotelLabel1: 'Hotel 01',
-        hotelLabel2: 'Hotel 02',
-        hotelLabel3: 'Hotel 03',
-        hotelLabel4: 'Hotel 04',
-        hotelDesc1: '교토의 경관을 즐길 수 있는 두 가지 스타일을 갖춘 새로운 일본식 숙소.',
-        hotelDesc2: '교토의 경관을 즐길 수 있는 두 가지 스타일을 갖춘 새로운 일본식 숙소.',
-        hotelDesc3: '“Love & Natural Friendly” 가족과 함께 즐기는 즐거운 교토 여행.',
-        hotelDesc4: 'TRADITION, ELEVATED.',
-        officialWebsite: 'Official Website',
-        hotelsFooter: '호텔 사진과 링크는 모두 반영되어 있습니다. 필요하면 설명문만 바꾸면 됩니다.',
-        spotsEyebrow: 'Sakura Spots',
-        spotsTitle: 'Spring Highlights in Kyoto',
-        spotsDesc: '교토의 벚꽃 명소를 분위기, 혼잡 경향, 길찾기와 사진 탐색 기능과 함께 볼 수 있습니다.',
-        tagTopSpot: 'Top Sakura Spot',
-        tagPopular: 'Popular',
-        tagHistoric: 'Historic',
-        tagScenic: 'Scenic',
-        tagLocalFavorite: 'Local Favorite',
-        tagTempleView: 'Temple View',
-        spotPlaceholderDesc1: '벚꽃이 이어지는 조용한 운하 산책길.',
-        spotPlaceholderDesc2: '교토를 대표하는 클래식한 하나미 명소.',
-        spotPlaceholderDesc3: '봄의 벚꽃으로 둘러싸인 역사적인 철로 자리.',
-        spotPlaceholderDesc4: '강, 다리, 산 풍경과 함께 즐기는 대표 벚꽃 지역.',
-        spotPlaceholderDesc5: '벚꽃 시즌에 여유롭게 걷기 좋은 가모가와 강변 풍경.',
-        spotPlaceholderDesc6: '봄 벚꽃과 함께 보는 전형적인 교토 사찰 풍경.',
-        spotCrowd1: '추천 시간대: 이른 아침. 늦은 오전부터 오후 사이에 비교적 붐비는 편입니다.',
-        spotCrowd2: '추천 시간대: 오전 9시 이전. 점심 무렵부터 저녁까지 사람이 늘어나는 편입니다.',
-        spotCrowd3: '추천 시간대: 오전. 늦은 오전부터 이른 오후까지 혼잡해지기 쉽습니다.',
-        spotCrowd4: '추천 시간대: 아주 이른 아침. 보통 오전 10시부터 오후 4시 사이가 가장 붐빕니다.',
-        spotCrowd5: '추천 시간대: 아침 또는 해질 무렵. 주요 관광지보다는 비교적 여유롭게 보기 좋은 편입니다.',
-        spotCrowd6: '추천 시간대: 이른 아침. 늦은 오전부터 오후까지 매우 붐빌 수 있는 지역입니다.',
-        getDirections: 'Get Directions',
-        crowdForecast: 'Crowd Forecast',
-        viewMorePhotos: 'View More Photos',
-        spotsFooter: '벚꽃 명소 블록은 나중에 복제해서 12곳까지 확장할 수 있습니다.',
-        backHome: 'Back to Home'
+      {
+        enableHighAccuracy: true,
+        timeout: 10000,
+        maximumAge: 60000
+      }
+    );
+  }
+
+  function openInstagramHashtag(hashtag) {
+    const normalizedHashtag = hashtag.replace(/#/g, '').replace(/\s+/g, '');
+    const url = `https://www.instagram.com/explore/tags/${encodeURIComponent(normalizedHashtag)}/`;
+    window.location.href = url;
+  }
+
+  screenButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      showScreen(button.dataset.screenTarget);
+    });
+  });
+
+  langButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      applyLanguage(button.dataset.lang);
+    });
+  });
+
+  document.querySelectorAll('.direction-btn').forEach((button) => {
+    button.addEventListener('click', () => {
+      const destination = button.dataset.destination;
+      if (destination) openGoogleDirections(destination);
+    });
+  });
+
+  document.querySelectorAll('.photo-hashtag-btn').forEach((button) => {
+    button.addEventListener('click', () => {
+      const hashtag = button.dataset.hashtag;
+      if (hashtag) openInstagramHashtag(hashtag);
+    });
+  });
+
+  const savedLang = localStorage.getItem('kyotoSakuraGuideLang') || 'jp';
+  applyLanguage(savedLang);
+  showScreen('home');
+</script>
       }
     };
 
@@ -1964,6 +2023,7 @@ function updateSpotLanguage(lang) {
     if (lang === "en") el.dataset.hashtag = el.dataset.hashtagEn;
     if (lang === "kr") el.dataset.hashtag = el.dataset.hashtagKr;
   });
+}  
   </script>
 </body>
 </html>
