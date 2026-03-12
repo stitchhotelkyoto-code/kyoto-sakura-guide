@@ -208,13 +208,12 @@
 
  .hero h1 {
   margin: 0;
-  max-width: 0;
-  white-space: 760px;
+  max-width: 760px;
   color: #fffdfd;
   text-shadow: 0 8px 24px rgba(108, 74, 86, 0.14);
   font-family: "Playfair Display", serif;
-  font-size: clamp(58px, 7vw, 92px);
-  line-height: 1.02;
+  font-size: clamp(58px, 9vw, 108px);
+  line-height: 0.92;
   letter-spacing: -0.04em;
   font-weight: 600;
 }
@@ -321,12 +320,13 @@
     }
 
     .page-actions {
-      display: flex;
-      align-items: center;
-      justify-content: space-start;
-      gap: 8px;
-      row-gap: 10px;
-    }
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  row-gap: 10px;
+  flex-wrap: wrap;
+}
 
     .nav-btn,
     .btn,
@@ -615,26 +615,24 @@
       display: block;
     }
 }
-    @media (max-width: 1024px) {
-     body { overflow-x: hidden; }
+   @media (max-width: 1024px) {
+  body { overflow-x: hidden; }
 
-      .hero-actions {
-        grid-template-columns: 1fr;
-        max-width: 440px;
-      }
+  .hero-actions {
+    grid-template-columns: 1fr;
+    max-width: 440px;
+  }
 
-      .hotel-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
+  .hotel-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .spot-copy {
+    padding: 34px 26px 38px;
+  }
 }
 
-      .spot-copy {
-        padding: 34px 26px 38px;
-      }
-    }
-
-   @media (max-width: 768px) {
+  @media (max-width: 768px) {
   .page-topbar-inner {
     width: min(100% - 24px, var(--max-width));
     padding: calc(env(safe-area-inset-top, 0px) + 8px) 0 8px;
@@ -687,8 +685,8 @@
   .page-topbar .lang-switch .lang-btn {
     padding: 6px 10px;
     font-size: 12px;
-   
-   @media (max-width: 768px) {
+  }
+
   #screen-hotels .hotel-grid {
     grid-template-columns: 1fr !important;
     gap: 24px !important;
@@ -697,45 +695,24 @@
   #screen-hotels .hotel-card {
     width: 100%;
   }
+
+  .spot-item,
+  .spot-item.reverse {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .spot-item.reverse .spot-copy { order: 2; }
+  .spot-item.reverse .spot-visual { order: 1; }
+
+  .spot-visual { padding: 18px 18px 0; }
+  .spot-frame { min-height: 300px; }
+  .spot-copy { padding: 26px 20px; }
+  .spot-copy h3 { font-size: clamp(24px, 5vw, 34px); }
+  .spot-copy p { font-size: 14px; line-height: 1.8; }
+  .spot-actions .btn,
+  .spot-actions .btn-secondary { width: 100%; }
 }
-
-    
-  
-      .page-actions .lang-switch {
-        padding: 4px;
-        gap: 4px;
-        justify-self: auto;
-      }
-
-      .page-actions .lang-switch .lang-btn {
-        padding: 6px 10px;
-        font-size: 12px;
-      }
-
-      .page-actions > .nav-btn {
-        padding: 8px 12px;
-        font-size: 12px;
-        width: fit-content;
-      }
-
-      .spot-item,
-      .spot-item.reverse {
-        grid-template-columns: 1fr;
-        min-height: auto;
-      }
-
-      .spot-item.reverse .spot-copy { order: 2; }
-      .spot-item.reverse .spot-visual { order: 1; }
-
-      .spot-visual { padding: 18px 18px 0; }
-      .spot-frame { min-height: 300px; }
-      .spot-copy { padding: 26px 20px; }
-      .spot-copy h3 { font-size: clamp(24px, 5vw, 34px); }
-      .spot-copy p { font-size: 14px; line-height: 1.8; }
-      .spot-actions .btn,
-      .spot-actions .btn-secondary { width: 100%; }
-    }
-
     #screen-home .screen-scroll {
       overflow-y: auto;
     }
@@ -1016,7 +993,7 @@
 
   .spot-meta {
     gap: 16px 18px;
-    padding: 4px 12px 4 24px;
+    padding: 4px 12px 4px 24px;
   }
 
   .spot-meta-btn {
@@ -1145,11 +1122,11 @@
     </div>
 
     <div class="page-actions">
-      <button class="nav-btn" type="button" data-screen-target="home" data-i18n="navHome">Home</button>
-      <button class="nav-btn" type="button" data-screen-target="hotels" data-i18n="navHotels">Hotels</button>
-      <button class="nav-btn active" type="button" data-screen-target="spots" data-i18n="navSpots">Sakura Spots</button>
-      <button class="nav-btn" type="button" data-screen-target="events" data-i18n="navEvents">Events</button>
-    </div>
+  <button class="nav-btn" type="button" data-screen-target="home" data-i18n="navHome">Home</button>
+  <button class="nav-btn active" type="button" data-screen-target="hotels" data-i18n="navHotels">Hotels</button>
+  <button class="nav-btn" type="button" data-screen-target="spots" data-i18n="navSpots">Sakura Spots</button>
+  <button class="nav-btn" type="button" data-screen-target="events" data-i18n="navEvents">Events</button>
+</div>
   </div>
 </div>
           <main>
