@@ -206,17 +206,18 @@
       font-weight: 700;
     }
 
-    .hero h1 {
-      margin: 0;
-      max-width: 760px;
-      color: #fffdfd;
-      text-shadow: 0 8px 24px rgba(108, 74, 86, 0.14);
-      font-family: "Playfair Display", serif;
-      font-size: clamp(58px, 9vw, 108px);
-      line-height: 0.92;
-      letter-spacing: -0.04em;
-      font-weight: 600;
-    }
+ .hero h1 {
+  margin: 0;
+  max-width: none;
+  white-space: nowrap;
+  color: #fffdfd;
+  text-shadow: 0 8px 24px rgba(108, 74, 86, 0.14);
+  font-family: "Playfair Display", serif;
+  font-size: clamp(58px, 7vw, 92px);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  font-weight: 600;
+}
 
     .hero p {
       max-width: 630px;
@@ -322,7 +323,7 @@
     .page-actions {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: space-start;
       gap: 8px;
       row-gap: 10px;
     }
@@ -614,6 +615,11 @@
       display: block;
     }
 
+    @media (min-width: 769px) {
+  #screen-home .hero h1 {
+    display: none;
+  }
+}
     @media (max-width: 1024px) {
      body { overflow-x: hidden; }
 
@@ -687,14 +693,7 @@
   }
 }
 
-     
-      .page-actions {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        gap: 8px;
-      }
+    
   
       .page-actions .lang-switch {
         padding: 4px;
@@ -943,7 +942,7 @@
   align-items: center;
   gap: 34px;
   flex-wrap: wrap;
-  padding: 14px 14px 0;
+  padding: 14px 14px 0 28px;
 }
 .spot-meta-btn {
   appearance: none;
@@ -1011,7 +1010,7 @@
 
   .spot-meta {
     gap: 16px 18px;
-    padding: 12px 2px 0;
+    padding: 12px 2px 0 14px;
   }
 
   .spot-meta-btn {
@@ -1102,7 +1101,6 @@
               <div>
                 <div class="hero-kicker" data-i18n="heroKicker">Spring in Kyoto</div>
                 <h1 data-i18n="heroTitle">Kyoto Sakura Guide</h1>
-                <p data-i18n="heroDesc">4つのホテルと京都の桜スポットを、美しくシンプルに案内する季節限定ガイドです。</p>
               </div>
 
               <div class="hero-actions">
