@@ -288,13 +288,15 @@
       border-bottom: 1px solid rgba(49, 42, 45, 0.06);
     }
 
- .page-topbar-inner {
+.page-topbar-inner {
   width: min(var(--max-width), calc(100% - 40px));
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto;
+  gap: 12px 20px;
   padding: 18px 0;
+  align-items: center;
 }
     .brand-mini {
       display: flex;
@@ -869,7 +871,7 @@
 .spot-hero img {
   display: block;
   width: 100%;
-  height: 420px;
+  height: clamp(460px, 52vw, 560px);
   object-fit: cover;
   border-radius: 28px;
 }
@@ -925,7 +927,8 @@
   align-items: center;
   gap: 24px;
   flex-wrap: wrap;
-  padding: 2px 14px 4px 30px;
+  padding: 10px 14px 10px 30px;
+  min-height: 58px;
 }
 .spot-meta-btn {
   appearance: none;
@@ -940,6 +943,8 @@
   text-decoration: none;
   cursor: pointer;
   transition: opacity 0.2s ease, transform 0.2s ease;
+  display: inline-flex;
+  align-items: center;
 }
 
 .spot-meta-btn:hover {
@@ -1063,7 +1068,43 @@
     grid-template-columns: 1fr;
   }
 }
+@media (min-width: 769px) {
+  .page-topbar-inner {
+    width: min(var(--max-width), calc(100% - 40px));
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    gap: 12px 20px;
+    padding: 18px 0;
+    align-items: center;
+  }
 
+  .topbar-row-main {
+    display: contents;
+  }
+
+  .brand-mini {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .page-topbar .lang-switch {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+  }
+
+  .page-actions {
+    grid-column: 1 / 2;
+    grid-row: 2;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+}
   </style>
 </head>
 <body>
@@ -1149,7 +1190,7 @@
                       <p data-i18n="hotelDesc1">京都の景観を楽しむ2つのスタイルを持つ「新しい日本の宿」</p>
                       <div class="button-row">
                         <a class="btn" href="https://soraniwa-hotel.jp/" target="_blank" rel="noopener" data-i18n="officialWebsite">Official Website</a>
-                       <a class="btn-secondary" href="https://www.instagram.com/soraniwa.kyoto/" target="_blank" rel="noopener" data-i18n="instagramLabel">Instagram</a>Instagram</a>
+                       <a class="btn-secondary" href="https://www.instagram.com/soraniwa.kyoto/" target="_blank" rel="noopener" data-i18n="instagramLabel">Instagram</a>
                       </div>
                     </div>
                   </article>
