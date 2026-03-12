@@ -227,7 +227,7 @@
 
     .hero-actions {
       display: grid;
-      grid-template-columns: repeat(2, minmax(240px, 320px));
+      grid-template-columns: repeat(3, minmax(220px, 1fr));
       gap: 18px;
       margin-top: 18px;
     }
@@ -996,7 +996,65 @@
     width: calc(100% - 56px);
     margin-top: 20px;
   }
-}  
+}  .sakura-events-block {
+  margin: 0 0 48px;
+}
+
+.events-mini-title {
+  margin: 0 0 18px;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(24px, 3vw, 34px);
+  line-height: 1.15;
+  font-weight: 600;
+}
+
+.events-mini-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.event-mini-card {
+  background: rgba(255,255,255,0.9);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 22px;
+  box-shadow: 0 12px 30px rgba(84, 57, 67, 0.06);
+}
+
+.event-mini-period {
+  margin: 0 0 10px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-dark);
+  font-weight: 700;
+}
+
+.event-mini-card h4 {
+  margin: 0 0 10px;
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+.event-mini-card p {
+  margin: 0 0 12px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.event-mini-card a {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .events-mini-grid {
+    grid-template-columns: 1fr;
+  }
+}
 
   </style>
 </head>
@@ -1028,9 +1086,10 @@
                 <button class="hero-card" type="button" data-screen-target="spots">
                   <h2 data-i18n="heroCard2Title">Sakura Spots</h2>
                 </button>
-              </div>
-
-              <div class="scroll-note" data-i18n="homeHint">Choose a category to continue</div>
+                <button class="hero-card" type="button" data-screen-target="events">
+                 <h2 data-i18n="heroCard3Title">Events</h2>
+                </button>
+                <div class="scroll-note" data-i18n="homeHint">Choose a category to continue</div>
             </div>
           </div>
         </header>
@@ -1051,6 +1110,7 @@
                 <button class="nav-btn" type="button" data-screen-target="home" data-i18n="navHome">Home</button>
                 <button class="nav-btn active" type="button" data-screen-target="hotels" data-i18n="navHotels">Hotels</button>
                 <button class="nav-btn" type="button" data-screen-target="spots" data-i18n="navSpots">Sakura Spots</button>
+                <button class="nav-btn" type="button" data-screen-target="events" data-i18n="navEvents">Events</button>
                 <div class="lang-switch" aria-label="Language selector">
                   <button class="lang-btn active" type="button" data-lang="jp">JP</button>
                   <button class="lang-btn" type="button" data-lang="en">EN</button>
@@ -1159,6 +1219,7 @@
                 <button class="nav-btn" type="button" data-screen-target="home" data-i18n="navHome">Home</button>
                 <button class="nav-btn" type="button" data-screen-target="hotels" data-i18n="navHotels">Hotels</button>
                 <button class="nav-btn active" type="button" data-screen-target="spots" data-i18n="navSpots">Sakura Spots</button>
+                <button class="nav-btn" type="button" data-screen-target="events" data-i18n="navEvents">Events</button>
                 <div class="lang-switch" aria-label="Language selector">
                   <button class="lang-btn active" type="button" data-lang="jp">JP</button>
                   <button class="lang-btn" type="button" data-lang="en">EN</button>
@@ -1176,9 +1237,33 @@
                   <h2 class="section-title" data-i18n="spotsTitle">Spring Highlights in Kyoto</h2>
                   <p class="section-desc" data-i18n="spotsDesc">京都の桜スポットを、雰囲気・混雑傾向・写真検索とあわせてご覧いただけます。</p>
                 </div>
+                  <div class="sakura-events-block">
+  <h3 class="events-mini-title" data-i18n="eventsMiniTitle">Seasonal Sakura Events</h3>
 
-                <div class="spot-list">
-                
+  <div class="events-mini-grid">
+    <article class="event-mini-card">
+      <p class="event-mini-period" data-i18n="event1Period">Early April</p>
+      <h4 data-i18n="event1Title">Heian Shrine Sakura Concert</h4>
+      <p data-i18n="event1Desc">Night illumination and traditional performance.</p>
+      <a href="https://www.heianjingu.or.jp" target="_blank" rel="noopener" data-i18n="officialSiteArrow">Official Site →</a>
+    </article>
+
+    <article class="event-mini-card">
+      <p class="event-mini-period" data-i18n="event2Period">Mid March – Early April</p>
+      <h4 data-i18n="event2Title">Nijo Castle Sakura Festival</h4>
+      <p data-i18n="event2Desc">A famous sakura event with night viewing.</p>
+      <a href="https://nijo-jocastle.city.kyoto.lg.jp" target="_blank" rel="noopener" data-i18n="officialSiteArrow">Official Site →</a>
+    </article>
+
+    <article class="event-mini-card">
+      <p class="event-mini-period" data-i18n="event3Period">Late March – Early April</p>
+      <h4 data-i18n="event3Title">Kiyomizu-dera Night Viewing</h4>
+      <p data-i18n="event3Desc">Special spring evening opening with sakura.</p>
+      <a href="https://www.kiyomizudera.or.jp" target="_blank" rel="noopener" data-i18n="officialSiteArrow">Official Site →</a>
+    </article>
+  </div>
+</div>
+                            
 
 <div class="spot-list">
 
@@ -1608,6 +1693,77 @@
 </div> <!-- .spot-list -->
 </div> <!-- .container -->
 </section>
+ <script>
+   <section class="screen" id="screen-events">
+  <div class="screen-scroll">
+    <div class="page-shell">
+      <div class="page-topbar">
+        <div class="page-topbar-inner">
+          <div class="brand-mini">
+            <span class="brand-dot"></span>
+            <strong data-i18n="brandMini">Kyoto Sakura Guide</strong>
+          </div>
+
+          <div class="page-actions">
+            <button class="nav-btn" type="button" data-screen-target="home" data-i18n="navHome">Home</button>
+            <button class="nav-btn" type="button" data-screen-target="hotels" data-i18n="navHotels">Hotels</button>
+            <button class="nav-btn" type="button" data-screen-target="spots" data-i18n="navSpots">Sakura Spots</button>
+            <button class="nav-btn active" type="button" data-screen-target="events" data-i18n="navEvents">Events</button>
+            <div class="lang-switch" aria-label="Language selector">
+              <button class="lang-btn active" type="button" data-lang="jp">JP</button>
+              <button class="lang-btn" type="button" data-lang="en">EN</button>
+              <button class="lang-btn" type="button" data-lang="kr">KR</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <main>
+        <section class="section">
+          <div class="container">
+            <div class="section-header">
+              <span class="eyebrow" data-i18n="eventsEyebrow">Seasonal Events</span>
+              <h2 class="section-title" data-i18n="eventsTitle">Kyoto Sakura Events</h2>
+              <p class="section-desc" data-i18n="eventsDesc">Official seasonal events to enjoy Kyoto’s cherry blossom atmosphere day and night.</p>
+            </div>
+
+            <div class="events-mini-grid">
+              <article class="event-mini-card">
+                <p class="event-mini-period" data-i18n="event1Period">Early April</p>
+                <h4 data-i18n="event1Title">Heian Shrine Sakura Concert</h4>
+                <p data-i18n="event1Desc">Night illumination and traditional performance.</p>
+                <a href="https://www.heianjingu.or.jp" target="_blank" rel="noopener" data-i18n="officialSiteArrow">Official Site →</a>
+              </article>
+
+              <article class="event-mini-card">
+                <p class="event-mini-period" data-i18n="event2Period">Mid March – Early April</p>
+                <h4 data-i18n="event2Title">Nijo Castle Sakura Festival</h4>
+                <p data-i18n="event2Desc">A famous sakura event with night viewing.</p>
+                <a href="https://nijo-jocastle.city.kyoto.lg.jp" target="_blank" rel="noopener" data-i18n="officialSiteArrow">Official Site →</a>
+              </article>
+
+              <article class="event-mini-card">
+                <p class="event-mini-period" data-i18n="event3Period">Late March – Early April</p>
+                <h4 data-i18n="event3Title">Kiyomizu-dera Night Viewing</h4>
+                <p data-i18n="event3Desc">Special spring evening opening with sakura.</p>
+                <a href="https://www.kiyomizudera.or.jp" target="_blank" rel="noopener" data-i18n="officialSiteArrow">Official Site →</a>
+              </article>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="screen-footer">
+        <div class="container">
+          <div class="footer-card">
+            <small data-i18n="eventsFooter">Event dates may change each year. Please check the official websites before visiting.</small>
+            <button class="btn-secondary" type="button" data-screen-target="home" data-i18n="backHome">Back to Home</button>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+</section>
 </main>
 
 <footer class="screen-footer">
@@ -1656,6 +1812,23 @@
       photosLabel: 'View More Photos',
       spotsFooter: 'You can duplicate the existing sakura spot blocks later and expand this page to 12 locations.',
       backHome: 'Back to Home'
+      heroCard3Title: 'Events',
+navEvents: 'Events',
+eventsMiniTitle: 'Seasonal Sakura Events',
+eventsEyebrow: 'Seasonal Events',
+eventsTitle: 'Kyoto Sakura Events',
+eventsDesc: 'Official seasonal events to enjoy Kyoto’s cherry blossom atmosphere day and night.',
+event1Period: 'Early April',
+event1Title: 'Heian Shrine Sakura Concert',
+event1Desc: 'Night illumination and traditional performance.',
+event2Period: 'Mid March – Early April',
+event2Title: 'Nijo Castle Sakura Festival',
+event2Desc: 'A famous sakura event with night viewing.',
+event3Period: 'Late March – Early April',
+event3Title: 'Kiyomizu-dera Night Viewing',
+event3Desc: 'Special spring evening opening with sakura.',
+officialSiteArrow: 'Official Site →',
+eventsFooter: 'Event dates may change each year. Please check the official websites before visiting.',
     },
     jp: {
       heroKicker: 'Spring in Kyoto',
@@ -1689,6 +1862,23 @@
       photosLabel: '写真を見る',
       spotsFooter: '桜スポットは必要に応じてこのブロックを複製し、12か所まで増やせます。',
       backHome: 'Back to Home'
+     heroCard3Title: 'Events',
+navEvents: 'Events',
+eventsMiniTitle: '季節の桜イベント',
+eventsEyebrow: 'Seasonal Events',
+eventsTitle: 'Kyoto Sakura Events',
+eventsDesc: '京都の桜シーズンを昼も夜も楽しめる公式イベントをご紹介します。',
+event1Period: '4月上旬',
+event1Title: '平安神宮 紅しだれコンサート',
+event1Desc: '夜桜ライトアップと伝統的な公演を楽しめる人気イベントです。',
+event2Period: '3月中旬〜4月上旬',
+event2Title: '二条城 桜まつり',
+event2Desc: '夜桜のライトアップでも知られる定番イベントです。',
+event3Period: '3月下旬〜4月上旬',
+event3Title: '清水寺 夜間特別拝観',
+event3Desc: '春の夜間特別拝観で桜と夜景を楽しめます。',
+officialSiteArrow: '公式サイト →',
+eventsFooter: '開催期間は年によって変わる場合があります。お出かけ前に公式サイトをご確認ください。',
     },
     kr: {
       heroKicker: 'Spring in Kyoto',
@@ -1722,6 +1912,23 @@
       photosLabel: '사진 더보기',
       spotsFooter: '벚꽃 명소 블록은 나중에 복제해서 12곳까지 확장할 수 있습니다.',
       backHome: 'Back to Home'
+      heroCard3Title: 'Events',
+navEvents: 'Events',
+eventsMiniTitle: '시즌 사쿠라 이벤트',
+eventsEyebrow: 'Seasonal Events',
+eventsTitle: 'Kyoto Sakura Events',
+eventsDesc: '교토의 벚꽃 시즌을 낮과 밤 모두 즐길 수 있는 공식 이벤트를 소개합니다.',
+event1Period: '4월 초',
+event1Title: '헤이안신궁 벚꽃 콘서트',
+event1Desc: '야간 라이트업과 전통 공연을 함께 즐길 수 있는 인기 이벤트입니다.',
+event2Period: '3월 중순 ~ 4월 초',
+event2Title: '니조성 사쿠라 마츠리',
+event2Desc: '야간 벚꽃 라이트업으로도 유명한 대표 이벤트입니다.',
+event3Period: '3월 하순 ~ 4월 초',
+event3Title: '기요미즈데라 야간 특별관람',
+event3Desc: '봄 한정 야간 개방으로 벚꽃과 야경을 감상할 수 있습니다.',
+officialSiteArrow: '공식 사이트 →',
+eventsFooter: '개최 기간은 매년 달라질 수 있으니 방문 전 공식 홈페이지를 확인해 주세요.',
     }
   };
 
