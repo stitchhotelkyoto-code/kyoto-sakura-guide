@@ -107,25 +107,27 @@
       line-height: 1.9;
     }
 
-    .hero {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding: 24px 0 40px;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at top right, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.15) 26%, transparent 44%),
-        radial-gradient(circle at 12% 20%, rgba(255,255,255,0.32), transparent 28%),
-        var(--hero-tint),
-        linear-gradient(180deg, #f6dce4 0%, #efe3e8 100%);
-    }
+   .hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 24px 0 40px;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.10)),
+    linear-gradient(135deg, rgba(249, 226, 233, 0.28) 0%, rgba(244, 232, 236, 0.18) 42%, rgba(239, 235, 237, 0.12) 100%),
+    url("mainsakura.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
 
     .hero::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.12));
+      background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.18));
       pointer-events: none;
     }
 
@@ -725,9 +727,10 @@
       }
 
       #screen-home .hero {
-        min-height: 100dvh;
-        padding: calc(env(safe-area-inset-top, 0px) + 6px) 0 14px;
-      }
+       min-height: 100dvh;
+  padding: calc(env(safe-area-inset-top, 0px) + 6px) 0 14px;
+  background-position: 58% center;
+}
 
       #screen-home .hero-inner {
         min-height: calc(100dvh - 14px);
@@ -872,12 +875,9 @@
   right: 0;
   bottom: 0;
   height: 48%;
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.60),
-    rgba(0, 0, 0, 0.22),
-    rgba(0, 0, 0, 0)
-  );
+ background: url("mainsakura.jpg");
+background-size: cover;
+background-position: center;
   pointer-events: none;
 }
 
