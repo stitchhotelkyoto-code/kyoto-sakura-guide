@@ -208,8 +208,8 @@
 
  .hero h1 {
   margin: 0;
-  max-width: none;
-  white-space: nowrap;
+  max-width: 0;
+  white-space: 760px;
   color: #fffdfd;
   text-shadow: 0 8px 24px rgba(108, 74, 86, 0.14);
   font-family: "Playfair Display", serif;
@@ -614,11 +614,6 @@
       line-height: 1.8;
       display: block;
     }
-
-    @media (min-width: 769px) {
-  #screen-home .hero h1 {
-    display: none;
-  }
 }
     @media (max-width: 1024px) {
      body { overflow-x: hidden; }
@@ -779,13 +774,13 @@
         display: none;
       }
 
-     #screen-home .hero h1 {
-       font-size: clamp(44px, 13vw, 58px);
-       max-width: none;
-       line-height: 1.2;
-       margin-top: 0;
-      }
-
+    #screen-home .hero h1 {
+  font-size: clamp(44px, 13vw, 58px);
+  max-width: 92%;
+  line-height: 1.08;
+  margin-top: 0;
+  word-break: keep-all;
+}
       #screen-home .hero-actions {
         grid-template-columns: 1fr;
         gap: 10px;
@@ -940,9 +935,9 @@
 .spot-meta {
   display: flex;
   align-items: center;
-  gap: 34px;
+  gap: 24px;
   flex-wrap: wrap;
-  padding: 14px 14px 0 28px;
+  padding: 14px 14px 0 22px;
 }
 .spot-meta-btn {
   appearance: none;
@@ -981,7 +976,7 @@
 @media (max-width: 768px) {
   .spot-item,
   .spot-item.reverse {
-    margin: 0 0 42px;
+    margin: 0 0 40px;
   }
 
   .spot-hero,
@@ -1125,25 +1120,24 @@
         <div class="page-shell">
          <div class="page-topbar">
   <div class="page-topbar-inner">
-    <div class="topbar-row-main">
-      <div class="brand-mini">
-        <span class="brand-dot"></span>
-        <strong data-i18n="brandMini">Kyoto Sakura Guide</strong>
-      </div>
-
-      <div class="lang-switch" aria-label="Language selector">
-        <button class="lang-btn active" type="button" data-lang="jp">JP</button>
-        <button class="lang-btn" type="button" data-lang="en">EN</button>
-        <button class="lang-btn" type="button" data-lang="kr">KR</button>
-      </div>
+  <div class="topbar-row-main">
+    <div class="brand-mini">
+      <span class="brand-dot"></span>
+      <strong data-i18n="brandMini">Kyoto Sakura Guide</strong>
     </div>
 
-    <div class="page-actions">
-      <button class="nav-btn" type="button" data-screen-target="home" data-i18n="navHome">Home</button>
-      <button class="nav-btn" type="button" data-screen-target="hotels" data-i18n="navHotels">Hotels</button>
-      <button class="nav-btn" type="button" data-screen-target="spots" data-i18n="navSpots">Sakura Spots</button>
-      <button class="nav-btn" type="button" data-screen-target="events" data-i18n="navEvents">Events</button>
+    <div class="lang-switch" aria-label="Language selector">
+      <button class="lang-btn active" type="button" data-lang="jp">JP</button>
+      <button class="lang-btn" type="button" data-lang="en">EN</button>
+      <button class="lang-btn" type="button" data-lang="kr">KR</button>
     </div>
+  </div>
+
+  <div class="page-actions">
+    <button class="nav-btn" type="button" data-screen-target="home" data-i18n="navHome">Home</button>
+    <button class="nav-btn" type="button" data-screen-target="hotels" data-i18n="navHotels">Hotels</button>
+    <button class="nav-btn active" type="button" data-screen-target="spots" data-i18n="navSpots">Sakura Spots</button>
+    <button class="nav-btn" type="button" data-screen-target="events" data-i18n="navEvents">Events</button>
   </div>
 </div>
           <main>
