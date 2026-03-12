@@ -2049,12 +2049,12 @@ eventsFooter: '개최 기간은 매년 달라질 수 있으니 방문 전 공식
     document.documentElement.lang = lang === 'kr' ? 'ko' : lang;
   }
 
-   function openGoogleDirections(destination) {
+  function openGoogleDirections(destination) {
   const encodedDestination = encodeURIComponent(destination);
   const fallbackUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodedDestination}&travelmode=walking`;
 
   if (!navigator.geolocation) {
-    window.open(fallbackUrl, '_blank');
+    window.location.href = fallbackUrl;
     return;
   }
 
@@ -2062,10 +2062,10 @@ eventsFooter: '개최 기간은 매년 달라질 수 있으니 방문 전 공식
     (position) => {
       const origin = `${position.coords.latitude},${position.coords.longitude}`;
       const url = `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(origin)}&destination=${encodedDestination}&travelmode=walking`;
-      window.open(url, '_blank');
+      window.location.href = url;
     },
     () => {
-      window.open(fallbackUrl, '_blank');
+      window.location.href = fallbackUrl;
     },
     {
       enableHighAccuracy: true,
