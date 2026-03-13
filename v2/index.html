@@ -1,1 +1,341 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kyoto Sakura Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#" class="brand">Kyoto Sakura Guide</a>
 
+      <nav class="main-nav">
+        <a href="#sakura">Sakura</a>
+        <a href="#courses">Courses</a>
+        <a href="#food">Food</a>
+        <a href="#events">Events</a>
+        <a href="#ai-guide">AI Guide</a>
+        <a href="#hotels">Hotels</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO VIDEO -->
+    <section class="hero-video-section">
+      <div class="hero-video-wrap">
+        <!-- 영상 넣을 자리 -->
+        <div class="hero-video-placeholder">
+          VIDEO
+        </div>
+
+        <!-- 나중에 영상 넣을 때 이걸 쓰면 됨
+        <video class="hero-video" autoplay muted loop playsinline>
+          <source src="videos/sakura.mp4" type="video/mp4" />
+        </video>
+        -->
+      </div>
+    </section>
+
+    <!-- QUICK MENU -->
+    <section class="quick-menu-section">
+      <div class="container">
+        <h2 class="section-mini-title">Explore Kyoto</h2>
+
+        <div class="quick-menu-grid">
+          <a href="#sakura" class="quick-menu-item">
+            <div class="quick-icon">🌸</div>
+            <span>Sakura Spots</span>
+          </a>
+
+          <a href="#courses" class="quick-menu-item">
+            <div class="quick-icon">🗺</div>
+            <span>Travel Courses</span>
+          </a>
+
+          <a href="#food" class="quick-menu-item">
+            <div class="quick-icon">🍜</div>
+            <span>Food Guide</span>
+          </a>
+
+          <a href="#events" class="quick-menu-item">
+            <div class="quick-icon">🎎</div>
+            <span>Events</span>
+          </a>
+
+          <a href="#ai-guide" class="quick-menu-item">
+            <div class="quick-icon">✨</div>
+            <span>AI Guide</span>
+          </a>
+
+          <a href="#hotels" class="quick-menu-item">
+            <div class="quick-icon">🏨</div>
+            <span>Hotels</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SAKURA -->
+    <section id="sakura" class="content-section sakura-section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">SAKURA HIGHLIGHTS</p>
+          <h2>Sakura</h2>
+          <p class="section-desc">
+            교토의 대표 벚꽃 명소를 메인으로 보여주는 영역
+          </p>
+        </div>
+
+        <div class="sakura-slider-shell">
+          <button class="slider-btn slider-btn-left" type="button" aria-label="Previous">
+            ←
+          </button>
+
+          <div class="sakura-slider-track">
+            <article class="sakura-card">
+              <div class="photo-box large">PHOTO</div>
+              <div class="card-copy">
+                <h3>Arashiyama</h3>
+                <p>벚꽃 명소 카드 / 사진 들어갈 자리</p>
+              </div>
+            </article>
+
+            <article class="sakura-card">
+              <div class="photo-box large">PHOTO</div>
+              <div class="card-copy">
+                <h3>Philosopher’s Path</h3>
+                <p>벚꽃 명소 카드 / 사진 들어갈 자리</p>
+              </div>
+            </article>
+
+            <article class="sakura-card">
+              <div class="photo-box large">PHOTO</div>
+              <div class="card-copy">
+                <h3>Kiyomizu-dera</h3>
+                <p>벚꽃 명소 카드 / 사진 들어갈 자리</p>
+              </div>
+            </article>
+          </div>
+
+          <button class="slider-btn slider-btn-right" type="button" aria-label="Next">
+            →
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- COURSES -->
+    <section id="courses" class="content-section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">TRAVEL COURSES</p>
+          <h2>Recommended Courses</h2>
+          <p class="section-desc">
+            여행 코스가 들어갈 영역
+          </p>
+        </div>
+
+        <div class="card-grid three">
+          <article class="info-card">
+            <div class="photo-box">PHOTO</div>
+            <div class="card-copy">
+              <h3>Classic Kyoto Course</h3>
+              <p>코스 설명 자리</p>
+            </div>
+          </article>
+
+          <article class="info-card">
+            <div class="photo-box">PHOTO</div>
+            <div class="card-copy">
+              <h3>Sakura Walk Course</h3>
+              <p>코스 설명 자리</p>
+            </div>
+          </article>
+
+          <article class="info-card">
+            <div class="photo-box">PHOTO</div>
+            <div class="card-copy">
+              <h3>Night Sakura Course</h3>
+              <p>코스 설명 자리</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOD -->
+    <section id="food" class="content-section soft-bg">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">FOOD GUIDE</p>
+          <h2>Food by Area</h2>
+          <p class="section-desc">
+            관광지 주변 맛집을 지역별로 보여주는 영역
+          </p>
+        </div>
+
+        <div class="card-grid four">
+          <article class="mini-card">
+            <div class="photo-box">PHOTO</div>
+            <div class="card-copy">
+              <h3>Arashiyama</h3>
+              <p>맛집 리스트 자리</p>
+            </div>
+          </article>
+
+          <article class="mini-card">
+            <div class="photo-box">PHOTO</div>
+            <div class="card-copy">
+              <h3>Gion</h3>
+              <p>맛집 리스트 자리</p>
+            </div>
+          </article>
+
+          <article class="mini-card">
+            <div class="photo-box">PHOTO</div>
+            <div class="card-copy">
+              <h3>Kiyomizu</h3>
+              <p>맛집 리스트 자리</p>
+            </div>
+          </article>
+
+          <article class="mini-card">
+            <div class="photo-box">PHOTO</div>
+            <div class="card-copy">
+              <h3>Kawaramachi</h3>
+              <p>맛집 리스트 자리</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EVENTS -->
+    <section id="events" class="content-section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">SEASONAL EVENTS</p>
+          <h2>Events</h2>
+          <p class="section-desc">
+            벚꽃 시즌 이벤트가 들어갈 영역
+          </p>
+        </div>
+
+        <div class="card-grid three">
+          <article class="info-card">
+            <div class="photo-box">PHOTO</div>
+            <div class="card-copy">
+              <h3>Heian Shrine Concert</h3>
+              <p>이벤트 설명 자리</p>
+            </div>
+          </article>
+
+          <article class="info-card">
+            <div class="photo-box">PHOTO</div>
+            <div class="card-copy">
+              <h3>Nijo Castle Festival</h3>
+              <p>이벤트 설명 자리</p>
+            </div>
+          </article>
+
+          <article class="info-card">
+            <div class="photo-box">PHOTO</div>
+            <div class="card-copy">
+              <h3>Kiyomizu Night Viewing</h3>
+              <p>이벤트 설명 자리</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI GUIDE -->
+    <section id="ai-guide" class="content-section ai-section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">SMART GUIDE</p>
+          <h2>AI Guide</h2>
+          <p class="section-desc">
+            AI 추천 기능이 들어갈 영역
+          </p>
+        </div>
+
+        <div class="ai-box">
+          <div class="ai-actions">
+            <button type="button">Morning</button>
+            <button type="button">Afternoon</button>
+            <button type="button">Evening</button>
+            <button type="button">Food Near Me</button>
+          </div>
+
+          <div class="ai-result-box">
+            AI 추천 결과가 들어갈 자리
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOTELS -->
+    <section id="hotels" class="content-section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">OUR HOTELS</p>
+          <h2>Hotels</h2>
+          <p class="section-desc">
+            호텔 정보가 들어갈 영역
+          </p>
+        </div>
+
+        <div class="card-grid four">
+          <article class="mini-card">
+            <div class="photo-box">PHOTO</div>
+            <div class="card-copy">
+              <h3>Hotel 01</h3>
+              <p>호텔 설명 자리</p>
+            </div>
+          </article>
+
+          <article class="mini-card">
+            <div class="photo-box">PHOTO</div>
+            <div class="card-copy">
+              <h3>Hotel 02</h3>
+              <p>호텔 설명 자리</p>
+            </div>
+          </article>
+
+          <article class="mini-card">
+            <div class="photo-box">PHOTO</div>
+            <div class="card-copy">
+              <h3>Hotel 03</h3>
+              <p>호텔 설명 자리</p>
+            </div>
+          </article>
+
+          <article class="mini-card">
+            <div class="photo-box">PHOTO</div>
+            <div class="card-copy">
+              <h3>Hotel 04</h3>
+              <p>호텔 설명 자리</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>Kyoto Sakura Guide</p>
+      <p>Spring travel portal structure draft</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
