@@ -663,7 +663,7 @@ img {
 
 .course-card {
   display: grid;
-  grid-template-columns: 1.02fr 0.98fr;
+  grid-template-columns: 1.3fr 1fr;
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 30px;
@@ -672,7 +672,7 @@ img {
 }
 
 .course-card.reverse {
-  grid-template-columns: 0.98fr 1.02fr;
+  grid-template-columns: 1fr 1.3fr;
 }
 
 .course-card.reverse .course-image {
@@ -696,7 +696,7 @@ img {
 }
 
 .course-content {
-  padding: 34px 34px 30px;
+  padding: 40px 40px 36px;
   display: flex;
   flex-direction: column;
   justify-content: center;
