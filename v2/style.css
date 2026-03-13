@@ -417,37 +417,52 @@ button {
   .container {
     width: min(100% - 24px, var(--max-width));
   }
-  .hero-video-wrap{
-  position:relative;
+.hero-video-wrap{
+  position: relative;
+  overflow: hidden;
+  border-radius: 34px;
+}
+
+.hero-video{
+  width: 100%;
+  height: min(78vh, 820px);
+  min-height: 520px;
+  object-fit: cover;
+  display: block;
+  box-shadow: var(--shadow);
 }
 
 .hero-overlay{
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,0.35);
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 1;
 }
 
 .hero-text{
-  position:absolute;
-  inset:0;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  color:white;
-  text-align:center;
-  font-family:"Playfair Display",serif;
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  pointer-events: none;
 }
 
 .hero-text h1{
-  font-size:80px;
-  letter-spacing:4px;
-  margin:0;
+  margin: 0;
+  font-size: clamp(48px, 8vw, 96px);
+  letter-spacing: 0.08em;
+  line-height: 1;
 }
 
 .hero-text p{
-  font-size:22px;
-  letter-spacing:6px;
-  margin-top:10px;
+  margin: 12px 0 0;
+  font-size: clamp(16px, 2vw, 24px);
+  letter-spacing: 0.35em;
 }
 }
