@@ -79,6 +79,8 @@ if (sakuraNext) {
   });
 }
 
-buildSakuraDots();
-updateSakuraSlider();
-startSakuraAuto();
+if (sakuraSlidesEl && sakuraCards.length > 0) {
+  buildSakuraDots();
+  updateSakuraSlider();
+  startSakuraAuto();
+}
