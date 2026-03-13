@@ -550,5 +550,555 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+  const foodData = {
+    arashiyama: {
+      label: "ARASHIYAMA FOOD GUIDE",
+      title: "Arashiyama Food Guide",
+      desc: "아라시야마 주변의 현지 인기 맛집, 여행객 인기 맛집, 카페와 디저트를 정리했습니다.",
+      local: [
+        {
+          name: "Arashiyama Yoshimura",
+          hours: "11:00–17:00",
+          menu: "Handmade soba",
+          maps: "https://maps.google.com/?q=Arashiyama+Yoshimura",
+          menuLink: "https://www.google.com/search?q=Arashiyama+Yoshimura+menu"
+        },
+        {
+          name: "Unagi Hirokawa",
+          hours: "11:00–14:30 / 17:00–20:00",
+          menu: "Unagi rice bowl",
+          maps: "https://maps.google.com/?q=Unagi+Hirokawa+Kyoto",
+          menuLink: "https://www.google.com/search?q=Unagi+Hirokawa+menu"
+        },
+        {
+          name: "Shoraian",
+          hours: "11:00–17:00",
+          menu: "Tofu kaiseki",
+          maps: "https://maps.google.com/?q=Shoraian+Kyoto",
+          menuLink: "https://www.google.com/search?q=Shoraian+Kyoto+menu"
+        },
+        {
+          name: "Steak Otsuka",
+          hours: "11:00–14:30",
+          menu: "Wagyu steak",
+          maps: "https://maps.google.com/?q=Steak+Otsuka+Kyoto",
+          menuLink: "https://www.google.com/search?q=Steak+Otsuka+menu"
+        },
+        {
+          name: "Arabica Kyoto Arashiyama",
+          hours: "08:00–18:00",
+          menu: "Coffee / Latte",
+          maps: "https://maps.google.com/?q=Arabica+Kyoto+Arashiyama",
+          menuLink: "https://www.google.com/search?q=Arabica+Kyoto+Arashiyama+menu"
+        }
+      ],
+      tourist: [
+        {
+          name: "eX Cafe Arashiyama",
+          hours: "10:00–18:00",
+          menu: "Matcha sweets",
+          maps: "https://maps.google.com/?q=eX+Cafe+Arashiyama",
+          menuLink: "https://www.google.com/search?q=eX+Cafe+Arashiyama+menu"
+        },
+        {
+          name: "Bread, Espresso & Arashiyama Garden",
+          hours: "08:00–18:00",
+          menu: "Bread / Brunch",
+          maps: "https://maps.google.com/?q=Bread+Espresso+Arashiyama+Garden",
+          menuLink: "https://www.google.com/search?q=Bread+Espresso+Arashiyama+Garden+menu"
+        },
+        {
+          name: "Saga Tofu Ine",
+          hours: "11:00–16:00",
+          menu: "Yudofu set",
+          maps: "https://maps.google.com/?q=Saga+Tofu+Ine+Kyoto",
+          menuLink: "https://www.google.com/search?q=Saga+Tofu+Ine+menu"
+        },
+        {
+          name: "Snoopy Chocolate Kyoto Arashiyama",
+          hours: "10:00–18:00",
+          menu: "Chocolate dessert",
+          maps: "https://maps.google.com/?q=Snoopy+Chocolate+Kyoto+Arashiyama",
+          menuLink: "https://www.google.com/search?q=Snoopy+Chocolate+Kyoto+Arashiyama+menu"
+        },
+        {
+          name: "Arashiyama Rilakkuma Tea House",
+          hours: "10:00–17:30",
+          menu: "Character dessert",
+          maps: "https://maps.google.com/?q=Rilakkuma+Tea+House+Arashiyama",
+          menuLink: "https://www.google.com/search?q=Rilakkuma+Tea+House+Arashiyama+menu"
+        }
+      ],
+      cafe: [
+        {
+          name: "Arabica Kyoto Arashiyama",
+          hours: "08:00–18:00",
+          menu: "Coffee / Latte",
+          maps: "https://maps.google.com/?q=Arabica+Kyoto+Arashiyama"
+        },
+        {
+          name: "Bread, Espresso & Arashiyama Garden",
+          hours: "08:00–18:00",
+          menu: "Bread / Brunch",
+          maps: "https://maps.google.com/?q=Bread+Espresso+Arashiyama+Garden"
+        },
+        {
+          name: "eX Cafe Arashiyama",
+          hours: "10:00–18:00",
+          menu: "Matcha / Dessert",
+          maps: "https://maps.google.com/?q=eX+Cafe+Arashiyama"
+        }
+      ],
+      dessert: [
+        {
+          name: "Snoopy Chocolate Kyoto Arashiyama",
+          hours: "10:00–18:00",
+          menu: "Chocolate sweets",
+          maps: "https://maps.google.com/?q=Snoopy+Chocolate+Kyoto+Arashiyama"
+        },
+        {
+          name: "Arashiyama Rilakkuma Tea House",
+          hours: "10:00–17:30",
+          menu: "Dessert / Character menu",
+          maps: "https://maps.google.com/?q=Rilakkuma+Tea+House+Arashiyama"
+        },
+        {
+          name: "eX Cafe Arashiyama",
+          hours: "10:00–18:00",
+          menu: "Warabi mochi / Matcha",
+          maps: "https://maps.google.com/?q=eX+Cafe+Arashiyama"
+        }
+      ]
+    },
+
+    gion: {
+      label: "GION FOOD GUIDE",
+      title: "Gion Food Guide",
+      desc: "기온 지역의 인기 맛집과 디저트, 카페를 정리했습니다.",
+      local: [
+        {
+          name: "Omen Gion",
+          hours: "11:30–21:00",
+          menu: "Udon",
+          maps: "https://maps.google.com/?q=Omen+Gion+Kyoto",
+          menuLink: "https://www.google.com/search?q=Omen+Gion+menu"
+        },
+        {
+          name: "Izuju Sushi",
+          hours: "10:30–19:00",
+          menu: "Kyoto style sushi",
+          maps: "https://maps.google.com/?q=Izuju+Sushi+Kyoto",
+          menuLink: "https://www.google.com/search?q=Izuju+Sushi+menu"
+        },
+        {
+          name: "Gion Tanto",
+          hours: "11:30–22:00",
+          menu: "Okonomiyaki",
+          maps: "https://maps.google.com/?q=Gion+Tanto+Kyoto",
+          menuLink: "https://www.google.com/search?q=Gion+Tanto+menu"
+        },
+        {
+          name: "Gion Duck Noodles",
+          hours: "11:00–21:00",
+          menu: "Duck ramen",
+          maps: "https://maps.google.com/?q=Gion+Duck+Noodles+Kyoto",
+          menuLink: "https://www.google.com/search?q=Gion+Duck+Noodles+menu"
+        },
+        {
+          name: "Tempura Endo Yasaka",
+          hours: "11:00–15:30 / 17:00–21:00",
+          menu: "Tempura course",
+          maps: "https://maps.google.com/?q=Tempura+Endo+Yasaka",
+          menuLink: "https://www.google.com/search?q=Tempura+Endo+Yasaka+menu"
+        }
+      ],
+      tourist: [
+        {
+          name: "Kyoto Engine Ramen",
+          hours: "11:00–15:00 / 17:30–21:00",
+          menu: "Ramen",
+          maps: "https://maps.google.com/?q=Kyoto+Engine+Ramen",
+          menuLink: "https://www.google.com/search?q=Kyoto+Engine+Ramen+menu"
+        },
+        {
+          name: "Gion Uokeya U",
+          hours: "11:30–15:00 / 17:00–21:00",
+          menu: "Unagi",
+          maps: "https://maps.google.com/?q=Gion+Uokeya+U",
+          menuLink: "https://www.google.com/search?q=Gion+Uokeya+U+menu"
+        },
+        {
+          name: "Nishiki Warai Gion",
+          hours: "11:00–23:00",
+          menu: "Okonomiyaki",
+          maps: "https://maps.google.com/?q=Nishiki+Warai+Gion",
+          menuLink: "https://www.google.com/search?q=Nishiki+Warai+Gion+menu"
+        },
+        {
+          name: "Starbucks Kyoto Ninenzaka Yasaka Chaya",
+          hours: "08:00–20:00",
+          menu: "Coffee / Dessert",
+          maps: "https://maps.google.com/?q=Starbucks+Kyoto+Ninenzaka+Yasaka+Chaya",
+          menuLink: "https://www.google.com/search?q=Starbucks+Kyoto+Ninenzaka+Yasaka+Chaya+menu"
+        },
+        {
+          name: "Gion Tsujiri",
+          hours: "10:00–21:00",
+          menu: "Matcha parfait",
+          maps: "https://maps.google.com/?q=Gion+Tsujiri+Kyoto",
+          menuLink: "https://www.google.com/search?q=Gion+Tsujiri+menu"
+        }
+      ],
+      cafe: [
+        {
+          name: "Starbucks Kyoto Ninenzaka Yasaka Chaya",
+          hours: "08:00–20:00",
+          menu: "Coffee / Sweets",
+          maps: "https://maps.google.com/?q=Starbucks+Kyoto+Ninenzaka+Yasaka+Chaya"
+        },
+        {
+          name: "Cafe Bibliotic Hello",
+          hours: "11:30–23:00",
+          menu: "Coffee / Toast",
+          maps: "https://maps.google.com/?q=Cafe+Bibliotic+Hello+Kyoto"
+        },
+        {
+          name: "eX Cafe Kyoto Gion",
+          hours: "10:00–18:00",
+          menu: "Matcha / Dessert",
+          maps: "https://maps.google.com/?q=eX+Cafe+Kyoto+Gion"
+        }
+      ],
+      dessert: [
+        {
+          name: "Gion Tsujiri",
+          hours: "10:00–21:00",
+          menu: "Matcha parfait",
+          maps: "https://maps.google.com/?q=Gion+Tsujiri+Kyoto"
+        },
+        {
+          name: "Saryo Tsujiri",
+          hours: "10:00–20:00",
+          menu: "Matcha sweets",
+          maps: "https://maps.google.com/?q=Saryo+Tsujiri+Kyoto"
+        },
+        {
+          name: "MACCHA HOUSE Kyoto",
+          hours: "11:00–20:00",
+          menu: "Tiramisu / Matcha",
+          maps: "https://maps.google.com/?q=MACCHA+HOUSE+Kyoto"
+        }
+      ]
+    },
+
+    kiyomizu: {
+      label: "KIYOMIZU FOOD GUIDE",
+      title: "Kiyomizu Food Guide",
+      desc: "청수사와 산넨자카, 니넨자카 주변에서 찾기 좋은 맛집과 디저트입니다.",
+      local: [
+        {
+          name: "Okutan Kiyomizu",
+          hours: "11:00–16:30",
+          menu: "Yudofu",
+          maps: "https://maps.google.com/?q=Okutan+Kiyomizu",
+          menuLink: "https://www.google.com/search?q=Okutan+Kiyomizu+menu"
+        },
+        {
+          name: "Kiyomizu Junsei",
+          hours: "11:00–17:00",
+          menu: "Tofu course",
+          maps: "https://maps.google.com/?q=Kiyomizu+Junsei",
+          menuLink: "https://www.google.com/search?q=Kiyomizu+Junsei+menu"
+        },
+        {
+          name: "Omen Kiyomizu",
+          hours: "11:00–20:00",
+          menu: "Udon",
+          maps: "https://maps.google.com/?q=Omen+Kiyomizu+Kyoto",
+          menuLink: "https://www.google.com/search?q=Omen+Kiyomizu+menu"
+        },
+        {
+          name: "Gion Duck Noodles",
+          hours: "11:00–21:00",
+          menu: "Duck ramen",
+          maps: "https://maps.google.com/?q=Gion+Duck+Noodles+Kyoto",
+          menuLink: "https://www.google.com/search?q=Gion+Duck+Noodles+menu"
+        },
+        {
+          name: "Tempura Endo Yasaka",
+          hours: "11:00–15:30 / 17:00–21:00",
+          menu: "Tempura",
+          maps: "https://maps.google.com/?q=Tempura+Endo+Yasaka",
+          menuLink: "https://www.google.com/search?q=Tempura+Endo+Yasaka+menu"
+        }
+      ],
+      tourist: [
+        {
+          name: "Kasagiya",
+          hours: "11:00–17:30",
+          menu: "Sweet red bean dessert",
+          maps: "https://maps.google.com/?q=Kasagiya+Kyoto",
+          menuLink: "https://www.google.com/search?q=Kasagiya+Kyoto+menu"
+        },
+        {
+          name: "Yatsuhashi Honpo Nishio",
+          hours: "09:00–18:00",
+          menu: "Yatsuhashi sweets",
+          maps: "https://maps.google.com/?q=Yatsuhashi+Honpo+Nishio+Kiyomizu",
+          menuLink: "https://www.google.com/search?q=Yatsuhashi+Honpo+Nishio+menu"
+        },
+        {
+          name: "Starbucks Kyoto Ninenzaka Yasaka Chaya",
+          hours: "08:00–20:00",
+          menu: "Coffee / Dessert",
+          maps: "https://maps.google.com/?q=Starbucks+Kyoto+Ninenzaka+Yasaka+Chaya",
+          menuLink: "https://www.google.com/search?q=Starbucks+Kyoto+Ninenzaka+Yasaka+Chaya+menu"
+        },
+        {
+          name: "MACCHA HOUSE Kyoto",
+          hours: "11:00–20:00",
+          menu: "Matcha tiramisu",
+          maps: "https://maps.google.com/?q=MACCHA+HOUSE+Kyoto",
+          menuLink: "https://www.google.com/search?q=MACCHA+HOUSE+Kyoto+menu"
+        },
+        {
+          name: "Sannenzaka street snacks",
+          hours: "10:00–18:00",
+          menu: "Dango / Croquette / Sweets",
+          maps: "https://maps.google.com/?q=Sannenzaka+Kyoto",
+          menuLink: "https://www.google.com/search?q=Sannenzaka+Kyoto+street+food"
+        }
+      ],
+      cafe: [
+        {
+          name: "Starbucks Kyoto Ninenzaka Yasaka Chaya",
+          hours: "08:00–20:00",
+          menu: "Coffee / Dessert",
+          maps: "https://maps.google.com/?q=Starbucks+Kyoto+Ninenzaka+Yasaka+Chaya"
+        },
+        {
+          name: "The Unir Coffee Senses",
+          hours: "09:00–18:00",
+          menu: "Coffee",
+          maps: "https://maps.google.com/?q=The+Unir+Coffee+Senses+Kyoto"
+        },
+        {
+          name: "eX Cafe Kyoto Gion",
+          hours: "10:00–18:00",
+          menu: "Matcha / Dessert",
+          maps: "https://maps.google.com/?q=eX+Cafe+Kyoto+Gion"
+        }
+      ],
+      dessert: [
+        {
+          name: "Kasagiya",
+          hours: "11:00–17:30",
+          menu: "Zenzai / Ohagi",
+          maps: "https://maps.google.com/?q=Kasagiya+Kyoto"
+        },
+        {
+          name: "Yatsuhashi Honpo Nishio",
+          hours: "09:00–18:00",
+          menu: "Yatsuhashi sweets",
+          maps: "https://maps.google.com/?q=Yatsuhashi+Honpo+Nishio+Kiyomizu"
+        },
+        {
+          name: "MACCHA HOUSE Kyoto",
+          hours: "11:00–20:00",
+          menu: "Matcha tiramisu",
+          maps: "https://maps.google.com/?q=MACCHA+HOUSE+Kyoto"
+        }
+      ]
+    },
+
+    kawaramachi: {
+      label: "KAWARAMACHI FOOD GUIDE",
+      title: "Kawaramachi Food Guide",
+      desc: "카와라마치와 니시키 시장 주변에서 찾기 쉬운 인기 맛집 리스트입니다.",
+      local: [
+        {
+          name: "Menya Inoichi",
+          hours: "11:00–14:30 / 17:30–21:00",
+          menu: "Ramen",
+          maps: "https://maps.google.com/?q=Menya+Inoichi+Kyoto",
+          menuLink: "https://www.google.com/search?q=Menya+Inoichi+menu"
+        },
+        {
+          name: "Honke Owariya",
+          hours: "11:00–15:00",
+          menu: "Soba",
+          maps: "https://maps.google.com/?q=Honke+Owariya+Kyoto",
+          menuLink: "https://www.google.com/search?q=Honke+Owariya+menu"
+        },
+        {
+          name: "Hafuu",
+          hours: "11:30–13:30 / 17:30–21:30",
+          menu: "Wagyu steak",
+          maps: "https://maps.google.com/?q=Hafuu+Kyoto",
+          menuLink: "https://www.google.com/search?q=Hafuu+Kyoto+menu"
+        },
+        {
+          name: "Kichi Kichi Omurice",
+          hours: "17:00–21:00",
+          menu: "Omurice",
+          maps: "https://maps.google.com/?q=Kichi+Kichi+Omurice+Kyoto",
+          menuLink: "https://www.google.com/search?q=Kichi+Kichi+Omurice+menu"
+        },
+        {
+          name: "Sushi no Musashi",
+          hours: "11:00–22:00",
+          menu: "Conveyor belt sushi",
+          maps: "https://maps.google.com/?q=Sushi+no+Musashi+Kyoto",
+          menuLink: "https://www.google.com/search?q=Sushi+no+Musashi+Kyoto+menu"
+        }
+      ],
+      tourist: [
+        {
+          name: "Ichiran Kyoto Kawaramachi",
+          hours: "24 hours",
+          menu: "Ramen",
+          maps: "https://maps.google.com/?q=Ichiran+Kyoto+Kawaramachi",
+          menuLink: "https://www.google.com/search?q=Ichiran+Kyoto+Kawaramachi+menu"
+        },
+        {
+          name: "Gyukatsu Kyoto Katsugyu",
+          hours: "11:00–22:00",
+          menu: "Beef cutlet",
+          maps: "https://maps.google.com/?q=Gyukatsu+Kyoto+Katsugyu+Kawaramachi",
+          menuLink: "https://www.google.com/search?q=Gyukatsu+Kyoto+Katsugyu+menu"
+        },
+        {
+          name: "Nishiki Market",
+          hours: "10:00–18:00",
+          menu: "Street food",
+          maps: "https://maps.google.com/?q=Nishiki+Market+Kyoto",
+          menuLink: "https://www.google.com/search?q=Nishiki+Market+Kyoto+food"
+        },
+        {
+          name: "Yakiniku Hiro",
+          hours: "17:00–23:00",
+          menu: "Yakiniku",
+          maps: "https://maps.google.com/?q=Yakiniku+Hiro+Kyoto",
+          menuLink: "https://www.google.com/search?q=Yakiniku+Hiro+Kyoto+menu"
+        },
+        {
+          name: "MACCHA HOUSE Kyoto",
+          hours: "11:00–20:00",
+          menu: "Matcha tiramisu",
+          maps: "https://maps.google.com/?q=MACCHA+HOUSE+Kyoto",
+          menuLink: "https://www.google.com/search?q=MACCHA+HOUSE+Kyoto+menu"
+        }
+      ],
+      cafe: [
+        {
+          name: "Weekenders Coffee",
+          hours: "07:30–18:00",
+          menu: "Coffee",
+          maps: "https://maps.google.com/?q=Weekenders+Coffee+Kyoto"
+        },
+        {
+          name: "Kurasu Kyoto Stand",
+          hours: "08:00–18:00",
+          menu: "Coffee / Espresso",
+          maps: "https://maps.google.com/?q=Kurasu+Kyoto+Stand"
+        },
+        {
+          name: "Coffee Base NASHINOKI",
+          hours: "09:00–18:00",
+          menu: "Coffee / Dessert",
+          maps: "https://maps.google.com/?q=Coffee+Base+NASHINOKI+Kyoto"
+        }
+      ],
+      dessert: [
+        {
+          name: "MACCHA HOUSE Kyoto",
+          hours: "11:00–20:00",
+          menu: "Matcha tiramisu",
+          maps: "https://maps.google.com/?q=MACCHA+HOUSE+Kyoto"
+        },
+        {
+          name: "Saryo Tsujiri Kyoto",
+          hours: "10:00–20:00",
+          menu: "Matcha parfait",
+          maps: "https://maps.google.com/?q=Saryo+Tsujiri+Kyoto"
+        },
+        {
+          name: "Nishiki Market sweets",
+          hours: "10:00–18:00",
+          menu: "Street dessert",
+          maps: "https://maps.google.com/?q=Nishiki+Market+Kyoto"
+        }
+      ]
+    }
+  };
+
+  const areaCards = document.querySelectorAll(".food-area-card");
+  const labelEl = document.getElementById("food-detail-label");
+  const titleEl = document.getElementById("food-detail-title");
+  const descEl = document.getElementById("food-detail-desc");
+  const localListEl = document.getElementById("local-list");
+  const touristListEl = document.getElementById("tourist-list");
+  const cafeListEl = document.getElementById("cafe-list");
+  const dessertListEl = document.getElementById("dessert-list");
+
+  function renderRankList(items) {
+    return items.map((item, index) => `
+      <div class="food-rank-item">
+        <div class="food-rank-num">${index + 1}위</div>
+        <div class="food-rank-main">
+          <h4>${item.name}</h4>
+          <p class="food-meta-line">Hours: ${item.hours}</p>
+          <p class="food-meta-line">Menu: ${item.menu}</p>
+          <div class="food-links">
+            <a href="${item.maps}" target="_blank" rel="noopener noreferrer">Google Maps</a>
+            <a href="${item.menuLink}" target="_blank" rel="noopener noreferrer">Menu</a>
+          </div>
+        </div>
+      </div>
+    `).join("");
+  }
+
+  function renderSimpleList(items) {
+    return items.map(item => `
+      <div class="food-simple-item">
+        <h4>${item.name}</h4>
+        <p>Hours: ${item.hours}<br>Menu: ${item.menu}</p>
+        <div class="food-links">
+          <a href="${item.maps}" target="_blank" rel="noopener noreferrer">Google Maps</a>
+        </div>
+      </div>
+    `).join("");
+  }
+
+  function updateFoodArea(areaKey) {
+    const area = foodData[areaKey];
+    if (!area) return;
+
+    labelEl.textContent = area.label;
+    titleEl.textContent = area.title;
+    descEl.textContent = area.desc;
+    localListEl.innerHTML = renderRankList(area.local);
+    touristListEl.innerHTML = renderRankList(area.tourist);
+    cafeListEl.innerHTML = renderSimpleList(area.cafe);
+    dessertListEl.innerHTML = renderSimpleList(area.dessert);
+
+    areaCards.forEach(card => {
+      card.classList.toggle("active", card.dataset.area === areaKey);
+    });
+  }
+
+  areaCards.forEach(card => {
+    card.addEventListener("click", () => {
+      updateFoodArea(card.dataset.area);
+      document.getElementById("food-detail-box").scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    });
+  });
+
+  updateFoodArea("arashiyama");
+</script>
 </body>
 </html>
