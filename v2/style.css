@@ -761,19 +761,63 @@ img {
   font-size: 15px;
 }
 
-@media (max-width: 1024px) {
-  .course-card,
-  .course-card.reverse {
-    grid-template-columns: 1fr;
+@media (min-width: 1025px) {
+  .course-list {
+    gap: 36px;
   }
 
-  .course-card.reverse .course-image,
+  .course-card,
+  .course-card.reverse {
+    grid-template-columns: 520px 1fr;
+    min-height: 360px;
+    align-items: stretch;
+  }
+
+  .course-card.reverse .course-image {
+    order: 2;
+  }
+
   .course-card.reverse .course-content {
-    order: unset;
+    order: 1;
+  }
+
+  .course-image {
+    height: 100%;
   }
 
   .course-image img {
-    min-height: 300px;
+    width: 100%;
+    height: 100%;
+    min-height: 360px;
+    max-height: 420px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .course-content {
+    padding: 36px 38px 32px;
+    justify-content: center;
+  }
+
+  .course-content h3 {
+    margin: 0 0 16px;
+    font-size: 40px;
+    line-height: 1.08;
+  }
+
+  .course-desc {
+    font-size: 16px;
+    line-height: 1.9;
+    margin-bottom: 20px;
+  }
+
+  .course-meta {
+    margin-bottom: 18px;
+  }
+
+  .course-route p {
+    font-size: 15px;
+    line-height: 1.8;
   }
 }
 
