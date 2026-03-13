@@ -26,23 +26,21 @@
   </header>
 
   <main>
-   <section class="hero-video-section">
-  <div class="hero-video-wrap">
-    <video class="hero-video" autoplay muted loop playsinline>
-      <source src="hero.video01.mp4" type="video/mp4" />
-    </video>
-    
-    <div class="hero-overlay"></div>
+    <!-- HERO -->
+    <section class="hero-video-section">
+      <div class="hero-video-wrap">
+        <video class="hero-video" autoplay muted loop playsinline>
+          <source src="hero.video01.mp4" type="video/mp4" />
+        </video>
 
-    <div class="hero-text">
-      <h1>KYOTO</h1>
-      <p>SAKURA GUIDE</p>
-    </div>
+        <div class="hero-overlay"></div>
 
-  </div>
-</section>
-
-  
+        <div class="hero-text">
+          <h1>KYOTO</h1>
+          <p>SAKURA GUIDE</p>
+        </div>
+      </div>
+    </section>
 
     <!-- QUICK MENU -->
     <section class="quick-menu-section">
@@ -83,68 +81,106 @@
       </div>
     </section>
 
-    <!-- SAKURA -->
- <section id="sakura" class="content-section sakura-section">
-  <div class="container">
-    <div class="section-heading">
-      <p class="eyebrow">SAKURA HIGHLIGHTS</p>
-      <h2>Sakura Spots</h2>
-      <p class="section-desc">
-        교토의 대표 벚꽃 명소를 보여주는 영역
-      </p>
-    </div>
-
-    <div class="sakura-grid">
-      <article class="sakura-card">
-        <div class="photo-box large">PHOTO</div>
-        <div class="card-copy">
-          <h3>Arashiyama</h3>
-          <p>아라시야마 벚꽃 명소 설명 자리</p>
+    <!-- SAKURA SLIDER -->
+    <section id="sakura" class="content-section sakura-section">
+      <div class="container sakura-container">
+        <div class="section-heading">
+          <p class="eyebrow">SAKURA HIGHLIGHTS</p>
+          <h2>Sakura Spots</h2>
+          <p class="section-desc">
+            교토의 대표 벚꽃 명소를 슬라이드 형식으로 보여주는 영역
+          </p>
         </div>
-      </article>
 
-      <article class="sakura-card">
-        <div class="photo-box large">PHOTO</div>
-        <div class="card-copy">
-          <h3>Philosopher’s Path</h3>
-          <p>철학의 길 벚꽃 명소 설명 자리</p>
-        </div>
-      </article>
+        <div class="sakura-slider-wrap">
+          <button class="sakura-arrow sakura-arrow-left" type="button" aria-label="Previous">
+            ←
+          </button>
 
-      <article class="sakura-card">
-        <div class="photo-box large">PHOTO</div>
-        <div class="card-copy">
-          <h3>Kiyomizu-dera</h3>
-          <p>기요미즈데라 벚꽃 명소 설명 자리</p>
-        </div>
-      </article>
+          <div class="sakura-slider">
+            <div class="sakura-slides" id="sakuraSlides">
+              <article class="sakura-slide-card">
+                <div class="sakura-slide-image">
+                  <img src="togetsukyou6.png" alt="Arashiyama">
+                </div>
+                <div class="sakura-slide-overlay"></div>
+                <div class="sakura-slide-copy">
+                  <p class="sakura-slide-tag">#Arashiyama #KyotoSakura</p>
+                  <h3>Arashiyama</h3>
+                  <p>아라시야마 벚꽃 명소 설명 자리</p>
+                </div>
+              </article>
 
-      <article class="sakura-card">
-        <div class="photo-box large">PHOTO</div>
-        <div class="card-copy">
-          <h3>Maruyama Park</h3>
-          <p>마루야마 공원 벚꽃 명소 설명 자리</p>
-        </div>
-      </article>
+              <article class="sakura-slide-card">
+                <div class="sakura-slide-image">
+                  <img src="tetsugaku9.png" alt="Philosopher’s Path">
+                </div>
+                <div class="sakura-slide-overlay"></div>
+                <div class="sakura-slide-copy">
+                  <p class="sakura-slide-tag">#PhilosophersPath #SpringWalk</p>
+                  <h3>Philosopher’s Path</h3>
+                  <p>철학의 길 벚꽃 명소 설명 자리</p>
+                </div>
+              </article>
 
-      <article class="sakura-card">
-        <div class="photo-box large">PHOTO</div>
-        <div class="card-copy">
-          <h3>Heian Shrine</h3>
-          <p>헤이안신궁 벚꽃 명소 설명 자리</p>
-        </div>
-      </article>
+              <article class="sakura-slide-card">
+                <div class="sakura-slide-image">
+                  <img src="kiyomizudera25.png" alt="Kiyomizu-dera">
+                </div>
+                <div class="sakura-slide-overlay"></div>
+                <div class="sakura-slide-copy">
+                  <p class="sakura-slide-tag">#KiyomizuDera #KyotoView</p>
+                  <h3>Kiyomizu-dera</h3>
+                  <p>기요미즈데라 벚꽃 명소 설명 자리</p>
+                </div>
+              </article>
 
-      <article class="sakura-card">
-        <div class="photo-box large">PHOTO</div>
-        <div class="card-copy">
-          <h3>Keage Incline</h3>
-          <p>케아게 인클라인 벚꽃 명소 설명 자리</p>
+              <article class="sakura-slide-card">
+                <div class="sakura-slide-image">
+                  <img src="maruyama5.png" alt="Maruyama Park">
+                </div>
+                <div class="sakura-slide-overlay"></div>
+                <div class="sakura-slide-copy">
+                  <p class="sakura-slide-tag">#MaruyamaPark #Hanami</p>
+                  <h3>Maruyama Park</h3>
+                  <p>마루야마 공원 벚꽃 명소 설명 자리</p>
+                </div>
+              </article>
+
+              <article class="sakura-slide-card">
+                <div class="sakura-slide-image">
+                  <img src="heianjingu31.png" alt="Heian Shrine">
+                </div>
+                <div class="sakura-slide-overlay"></div>
+                <div class="sakura-slide-copy">
+                  <p class="sakura-slide-tag">#HeianShrine #WeepingSakura</p>
+                  <h3>Heian Shrine</h3>
+                  <p>헤이안신궁 벚꽃 명소 설명 자리</p>
+                </div>
+              </article>
+
+              <article class="sakura-slide-card">
+                <div class="sakura-slide-image">
+                  <img src="incline10.png" alt="Keage Incline">
+                </div>
+                <div class="sakura-slide-overlay"></div>
+                <div class="sakura-slide-copy">
+                  <p class="sakura-slide-tag">#KeageIncline #RailwaySakura</p>
+                  <h3>Keage Incline</h3>
+                  <p>케아게 인클라인 벚꽃 명소 설명 자리</p>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <button class="sakura-arrow sakura-arrow-right" type="button" aria-label="Next">
+            →
+          </button>
         </div>
-      </article>
-    </div>
-  </div>
-</section>
+
+        <div class="sakura-dots" id="sakuraDots"></div>
+      </div>
+    </section>
 
     <!-- COURSES -->
     <section id="courses" class="content-section">
