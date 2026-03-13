@@ -164,68 +164,97 @@ button {
     font-size: 14px;
     letter-spacing: 0.22em;
   }
-<section id="sakura" class="content-section sakura-section">
-  <div class="container">
-    <div class="section-heading">
-      <p class="eyebrow">SAKURA HIGHLIGHTS</p>
-      <h2>Sakura Spots</h2>
-      <p class="section-desc">
-        교토의 대표 벚꽃 명소를 보여주는 영역
-      </p>
-    </div>
+  /* =========================
+   QUICK MENU
+   ========================= */
 
-    <div class="sakura-grid">
-      <article class="sakura-card">
-        <div class="photo-box large">PHOTO</div>
-        <div class="card-copy">
-          <h3>Arashiyama</h3>
-          <p>아라시야마 벚꽃 명소 설명 자리</p>
-        </div>
-      </article>
-
-      <article class="sakura-card">
-        <div class="photo-box large">PHOTO</div>
-        <div class="card-copy">
-          <h3>Philosopher’s Path</h3>
-          <p>철학의 길 벚꽃 명소 설명 자리</p>
-        </div>
-      </article>
-
-      <article class="sakura-card">
-        <div class="photo-box large">PHOTO</div>
-        <div class="card-copy">
-          <h3>Kiyomizu-dera</h3>
-          <p>기요미즈데라 벚꽃 명소 설명 자리</p>
-        </div>
-      </article>
-
-      <article class="sakura-card">
-        <div class="photo-box large">PHOTO</div>
-        <div class="card-copy">
-          <h3>Maruyama Park</h3>
-          <p>마루야마 공원 벚꽃 명소 설명 자리</p>
-        </div>
-      </article>
-
-      <article class="sakura-card">
-        <div class="photo-box large">PHOTO</div>
-        <div class="card-copy">
-          <h3>Heian Shrine</h3>
-          <p>헤이안신궁 벚꽃 명소 설명 자리</p>
-        </div>
-      </article>
-
-      <article class="sakura-card">
-        <div class="photo-box large">PHOTO</div>
-        <div class="card-copy">
-          <h3>Keage Incline</h3>
-          <p>케아게 인클라인 벚꽃 명소 설명 자리</p>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
+.quick-menu-section {
+  padding: 60px 0 56px;
 }
+
+.section-mini-title {
+  margin: 0 0 24px;
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.quick-menu-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 18px;
+  align-items: start;
+}
+
+.quick-menu-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  padding: 10px 8px;
+  text-align: center;
+  transition: transform 0.22s ease, opacity 0.22s ease;
+}
+
+.quick-menu-item:hover {
+  transform: translateY(-4px);
+  opacity: 0.9;
+}
+
+.quick-icon {
+  width: 76px;
+  height: 76px;
+  border-radius: 999px;
+  border: 1px solid rgba(30, 27, 25, 0.08);
+  background: rgba(255,255,255,0.74);
+  box-shadow: 0 8px 20px rgba(44, 33, 27, 0.06);
+  display: grid;
+  place-items: center;
+  font-size: 30px;
+}
+
+.quick-menu-item span {
+  display: block;
+  font-size: 15px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: var(--text);
+}
+
+@media (max-width: 1100px) {
+  .quick-menu-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    row-gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .quick-menu-section {
+    padding: 46px 0 42px;
+  }
+
+  .section-mini-title {
+    margin-bottom: 20px;
+  }
+
+  .quick-menu-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 12px;
+  }
+
+  .quick-icon {
+    width: 68px;
+    height: 68px;
+    font-size: 26px;
+  }
+
+  .quick-menu-item span {
+    font-size: 14px;
+  }
+}
+
+
 /* =========================
    SAKURA SLIDER - FINAL
    ========================= */
