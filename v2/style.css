@@ -164,4 +164,91 @@ button {
     font-size: 14px;
     letter-spacing: 0.22em;
   }
+  /* SAKURA CAROUSEL */
+.sakura-carousel {
+  position: relative;
+}
+
+.sakura-viewport {
+  overflow: hidden;
+}
+
+.sakura-track {
+  display: flex;
+  gap: 24px;
+  transition: transform 0.45s ease;
+  will-change: transform;
+}
+
+.sakura-slide {
+  flex: 0 0 calc((100% - 48px) / 3);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.sakura-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 54px;
+  height: 54px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(30, 27, 25, 0.78);
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+
+.sakura-nav.prev {
+  left: -18px;
+}
+
+.sakura-nav.next {
+  right: -18px;
+}
+
+.sakura-nav:hover {
+  background: rgba(30, 27, 25, 0.92);
+}
+
+@media (max-width: 1100px) {
+  .sakura-slide {
+    flex: 0 0 calc((100% - 24px) / 2);
+  }
+
+  .sakura-nav.prev {
+    left: -10px;
+  }
+
+  .sakura-nav.next {
+    right: -10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sakura-slide {
+    flex: 0 0 100%;
+  }
+
+  .sakura-nav {
+    width: 46px;
+    height: 46px;
+    font-size: 18px;
+  }
+
+  .sakura-nav.prev {
+    left: 8px;
+  }
+
+  .sakura-nav.next {
+    right: 8px;
+  }
+}
 }
