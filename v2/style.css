@@ -417,4 +417,37 @@ button {
   .container {
     width: min(100% - 24px, var(--max-width));
   }
+  .hero-video-wrap{
+  position:relative;
+}
+
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.35);
+}
+
+.hero-text{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  color:white;
+  text-align:center;
+  font-family:"Playfair Display",serif;
+}
+
+.hero-text h1{
+  font-size:80px;
+  letter-spacing:4px;
+  margin:0;
+}
+
+.hero-text p{
+  font-size:22px;
+  letter-spacing:6px;
+  margin-top:10px;
+}
 }
