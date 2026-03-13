@@ -164,91 +164,266 @@ button {
     font-size: 14px;
     letter-spacing: 0.22em;
   }
-  /* SAKURA CAROUSEL */
-.sakura-carousel {
-  position: relative;
-}
+<section id="sakura" class="content-section sakura-section">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">SAKURA HIGHLIGHTS</p>
+      <h2>Sakura Spots</h2>
+      <p class="section-desc">
+        교토의 대표 벚꽃 명소를 보여주는 영역
+      </p>
+    </div>
 
-.sakura-viewport {
+    <div class="sakura-grid">
+      <article class="sakura-card">
+        <div class="photo-box large">PHOTO</div>
+        <div class="card-copy">
+          <h3>Arashiyama</h3>
+          <p>아라시야마 벚꽃 명소 설명 자리</p>
+        </div>
+      </article>
+
+      <article class="sakura-card">
+        <div class="photo-box large">PHOTO</div>
+        <div class="card-copy">
+          <h3>Philosopher’s Path</h3>
+          <p>철학의 길 벚꽃 명소 설명 자리</p>
+        </div>
+      </article>
+
+      <article class="sakura-card">
+        <div class="photo-box large">PHOTO</div>
+        <div class="card-copy">
+          <h3>Kiyomizu-dera</h3>
+          <p>기요미즈데라 벚꽃 명소 설명 자리</p>
+        </div>
+      </article>
+
+      <article class="sakura-card">
+        <div class="photo-box large">PHOTO</div>
+        <div class="card-copy">
+          <h3>Maruyama Park</h3>
+          <p>마루야마 공원 벚꽃 명소 설명 자리</p>
+        </div>
+      </article>
+
+      <article class="sakura-card">
+        <div class="photo-box large">PHOTO</div>
+        <div class="card-copy">
+          <h3>Heian Shrine</h3>
+          <p>헤이안신궁 벚꽃 명소 설명 자리</p>
+        </div>
+      </article>
+
+      <article class="sakura-card">
+        <div class="photo-box large">PHOTO</div>
+        <div class="card-copy">
+          <h3>Keage Incline</h3>
+          <p>케아게 인클라인 벚꽃 명소 설명 자리</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+}
+/* =========================
+   SAKURA SLIDER - FINAL
+   ========================= */
+
+.sakura-container {
   overflow: hidden;
 }
 
-.sakura-track {
+.sakura-slider-wrap {
+  position: relative;
+  width: 100%;
+  padding: 0 86px;
+}
+
+.sakura-slider {
+  overflow: hidden;
+}
+
+.sakura-slides {
   display: flex;
-  gap: 24px;
-  transition: transform 0.45s ease;
+  transition: transform 0.55s ease;
   will-change: transform;
 }
 
-.sakura-slide {
-  flex: 0 0 calc((100% - 48px) / 3);
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-xl);
+.sakura-slide-card {
+  position: relative;
+  flex: 0 0 100%;
   overflow: hidden;
-  box-shadow: var(--shadow);
+  border-radius: 30px;
+  box-shadow: 0 22px 50px rgba(44, 33, 27, 0.14);
+  background: #ddd;
 }
 
-.sakura-nav {
+.sakura-slide-image {
+  position: relative;
+  width: 100%;
+  height: 560px;
+}
+
+.sakura-slide-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.sakura-slide-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.58) 0%,
+    rgba(0, 0, 0, 0.24) 38%,
+    rgba(0, 0, 0, 0.06) 68%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  z-index: 1;
+}
+
+.sakura-slide-copy {
+  position: absolute;
+  left: 40px;
+  right: 40px;
+  bottom: 34px;
+  z-index: 2;
+  color: #fff;
+}
+
+.sakura-slide-tag {
+  margin: 0 0 12px;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  opacity: 0.92;
+}
+
+.sakura-slide-copy h3 {
+  margin: 0 0 12px;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(34px, 4.6vw, 60px);
+  line-height: 0.95;
+}
+
+.sakura-slide-copy p:last-child {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.7;
+  max-width: 620px;
+}
+
+.sakura-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   z-index: 5;
-  width: 54px;
-  height: 54px;
-  border: 0;
+  width: 64px;
+  height: 64px;
+  border: none;
   border-radius: 999px;
-  background: rgba(30, 27, 25, 0.78);
+  background: rgba(35, 28, 25, 0.75);
   color: #fff;
-  font-size: 20px;
-  cursor: pointer;
+  font-size: 24px;
   display: grid;
   place-items: center;
+  cursor: pointer;
+  transition: 0.2s ease;
+  backdrop-filter: blur(8px);
 }
 
-.sakura-nav.prev {
-  left: -18px;
+.sakura-arrow:hover {
+  background: rgba(35, 28, 25, 0.92);
+  transform: translateY(-50%) scale(1.05);
 }
 
-.sakura-nav.next {
-  right: -18px;
+.sakura-arrow-left {
+  left: 6px;
 }
 
-.sakura-nav:hover {
-  background: rgba(30, 27, 25, 0.92);
+.sakura-arrow-right {
+  right: 6px;
+}
+
+.sakura-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.sakura-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(30, 27, 25, 0.18);
+  transition: 0.25s ease;
+  cursor: pointer;
+}
+
+.sakura-dot.active {
+  width: 34px;
+  background: rgba(30, 27, 25, 0.84);
 }
 
 @media (max-width: 1100px) {
-  .sakura-slide {
-    flex: 0 0 calc((100% - 24px) / 2);
+  .sakura-slider-wrap {
+    padding: 0 64px;
   }
 
-  .sakura-nav.prev {
-    left: -10px;
+  .sakura-slide-image {
+    height: 460px;
   }
 
-  .sakura-nav.next {
-    right: -10px;
+  .sakura-slide-copy {
+    left: 28px;
+    right: 28px;
+    bottom: 26px;
   }
 }
 
 @media (max-width: 768px) {
-  .sakura-slide {
-    flex: 0 0 100%;
+  .sakura-slider-wrap {
+    padding: 0 18px;
   }
 
-  .sakura-nav {
-    width: 46px;
-    height: 46px;
+  .sakura-slide-card {
+    border-radius: 22px;
+  }
+
+  .sakura-slide-image {
+    height: 360px;
+  }
+
+  .sakura-slide-copy {
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+  }
+
+  .sakura-slide-copy h3 {
+    font-size: clamp(28px, 9vw, 42px);
+  }
+
+  .sakura-slide-copy p:last-child {
+    font-size: 14px;
+  }
+
+  .sakura-arrow {
+    width: 48px;
+    height: 48px;
     font-size: 18px;
   }
 
-  .sakura-nav.prev {
-    left: 8px;
+  .sakura-arrow-left {
+    left: 4px;
   }
 
-  .sakura-nav.next {
-    right: 8px;
+  .sakura-arrow-right {
+    right: 4px;
   }
 }
-}
+
