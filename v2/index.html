@@ -352,52 +352,83 @@
 
 
     <!-- FOOD -->
-    <section id="food" class="content-section soft-bg">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">FOOD GUIDE</p>
-          <h2>Food by Area</h2>
-          <p class="section-desc">
-            관광지 주변 맛집을 지역별로 보여주는 영역
-          </p>
+   <section id="food" class="content-section food-section soft-bg">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">FOOD GUIDE</p>
+      <h2>Food by Area</h2>
+      <p class="section-desc">관광지 주변 맛집을 지역별로 확인할 수 있습니다.</p>
+    </div>
+
+    <div class="food-area-grid">
+      <button class="food-area-card active" data-area="arashiyama">
+        <div class="food-area-photo">PHOTO</div>
+        <div class="food-area-copy">
+          <h3>Arashiyama</h3>
+          <p>아라시야마 주변 추천 맛집</p>
         </div>
+      </button>
 
-        <div class="card-grid four">
-          <article class="mini-card">
-            <div class="photo-box">PHOTO</div>
-            <div class="card-copy">
-              <h3>Arashiyama</h3>
-              <p>맛집 리스트 자리</p>
-            </div>
-          </article>
+      <button class="food-area-card" data-area="gion">
+        <div class="food-area-photo">PHOTO</div>
+        <div class="food-area-copy">
+          <h3>Gion</h3>
+          <p>기온 주변 추천 맛집</p>
+        </div>
+      </button>
 
-          <article class="mini-card">
-            <div class="photo-box">PHOTO</div>
-            <div class="card-copy">
-              <h3>Gion</h3>
-              <p>맛집 리스트 자리</p>
-            </div>
-          </article>
+      <button class="food-area-card" data-area="kiyomizu">
+        <div class="food-area-photo">PHOTO</div>
+        <div class="food-area-copy">
+          <h3>Kiyomizu</h3>
+          <p>청수사 주변 추천 맛집</p>
+        </div>
+      </button>
 
-          <article class="mini-card">
-            <div class="photo-box">PHOTO</div>
-            <div class="card-copy">
-              <h3>Kiyomizu</h3>
-              <p>맛집 리스트 자리</p>
-            </div>
-          </article>
+      <button class="food-area-card" data-area="kawaramachi">
+        <div class="food-area-photo">PHOTO</div>
+        <div class="food-area-copy">
+          <h3>Kawaramachi</h3>
+          <p>카와라마치 주변 추천 맛집</p>
+        </div>
+      </button>
+    </div>
 
-          <article class="mini-card">
-            <div class="photo-box">PHOTO</div>
-            <div class="card-copy">
-              <h3>Kawaramachi</h3>
-              <p>맛집 리스트 자리</p>
-            </div>
-          </article>
+    <div class="food-detail-box" id="food-detail-box">
+      <div class="food-detail-head">
+        <div>
+          <p class="food-detail-label" id="food-detail-label">AREA FOOD GUIDE</p>
+          <h3 id="food-detail-title">Arashiyama Food Guide</h3>
+          <p id="food-detail-desc">지역별 인기 맛집, 카페, 디저트를 한 번에 확인할 수 있습니다.</p>
         </div>
       </div>
-    </section>
 
+      <div class="food-ranking-grid">
+        <div class="food-ranking-card">
+          <div class="food-ranking-title">현지인 인기 TOP 5</div>
+          <div id="local-list"></div>
+        </div>
+
+        <div class="food-ranking-card">
+          <div class="food-ranking-title alt">여행객 인기 TOP 5</div>
+          <div id="tourist-list"></div>
+        </div>
+      </div>
+
+      <div class="food-sub-grid">
+        <div class="food-sub-card">
+          <div class="food-sub-title">Recommended Cafe</div>
+          <div id="cafe-list"></div>
+        </div>
+
+        <div class="food-sub-card">
+          <div class="food-sub-title">Recommended Dessert</div>
+          <div id="dessert-list"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
     <!-- EVENTS -->
     <section id="events" class="content-section">
       <div class="container">
