@@ -43,11 +43,13 @@ function updateSakuraSlider() {
 }
 
 function nextSakuraSlide() {
+  if (sakuraCards.length === 0) return;
   sakuraIndex = (sakuraIndex + 1) % sakuraCards.length;
   updateSakuraSlider();
 }
 
 function prevSakuraSlide() {
+  if (sakuraCards.length === 0) return;
   sakuraIndex = (sakuraIndex - 1 + sakuraCards.length) % sakuraCards.length;
   updateSakuraSlider();
 }
