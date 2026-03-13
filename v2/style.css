@@ -95,31 +95,13 @@ button {
   margin: 0 auto;
 }
 
-.hero-video-placeholder {
-  width: 100%;
-  height: min(78vh, 820px);
-  min-height: 520px;
-  border-radius: 34px;
-  background:
-    linear-gradient(135deg, rgba(226, 209, 214, 0.85), rgba(245, 235, 231, 0.78)),
-    linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0.06));
-  border: 1px solid rgba(255,255,255,0.6);
-  box-shadow: var(--shadow);
-  display: grid;
-  place-items: center;
-  font-family: "Playfair Display", serif;
-  font-size: clamp(42px, 7vw, 100px);
-  color: rgba(30, 27, 25, 0.36);
-  letter-spacing: 0.04em;
-}
-
-.hero-video {
-  width: 100%;
-  height: min(78vh, 820px);
-  min-height: 520px;
-  object-fit: cover;
-  border-radius: 34px;
-  display: block;
+.hero-video{
+  width:100%;
+  height:min(78vh,820px);
+  min-height:520px;
+  border-radius:34px;
+  object-fit:cover;
+  display:block;
   box-shadow: var(--shadow);
 }
 
