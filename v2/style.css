@@ -766,8 +766,7 @@ img {
     gap: 36px;
   }
 
-  .course-card,
-  .course-card.reverse {
+  .course-card {
     grid-template-columns: 520px 1fr;
     min-height: 360px;
     align-items: stretch;
