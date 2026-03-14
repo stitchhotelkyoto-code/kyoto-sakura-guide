@@ -12,15 +12,15 @@
 <body>
   <header class="site-header">
     <div class="header-inner">
-      <a href="#" class="brand">Kyoto Sakura Guide</a>
+      <a href="#" class="brand" data-i18n="brand">Kyoto Sakura Guide</a>
 
       <nav class="main-nav">
-        <a href="#sakura">Sakura</a>
-        <a href="#courses">Courses</a>
-        <a href="#food">Food</a>
-        <a href="#events">Events</a>
-        <a href="#ai-guide">AI Guide</a>
-        <a href="#hotels">Hotels</a>
+        <a href="#sakura">nav_Sakura</a>
+        <a href="#courses">nav_Courses</a>
+        <a href="#food">nav_Food</a>
+        <a href="#events">nav_Events</a>
+        <a href="#ai-guide">nav_AI Guide</a>
+        <a href="#hotels">nav_Hotels</a>
       </nav>
     </div>
   </header>
@@ -57,32 +57,32 @@
     <div class="quick-menu-grid">
       <a href="#sakura" class="quick-menu-item">
         <div class="quick-icon">🌸</div>
-        <span>Sakura Spots</span>
+        <span data-i18n="quick_sakura">Sakura Spots</span>
       </a>
 
       <a href="#courses" class="quick-menu-item">
         <div class="quick-icon">🗺</div>
-        <span>Travel Courses</span>
+        <span data-i18n="quick_courses">Travel Courses</span>
       </a>
 
       <a href="#food" class="quick-menu-item">
         <div class="quick-icon">🍜</div>
-        <span>Food Guide</span>
+        <span data-i18n="quick_food">Food Guide</span>
       </a>
 
       <a href="#events" class="quick-menu-item">
         <div class="quick-icon">🎎</div>
-        <span>Events</span>
+        <span data-i18n="quick_events">Events</span>
       </a>
 
       <a href="#ai-guide" class="quick-menu-item">
         <div class="quick-icon">✨</div>
-        <span>AI Guide</span>
+        <span data-i18n="quick_ai">AI Guide</span>
       </a>
 
       <a href="#hotels" class="quick-menu-item">
         <div class="quick-icon">🏨</div>
-        <span>Hotels</span>
+        <h2 data-i18n="ai_title">Smart Guide Near You</h2>
       </a>
     </div>
   </div>
@@ -974,8 +974,8 @@
 
  <section class="hotel-showcase" id="hotels">
   <div class="hotel-showcase__intro">
-    <h2>Our Hotels</h2>
-    <p>Explore four Kyoto stays with direct access to each official website and Instagram page.</p>
+    <h2 data-i18n="hotels_title">Our Hotels</h2>
+<p data-i18n="hotels_desc">Explore four Kyoto stays with direct access to each official website and Instagram page.</p>
   </div>
 
   <div class="hotel-grid">
@@ -1275,7 +1275,7 @@ document.addEventListener("DOMContentLoaded", () => {
       );
     });
     <div class="bottom-home-wrap">
-  <a href="#" class="bottom-home-btn">Home</a>
+  <a href="#" class="bottom-home-btn" data-i18n="home_btn">Home</a>
 </div>
 });
 </script>
