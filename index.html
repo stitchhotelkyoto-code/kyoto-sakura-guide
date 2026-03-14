@@ -2112,41 +2112,48 @@ eventsFooter: '개최 기간은 매년 달라질 수 있으니 방문 전 공식
   applyLanguage(savedLang);
   showScreen('home');
  </script>
+
     <script>
-  const foodToggleButtons = document.querySelectorAll(".food-toggle-btn");
-  const foodPanels = document.querySelectorAll(".food-slide-panel");
+const foodToggleButtons = document.querySelectorAll(".food-toggle-btn");
+const foodPanels = document.querySelectorAll(".food-slide-panel");
 
-  function closeAllFoodPanels() {
-    foodPanels.forEach(panel => panel.classList.remove("open"));
-    foodToggleButtons.forEach(btn => {
-      btn.classList.remove("is-open");
-      btn.textContent = "+";
-    });
-  }
-
-  foodToggleButtons.forEach(button => {
-    button.addEventListener("click", (event) => {
-      event.stopPropagation();
-
-      const targetId = button.dataset.target;
-      const targetPanel = document.getElementById(targetId);
-      const isOpen = targetPanel.classList.contains("open");
-
-      closeAllFoodPanels();
-
-      if (!isOpen) {
-        targetPanel.classList.add("open");
-        button.classList.add("is-open");
-        button.textContent = "−";
-      }
-    });
+function closeAllFoodPanels() {
+  foodPanels.forEach(panel => panel.classList.remove("open"));
+  foodToggleButtons.forEach(btn => {
+    btn.classList.remove("is-open");
+    btn.textContent = "+";
   });
+}
 
-  document.addEventListener("click", (event) => {
-    if (!event.target.closest(".food-area-item")) {
-      closeAllFoodPanels();
+foodToggleButtons.forEach(button => {
+  button.addEventListener("click", (event) => {
+    event.stopPropagation();
+
+    const targetId = button.dataset.target;
+    const targetPanel = document.getElementById(targetId);
+
+    if (!targetPanel) {
+      console.log("패널 못 찾음:", targetId);
+      return;
+    }
+
+    const isOpen = targetPanel.classList.contains("open");
+
+    closeAllFoodPanels();
+
+    if (!isOpen) {
+      targetPanel.classList.add("open");
+      button.classList.add("is-open");
+      button.textContent = "−";
     }
   });
+});
+
+document.addEventListener("click", (event) => {
+  if (!event.target.closest(".food-area-item")) {
+    closeAllFoodPanels();
+  }
+});
 </script>
 </body>
 </html>
