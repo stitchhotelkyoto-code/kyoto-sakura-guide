@@ -354,10 +354,7 @@ if (locateBtn) {
       }
       return;
     }
-
-    if (aiGuideStatus) {
-      aiGuideStatus.textContent = "Finding your location...";
-    }
+  
 
     navigator.geolocation.getCurrentPosition(
       (position) => {
