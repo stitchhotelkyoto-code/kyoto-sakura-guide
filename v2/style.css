@@ -686,8 +686,11 @@ img {
   }
 
   .quick-menu-item span {
-    font-size: 14px;
-  }
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 8px;
+  display: block;
+}
 
   .content-section {
     padding: 64px 0;
