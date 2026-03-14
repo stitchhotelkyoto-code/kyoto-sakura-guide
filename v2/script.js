@@ -375,5 +375,103 @@ if (locateBtn) {
         );
       }
     );
+      const translations = {
+    ko: {
+      brand: "Kyoto Sakura Guide",
+      nav_sakura: "Sakura",
+      nav_courses: "Courses",
+      nav_food: "Food",
+      nav_events: "Events",
+      nav_ai: "AI Guide",
+      nav_hotels: "Hotels",
+
+      quick_sakura: "Sakura Spots",
+      quick_courses: "Travel Courses",
+      quick_food: "Food Guide",
+      quick_events: "Events",
+      quick_ai: "AI Guide",
+      quick_hotels: "Hotels",
+
+      ai_title: "Smart Guide Near You",
+      hotels_title: "Our Hotels",
+      hotels_desc: "Explore four Kyoto stays with direct access to each official website and Instagram page.",
+      home_btn: "Home"
+    },
+
+    en: {
+      brand: "Kyoto Sakura Guide",
+      nav_sakura: "Sakura",
+      nav_courses: "Courses",
+      nav_food: "Food",
+      nav_events: "Events",
+      nav_ai: "AI Guide",
+      nav_hotels: "Hotels",
+
+      quick_sakura: "Sakura Spots",
+      quick_courses: "Travel Courses",
+      quick_food: "Food Guide",
+      quick_events: "Events",
+      quick_ai: "AI Guide",
+      quick_hotels: "Hotels",
+
+      ai_title: "Smart Guide Near You",
+      hotels_title: "Our Hotels",
+      hotels_desc: "Explore four Kyoto stays with direct access to each official website and Instagram page.",
+      home_btn: "Home"
+    },
+
+    ja: {
+      brand: "京都さくらガイド",
+      nav_sakura: "桜",
+      nav_courses: "コース",
+      nav_food: "グルメ",
+      nav_events: "イベント",
+      nav_ai: "AIガイド",
+      nav_hotels: "ホテル",
+
+      quick_sakura: "桜スポット",
+      quick_courses: "おすすめコース",
+      quick_food: "グルメガイド",
+      quick_events: "イベント",
+      quick_ai: "AIガイド",
+      quick_hotels: "ホテル",
+
+      ai_title: "近くのスマートガイド",
+      hotels_title: "ホテル紹介",
+      hotels_desc: "公式サイトとInstagramへ直接アクセスできる京都の4つの滞在先をご紹介します。",
+      home_btn: "ホーム"
+    }
+  };
+
+  const langButtons = document.querySelectorAll(".lang-btn");
+  const translatableEls = document.querySelectorAll("[data-i18n]");
+
+  function setLanguage(lang) {
+    const dict = translations[lang];
+    if (!dict) return;
+
+    translatableEls.forEach((el) => {
+      const key = el.dataset.i18n;
+      if (dict[key]) {
+        el.textContent = dict[key];
+      }
+    });
+
+    langButtons.forEach((btn) => {
+      btn.classList.toggle("active", btn.dataset.lang === lang);
+    });
+
+    document.documentElement.lang = lang;
+    localStorage.setItem("siteLanguage", lang);
+  }
+
+  langButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      setLanguage(btn.dataset.lang);
+    });
+  });
+
+  const savedLanguage = localStorage.getItem("siteLanguage") || "ko";
+  setLanguage(savedLanguage);
   });
 }
