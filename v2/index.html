@@ -490,7 +490,7 @@
   <div class="food-area-item">
     <div class="food-area-card">
       <div class="food-area-photo">
-        <img src="food-kawaramachi.jpg" alt="Kawaramachi food">
+        <img src="food-nichiki.jpg" alt="Kawaramachi food">
         <div class="food-area-photo-overlay"></div>
       </div>
       <div class="food-area-copy">
@@ -1135,48 +1135,51 @@
     }
   };
 
- <script>
-const foodToggleButtons = document.querySelectorAll(".food-toggle-btn");
-const foodPanels = document.querySelectorAll(".food-slide-panel");
+    <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const foodToggleButtons = document.querySelectorAll(".food-toggle-btn");
+  const foodPanels = document.querySelectorAll(".food-slide-panel");
 
-function closeAllFoodPanels() {
-  foodPanels.forEach(panel => panel.classList.remove("open"));
-  foodToggleButtons.forEach(btn => {
-    btn.classList.remove("is-open");
-    btn.textContent = "+";
-  });
-}
-
-foodToggleButtons.forEach(button => {
-  button.addEventListener("click", (event) => {
-    event.stopPropagation();
-
-    const targetId = button.dataset.target;
-    const targetPanel = document.getElementById(targetId);
-
-    if (!targetPanel) {
-      console.log("패널 못 찾음:", targetId);
-      return;
-    }
-
-    const isOpen = targetPanel.classList.contains("open");
-
-    closeAllFoodPanels();
-
-    if (!isOpen) {
-      targetPanel.classList.add("open");
-      button.classList.add("is-open");
-      button.textContent = "−";
-    }
-  });
-});
-
-document.addEventListener("click", (event) => {
-  if (!event.target.closest(".food-area-item")) {
-    closeAllFoodPanels();
+  function closeAllFoodPanels() {
+    foodPanels.forEach(panel => panel.classList.remove("open"));
+    foodToggleButtons.forEach(btn => {
+      btn.classList.remove("is-open");
+      btn.textContent = "+";
+    });
   }
+
+  foodToggleButtons.forEach(button => {
+    button.addEventListener("click", (event) => {
+      event.stopPropagation();
+
+      const targetId = button.dataset.target;
+      const targetPanel = document.getElementById(targetId);
+
+      if (!targetPanel) {
+        console.log("패널 못 찾음:", targetId);
+        return;
+      }
+
+      const isOpen = targetPanel.classList.contains("open");
+
+      closeAllFoodPanels();
+
+      if (!isOpen) {
+        targetPanel.classList.add("open");
+        button.classList.add("is-open");
+        button.textContent = "−";
+      }
+    });
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!event.target.closest(".food-area-item")) {
+      closeAllFoodPanels();
+    }
+  });
 });
 </script>
+
 
 </body>
 </html>
