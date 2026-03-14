@@ -360,86 +360,176 @@
       <p class="section-desc">관광지 주변 맛집을 지역별로 확인할 수 있습니다.</p>
     </div>
 
-<div class="food-area-grid">
-  <button class="food-area-card active" data-area="arashiyama" type="button">
-    <div class="food-area-photo">
-      <img src="food-arashiyama.jpg" alt="Arashiyama food">
-      <div class="food-area-photo-overlay"></div>
-    </div>
-    <div class="food-area-copy">
-      <h3>Arashiyama</h3>
-      <p>아라시야마 주변 추천 맛집</p>
-    </div>
-  </button>
-
-  <button class="food-area-card" data-area="gion" type="button">
-    <div class="food-area-photo">
-      <img src="food-gion.jpg" alt="Gion food">
-      <div class="food-area-photo-overlay"></div>
-    </div>
-    <div class="food-area-copy">
-      <h3>Gion</h3>
-      <p>기온 주변 추천 맛집</p>
-    </div>
-  </button>
-
-  <button class="food-area-card" data-area="kiyomizu" type="button">
-    <div class="food-area-photo">
-      <img src="food-kiyomizudera.jpg" alt="Kiyomizu food">
-      <div class="food-area-photo-overlay"></div>
-    </div>
-    <div class="food-area-copy">
-      <h3>Kiyomizu</h3>
-      <p>청수사 주변 추천 맛집</p>
-    </div>
-  </button>
-
-  <button class="food-area-card" data-area="kawaramachi" type="button">
-    <div class="food-area-photo">
-      <img src="food-nishiki.jpg" alt="Kawaramachi food">
-      <div class="food-area-photo-overlay"></div>
-    </div>
-    <div class="food-area-copy">
-      <h3>Kawaramachi</h3>
-      <p>카와라마치 주변 추천 맛집</p>
-    </div>
-  </button>
-</div>
-
-    <div class="food-detail-box" id="food-detail-box">
-      <div class="food-detail-head">
-        <div>
-          <p class="food-detail-label" id="food-detail-label">AREA FOOD GUIDE</p>
-          <h3 id="food-detail-title">Arashiyama Food Guide</h3>
-          <p id="food-detail-desc">지역별 인기 맛집, 카페, 디저트를 한 번에 확인할 수 있습니다.</p>
-        </div>
+    <div class="food-area-grid">
+  <div class="food-area-item">
+    <div class="food-area-card">
+      <div class="food-area-photo">
+        <img src="images/food-arashiyama.jpg" alt="Arashiyama food">
+        <div class="food-area-photo-overlay"></div>
       </div>
-
-      <div class="food-ranking-grid">
-        <div class="food-ranking-card">
-          <div class="food-ranking-title">현지인 인기 TOP 5</div>
-          <div id="local-list"></div>
-        </div>
-
-        <div class="food-ranking-card">
-          <div class="food-ranking-title alt">여행객 인기 TOP 5</div>
-          <div id="tourist-list"></div>
-        </div>
+      <div class="food-area-copy">
+        <h3>Arashiyama</h3>
+        <p>아라시야마 주변 추천 맛집</p>
+        <button class="food-toggle-btn" type="button" data-target="arashiyama-panel">+</button>
       </div>
+    </div>
 
-      <div class="food-sub-grid">
-        <div class="food-sub-card">
-          <div class="food-sub-title">Recommended Cafe</div>
-          <div id="cafe-list"></div>
+    <div class="food-slide-panel" id="arashiyama-panel">
+      <div class="food-slide-inner">
+        <div class="food-place-item">
+          <h4>Arashiyama Yoshimura</h4>
+          <span class="food-tag">Soba</span>
+          <p>Hours 11:00 – 17:00</p>
+          <p>Menu Handmade soba</p>
+          <a href="https://maps.google.com/?q=Arashiyama+Yoshimura" target="_blank" rel="noopener noreferrer">Directions</a>
         </div>
 
-        <div class="food-sub-card">
-          <div class="food-sub-title">Recommended Dessert</div>
-          <div id="dessert-list"></div>
+        <div class="food-place-item">
+          <h4>% Arabica Kyoto Arashiyama</h4>
+          <span class="food-tag">Cafe</span>
+          <p>Hours 08:00 – 18:00</p>
+          <p>Menu Cafe latte</p>
+          <a href="https://maps.google.com/?q=%25+Arabica+Kyoto+Arashiyama" target="_blank" rel="noopener noreferrer">Directions</a>
+        </div>
+
+        <div class="food-place-item">
+          <h4>Unagi Hirokawa</h4>
+          <span class="food-tag">Unagi</span>
+          <p>Hours 11:00 – 14:30 / 17:00 – 20:00</p>
+          <p>Menu Unagi rice bowl</p>
+          <a href="https://maps.google.com/?q=Unagi+Hirokawa+Kyoto" target="_blank" rel="noopener noreferrer">Directions</a>
         </div>
       </div>
     </div>
   </div>
+
+  <div class="food-area-item">
+    <div class="food-area-card">
+      <div class="food-area-photo">
+        <img src="images/food-gion.jpg" alt="Gion food">
+        <div class="food-area-photo-overlay"></div>
+      </div>
+      <div class="food-area-copy">
+        <h3>Gion</h3>
+        <p>기온 주변 추천 맛집</p>
+        <button class="food-toggle-btn" type="button" data-target="gion-panel">+</button>
+      </div>
+    </div>
+
+    <div class="food-slide-panel" id="gion-panel">
+      <div class="food-slide-inner">
+        <div class="food-place-item">
+          <h4>Gion Tanto</h4>
+          <span class="food-tag">Okonomiyaki</span>
+          <p>Hours 11:30 – 22:00</p>
+          <p>Menu Okonomiyaki</p>
+          <a href="https://maps.google.com/?q=Gion+Tanto+Kyoto" target="_blank" rel="noopener noreferrer">Directions</a>
+        </div>
+
+        <div class="food-place-item">
+          <h4>Gion Tsujiri</h4>
+          <span class="food-tag">Dessert</span>
+          <p>Hours 10:00 – 21:00</p>
+          <p>Menu Matcha parfait</p>
+          <a href="https://maps.google.com/?q=Gion+Tsujiri+Kyoto" target="_blank" rel="noopener noreferrer">Directions</a>
+        </div>
+
+        <div class="food-place-item">
+          <h4>Izuju Sushi</h4>
+          <span class="food-tag">Sushi</span>
+          <p>Hours 10:30 – 19:00</p>
+          <p>Menu Kyoto style sushi</p>
+          <a href="https://maps.google.com/?q=Izuju+Sushi+Kyoto" target="_blank" rel="noopener noreferrer">Directions</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="food-area-item">
+    <div class="food-area-card">
+      <div class="food-area-photo">
+        <img src="images/food-kiyomizudera.jpg" alt="Kiyomizu food">
+        <div class="food-area-photo-overlay"></div>
+      </div>
+      <div class="food-area-copy">
+        <h3>Kiyomizu</h3>
+        <p>청수사 주변 추천 맛집</p>
+        <button class="food-toggle-btn" type="button" data-target="kiyomizu-panel">+</button>
+      </div>
+    </div>
+
+    <div class="food-slide-panel" id="kiyomizu-panel">
+      <div class="food-slide-inner">
+        <div class="food-place-item">
+          <h4>Okutan Kiyomizu</h4>
+          <span class="food-tag">Tofu</span>
+          <p>Hours 11:00 – 16:30</p>
+          <p>Menu Yudofu</p>
+          <a href="https://maps.google.com/?q=Okutan+Kiyomizu" target="_blank" rel="noopener noreferrer">Directions</a>
+        </div>
+
+        <div class="food-place-item">
+          <h4>Kiyomizu Junsei</h4>
+          <span class="food-tag">Tofu</span>
+          <p>Hours 11:00 – 17:00</p>
+          <p>Menu Tofu course</p>
+          <a href="https://maps.google.com/?q=Kiyomizu+Junsei" target="_blank" rel="noopener noreferrer">Directions</a>
+        </div>
+
+        <div class="food-place-item">
+          <h4>Kasagiya</h4>
+          <span class="food-tag">Dessert</span>
+          <p>Hours 11:00 – 17:30</p>
+          <p>Menu Zenzai</p>
+          <a href="https://maps.google.com/?q=Kasagiya+Kyoto" target="_blank" rel="noopener noreferrer">Directions</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="food-area-item">
+    <div class="food-area-card">
+      <div class="food-area-photo">
+        <img src="images/course06.jpg" alt="Kawaramachi food">
+        <div class="food-area-photo-overlay"></div>
+      </div>
+      <div class="food-area-copy">
+        <h3>Kawaramachi</h3>
+        <p>카와라마치 주변 추천 맛집</p>
+        <button class="food-toggle-btn" type="button" data-target="kawaramachi-panel">+</button>
+      </div>
+    </div>
+
+    <div class="food-slide-panel" id="kawaramachi-panel">
+      <div class="food-slide-inner">
+        <div class="food-place-item">
+          <h4>Nishiki Market</h4>
+          <span class="food-tag">Market Food</span>
+          <p>Hours 10:00 – 18:00</p>
+          <p>Menu Street food</p>
+          <a href="https://maps.google.com/?q=Nishiki+Market+Kyoto" target="_blank" rel="noopener noreferrer">Directions</a>
+        </div>
+
+        <div class="food-place-item">
+          <h4>Menya Inoichi</h4>
+          <span class="food-tag">Ramen</span>
+          <p>Hours 11:00 – 14:30 / 17:30 – 21:00</p>
+          <p>Menu Ramen</p>
+          <a href="https://maps.google.com/?q=Menya+Inoichi+Kyoto" target="_blank" rel="noopener noreferrer">Directions</a>
+        </div>
+
+        <div class="food-place-item">
+          <h4>Gyukatsu Kyoto Katsugyu</h4>
+          <span class="food-tag">Gyukatsu</span>
+          <p>Hours 11:00 – 22:00</p>
+          <p>Menu Beef cutlet</p>
+          <a href="https://maps.google.com/?q=Gyukatsu+Kyoto+Katsugyu+Kawaramachi" target="_blank" rel="noopener noreferrer">Directions</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 </section>
     <!-- EVENTS -->
     <section id="events" class="content-section">
