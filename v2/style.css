@@ -2564,3 +2564,37 @@ img {
   color: #fff;
   cursor: pointer;
 }
+/* ===== EVENTS BUTTON POSITION RESET ===== */
+.events-slider-wrap {
+  position: relative;
+}
+
+.events-prev,
+.events-next {
+  position: absolute;
+  top: auto;
+  bottom: 18px;
+  transform: none;
+  z-index: 30;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 999px;
+  background: #fff;
+  color: #4a3c38;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.events-prev {
+  left: auto;
+  right: 56px;
+}
+
+.events-next {
+  left: auto;
+  right: 12px;
+}
