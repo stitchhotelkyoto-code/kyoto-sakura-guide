@@ -1889,6 +1889,12 @@ img {
 }
 
 @media (max-width: 768px) {
+
+  .hotel-card__buttons {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+
   .hotel-showcase {
     padding: 80px 12px 72px;
   }
