@@ -927,37 +927,44 @@
   </div>
 </section>
 
-    <!-- AI GUIDE -->
-    <section id="ai-guide" class="content-section ai-section">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">SMART GUIDE</p>
-          <h2>AI Guide</h2>
-          <p class="section-desc">
-            AI 추천 기능이 들어갈 영역
-          </p>
-        </div>
+  <section class="ai-guide" id="ai-guide">
+  <div class="ai-guide__inner">
+    <div class="ai-guide__intro">
+      <p class="ai-guide__eyebrow">AI GUIDE</p>
+      <h2>Smart Guide Near You</h2>
+      <p class="ai-guide__desc">
+        Use your current location to discover nearby Kyoto spots and food recommendations.
+      </p>
 
-        <div class="ai-box">
-          <div class="ai-actions">
-            <button type="button">Morning</button>
-            <button type="button">Afternoon</button>
-            <button type="button">Evening</button>
-            <button type="button">Food Near Me</button>
-          </div>
-
-          <div class="ai-result-box">
-            AI 추천 결과가 들어갈 자리
-          </div>
-        </div>
+      <div class="ai-guide__actions">
+        <button type="button" class="ai-guide__locate-btn" id="locateBtn">
+          Use My Location
+        </button>
+        <p class="ai-guide__status" id="aiGuideStatus">
+          Default recommendations are shown based on central Kyoto.
+        </p>
       </div>
-    </section>
+    </div>
 
- <section class="hotel-showcase" id="hotels">
-  <div class="hotel-showcase__intro">
-    <h2>Choose Your Stay</h2>
-    <p>Explore four Kyoto stays with direct access to each official website and Instagram page.</p>
+    <div class="ai-guide__grid">
+      <div class="ai-guide__panel">
+        <div class="ai-guide__panel-head">
+          <h3>Nearby Spots</h3>
+          <span>Top 3</span>
+        </div>
+        <div class="ai-guide__list" id="spotsList"></div>
+      </div>
+
+      <div class="ai-guide__panel">
+        <div class="ai-guide__panel-head">
+          <h3>Nearby Food</h3>
+          <span>Top 3</span>
+        </div>
+        <div class="ai-guide__list" id="foodList"></div>
+      </div>
+    </div>
   </div>
+</section>
 
   <div class="hotel-grid">
   
