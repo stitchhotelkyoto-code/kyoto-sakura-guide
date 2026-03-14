@@ -474,4 +474,40 @@ const foodPanels = document.querySelectorAll(".food-slide-panel");
     });
   });
 });
+/* ===== SLIDER SCRIPT 추가 ===== */
+
+// 여기부터 슬라이드 코드 붙이기
+
+const sakuraSlides = document.querySelector("#sakuraSlides");
+const sakuraPrev = document.querySelector(".sakura-prev");
+const sakuraNext = document.querySelector(".sakura-next");
+
+let sakuraIndex = 0;
+
+if (sakuraSlides && sakuraPrev && sakuraNext) {
+
+  const sakuraSlideCount = sakuraSlides.children.length;
+
+  function updateSakura() {
+    sakuraSlides.style.transform =
+      `translateX(-${sakuraIndex * 100}%)`;
+  }
+
+  sakuraNext.addEventListener("click", () => {
+    sakuraIndex = (sakuraIndex + 1) % sakuraSlideCount;
+    updateSakura();
+  });
+
+  sakuraPrev.addEventListener("click", () => {
+    sakuraIndex =
+      (sakuraIndex - 1 + sakuraSlideCount) % sakuraSlideCount;
+    updateSakura();
+  });
+
+  setInterval(() => {
+    sakuraIndex = (sakuraIndex + 1) % sakuraSlideCount;
+    updateSakura();
+  }, 5000);
+}
+
 </script>
