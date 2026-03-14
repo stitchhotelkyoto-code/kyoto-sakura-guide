@@ -2522,3 +2522,45 @@ img {
     font-size: 0.86rem;
   }
 }
+/* ===== SLIDER BUTTON FIX ===== */
+.sakura-slider-wrap,
+.events-slider-wrap {
+  position: relative;
+}
+
+.slider-arrow,
+.events-prev,
+.events-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  pointer-events: auto;
+}
+
+.sakura-prev {
+  left: 16px;
+}
+
+.sakura-next {
+  right: 16px;
+}
+
+.events-prev {
+  left: 16px;
+}
+
+.events-next {
+  right: 16px;
+}
+.slider-arrow,
+.events-prev,
+.events-next {
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 999px;
+  background: rgba(72, 60, 56, 0.85);
+  color: #fff;
+  cursor: pointer;
+}
