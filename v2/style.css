@@ -2295,3 +2295,124 @@ img {
     max-width: 220px;
   }
 }
+.header-inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 260px;
+}
+
+.brand {
+  display: inline-block;
+  margin-bottom: 12px;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  font-weight: 700;
+  color: #231f20;
+  text-decoration: none;
+  line-height: 1.05;
+}
+
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.lang-btn {
+  border: 1px solid rgba(72, 54, 62, 0.14);
+  background: rgba(255, 255, 255, 0.92);
+  color: #5e4b53;
+  border-radius: 999px;
+  padding: 8px 14px;
+  min-height: 36px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(42, 24, 31, 0.06);
+  transition: all 0.22s ease;
+}
+
+.lang-btn:hover {
+  background: #f8eef2;
+  border-color: rgba(176, 127, 143, 0.28);
+  color: #7a5f69;
+  transform: translateY(-1px);
+}
+
+.lang-btn.active {
+  background: #2f2730;
+  color: #ffffff;
+  border-color: #2f2730;
+  box-shadow: 0 10px 22px rgba(47, 39, 48, 0.18);
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding-top: 8px;
+}
+
+.main-nav a {
+  color: #6f5d64;
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.main-nav a:hover {
+  color: #2f2730;
+}
+
+@media (max-width: 768px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .brand-wrap {
+    width: 100%;
+  }
+
+  .brand {
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .lang-switcher {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .lang-btn {
+    padding: 7px 12px;
+    min-height: 34px;
+    font-size: 0.74rem;
+  }
+
+  .main-nav {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px 16px;
+    padding-top: 0;
+  }
+
+  .main-nav a {
+    font-size: 0.86rem;
+  }
+}
