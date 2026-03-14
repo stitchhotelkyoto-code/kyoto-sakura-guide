@@ -5,8 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =========================
      FOOD TOGGLE
   ========================= */
-  const foodToggleButtons = document.querySelectorAll(".food-toggle-btn");
-  const foodPanels = document.querySelectorAll(".food-slide-panel");
+ const foodToggleButtons = document.querySelectorAll(".food-toggle-btn");
+const foodPanels = document.querySelectorAll(".food-slide-panel");
 
   function closeAllFoodPanels() {
     foodPanels.forEach((panel) => panel.classList.remove("open"));
