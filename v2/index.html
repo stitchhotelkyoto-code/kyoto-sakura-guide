@@ -1087,7 +1087,7 @@
   </div>
 </section>
   
-<script>
+ <script>
 document.addEventListener("DOMContentLoaded", () => {
   const foodToggleButtons = document.querySelectorAll(".food-toggle-btn");
   const foodPanels = document.querySelectorAll(".food-slide-panel");
@@ -1126,7 +1126,8 @@ document.addEventListener("DOMContentLoaded", () => {
       closeAllFoodPanels();
     }
   });
-    const aiGuideStatus = document.getElementById("aiGuideStatus");
+
+  const aiGuideStatus = document.getElementById("aiGuideStatus");
   const spotsList = document.getElementById("spotsList");
   const foodList = document.getElementById("foodList");
   const locateBtn = document.getElementById("locateBtn");
@@ -1277,6 +1278,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       );
     });
+  }
+});
 </script>
      <div class="bottom-home-wrap">
   <a href="#" class="bottom-home-btn" data-i18n="home_btn">Home</a>
