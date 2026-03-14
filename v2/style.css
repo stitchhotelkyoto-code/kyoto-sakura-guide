@@ -1895,6 +1895,10 @@ img {
     flex-wrap: nowrap;
   }
 
+  .hotel-card__buttons {
+  margin-top: auto;
+}
+
   .hotel-showcase {
     padding: 80px 12px 72px;
   }
@@ -1907,6 +1911,11 @@ img {
   .hotel-card {
     border-radius: 18px;
   }
+
+  .hotel-card {
+  display: flex;
+  flex-direction: column;
+}
 
   .hotel-card__label {
     top: 10px;
@@ -1929,7 +1938,12 @@ img {
     font-size: 0.82rem;
     line-height: 1.55;
   }
-
+  
+   .hotel-card__content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
   .hotel-card__buttons {
     gap: 8px;
   }
