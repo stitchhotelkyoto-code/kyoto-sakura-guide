@@ -1222,3 +1222,130 @@ img {
 .food-area-card:hover {
   transform: translateY(-6px);
 }
+.food-area-item {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.food-area-copy {
+  position: relative;
+}
+
+.food-toggle-btn {
+  margin-top: 16px;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--text);
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.food-toggle-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(44, 33, 27, 0.08);
+}
+
+.food-slide-panel {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: max-height 0.45s ease, opacity 0.32s ease, transform 0.32s ease;
+}
+
+.food-slide-panel.open {
+  max-height: 1200px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.food-slide-inner {
+  background: rgba(255,255,255,0.82);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  padding: 18px;
+}
+
+.food-place-item {
+  padding: 16px 4px;
+  border-bottom: 1px dashed rgba(30, 27, 25, 0.12);
+}
+
+.food-place-item:last-child {
+  border-bottom: none;
+}
+
+.food-place-item h4 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  line-height: 1.35;
+}
+
+.food-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(216, 183, 191, 0.12);
+  color: var(--text);
+  font-size: 12px;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.food-place-item p {
+  margin: 0 0 6px;
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 14px;
+}
+
+.food-place-item a {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 8px;
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: rgba(216, 183, 191, 0.12);
+  color: var(--text);
+  font-size: 13px;
+  line-height: 1.3;
+  text-decoration: none;
+}
+
+.food-toggle-btn.is-open {
+  font-size: 28px;
+}
+
+@media (max-width: 768px) {
+  .food-toggle-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+  }
+
+  .food-slide-inner {
+    padding: 14px;
+    border-radius: 18px;
+  }
+
+  .food-place-item h4 {
+    font-size: 16px;
+  }
+
+  .food-place-item p {
+    font-size: 13px;
+  }
+
+  .food-place-item a {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+}
