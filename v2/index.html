@@ -364,7 +364,7 @@
   <div class="food-area-item">
     <div class="food-area-card">
       <div class="food-area-photo">
-        <img src="images/food-arashiyama.jpg" alt="Arashiyama food">
+        <img src="food-arashiyama.jpg" alt="Arashiyama food">
         <div class="food-area-photo-overlay"></div>
       </div>
       <div class="food-area-copy">
@@ -406,7 +406,7 @@
   <div class="food-area-item">
     <div class="food-area-card">
       <div class="food-area-photo">
-        <img src="images/food-gion.jpg" alt="Gion food">
+        <img src="food-gion.jpg" alt="Gion food">
         <div class="food-area-photo-overlay"></div>
       </div>
       <div class="food-area-copy">
@@ -448,7 +448,7 @@
   <div class="food-area-item">
     <div class="food-area-card">
       <div class="food-area-photo">
-        <img src="images/food-kiyomizudera.jpg" alt="Kiyomizu food">
+        <img src="food-kiyomizudera.jpg" alt="Kiyomizu food">
         <div class="food-area-photo-overlay"></div>
       </div>
       <div class="food-area-copy">
@@ -490,7 +490,7 @@
   <div class="food-area-item">
     <div class="food-area-card">
       <div class="food-area-photo">
-        <img src="images/course06.jpg" alt="Kawaramachi food">
+        <img src="food-kawaramachi.jpg" alt="Kawaramachi food">
         <div class="food-area-photo-overlay"></div>
       </div>
       <div class="food-area-copy">
@@ -1135,72 +1135,48 @@
     }
   };
 
-  const areaCards = document.querySelectorAll(".food-area-card");
-  const labelEl = document.getElementById("food-detail-label");
-  const titleEl = document.getElementById("food-detail-title");
-  const descEl = document.getElementById("food-detail-desc");
-  const localListEl = document.getElementById("local-list");
-  const touristListEl = document.getElementById("tourist-list");
-  const cafeListEl = document.getElementById("cafe-list");
-  const dessertListEl = document.getElementById("dessert-list");
+ <script>
+const foodToggleButtons = document.querySelectorAll(".food-toggle-btn");
+const foodPanels = document.querySelectorAll(".food-slide-panel");
 
-  function renderRankList(items) {
-    return items.map((item, index) => `
-      <div class="food-rank-item">
-        <div class="food-rank-num">${index + 1}위</div>
-        <div class="food-rank-main">
-          <h4>${item.name}</h4>
-          <p class="food-meta-line">Hours: ${item.hours}</p>
-          <p class="food-meta-line">Menu: ${item.menu}</p>
-          <div class="food-links">
-            <a href="${item.maps}" target="_blank" rel="noopener noreferrer">Google Maps</a>
-            <a href="${item.menuLink}" target="_blank" rel="noopener noreferrer">Menu</a>
-          </div>
-        </div>
-      </div>
-    `).join("");
-  }
-
-  function renderSimpleList(items) {
-    return items.map(item => `
-      <div class="food-simple-item">
-        <h4>${item.name}</h4>
-        <p>Hours: ${item.hours}<br>Menu: ${item.menu}</p>
-        <div class="food-links">
-          <a href="${item.maps}" target="_blank" rel="noopener noreferrer">Google Maps</a>
-        </div>
-      </div>
-    `).join("");
-  }
-
-  function updateFoodArea(areaKey) {
-    const area = foodData[areaKey];
-    if (!area) return;
-
-    labelEl.textContent = area.label;
-    titleEl.textContent = area.title;
-    descEl.textContent = area.desc;
-    localListEl.innerHTML = renderRankList(area.local);
-    touristListEl.innerHTML = renderRankList(area.tourist);
-    cafeListEl.innerHTML = renderSimpleList(area.cafe);
-    dessertListEl.innerHTML = renderSimpleList(area.dessert);
-
-    areaCards.forEach(card => {
-      card.classList.toggle("active", card.dataset.area === areaKey);
-    });
-  }
-
-  areaCards.forEach(card => {
-    card.addEventListener("click", () => {
-      updateFoodArea(card.dataset.area);
-      document.getElementById("food-detail-box").scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
-    });
+function closeAllFoodPanels() {
+  foodPanels.forEach(panel => panel.classList.remove("open"));
+  foodToggleButtons.forEach(btn => {
+    btn.classList.remove("is-open");
+    btn.textContent = "+";
   });
+}
 
-  updateFoodArea("arashiyama");
+foodToggleButtons.forEach(button => {
+  button.addEventListener("click", (event) => {
+    event.stopPropagation();
+
+    const targetId = button.dataset.target;
+    const targetPanel = document.getElementById(targetId);
+
+    if (!targetPanel) {
+      console.log("패널 못 찾음:", targetId);
+      return;
+    }
+
+    const isOpen = targetPanel.classList.contains("open");
+
+    closeAllFoodPanels();
+
+    if (!isOpen) {
+      targetPanel.classList.add("open");
+      button.classList.add("is-open");
+      button.textContent = "−";
+    }
+  });
+});
+
+document.addEventListener("click", (event) => {
+  if (!event.target.closest(".food-area-item")) {
+    closeAllFoodPanels();
+  }
+});
 </script>
+
 </body>
 </html>
