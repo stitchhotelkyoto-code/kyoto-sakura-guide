@@ -1720,3 +1720,238 @@ img {
     font-size: 0.88rem;
   }
 }
+.hotel-showcase {
+  padding: 110px 12px 90px;
+  background: #f7f4f3;
+}
+
+.hotel-showcase__intro {
+  max-width: 1280px;
+  margin: 0 auto 28px;
+}
+
+.hotel-showcase__intro h2 {
+  margin: 0 0 10px;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.2rem, 4vw, 4rem);
+  line-height: 1.05;
+  color: #231f20;
+  letter-spacing: -0.02em;
+}
+
+.hotel-showcase__intro p {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: #6f5d64;
+}
+
+.hotel-grid {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.hotel-card {
+  background: #ffffff;
+  border-radius: 26px;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(42, 24, 31, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hotel-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 54px rgba(42, 24, 31, 0.14);
+}
+
+.hotel-card__image-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.hotel-card__image-placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: linear-gradient(135deg, #d8cfd0 0%, #c5b9bc 100%);
+  color: rgba(35, 31, 32, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2rem, 4vw, 3.6rem);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: transform 0.45s ease, filter 0.45s ease;
+}
+
+.hotel-card:hover .hotel-card__image-placeholder {
+  transform: scale(1.04);
+  filter: brightness(0.96);
+}
+
+.hotel-card__label {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(255, 248, 250, 0.92);
+  color: #c47f90;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.hotel-card__logo-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: clamp(2rem, 5vw, 4.6rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+  pointer-events: none;
+}
+
+.hotel-card__content {
+  padding: 22px 18px 20px;
+}
+
+.hotel-card__content h3 {
+  margin: 0 0 10px;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  line-height: 1.2;
+  color: #2b1e25;
+}
+
+.hotel-card__content p {
+  margin: 0 0 18px;
+  min-height: 48px;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #6f5d64;
+}
+
+.hotel-card__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.hotel-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 0.86rem;
+  font-weight: 700;
+  transition: all 0.25s ease;
+}
+
+.hotel-btn--primary {
+  background: #2f2730;
+  color: #ffffff;
+  border: 1px solid #2f2730;
+}
+
+.hotel-btn--primary:hover {
+  background: #4a3a46;
+  border-color: #4a3a46;
+  transform: translateY(-2px);
+}
+
+.hotel-btn--secondary {
+  background: #ffffff;
+  color: #2f2730;
+  border: 1px solid #d7cfd2;
+}
+
+.hotel-btn--secondary:hover {
+  background: #f7f1f3;
+  border-color: #c9bbc1;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .hotel-showcase {
+    padding: 80px 12px 72px;
+  }
+
+  .hotel-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .hotel-card {
+    border-radius: 18px;
+  }
+
+  .hotel-card__label {
+    top: 10px;
+    left: 10px;
+    padding: 6px 10px;
+    font-size: 0.6rem;
+  }
+
+  .hotel-card__content {
+    padding: 14px 12px 14px;
+  }
+
+  .hotel-card__content h3 {
+    font-size: 1.1rem;
+  }
+
+  .hotel-card__content p {
+    min-height: auto;
+    margin-bottom: 14px;
+    font-size: 0.82rem;
+    line-height: 1.55;
+  }
+
+  .hotel-card__buttons {
+    gap: 8px;
+  }
+
+  .hotel-btn {
+    width: 100%;
+    min-height: 38px;
+    padding: 0 12px;
+    font-size: 0.78rem;
+  }
+
+  .hotel-card__logo-overlay {
+    font-size: 1.6rem;
+  }
+
+  .hotel-card__image-placeholder {
+    font-size: 1.5rem;
+  }
+}
+.hotel-card__image-real {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.45s ease, filter 0.45s ease;
+}
+
+.hotel-card:hover .hotel-card__image-real {
+  transform: scale(1.04);
+  filter: brightness(0.96);
+}
