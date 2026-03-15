@@ -200,7 +200,43 @@ document.addEventListener("DOMContentLoaded", () => {
   const spotsList = document.getElementById("spotsList");
   const foodList = document.getElementById("foodList");
   const locateBtn = document.getElementById("locateBtn");
+ let currentLanguage = localStorage.getItem("siteLanguage") || "ko";
+let currentGuideLocation = null;
+let currentGuideStatusKey = "ai_status_default";
 
+const runtimeTexts = {
+  ko: {
+    ai_walk_maps: "지도에서 길찾기",
+    ai_view_place: "장소 보기",
+    ai_status_default: "기본 추천은 교토 중심부 기준으로 표시됩니다.",
+    ai_status_unsupported: "이 브라우저에서는 위치 기능이 지원되지 않습니다.",
+    ai_status_finding: "현재 위치를 찾는 중입니다...",
+    ai_status_current: "현재 위치 기준의 주변 추천으로 업데이트되었습니다.",
+    ai_status_denied: "위치 권한이 거부되어 기본 교토 추천을 표시합니다."
+  },
+  en: {
+    ai_walk_maps: "Walk on Maps",
+    ai_view_place: "View Place",
+    ai_status_default: "Default recommendations are shown based on central Kyoto.",
+    ai_status_unsupported: "Geolocation is not supported on this browser.",
+    ai_status_finding: "Finding your location...",
+    ai_status_current: "Nearby recommendations are now based on your current location.",
+    ai_status_denied: "Location access was denied. Default Kyoto recommendations are shown."
+  },
+  ja: {
+    ai_walk_maps: "地図で経路を見る",
+    ai_view_place: "場所を見る",
+    ai_status_default: "おすすめは京都中心部を基準に表示しています。",
+    ai_status_unsupported: "このブラウザでは位置情報機能に対応していません。",
+    ai_status_finding: "現在地を取得しています...",
+    ai_status_current: "現在地を基準に周辺のおすすめへ更新しました。",
+    ai_status_denied: "位置情報の取得が許可されなかったため、京都の標準おすすめを表示しています。"
+  }
+};
+
+function rt(key) {
+  return runtimeTexts[currentLanguage]?.[key] || runtimeTexts.ko[key] || key;
+}
   const defaultLocation = {
     lat: 35.0037,
     lng: 135.7680,
@@ -273,80 +309,79 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function renderCards(targetEl, items) {
-    if (!targetEl) return;
+  if (!targetEl) return;
 
-    targetEl.innerHTML = items
-      .map((item) => {
-        return `
-          <article class="ai-guide__card">
-            <div class="ai-guide__card-top">
-              <h4 class="ai-guide__card-title">${item.name}</h4>
-              <span class="ai-guide__badge">${item.distance.toFixed(1)} km</span>
-            </div>
-            <p class="ai-guide__meta">${item.area}</p>
-            <div class="ai-guide__buttons">
-              <a href="${createGoogleMapsDirectionUrl(item.lat, item.lng)}" target="_blank" rel="noopener noreferrer" class="ai-guide__link ai-guide__link--primary">Walk on Maps</a>
-              <a href="${createGoogleMapsSearchUrl(item.name)}" target="_blank" rel="noopener noreferrer" class="ai-guide__link ai-guide__link--secondary">View Place</a>
-            </div>
-          </article>
-        `;
-      })
-      .join("");
+  targetEl.innerHTML = items
+    .map((item) => {
+      return `
+        <article class="ai-guide__card">
+          <div class="ai-guide__card-top">
+            <h4 class="ai-guide__card-title">${item.name}</h4>
+            <span class="ai-guide__badge">${item.distance.toFixed(1)} km</span>
+          </div>
+          <p class="ai-guide__meta">${item.area}</p>
+          <div class="ai-guide__buttons">
+            <a href="${createGoogleMapsDirectionUrl(item.lat, item.lng)}" target="_blank" rel="noopener noreferrer" class="ai-guide__link ai-guide__link--primary">${rt("ai_walk_maps")}</a>
+            <a href="${createGoogleMapsSearchUrl(item.name)}" target="_blank" rel="noopener noreferrer" class="ai-guide__link ai-guide__link--secondary">${rt("ai_view_place")}</a>
+          </div>
+        </article>
+      `;
+    })
+    .join("");
+}
+
+function updateAiGuide(locationData, labelText) {
+  const sortedSpots = getSortedPlaces(locationData, nearbySpots);
+  const sortedFood = getSortedPlaces(locationData, nearbyFood);
+
+  renderCards(spotsList, sortedSpots);
+  renderCards(foodList, sortedFood);
+
+  if (aiGuideStatus) {
+    aiGuideStatus.textContent = labelText;
   }
+}
 
-  function updateAiGuide(locationData, labelText) {
-    const sortedSpots = getSortedPlaces(locationData, nearbySpots);
-    const sortedFood = getSortedPlaces(locationData, nearbyFood);
+function updateAiGuideByKey(locationData, statusKey) {
+  currentGuideLocation = locationData;
+  currentGuideStatusKey = statusKey;
+  updateAiGuide(locationData, rt(statusKey));
+}
 
-    renderCards(spotsList, sortedSpots);
-    renderCards(foodList, sortedFood);
+currentGuideLocation = defaultLocation;
+
+if (spotsList && foodList) {
+  updateAiGuideByKey(defaultLocation, "ai_status_default");
+}
+
+if (locateBtn) {
+  locateBtn.addEventListener("click", () => {
+    if (!navigator.geolocation) {
+      if (aiGuideStatus) {
+        aiGuideStatus.textContent = rt("ai_status_unsupported");
+      }
+      return;
+    }
 
     if (aiGuideStatus) {
-      aiGuideStatus.textContent = labelText;
+      aiGuideStatus.textContent = rt("ai_status_finding");
     }
-  }
 
-  if (spotsList && foodList) {
-    updateAiGuide(
-      defaultLocation,
-      "Default recommendations are shown based on central Kyoto."
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const userLocation = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+
+        updateAiGuideByKey(userLocation, "ai_status_current");
+      },
+      () => {
+        updateAiGuideByKey(defaultLocation, "ai_status_denied");
+      }
     );
-  }
-
-  if (locateBtn) {
-    locateBtn.addEventListener("click", () => {
-      if (!navigator.geolocation) {
-        if (aiGuideStatus) {
-          aiGuideStatus.textContent = "Geolocation is not supported on this browser.";
-        }
-        return;
-      }
-
-      if (aiGuideStatus) {
-        aiGuideStatus.textContent = "Finding your location...";
-      }
-
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const userLocation = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
-          };
-
-          updateAiGuide(
-            userLocation,
-            "Nearby recommendations are now based on your current location."
-          );
-        },
-        () => {
-          updateAiGuide(
-            defaultLocation,
-            "Location access was denied. Default Kyoto recommendations are shown."
-          );
-        }
-      );
-    });
-  }
+  });
+}
 
   /* =========================
      LANGUAGE SWITCH
@@ -412,37 +447,37 @@ document.addEventListener("DOMContentLoaded", () => {
   const translatableEls = document.querySelectorAll("[data-i18n]");
 
   function setLanguage(lang) {
-    const dict = translations[lang];
-    if (!dict) return;
+  const dict = translations[lang];
+  if (!dict) return;
 
-    const translatableEls = document.querySelectorAll("[data-i18n]");
+  currentLanguage = lang;
 
-translatableEls.forEach((el) => {
-  const key = el.dataset.i18n;
-  const attr = el.dataset.i18nAttr;
+  const translatableEls = document.querySelectorAll("[data-i18n]");
 
-  if (!dict[key]) return;
+  translatableEls.forEach((el) => {
+    const key = el.dataset.i18n;
+    const attr = el.dataset.i18nAttr;
 
-  if (attr) {
-    el.setAttribute(attr, dict[key]);
-  } else {
-    el.textContent = dict[key];
-  }
-});
+    if (!dict[key]) return;
 
-    langButtons.forEach((btn) => {
-      btn.classList.toggle("active", btn.dataset.lang === lang);
-    });
-
-    document.documentElement.lang = lang;
-    localStorage.setItem("siteLanguage", lang);
-  }
+    if (attr) {
+      el.setAttribute(attr, dict[key]);
+    } else {
+      el.textContent = dict[key];
+    }
+  });
 
   langButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      setLanguage(btn.dataset.lang);
-    });
+    btn.classList.toggle("active", btn.dataset.lang === lang);
   });
+
+  document.documentElement.lang = lang;
+  localStorage.setItem("siteLanguage", lang);
+
+  if (spotsList && foodList && currentGuideLocation) {
+    updateAiGuideByKey(currentGuideLocation, currentGuideStatusKey);
+  }
+}
 
   const savedLanguage = localStorage.getItem("siteLanguage") || "ko";
   setLanguage(savedLanguage);
