@@ -853,7 +853,7 @@ food_place_4_3_menu: "대표메뉴 소고기 커틀릿",
 
       course_4_alt: "京都夜さんぽコース",
       course_4_label: "Kyoto Night Walk",
-      course_4_title: "京都夜さんぽコース",
+      course_4_title: "京都夜散歩コース",
       course_4_desc: "夜になるといっそう美しい京都の雰囲気を感じられるコースです。伝統的な通りや路地を歩きながら静かな夜を楽しめます。",
       course_4_meta_1: "所要時間 : 約2〜4時間",
       course_4_meta_2: "おすすめ時間 : 夕方〜夜",
