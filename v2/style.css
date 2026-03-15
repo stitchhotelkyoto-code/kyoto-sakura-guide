@@ -2617,3 +2617,48 @@ html[lang="ko"] .sakura-slide-card:nth-child(6) .sakura-slide-copy {
 html[lang="ja"] .sakura-slide-card:nth-child(4) .sakura-slide-copy {
   bottom: 44px;
 }
+
+/* MOBILE HEADER LAYOUT */
+@media (max-width: 768px) {
+
+  .site-header {
+    padding: 14px 20px 6px;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  /* Kyoto Sakura Guide 크게 */
+  .brand {
+    font-size: 28px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+　.brand {
+  letter-spacing: 0.5px;
+}
+  /* 언어 버튼 오른쪽 */
+  .lang-switch {
+    display: flex;
+    gap: 6px;
+  }
+
+  .lang-btn {
+    font-size: 13px;
+    padding: 6px 12px;
+  }
+
+  /* 메뉴는 아래 줄 */
+  .main-nav {
+margin-top: 12px;
+padding-bottom: 8px;
+display: flex;
+justify-content: space-between;
+font-size: 14px;
+}
+
+}
