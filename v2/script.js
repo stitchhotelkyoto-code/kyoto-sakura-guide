@@ -1,5 +1,8 @@
+alert("JS CONNECTED");
+
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Kyoto Sakura Guide script loaded.");
+    });
 
   /* =========================
      FOOD TOGGLE
