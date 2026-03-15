@@ -489,7 +489,20 @@ img {
   line-height: 1.7;
   max-width: 620px;
 }
+html[lang="ko"] .sakura-slide-card:nth-child(6) .sakura-slide-copy {
+  bottom: 60px;
+}
 
+.sakura-slide-copy h3 {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+.sakura-slide-copy p {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
 .sakura-arrow {
   position: absolute;
   top: 50%;
