@@ -2620,31 +2620,34 @@ html[lang="ja"] .sakura-slide-card:nth-child(4) .sakura-slide-copy {
 
 /* MOBILE HEADER LAYOUT */
 @media (max-width: 768px) {
-
   .site-header {
-    padding: 14px 20px 6px;
+    padding: 14px 20px 8px;
   }
 
   .header-inner {
+    display: block;
+  }
+
+  .header-top {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 12px;
   }
 
-  /* Kyoto Sakura Guide 크게 */
   .brand {
     font-size: 28px;
     font-weight: 600;
-    flex-shrink: 0;
+    letter-spacing: 0.5px;
+    line-height: 1.05;
+    flex: 1;
+    text-align: left;
   }
-　.brand {
-  letter-spacing: 0.5px;
-}
-  /* 언어 버튼 오른쪽 */
-  .lang-switch {
+
+  .lang-switcher {
     display: flex;
     gap: 6px;
+    flex-shrink: 0;
   }
 
   .lang-btn {
@@ -2652,13 +2655,22 @@ html[lang="ja"] .sakura-slide-card:nth-child(4) .sakura-slide-copy {
     padding: 6px 12px;
   }
 
-  /* 메뉴는 아래 줄 */
   .main-nav {
-margin-top: 12px;
-padding-bottom: 8px;
-display: flex;
-justify-content: space-between;
-font-size: 14px;
+    margin-top: 12px;
+    padding-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+  }
 }
 
+@media (max-width: 768px) {
+  .brand {
+    font-size: 24px;
+  }
+
+  .lang-btn {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
 }
