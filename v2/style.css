@@ -2613,3 +2613,7 @@ html[lang="ko"] .sakura-slide-card:nth-child(6) .sakura-slide-copy {
   left: auto;
   right: 12px;
 }
+
+html[lang="ja"] .sakura-slide-card:nth-child(4) .sakura-slide-copy {
+  bottom: 44px;
+}
