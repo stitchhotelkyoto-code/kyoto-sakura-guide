@@ -1481,10 +1481,12 @@ img {
 }
 
 .food-ranking .section-desc {
-  margin: 0;
+  margin: 0 auto;
+  max-width: 720px;
   font-size: 1rem;
   line-height: 1.8;
   color: #6f675f;
+  text-align: center;
 }
 
 .food-ranking-grid {
