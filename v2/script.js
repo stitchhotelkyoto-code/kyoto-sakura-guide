@@ -482,6 +482,14 @@ if (locateBtn) {
   const savedLanguage = localStorage.getItem("siteLanguage") || "ko";
   setLanguage(savedLanguage);
 
+  langButtons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const lang = btn.dataset.lang;
+    setLanguage(lang);
+  });
+});
+
+  
   /* =========================
      SMOOTH SCROLL
   ========================= */
