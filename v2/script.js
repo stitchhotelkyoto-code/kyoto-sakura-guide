@@ -1,8 +1,12 @@
+document.body.insertAdjacentHTML(
+  "beforeend",
+  '<div style="position:fixed;bottom:50px;right:10px;z-index:99999;background:blue;color:#fff;padding:8px 12px;border-radius:999px;font-size:12px;">JS LOADED</div>'
+);
+
 alert("JS CONNECTED");
 
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Kyoto Sakura Guide script loaded.");
-    });
 
   /* =========================
      FOOD TOGGLE
