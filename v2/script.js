@@ -362,22 +362,22 @@ food_place_4_3_menu: "대표메뉴 소고기 커틀릿",
 
       hotel_1_label: "HOTEL 01",
       hotel_1_alt: "소라니와 테라스 교토",
-      hotel_1_title: "Soraniwa Terrace Kyoto",
+      hotel_1_title: "소라니와 테라스 교토",
       hotel_1_desc: "교토의 풍경을 두 가지 스타일로 즐길 수 있는 새로운 일본식 호텔입니다.",
 
       hotel_2_label: "HOTEL 02",
       hotel_2_alt: "소라니와 테라스 교토 벳테이",
-      hotel_2_title: "Soraniwa Terrace Kyoto Bettei",
+      hotel_2_title: "소라니와 테라스 교토 벳테이",
       hotel_2_desc: "교토의 풍경을 두 가지 스타일로 즐길 수 있는 새로운 일본식 호텔입니다.",
 
       hotel_3_label: "HOTEL 03",
       hotel_3_alt: "히요리 스테이 교토 가모가와",
-      hotel_3_title: "Hiyori Stay Kyoto Kamogawa",
+      hotel_3_title: "히요리 스테이 교토 가모가와",
       hotel_3_desc: "“Love & Natural Friendly” 가족과 함께 즐기는 즐거운 교토 여행.",
 
       hotel_4_label: "HOTEL 04",
       hotel_4_alt: "스티치 호텔 교토",
-      hotel_4_title: "STITCH HOTEL KYOTO",
+      hotel_4_title: "스티치 호텔 교토",
       hotel_4_desc: "TRADITION, ELEVATED.",
 
       official_website_label: "공식 홈페이지",
@@ -1114,17 +1114,17 @@ food_place_4_3_menu: "メニュー 牛カツ",
 
       hotel_1_label: "HOTEL 01",
       hotel_1_alt: "Soraniwa Terrace Kyoto",
-      hotel_1_title: "Soraniwa Terrace Kyoto",
+      hotel_1_title: "四条河原町温泉 空庭テラス京都",
       hotel_1_desc: "京都の景色を2つのスタイルで楽しめる新しい和のホテルです。",
 
       hotel_2_label: "HOTEL 02",
       hotel_2_alt: "Soraniwa Terrace Kyoto Bettei",
-      hotel_2_title: "Soraniwa Terrace Kyoto Bettei",
+      hotel_2_title: "四条河原町温泉 空庭テラス京都　別邸",
       hotel_2_desc: "京都の景色を2つのスタイルで楽しめる新しい和のホテルです。",
 
       hotel_3_label: "HOTEL 03",
       hotel_3_alt: "Hiyori Stay Kyoto Kamogawa",
-      hotel_3_title: "Hiyori Stay Kyoto Kamogawa",
+      hotel_3_title: "日和ステイ京都鴨川",
       hotel_3_desc: "“Love & Natural Friendly” ファミリーで過ごす楽しい京都旅。",
 
       hotel_4_label: "HOTEL 04",
