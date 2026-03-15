@@ -1,4 +1,3 @@
-<script>
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Kyoto Sakura Guide clean script loaded.");
 
@@ -45,11 +44,11 @@ const foodPanels = document.querySelectorAll(".food-slide-panel");
   /* =========================
      SAKURA SLIDER
   ========================= */
-  const sakuraSlidesEl = document.getElementById("sakuraSlides");
-  const sakuraCards = document.querySelectorAll(".sakura-slide-card");
-  const sakuraPrev = document.querySelector(".sakura-arrow-left");
-  const sakuraNext = document.querySelector(".sakura-arrow-right");
-  const sakuraDotsEl = document.getElementById("sakuraDots");
+ const sakuraSlidesEl = document.getElementById("sakuraSlides");
+const sakuraCards = document.querySelectorAll(".sakura-slide-card");
+const sakuraPrev = document.querySelector(".sakura-prev");
+const sakuraNext = document.querySelector(".sakura-next");
+const sakuraDotsEl = document.getElementById("sakuraDots");
 
   let sakuraIndex = 0;
   let sakuraAuto = null;
@@ -136,12 +135,12 @@ const foodPanels = document.querySelectorAll(".food-slide-panel");
   /* =========================
      EVENTS SLIDER
   ========================= */
-  const eventsSlider = document.getElementById("eventsSlider");
-  const prevBtn = document.querySelector(".events-nav.prev");
-  const nextBtn = document.querySelector(".events-nav.next");
-  const eventCards = document.querySelectorAll(".event-card");
-  const eventsCurrent = document.getElementById("eventsCurrent");
-  const eventsTotal = document.getElementById("eventsTotal");
+ const eventsSlider = document.getElementById("eventsSlider");
+const prevBtn = document.querySelector(".events-prev");
+const nextBtn = document.querySelector(".events-next");
+const eventCards = document.querySelectorAll(".event-card");
+const eventsCurrent = document.getElementById("eventsCurrent");
+const eventsTotal = document.getElementById("eventsTotal");
 
   if (eventsTotal) {
     eventsTotal.textContent = eventCards.length;
@@ -474,40 +473,4 @@ const foodPanels = document.querySelectorAll(".food-slide-panel");
     });
   });
 });
-/* ===== SLIDER SCRIPT 추가 ===== */
 
-// 여기부터 슬라이드 코드 붙이기
-
-const sakuraSlides = document.querySelector("#sakuraSlides");
-const sakuraPrev = document.querySelector(".sakura-prev");
-const sakuraNext = document.querySelector(".sakura-next");
-
-let sakuraIndex = 0;
-
-if (sakuraSlides && sakuraPrev && sakuraNext) {
-
-  const sakuraSlideCount = sakuraSlides.children.length;
-
-  function updateSakura() {
-    sakuraSlides.style.transform =
-      `translateX(-${sakuraIndex * 100}%)`;
-  }
-
-  sakuraNext.addEventListener("click", () => {
-    sakuraIndex = (sakuraIndex + 1) % sakuraSlideCount;
-    updateSakura();
-  });
-
-  sakuraPrev.addEventListener("click", () => {
-    sakuraIndex =
-      (sakuraIndex - 1 + sakuraSlideCount) % sakuraSlideCount;
-    updateSakura();
-  });
-
-  setInterval(() => {
-    sakuraIndex = (sakuraIndex + 1) % sakuraSlideCount;
-    updateSakura();
-  }, 5000);
-}
-
-</script>
