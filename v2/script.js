@@ -1,11 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("Kyoto Sakura Guide clean script loaded.");
+  console.log("Kyoto Sakura Guide script loaded.");
 
   /* =========================
      FOOD TOGGLE
   ========================= */
- const foodToggleButtons = document.querySelectorAll(".food-toggle-btn");
-const foodPanels = document.querySelectorAll(".food-slide-panel");
+  const foodToggleButtons = document.querySelectorAll(".food-toggle-btn");
+  const foodPanels = document.querySelectorAll(".food-slide-panel");
 
   function closeAllFoodPanels() {
     foodPanels.forEach((panel) => panel.classList.remove("open"));
@@ -44,11 +44,11 @@ const foodPanels = document.querySelectorAll(".food-slide-panel");
   /* =========================
      SAKURA SLIDER
   ========================= */
- const sakuraSlidesEl = document.getElementById("sakuraSlides");
-const sakuraCards = document.querySelectorAll(".sakura-slide-card");
-const sakuraPrev = document.querySelector(".sakura-prev");
-const sakuraNext = document.querySelector(".sakura-next");
-const sakuraDotsEl = document.getElementById("sakuraDots");
+  const sakuraSlidesEl = document.getElementById("sakuraSlides");
+  const sakuraCards = document.querySelectorAll(".sakura-slide-card");
+  const sakuraPrev = document.querySelector(".sakura-prev");
+  const sakuraNext = document.querySelector(".sakura-next");
+  const sakuraDotsEl = document.getElementById("sakuraDots");
 
   let sakuraIndex = 0;
   let sakuraAuto = null;
@@ -76,7 +76,6 @@ const sakuraDotsEl = document.getElementById("sakuraDots");
 
   function updateSakuraSlider() {
     if (!sakuraSlidesEl || !sakuraCards.length) return;
-
     sakuraSlidesEl.style.transform = `translateX(-${sakuraIndex * 100}%)`;
 
     if (sakuraDotsEl) {
@@ -135,12 +134,12 @@ const sakuraDotsEl = document.getElementById("sakuraDots");
   /* =========================
      EVENTS SLIDER
   ========================= */
- const eventsSlider = document.getElementById("eventsSlider");
-const prevBtn = document.querySelector(".events-prev");
-const nextBtn = document.querySelector(".events-next");
-const eventCards = document.querySelectorAll(".event-card");
-const eventsCurrent = document.getElementById("eventsCurrent");
-const eventsTotal = document.getElementById("eventsTotal");
+  const eventsSlider = document.getElementById("eventsSlider");
+  const prevBtn = document.querySelector(".events-prev");
+  const nextBtn = document.querySelector(".events-next");
+  const eventCards = document.querySelectorAll(".event-card");
+  const eventsCurrent = document.getElementById("eventsCurrent");
+  const eventsTotal = document.getElementById("eventsTotal");
 
   if (eventsTotal) {
     eventsTotal.textContent = eventCards.length;
@@ -317,8 +316,7 @@ const eventsTotal = document.getElementById("eventsTotal");
     locateBtn.addEventListener("click", () => {
       if (!navigator.geolocation) {
         if (aiGuideStatus) {
-          aiGuideStatus.textContent =
-            "Geolocation is not supported on this browser.";
+          aiGuideStatus.textContent = "Geolocation is not supported on this browser.";
         }
         return;
       }
@@ -361,20 +359,16 @@ const eventsTotal = document.getElementById("eventsTotal");
       nav_events: "Events",
       nav_ai: "AI Guide",
       nav_hotels: "Hotels",
-
       quick_sakura: "Sakura Spots",
       quick_courses: "Travel Courses",
       quick_food: "Food Guide",
       quick_events: "Events",
       quick_ai: "AI Guide",
       quick_hotels: "Hotels",
-
-      ai_title: "Smart Guide Near You",
       hotels_title: "Our Hotels",
       hotels_desc: "Explore four Kyoto stays with direct access to each official website and Instagram page.",
       home_btn: "Home"
     },
-
     en: {
       brand: "Kyoto Sakura Guide",
       nav_sakura: "Sakura",
@@ -383,20 +377,16 @@ const eventsTotal = document.getElementById("eventsTotal");
       nav_events: "Events",
       nav_ai: "AI Guide",
       nav_hotels: "Hotels",
-
       quick_sakura: "Sakura Spots",
       quick_courses: "Travel Courses",
       quick_food: "Food Guide",
       quick_events: "Events",
       quick_ai: "AI Guide",
       quick_hotels: "Hotels",
-
-      ai_title: "Smart Guide Near You",
       hotels_title: "Our Hotels",
       hotels_desc: "Explore four Kyoto stays with direct access to each official website and Instagram page.",
       home_btn: "Home"
     },
-
     ja: {
       brand: "京都さくらガイド",
       nav_sakura: "桜",
@@ -405,15 +395,12 @@ const eventsTotal = document.getElementById("eventsTotal");
       nav_events: "イベント",
       nav_ai: "AIガイド",
       nav_hotels: "ホテル",
-
       quick_sakura: "桜スポット",
       quick_courses: "おすすめコース",
       quick_food: "グルメガイド",
       quick_events: "イベント",
       quick_ai: "AIガイド",
       quick_hotels: "ホテル",
-
-      ai_title: "近くのスマートガイド",
       hotels_title: "ホテル紹介",
       hotels_desc: "公式サイトとInstagramへ直接アクセスできる京都の4つの滞在先をご紹介します。",
       home_btn: "ホーム"
@@ -465,7 +452,6 @@ const eventsTotal = document.getElementById("eventsTotal");
       if (!target) return;
 
       e.preventDefault();
-
       target.scrollIntoView({
         behavior: "smooth",
         block: "start"
@@ -473,4 +459,3 @@ const eventsTotal = document.getElementById("eventsTotal");
     });
   });
 });
-
