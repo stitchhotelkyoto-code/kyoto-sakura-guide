@@ -415,12 +415,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const dict = translations[lang];
     if (!dict) return;
 
-    translatableEls.forEach((el) => {
-      const key = el.dataset.i18n;
-      if (dict[key]) {
-        el.textContent = dict[key];
-      }
-    });
+    const translatableEls = document.querySelectorAll("[data-i18n]");
+
+translatableEls.forEach((el) => {
+  const key = el.dataset.i18n;
+  const attr = el.dataset.i18nAttr;
+
+  if (!dict[key]) return;
+
+  if (attr) {
+    el.setAttribute(attr, dict[key]);
+  } else {
+    el.textContent = dict[key];
+  }
+});
 
     langButtons.forEach((btn) => {
       btn.classList.toggle("active", btn.dataset.lang === lang);
