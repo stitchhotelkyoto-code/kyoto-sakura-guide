@@ -2674,3 +2674,123 @@ html[lang="ja"] .sakura-slide-card:nth-child(4) .sakura-slide-copy {
     font-size: 13px !important;
   }
 }
+
+/* ===== Events title font ===== */
+.events-header h2 {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.6rem, 5vw, 4.4rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: #2f2a26;
+}
+
+/* ===== Area food links ===== */
+.food-place-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.food-place-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: rgba(216, 183, 191, 0.12);
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.3;
+  text-decoration: none;
+  transition: all 0.22s ease;
+}
+
+.food-place-links a:hover {
+  background: #2f2730;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* ===== Staff picks tags ===== */
+.ranking-picks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.pick-tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  padding: 0 10px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.pick-tag.soraniwa {
+  background: #f6e7ec;
+  color: #9b5f73;
+}
+
+.pick-tag.hiyori {
+  background: #e8f2ea;
+  color: #4f7a5b;
+}
+
+.pick-tag.stitch {
+  background: #ece8f7;
+  color: #5d4f8a;
+}
+
+/* ===== Staff picks links ===== */
+.ranking-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.ranking-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: rgba(216, 183, 191, 0.14);
+  color: #2f2a26;
+  font-size: 0.78rem;
+  font-weight: 700;
+  transition: all 0.22s ease;
+}
+
+.ranking-links a:hover {
+  background: #2f2730;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .events-header h2 {
+    font-size: 2.1rem;
+    line-height: 1.12;
+  }
+
+  .food-place-links a,
+  .ranking-links a {
+    font-size: 12px;
+    padding: 0 11px;
+  }
+
+  .pick-tag {
+    font-size: 0.64rem;
+  }
+}
