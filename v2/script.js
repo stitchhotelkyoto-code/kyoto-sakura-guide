@@ -357,7 +357,7 @@ food_place_4_3_menu: "대표메뉴 소고기 커틀릿",
       ai_nearby_food: "가까운 맛집",
       ai_top3: "Top 3",
 
-      hotels_title: "호텔 소개",
+      hotels_title: "Our Hotels",
       hotels_desc: "공식 사이트와 Instagram에 바로 연결되는 교토의 4개 숙소를 소개합니다.",
 
       hotel_1_label: "HOTEL 01",
@@ -1109,7 +1109,7 @@ food_place_4_3_menu: "メニュー 牛カツ",
       ai_nearby_food: "近くのグルメ",
       ai_top3: "Top 3",
 
-      hotels_title: "ホテル紹介",
+      hotels_title: "Our Hotels",
       hotels_desc: "公式サイトとInstagramへ直接アクセスできる京都の4つの滞在先をご紹介します。",
 
       hotel_1_label: "HOTEL 01",
