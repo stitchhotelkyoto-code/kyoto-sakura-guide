@@ -1413,37 +1413,56 @@ food_place_4_3_menu: "メニュー 牛カツ",
     window.addEventListener("resize", updateEventCounter);
     updateEventCounter();
   }
-    /* =========================
+     /* =========================
      HERO CAMPAIGN SLIDER
   ========================= */
-  const heroCampaignCards = document.getElementById("heroCampaignCards");
+  const heroCampaignTrack = document.getElementById("heroCampaignTrack");
   const heroCampaignPrev = document.getElementById("heroCampaignPrev");
   const heroCampaignNext = document.getElementById("heroCampaignNext");
-  const heroCampaignCardItems = document.querySelectorAll(".hero-event-card");
+  const heroCampaignCards = document.querySelectorAll(".hero-event-card");
 
-  function getHeroCampaignScrollAmount() {
-    const firstCard = heroCampaignCardItems[0];
-    if (!firstCard) return 300;
-    return firstCard.offsetWidth + 18;
+  let heroCampaignIndex = 0;
+
+  function getHeroCampaignVisibleCount() {
+    return window.innerWidth <= 768 ? 1 : 3;
   }
 
-  if (heroCampaignPrev && heroCampaignCards) {
+  function updateHeroCampaignSlider() {
+    if (!heroCampaignTrack || !heroCampaignCards.length) return;
+
+    const visibleCount = getHeroCampaignVisibleCount();
+    const maxIndex = Math.max(0, heroCampaignCards.length - visibleCount);
+
+    if (heroCampaignIndex > maxIndex) {
+      heroCampaignIndex = maxIndex;
+    }
+
+    const cardWidth = heroCampaignCards[0].offsetWidth;
+    const gap = 18;
+    const moveX = (cardWidth + gap) * heroCampaignIndex;
+
+    heroCampaignTrack.style.transform = `translateX(-${moveX}px)`;
+  }
+
+  if (heroCampaignPrev) {
     heroCampaignPrev.addEventListener("click", () => {
-      heroCampaignCards.scrollBy({
-        left: -getHeroCampaignScrollAmount(),
-        behavior: "smooth"
-      });
+      heroCampaignIndex = Math.max(0, heroCampaignIndex - 1);
+      updateHeroCampaignSlider();
     });
   }
 
-  if (heroCampaignNext && heroCampaignCards) {
+  if (heroCampaignNext) {
     heroCampaignNext.addEventListener("click", () => {
-      heroCampaignCards.scrollBy({
-        left: getHeroCampaignScrollAmount(),
-        behavior: "smooth"
-      });
+      const visibleCount = getHeroCampaignVisibleCount();
+      const maxIndex = Math.max(0, heroCampaignCards.length - visibleCount);
+      heroCampaignIndex = Math.min(maxIndex, heroCampaignIndex + 1);
+      updateHeroCampaignSlider();
     });
   }
+
+  window.addEventListener("resize", updateHeroCampaignSlider);
+  window.addEventListener("load", updateHeroCampaignSlider);
+  updateHeroCampaignSlider();
 
   /* =========================
      AI GUIDE
