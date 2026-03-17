@@ -36,103 +36,183 @@
 
   <main>
  
-    
-    <section class="hero-campaign">
+    <section class="hero-main">
+  <div class="hero-main__inner">
 
-  <!-- LEFT -->
-  <div class="hero-campaign-left">
-    <p class="hero-campaign-label">STITCH HOTEL KYOTO SPRING</p>
+    <!-- LEFT -->
+    <div class="hero-main__visual">
+      <div class="hero-main__image-wrap">
+        <img src="stitch-main.jpg" alt="STITCH HOTEL KYOTO Spring View" class="hero-main__image">
 
-    <h1 class="hero-campaign-title">
-      桜とともに過ごす、<br>
-      京都の春
-    </h1>
+        <div class="hero-main__overlay"></div>
 
-    <p class="hero-campaign-desc">
-      お部屋から楽しむ桜の景色とともに、<br>
-      STITCH HOTEL KYOTOならではの春のひとときをお届けします。
-    </p>
+        <div class="hero-main__copy">
+          <p class="hero-main__eyebrow">STITCH HOTEL KYOTO SPRING</p>
 
-    <p class="hero-campaign-date">
-      2026 Spring Experience
-    </p>
+          <h1 class="hero-main__title">
+            桜とともに過ごす、<br>
+            京都の春
+          </h1>
 
-    <div class="hero-campaign-buttons">
-      <a href="#" class="btn-primary">公式サイトを見る</a>
-      <a href="#" class="btn-secondary">Instagramで見る</a>
+          <p class="hero-main__desc">
+            お部屋から楽しむ桜の景色とともに、<br>
+            STITCH HOTEL KYOTOならではの春のひとときをお届けします。
+          </p>
+
+          <p class="hero-main__date">2026 Spring Experience</p>
+
+          <div class="hero-main__buttons">
+            <a href="https://stitch-hotel.jp/" target="_blank" rel="noopener noreferrer" class="hero-main__btn hero-main__btn--dark">公式サイトを見る</a>
+            <a href="https://www.instagram.com/stitchhotelkyoto/" target="_blank" rel="noopener noreferrer" class="hero-main__btn hero-main__btn--light">Instagramで見る</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="hero-main__side">
+      <div class="hero-main__side-head">
+        <p class="hero-main__side-label">SPRING EVENTS</p>
+
+        <div class="hero-main__controls">
+          <button type="button" class="hero-main__control" id="heroMainPrev" aria-label="Previous">‹</button>
+          <button type="button" class="hero-main__control" id="heroMainNext" aria-label="Next">›</button>
+        </div>
+      </div>
+
+      <div class="hero-main__slider">
+        <div class="hero-main__track" id="heroMainTrack">
+
+          <article class="hero-main__event-card">
+            <div class="hero-main__event-image">
+              <img src="images/event01.jpg" alt="Room Hanami">
+            </div>
+            <div class="hero-main__event-body">
+              <span class="hero-main__event-no">Event 01</span>
+              <h3>Room Hanami</h3>
+              <p>お部屋から桜を楽しむ特別な滞在体験。</p>
+            </div>
+          </article>
+
+          <article class="hero-main__event-card">
+            <div class="hero-main__event-image">
+              <img src="images/event02.jpg" alt="Sakura Guide">
+            </div>
+            <div class="hero-main__event-body">
+              <span class="hero-main__event-no">Event 02</span>
+              <h3>Sakura Guide</h3>
+              <p>スタッフおすすめの桜スポットをご紹介。</p>
+            </div>
+          </article>
+
+          <article class="hero-main__event-card">
+            <div class="hero-main__event-image">
+              <img src="images/event03.jpg" alt="Seasonal Welcome">
+            </div>
+            <div class="hero-main__event-body">
+              <span class="hero-main__event-no">Event 03</span>
+              <h3>Seasonal Welcome</h3>
+              <p>春限定のウェルカムサービスをご用意。</p>
+            </div>
+          </article>
+
+          <article class="hero-main__event-card">
+            <div class="hero-main__event-image">
+              <img src="images/event04.jpg" alt="Family Moment">
+            </div>
+            <div class="hero-main__event-body">
+              <span class="hero-main__event-no">Event 04</span>
+              <h3>Family Moment</h3>
+              <p>ご家族でも楽しめる春の京都ステイ。</p>
+            </div>
+          </article>
+
+          <article class="hero-main__event-card">
+            <div class="hero-main__event-image">
+              <img src="images/event05.jpg" alt="Spring Experience">
+            </div>
+            <div class="hero-main__event-body">
+              <span class="hero-main__event-no">Event 05</span>
+              <h3>Spring Experience</h3>
+              <p>京都で過ごす季節限定の特別なひととき。</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <div class="hero-main__counter">
+        <span id="heroMainCurrent">1</span>
+        <span>/</span>
+        <span id="heroMainTotal">5</span>
+      </div>
     </div>
   </div>
 
-  <!-- RIGHT -->
-  <div class="hero-campaign-right">
+  <!-- BOTTOM CARDS -->
+  <div class="hero-main__bottom">
+    <div class="hero-main__bottom-inner">
 
-    <div class="hero-campaign-cards" id="heroCampaignCards">
+      <article class="hero-main__mini-card">
+        <div class="hero-main__mini-image">
+          <img src="images/event01.jpg" alt="Event 1">
+        </div>
+        <div class="hero-main__mini-body">
+          <span class="hero-main__mini-no">Event 1</span>
+          <h4>Room Hanami</h4>
+          <p>お部屋で桜を楽しむ春限定ステイ。</p>
+        </div>
+      </article>
 
-      <!-- CARD 1 -->
-      <div class="hero-card">
-        <div class="hero-card-image">
-          <img src="images/event01.jpg" alt="">
+      <article class="hero-main__mini-card">
+        <div class="hero-main__mini-image">
+          <img src="images/event02.jpg" alt="Event 2">
         </div>
-        <div class="hero-card-body">
-          <h3>Room Hanami</h3>
-          <p>お部屋から桜を楽しむ特別な滞在</p>
+        <div class="hero-main__mini-body">
+          <span class="hero-main__mini-no">Event 2</span>
+          <h4>Sakura Guide</h4>
+          <p>おすすめの桜名所を分かりやすくご案内。</p>
         </div>
-      </div>
+      </article>
 
-      <!-- CARD 2 -->
-      <div class="hero-card">
-        <div class="hero-card-image">
-          <img src="images/event02.jpg" alt="">
+      <article class="hero-main__mini-card">
+        <div class="hero-main__mini-image">
+          <img src="images/event03.jpg" alt="Event 3">
         </div>
-        <div class="hero-card-body">
-          <h3>Sakura Guide</h3>
-          <p>スタッフおすすめの桜スポット案内</p>
+        <div class="hero-main__mini-body">
+          <span class="hero-main__mini-no">Event 3</span>
+          <h4>Seasonal Welcome</h4>
+          <p>春のご滞在を彩るウェルカムサービス。</p>
         </div>
-      </div>
+      </article>
 
-      <!-- CARD 3 -->
-      <div class="hero-card">
-        <div class="hero-card-image">
-          <img src="images/event03.jpg" alt="">
+      <article class="hero-main__mini-card">
+        <div class="hero-main__mini-image">
+          <img src="images/event04.jpg" alt="Event 4">
         </div>
-        <div class="hero-card-body">
-          <h3>Seasonal Welcome</h3>
-          <p>春限定ウェルカムサービス</p>
+        <div class="hero-main__mini-body">
+          <span class="hero-main__mini-no">Event 4</span>
+          <h4>Family Moment</h4>
+          <p>ご家族で過ごすやさしい春の京都時間。</p>
         </div>
-      </div>
+      </article>
 
-      <!-- CARD 4 -->
-      <div class="hero-card">
-        <div class="hero-card-image">
-          <img src="images/event04.jpg" alt="">
+      <article class="hero-main__mini-card">
+        <div class="hero-main__mini-image">
+          <img src="images/event05.jpg" alt="Event 5">
         </div>
-        <div class="hero-card-body">
-          <h3>Family Moment</h3>
-          <p>ご家族で楽しめる春の体験</p>
+        <div class="hero-main__mini-body">
+          <span class="hero-main__mini-no">Event 5</span>
+          <h4>Spring Experience</h4>
+          <p>春の京都らしさを感じる特別プラン。</p>
         </div>
-      </div>
-
-      <!-- CARD 5 -->
-      <div class="hero-card">
-        <div class="hero-card-image">
-          <img src="images/event05.jpg" alt="">
-        </div>
-        <div class="hero-card-body">
-          <h3>Spring Experience</h3>
-          <p>京都で過ごす特別な春の時間</p>
-        </div>
-      </div>
+      </article>
 
     </div>
-
-    <!-- NAV -->
-    <div class="hero-nav">
-      <button id="heroPrev">←</button>
-      <button id="heroNext">→</button>
-    </div>
-
   </div>
 </section>
+    
+   
     <!-- QUICK MENU -->
 <section class="quick-menu-section">
   <div class="container">
