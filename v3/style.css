@@ -2877,7 +2877,15 @@ html[lang="ja"] .sakura-slide-card:nth-child(4) .sakura-slide-copy {
 
 /* 카드 */
 .hero-card {
-  flex: 0 0 300px;
+.hero-track {
+  display: flex;
+  gap: 20px;
+  overflow: hidden;
+}
+
+.hero-card {
+  flex: 0 0 calc((100% - 40px) / 3);
+  max-width: calc((100% - 40px) / 3);
   background: #dfe4ee;
   border-radius: 20px;
   overflow: hidden;
