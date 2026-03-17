@@ -2795,316 +2795,124 @@ html[lang="ja"] .sakura-slide-card:nth-child(4) .sakura-slide-copy {
   }
 }
 /* =========================
-   HERO CAMPAIGN V3
+   HERO CAMPAIGN (FIXED)
 ========================= */
-.hero-campaign-section {
-  padding: 24px 0 18px;
-}
-
-.hero-campaign-inner {
-  width: min(var(--max-width), calc(100% - 40px));
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1.05fr 1.25fr;
-  min-height: 680px;
-  border-radius: 34px;
-  overflow: hidden;
-  background:
-    linear-gradient(to right, #e6c3cf 0 47%, #f3edef 47% 100%);
-  box-shadow: 0 20px 48px rgba(44, 33, 27, 0.08);
-}
-
-.hero-campaign-left {
-  position: relative;
+.hero-campaign {
   display: flex;
-  flex-direction: column;
-  justify-content: stretch;
-  min-width: 0;
+  min-height: 720px;
 }
 
-.hero-campaign-photo {
-  position: relative;
-  height: 52%;
-  min-height: 320px;
-  overflow: hidden;
-}
-
-.hero-campaign-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  filter: brightness(0.93);
-}
-
-.hero-campaign-copy {
-  padding: 34px 40px 40px;
+/* LEFT */
+.hero-campaign-left {
+  flex: 1;
+  background: #e8c3cb;
+  padding: 80px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 14px;
 }
 
-.hero-campaign-eyebrow {
-  margin: 0;
-  font-size: 0.88rem;
+.hero-campaign-label {
+  font-size: 12px;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.hero-campaign-title {
+  font-size: 48px;
   font-weight: 700;
-  letter-spacing: 0.12em;
-  color: #4a3a46;
-  text-transform: uppercase;
-}
-
-.hero-campaign-copy h1 {
-  margin: 0;
-  font-size: clamp(2.2rem, 4vw, 4rem);
-  line-height: 1.12;
-  letter-spacing: -0.03em;
-  color: #231f20;
-  word-break: keep-all;
+  line-height: 1.4;
+  margin-bottom: 20px;
 }
 
 .hero-campaign-desc {
-  margin: 0;
-  font-size: 1rem;
-  line-height: 1.9;
-  color: #4d4340;
+  font-size: 14px;
+  margin-bottom: 20px;
 }
 
-.hero-campaign-period {
-  margin: 4px 0 0;
-  font-size: 1rem;
+.hero-campaign-date {
   font-weight: 600;
-  color: #352e2a;
+  margin-bottom: 30px;
 }
 
-.hero-campaign-actions {
+.hero-campaign-buttons {
   display: flex;
-  flex-wrap: wrap;
   gap: 12px;
-  margin-top: 10px;
 }
 
-.hero-campaign-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 48px;
-  padding: 0 22px;
-  border-radius: 12px;
-  font-size: 0.9rem;
-  font-weight: 700;
-  transition: all 0.25s ease;
-}
-
-.hero-campaign-btn.primary {
-  background: #2f2730;
+.btn-primary {
+  background: #222;
   color: #fff;
-  box-shadow: 0 8px 20px rgba(47, 39, 48, 0.18);
+  padding: 12px 20px;
+  border-radius: 10px;
+  text-decoration: none;
 }
 
-.hero-campaign-btn.primary:hover {
-  background: #483a46;
-  transform: translateY(-2px);
-}
-
-.hero-campaign-btn.secondary {
+.btn-secondary {
   background: #fff;
-  color: #2f2730;
-  border: 1px solid rgba(47, 39, 48, 0.12);
-  box-shadow: 0 8px 20px rgba(47, 39, 48, 0.06);
+  padding: 12px 20px;
+  border-radius: 10px;
+  text-decoration: none;
 }
 
-.hero-campaign-btn.secondary:hover {
-  background: #f8f2f4;
-  transform: translateY(-2px);
-}
-
+/* RIGHT */
 .hero-campaign-right {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex: 1;
+  padding: 40px;
   overflow: hidden;
-  padding: 28px 28px 78px 18px;
+  position: relative;
 }
 
+/* 카드 트랙 */
 .hero-campaign-cards {
   display: flex;
-  gap: 18px;
+  gap: 20px;
   overflow-x: auto;
   scroll-behavior: smooth;
-  scrollbar-width: none;
-  padding: 8px 6px 14px;
 }
 
 .hero-campaign-cards::-webkit-scrollbar {
   display: none;
 }
 
-.hero-event-card {
-  flex: 0 0 290px;
+/* 카드 */
+.hero-card {
+  flex: 0 0 300px;
   background: #dfe4ee;
-  border-radius: 22px;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 12px 28px rgba(44, 33, 27, 0.08);
-  transition: transform 0.28s ease, box-shadow 0.28s ease;
 }
 
-.hero-event-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 38px rgba(44, 33, 27, 0.12);
-}
-
-.hero-event-image {
-  position: relative;
-  height: 250px;
+/* 이미지 */
+.hero-card-image {
+  height: 200px;
   overflow: hidden;
-  background: #d6dde8;
 }
 
-.hero-event-image img {
+.hero-card-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
 }
 
-.hero-event-image::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -1px;
-  height: 58px;
+/* 아래 둥근 영역 */
+.hero-card-body {
   background: #dfe4ee;
-  border-top-left-radius: 50% 100%;
-  border-top-right-radius: 50% 100%;
-}
-
-.hero-event-body {
-  padding: 20px 20px 22px;
+  padding: 20px;
+  border-top-left-radius: 60px;
   text-align: center;
 }
 
-.hero-event-body h3 {
-  margin: 0 0 10px;
-  font-size: 1.05rem;
-  font-weight: 800;
-  color: #221e1f;
+.hero-card-body h3 {
+  font-size: 16px;
+  margin-bottom: 6px;
 }
 
-.hero-event-body p {
-  margin: 0;
-  font-size: 0.95rem;
-  line-height: 1.65;
-  color: #5f595a;
+/* 버튼 */
+.hero-nav {
+  margin-top: 20px;
 }
 
-.hero-campaign-nav {
-  position: absolute;
-  left: 24px;
-  bottom: 24px;
-  display: flex;
-  gap: 10px;
-}
-
-.hero-campaign-arrow {
-  width: 44px;
-  height: 44px;
-  border: none;
-  border-radius: 999px;
-  background: #fff;
-  color: #423837;
-  box-shadow: 0 6px 16px rgba(44, 33, 27, 0.1);
-  cursor: pointer;
-  transition: all 0.22s ease;
-}
-
-.hero-campaign-arrow:hover {
-  background: #2f2730;
-  color: #fff;
-}
-
-@media (max-width: 1024px) {
-  .hero-campaign-inner {
-    grid-template-columns: 1fr;
-    background: linear-gradient(180deg, #e6c3cf 0 44%, #f3edef 44% 100%);
-  }
-
-  .hero-campaign-photo {
-    height: 320px;
-    min-height: 320px;
-  }
-
-  .hero-campaign-right {
-    padding: 18px 18px 74px;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero-campaign-section {
-    padding: 16px 0 10px;
-  }
-
-  .hero-campaign-inner {
-    width: min(100% - 24px, var(--max-width));
-    border-radius: 24px;
-    min-height: auto;
-  }
-
-  .hero-campaign-photo {
-    height: 240px;
-    min-height: 240px;
-  }
-
-  .hero-campaign-copy {
-    padding: 24px 20px 26px;
-    gap: 12px;
-  }
-
-  .hero-campaign-copy h1 {
-    font-size: 2rem;
-    line-height: 1.2;
-  }
-
-  .hero-campaign-desc {
-    font-size: 0.94rem;
-    line-height: 1.75;
-  }
-
-  .hero-campaign-period {
-    font-size: 0.92rem;
-  }
-
-  .hero-campaign-btn {
-    width: 100%;
-    min-height: 44px;
-  }
-
-  .hero-campaign-right {
-    padding: 14px 14px 66px;
-  }
-
- .hero-event-card {
-  flex: 0 0 220px;
-  border-radius: 18px;
-}
-
-  .hero-event-image {
-    height: 190px;
-  }
-
-  .hero-event-body {
-    padding: 16px 14px 18px;
-  }
-
-  .hero-campaign-nav {
-    left: 16px;
-    bottom: 16px;
-  }
-
-  .hero-campaign-arrow {
-    width: 40px;
-    height: 40px;
-  }
+.hero-nav button {
+  margin-right: 10px;
 }
