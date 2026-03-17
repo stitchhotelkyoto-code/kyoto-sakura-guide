@@ -1414,37 +1414,7 @@ food_place_4_3_menu: "メニュー 牛カツ",
     updateEventCounter();
   }
     
-  /* =========================
-     HERO CAMPAIGN SLIDER
-  ========================= */
-  const heroCampaignCards = document.getElementById("heroCampaignCards");
-  const heroCampaignPrev = document.getElementById("heroCampaignPrev");
-  const heroCampaignNext = document.getElementById("heroCampaignNext");
-  const heroCampaignCardItems = document.querySelectorAll(".hero-event-card");
-
-  function getHeroCampaignScrollAmount() {
-    const firstCard = heroCampaignCardItems[0];
-    if (!firstCard) return 300;
-    return firstCard.offsetWidth + 18;
-  }
-
-  if (heroCampaignPrev && heroCampaignCards) {
-    heroCampaignPrev.addEventListener("click", () => {
-      heroCampaignCards.scrollBy({
-        left: -getHeroCampaignScrollAmount(),
-        behavior: "smooth"
-      });
-    });
-  }
-
-  if (heroCampaignNext && heroCampaignCards) {
-    heroCampaignNext.addEventListener("click", () => {
-      heroCampaignCards.scrollBy({
-        left: getHeroCampaignScrollAmount(),
-        behavior: "smooth"
-      });
-    });
-  }
+ 
   
   /* =========================
      AI GUIDE
@@ -1689,4 +1659,13 @@ food_place_4_3_menu: "メニュー 牛カツ",
       });
     });
   });
+const track = document.getElementById("heroTrack");
+
+document.getElementById("next").onclick = () => {
+  track.scrollBy({ left: 320, behavior: "smooth" });
+};
+
+document.getElementById("prev").onclick = () => {
+  track.scrollBy({ left: -320, behavior: "smooth" });
+};
 });
