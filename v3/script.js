@@ -1659,32 +1659,26 @@ food_place_4_3_menu: "メニュー 牛カツ",
       });
     });
   });
-    /* =========================
+   /* =========================
      HERO MAIN SLIDER
   ========================= */
   const heroMainTrack = document.getElementById("heroMainTrack");
   const heroMainPrev = document.getElementById("heroMainPrev");
   const heroMainNext = document.getElementById("heroMainNext");
   const heroMainCards = heroMainTrack
-    ? heroMainTrack.querySelectorAll(".hero-main__event-card")
+    ? heroMainTrack.querySelectorAll(".hero-main__card")
     : [];
   const heroMainCurrent = document.getElementById("heroMainCurrent");
   const heroMainTotal = document.getElementById("heroMainTotal");
-
-  let heroMainAuto = null;
 
   if (heroMainTotal && heroMainCards.length) {
     heroMainTotal.textContent = heroMainCards.length;
   }
 
-  function getHeroMainGap() {
-    return window.innerWidth <= 768 ? 18 : 18;
-  }
-
   function getHeroMainScrollAmount() {
     const firstCard = heroMainCards[0];
     if (!firstCard) return 300;
-    return firstCard.offsetWidth + getHeroMainGap();
+    return firstCard.offsetWidth + 20;
   }
 
   function updateHeroMainCounter() {
@@ -1699,68 +1693,27 @@ food_place_4_3_menu: "メニュー 牛カツ",
     }
   }
 
-  function scrollHeroMainNext() {
-    if (!heroMainTrack) return;
-    heroMainTrack.scrollBy({
-      left: getHeroMainScrollAmount(),
-      behavior: "smooth"
-    });
-  }
-
-  function scrollHeroMainPrev() {
-    if (!heroMainTrack) return;
-    heroMainTrack.scrollBy({
-      left: -getHeroMainScrollAmount(),
-      behavior: "smooth"
-    });
-  }
-
-  function startHeroMainAuto() {
-    if (!heroMainTrack || !heroMainCards.length || window.innerWidth <= 768) return;
-
-    clearInterval(heroMainAuto);
-    heroMainAuto = setInterval(() => {
-      const maxScrollLeft = heroMainTrack.scrollWidth - heroMainTrack.clientWidth;
-      const nextLeft = heroMainTrack.scrollLeft + getHeroMainScrollAmount();
-
-      if (nextLeft >= maxScrollLeft - 10) {
-        heroMainTrack.scrollTo({
-          left: 0,
-          behavior: "smooth"
-        });
-      } else {
-        scrollHeroMainNext();
-      }
-    }, 4500);
-  }
-
-  function resetHeroMainAuto() {
-    clearInterval(heroMainAuto);
-    startHeroMainAuto();
-  }
-
   if (heroMainPrev) {
     heroMainPrev.addEventListener("click", () => {
-      scrollHeroMainPrev();
-      resetHeroMainAuto();
+      heroMainTrack.scrollBy({
+        left: -getHeroMainScrollAmount(),
+        behavior: "smooth"
+      });
     });
   }
 
   if (heroMainNext) {
     heroMainNext.addEventListener("click", () => {
-      scrollHeroMainNext();
-      resetHeroMainAuto();
+      heroMainTrack.scrollBy({
+        left: getHeroMainScrollAmount(),
+        behavior: "smooth"
+      });
     });
   }
 
   if (heroMainTrack) {
     heroMainTrack.addEventListener("scroll", updateHeroMainCounter);
-    window.addEventListener("resize", () => {
-      updateHeroMainCounter();
-      resetHeroMainAuto();
-    });
-
+    window.addEventListener("resize", updateHeroMainCounter);
     updateHeroMainCounter();
-    startHeroMainAuto();
   }
 });
