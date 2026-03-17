@@ -2928,21 +2928,22 @@ html[lang="ja"] .sakura-slide-card:nth-child(4) .sakura-slide-copy {
   padding: 28px 28px 78px 18px;
 }
 
-.hero-campaign-cards {
-  display: flex;
-  gap: 18px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  scrollbar-width: none;
+.hero-campaign-viewport {
+  width: 100%;
+  overflow: hidden;
   padding: 8px 6px 14px;
 }
 
-.hero-campaign-cards::-webkit-scrollbar {
-  display: none;
+.hero-campaign-track {
+  display: flex;
+  gap: 18px;
+  transition: transform 0.45s ease;
+  will-change: transform;
 }
 
 .hero-event-card {
-  flex: 0 0 290px;
+  flex: 0 0 calc((100% - 36px) / 3);
+  min-width: 0;
   background: #dfe4ee;
   border-radius: 22px;
   overflow: hidden;
@@ -3086,9 +3087,9 @@ html[lang="ja"] .sakura-slide-card:nth-child(4) .sakura-slide-copy {
   }
 
   .hero-event-card {
-    flex: 0 0 220px;
-    border-radius: 18px;
-  }
+  flex: 0 0 100%;
+  border-radius: 18px;
+}
 
   .hero-event-image {
     height: 190px;
