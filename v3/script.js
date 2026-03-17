@@ -1662,10 +1662,10 @@ food_place_4_3_menu: "メニュー 牛カツ",
 const track = document.getElementById("heroTrack");
 
 document.getElementById("next").onclick = () => {
-  track.scrollBy({ left: 320, behavior: "smooth" });
+  track.scrollBy({ left: track.clientWidth, behavior: "smooth" });
 };
 
 document.getElementById("prev").onclick = () => {
-  track.scrollBy({ left: -320, behavior: "smooth" });
+  track.scrollBy({ left: -track.clientWidth, behavior: "smooth" });
 };
 });
