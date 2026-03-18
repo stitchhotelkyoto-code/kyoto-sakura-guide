@@ -354,8 +354,7 @@
   </div>
 </section>
 
-
-    <!-- FOOD -->
+<!-- FOOD -->
 <section id="food" class="content-section food-section soft-bg">
   <div class="container">
     <div class="section-heading">
@@ -364,23 +363,29 @@
       <p class="section-desc" data-i18n="food_desc">관광지 주변 맛집을 지역별로 확인할 수 있습니다.</p>
     </div>
 
-    <div class="food-area-grid">
+    <div class="food-flip-grid">
       <!-- Arashiyama -->
-      <div class="food-area-item">
-        <div class="food-area-card" data-area="arashiyama">
-          <div class="food-area-photo">
-            <img src="food-arashiyama.jpg" alt="Arashiyama food" data-i18n="food_area_1_alt" data-i18n-attr="alt">
-            <div class="food-area-photo-overlay"></div>
+      <article class="food-flip-card" data-area="arashiyama">
+        <div class="food-flip-inner">
+          <div class="food-face food-face--front">
+            <div class="food-area-photo">
+              <img src="food-arashiyama.jpg" alt="Arashiyama food" data-i18n="food_area_1_alt" data-i18n-attr="alt">
+              <div class="food-area-photo-overlay"></div>
+            </div>
+            <div class="food-area-copy">
+              <h3 data-i18n="food_area_1_title">Arashiyama</h3>
+              <p data-i18n="food_area_1_desc">아라시야마 주변 추천 맛집</p>
+              <button class="food-flip-trigger" type="button" aria-label="Open">+</button>
+            </div>
           </div>
-          <div class="food-area-copy">
-            <h3 data-i18n="food_area_1_title">Arashiyama</h3>
-            <p data-i18n="food_area_1_desc">아라시야마 주변 추천 맛집</p>
-            <button class="food-toggle-btn" type="button" data-target="arashiyama-panel" data-i18n="food_toggle_symbol">+</button>
-          </div>
-        </div>
 
-        <div class="food-slide-panel" id="arashiyama-panel">
-          <div class="food-slide-inner">
+          <div class="food-face food-face--back">
+            <button class="food-flip-close" type="button" aria-label="Close">×</button>
+            <div class="food-back-head">
+              <h3 data-i18n="food_area_1_title">Arashiyama</h3>
+              <p data-i18n="food_area_1_desc">아라시야마 주변 추천 맛집</p>
+            </div>
+
             <div class="food-place-item">
               <h4 data-i18n="food_place_1_1_name">Arashiyama Yoshimura</h4>
               <span class="food-tag" data-i18n="food_place_1_1_tag">Soba</span>
@@ -415,24 +420,30 @@
             </div>
           </div>
         </div>
-      </div>
+      </article>
 
       <!-- Gion -->
-      <div class="food-area-item">
-        <div class="food-area-card" data-area="gion">
-          <div class="food-area-photo">
-            <img src="food-gion.jpg" alt="Gion food" data-i18n="food_area_2_alt" data-i18n-attr="alt">
-            <div class="food-area-photo-overlay"></div>
+      <article class="food-flip-card" data-area="gion">
+        <div class="food-flip-inner">
+          <div class="food-face food-face--front">
+            <div class="food-area-photo">
+              <img src="food-gion.jpg" alt="Gion food" data-i18n="food_area_2_alt" data-i18n-attr="alt">
+              <div class="food-area-photo-overlay"></div>
+            </div>
+            <div class="food-area-copy">
+              <h3 data-i18n="food_area_2_title">Gion</h3>
+              <p data-i18n="food_area_2_desc">기온 주변 추천 맛집</p>
+              <button class="food-flip-trigger" type="button" aria-label="Open">+</button>
+            </div>
           </div>
-          <div class="food-area-copy">
-            <h3 data-i18n="food_area_2_title">Gion</h3>
-            <p data-i18n="food_area_2_desc">기온 주변 추천 맛집</p>
-            <button class="food-toggle-btn" type="button" data-target="gion-panel" data-i18n="food_toggle_symbol">+</button>
-          </div>
-        </div>
 
-        <div class="food-slide-panel" id="gion-panel">
-          <div class="food-slide-inner">
+          <div class="food-face food-face--back">
+            <button class="food-flip-close" type="button" aria-label="Close">×</button>
+            <div class="food-back-head">
+              <h3 data-i18n="food_area_2_title">Gion</h3>
+              <p data-i18n="food_area_2_desc">기온 주변 추천 맛집</p>
+            </div>
+
             <div class="food-place-item">
               <h4 data-i18n="food_place_2_1_name">Gion Tanto</h4>
               <span class="food-tag" data-i18n="food_place_2_1_tag">Okonomiyaki</span>
@@ -467,24 +478,30 @@
             </div>
           </div>
         </div>
-      </div>
+      </article>
 
       <!-- Kiyomizu -->
-      <div class="food-area-item">
-        <div class="food-area-card" data-area="kiyomizu">
-          <div class="food-area-photo">
-            <img src="food-kiyomizudera.jpg" alt="Kiyomizu food" data-i18n="food_area_3_alt" data-i18n-attr="alt">
-            <div class="food-area-photo-overlay"></div>
+      <article class="food-flip-card" data-area="kiyomizu">
+        <div class="food-flip-inner">
+          <div class="food-face food-face--front">
+            <div class="food-area-photo">
+              <img src="food-kiyomizudera.jpg" alt="Kiyomizu food" data-i18n="food_area_3_alt" data-i18n-attr="alt">
+              <div class="food-area-photo-overlay"></div>
+            </div>
+            <div class="food-area-copy">
+              <h3 data-i18n="food_area_3_title">Kiyomizu</h3>
+              <p data-i18n="food_area_3_desc">청수사 주변 추천 맛집</p>
+              <button class="food-flip-trigger" type="button" aria-label="Open">+</button>
+            </div>
           </div>
-          <div class="food-area-copy">
-            <h3 data-i18n="food_area_3_title">Kiyomizu</h3>
-            <p data-i18n="food_area_3_desc">청수사 주변 추천 맛집</p>
-            <button class="food-toggle-btn" type="button" data-target="kiyomizu-panel" data-i18n="food_toggle_symbol">+</button>
-          </div>
-        </div>
 
-        <div class="food-slide-panel" id="kiyomizu-panel">
-          <div class="food-slide-inner">
+          <div class="food-face food-face--back">
+            <button class="food-flip-close" type="button" aria-label="Close">×</button>
+            <div class="food-back-head">
+              <h3 data-i18n="food_area_3_title">Kiyomizu</h3>
+              <p data-i18n="food_area_3_desc">청수사 주변 추천 맛집</p>
+            </div>
+
             <div class="food-place-item">
               <h4 data-i18n="food_place_3_1_name">Okutan Kiyomizu</h4>
               <span class="food-tag" data-i18n="food_place_3_1_tag">Tofu</span>
@@ -519,24 +536,30 @@
             </div>
           </div>
         </div>
-      </div>
+      </article>
 
       <!-- Kawaramachi -->
-      <div class="food-area-item">
-        <div class="food-area-card" data-area="kawaramachi">
-          <div class="food-area-photo">
-            <img src="food-nishiki.jpg" alt="Kawaramachi food" data-i18n="food_area_4_alt" data-i18n-attr="alt">
-            <div class="food-area-photo-overlay"></div>
+      <article class="food-flip-card" data-area="kawaramachi">
+        <div class="food-flip-inner">
+          <div class="food-face food-face--front">
+            <div class="food-area-photo">
+              <img src="food-nishiki.jpg" alt="Kawaramachi food" data-i18n="food_area_4_alt" data-i18n-attr="alt">
+              <div class="food-area-photo-overlay"></div>
+            </div>
+            <div class="food-area-copy">
+              <h3 data-i18n="food_area_4_title">Kawaramachi</h3>
+              <p data-i18n="food_area_4_desc">카와라마치 주변 추천 맛집</p>
+              <button class="food-flip-trigger" type="button" aria-label="Open">+</button>
+            </div>
           </div>
-          <div class="food-area-copy">
-            <h3 data-i18n="food_area_4_title">Kawaramachi</h3>
-            <p data-i18n="food_area_4_desc">카와라마치 주변 추천 맛집</p>
-            <button class="food-toggle-btn" type="button" data-target="kawaramachi-panel" data-i18n="food_toggle_symbol">+</button>
-          </div>
-        </div>
 
-        <div class="food-slide-panel" id="kawaramachi-panel">
-          <div class="food-slide-inner">
+          <div class="food-face food-face--back">
+            <button class="food-flip-close" type="button" aria-label="Close">×</button>
+            <div class="food-back-head">
+              <h3 data-i18n="food_area_4_title">Kawaramachi</h3>
+              <p data-i18n="food_area_4_desc">카와라마치 주변 추천 맛집</p>
+            </div>
+
             <div class="food-place-item">
               <h4 data-i18n="food_place_4_1_name">Nishiki Market</h4>
               <span class="food-tag" data-i18n="food_place_4_1_tag">Market Food</span>
@@ -571,10 +594,429 @@
             </div>
           </div>
         </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="food-ranking" id="food-ranking">
+  <div class="section-heading">
+    <p class="section-label" data-i18n="food_ranking_label">Food Picks</p>
+    <h2 data-i18n="food_ranking_title">스태프 추천 맛집</h2>
+    <p class="section-desc" data-i18n="food_ranking_desc">
+      교토에서 즐길 수 있는 추천 음식점을 종류별로 정리했습니다.
+    </p>
+  </div>
+
+  <div class="staff-pick-stack">
+    <!-- BOARD 1 -->
+    <div class="ranking-board ranking-board--stack">
+      <div class="ranking-board-title" data-i18n="food_ranking_board_left">고기・일식 추천</div>
+
+      <div class="ranking-list">
+        <!-- visible -->
+        <div class="ranking-item">
+          <div class="ranking-number" data-i18n="food_rank_1_category">鉄板焼き</div>
+          <div class="ranking-icon">🥩</div>
+          <div class="ranking-text">
+            <h3 data-i18n="food_rank_1_name">モーリヤ祇園</h3>
+            <p data-i18n="food_rank_1_desc">철판요리 / 특별한 날에 어울리는 분위기</p>
+            <div class="ranking-picks"><span class="pick-tag soraniwa">Soraniwa’s Pick</span></div>
+            <div class="ranking-links">
+              <a href="https://www.google.com/maps/search/?api=1&query=モーリヤ祇園 Kyoto" target="_blank" rel="noopener noreferrer">Google Maps</a>
+              <a href="https://www.google.com/maps/dir/?api=1&destination=モーリヤ祇園 Kyoto&travelmode=walking" target="_blank" rel="noopener noreferrer" data-i18n="directions_label">Directions</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="ranking-item">
+          <div class="ranking-number" data-i18n="food_rank_2_category">鉄板焼き</div>
+          <div class="ranking-icon">🥩</div>
+          <div class="ranking-text">
+            <h3 data-i18n="food_rank_2_name">のいち</h3>
+            <p data-i18n="food_rank_2_desc">철판요리 / 차분하고 고급스러운 식사</p>
+            <div class="ranking-picks"><span class="pick-tag soraniwa">Soraniwa’s Pick</span></div>
+            <div class="ranking-links">
+              <a href="https://www.google.com/maps/search/?api=1&query=のいち Kyoto" target="_blank" rel="noopener noreferrer">Google Maps</a>
+              <a href="https://www.google.com/maps/dir/?api=1&destination=のいち Kyoto&travelmode=walking" target="_blank" rel="noopener noreferrer" data-i18n="directions_label">Directions</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="ranking-item">
+          <div class="ranking-number" data-i18n="food_rank_3_category">焼き鳥</div>
+          <div class="ranking-icon">🍢</div>
+          <div class="ranking-text">
+            <h3 data-i18n="food_rank_3_name">祇園刀</h3>
+            <p data-i18n="food_rank_3_desc">야키토리 / 교토다운 분위기를 즐기기 좋은 곳</p>
+            <div class="ranking-picks">
+              <span class="pick-tag soraniwa">Soraniwa’s Pick</span>
+              <span class="pick-tag stitch">STITCH’s Pick</span>
+            </div>
+            <div class="ranking-links">
+              <a href="https://www.google.com/maps/search/?api=1&query=祇園刀 Kyoto" target="_blank" rel="noopener noreferrer">Google Maps</a>
+              <a href="https://www.google.com/maps/dir/?api=1&destination=祇園刀 Kyoto&travelmode=walking" target="_blank" rel="noopener noreferrer" data-i18n="directions_label">Directions</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="ranking-item">
+          <div class="ranking-number" data-i18n="food_rank_4_category">焼肉</div>
+          <div class="ranking-icon">🔥</div>
+          <div class="ranking-text">
+            <h3 data-i18n="food_rank_4_name">一笑</h3>
+            <p data-i18n="food_rank_4_desc">야키니쿠 / 진한 풍미의 고기 요리</p>
+            <div class="ranking-picks"><span class="pick-tag soraniwa">Soraniwa’s Pick</span></div>
+            <div class="ranking-links">
+              <a href="https://www.google.com/maps/search/?api=1&query=一笑 Kyoto" target="_blank" rel="noopener noreferrer">Google Maps</a>
+              <a href="https://www.google.com/maps/dir/?api=1&destination=一笑 Kyoto&travelmode=walking" target="_blank" rel="noopener noreferrer" data-i18n="directions_label">Directions</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="ranking-item">
+          <div class="ranking-number" data-i18n="food_rank_5_category">焼肉</div>
+          <div class="ranking-icon">🔥</div>
+          <div class="ranking-text">
+            <h3 data-i18n="food_rank_5_name">ひろ</h3>
+            <p data-i18n="food_rank_5_desc">야키니쿠 / 부담 없이 즐기기 좋은 인기점</p>
+            <div class="ranking-picks"><span class="pick-tag soraniwa">Soraniwa’s Pick</span></div>
+            <div class="ranking-links">
+              <a href="https://www.google.com/maps/search/?api=1&query=ひろ 焼肉 Kyoto" target="_blank" rel="noopener noreferrer">Google Maps</a>
+              <a href="https://www.google.com/maps/dir/?api=1&destination=ひろ 焼肉 Kyoto&travelmode=walking" target="_blank" rel="noopener noreferrer" data-i18n="directions_label">Directions</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- hidden -->
+        <div class="staff-more">
+          <div class="ranking-item">
+            <div class="ranking-number" data-i18n="food_rank_6_category">焼肉</div>
+            <div class="ranking-icon">🔥</div>
+            <div class="ranking-text">
+              <h3 data-i18n="food_rank_6_name">大黒戎先斗町店</h3>
+              <p data-i18n="food_rank_6_desc">야키니쿠 / 폰토초 주변 식사 코스로 추천</p>
+              <div class="ranking-picks"><span class="pick-tag stitch">STITCH’s Pick</span></div>
+              <div class="ranking-links">
+                <a href="https://www.google.com/maps/search/?api=1&query=大黒戎先斗町店 Kyoto" target="_blank" rel="noopener noreferrer">Google Maps</a>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=大黒戎先斗町店 Kyoto&travelmode=walking" target="_blank" rel="noopener noreferrer" data-i18n="directions_label">Directions</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="ranking-item">
+            <div class="ranking-number" data-i18n="food_rank_7_category">焼肉</div>
+            <div class="ranking-icon">🔥</div>
+            <div class="ranking-text">
+              <h3 data-i18n="food_rank_7_name">善</h3>
+              <p data-i18n="food_rank_7_desc">야키니쿠 / 차분하게 고기 요리를 즐기기 좋은 곳</p>
+              <div class="ranking-picks"><span class="pick-tag stitch">STITCH’s Pick</span></div>
+              <div class="ranking-links">
+                <a href="https://www.google.com/maps/search/?api=1&query=善 焼肉 Kyoto" target="_blank" rel="noopener noreferrer">Google Maps</a>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=善 焼肉 Kyoto&travelmode=walking" target="_blank" rel="noopener noreferrer" data-i18n="directions_label">Directions</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="ranking-item">
+            <div class="ranking-number" data-i18n="food_rank_8_category">お寿司</div>
+            <div class="ranking-icon">🍣</div>
+            <div class="ranking-text">
+              <h3 data-i18n="food_rank_8_name">寿司よし乃</h3>
+              <p data-i18n="food_rank_8_desc">스시 / 정갈한 분위기의 추천점</p>
+              <div class="ranking-picks"><span class="pick-tag soraniwa">Soraniwa’s Pick</span></div>
+              <div class="ranking-links">
+                <a href="https://www.google.com/maps/search/?api=1&query=寿司よし乃 Kyoto" target="_blank" rel="noopener noreferrer">Google Maps</a>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=寿司よし乃 Kyoto&travelmode=walking" target="_blank" rel="noopener noreferrer" data-i18n="directions_label">Directions</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="ranking-item">
+            <div class="ranking-number" data-i18n="food_rank_9_category">お寿司</div>
+            <div class="ranking-icon">🍣</div>
+            <div class="ranking-text">
+              <h3 data-i18n="food_rank_9_name">銀座おのでら</h3>
+              <p data-i18n="food_rank_9_desc">스시 / 특별한 식사에 잘 어울리는 고급감</p>
+              <div class="ranking-picks">
+                <span class="pick-tag soraniwa">Soraniwa’s Pick</span>
+                <span class="pick-tag stitch">STITCH’s Pick</span>
+              </div>
+              <div class="ranking-links">
+                <a href="https://www.google.com/maps/search/?api=1&query=銀座おのでら Kyoto" target="_blank" rel="noopener noreferrer">Google Maps</a>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=銀座おのでら Kyoto&travelmode=walking" target="_blank" rel="noopener noreferrer" data-i18n="directions_label">Directions</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="ranking-item">
+            <div class="ranking-number" data-i18n="food_rank_10_category">お寿司</div>
+            <div class="ranking-icon">🍣</div>
+            <div class="ranking-text">
+              <h3 data-i18n="food_rank_10_name">がんこ</h3>
+              <p data-i18n="food_rank_10_desc">스시 / 비교적 편하게 방문하기 좋은 곳</p>
+              <div class="ranking-picks"><span class="pick-tag hiyori">Hiyori’s Pick</span></div>
+              <div class="ranking-links">
+                <a href="https://www.google.com/maps/search/?api=1&query=がんこ 寿司 Kyoto" target="_blank" rel="noopener noreferrer">Google Maps</a>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=がんこ 寿司 Kyoto&travelmode=walking" target="_blank" rel="noopener noreferrer" data-i18n="directions_label">Directions</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="ranking-item">
+            <div class="ranking-number" data-i18n="food_rank_11_category">お寿司</div>
+            <div class="ranking-icon">🍣</div>
+            <div class="ranking-text">
+              <h3 data-i18n="food_rank_11_name">杉玉</h3>
+              <p data-i18n="food_rank_11_desc">스시 / 캐주얼하게 즐기기 좋은 분위기</p>
+              <div class="ranking-picks">
+                <span class="pick-tag hiyori">Hiyori’s Pick</span>
+                <span class="pick-tag stitch">STITCH’s Pick</span>
+              </div>
+              <div class="ranking-links">
+                <a href="https://www.google.com/maps/search/?api=1&query=杉玉 Kyoto" target="_blank" rel="noopener noreferrer">Google Maps</a>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=杉玉 Kyoto&travelmode=walking" target="_blank" rel="noopener noreferrer" data-i18n="directions_label">Directions</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="ranking-item">
+            <div class="ranking-number" data-i18n="food_rank_12_category">お寿司</div>
+            <div class="ranking-icon">🍣</div>
+            <div class="ranking-text">
+              <h3 data-i18n="food_rank_12_name">東寿司</h3>
+              <p data-i18n="food_rank_12_desc">스시 / 로컬 감성으로 즐기기 좋은 선택</p>
+              <div class="ranking-picks"><span class="pick-tag hiyori">Hiyori’s Pick</span></div>
+              <div class="ranking-links">
+                <a href="https://www.google.com/maps/search/?api=1&query=東寿司 Kyoto" target="_blank" rel="noopener noreferrer">Google Maps</a>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=東寿司 Kyoto&travelmode=walking" target="_blank" rel="noopener noreferrer" data-i18n="directions_label">Directions</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button class="staff-toggle" type="button" aria-label="Toggle more">
+          <span class="staff-toggle-icon">⌄</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- BOARD 2 -->
+    <div class="ranking-board ranking-board--stack">
+      <div class="ranking-board-title" data-i18n="food_ranking_board_right">캐주얼・기타 추천</div>
+
+      <div class="ranking-list">
+        <!-- visible -->
+        <div class="ranking-item">
+          <div class="ranking-number" data-i18n="food_rank_13_category">居酒屋</div>
+          <div class="ranking-icon">🍺</div>
+          <div class="ranking-text">
+            <h3 data-i18n="food_rank_13_name">うしのほね</h3>
+            <p data-i18n="food_rank_13_desc">이자카야 / 저녁 시간대에 분위기 좋게 즐기기 추천</p>
+            <div class="ranking-picks"><span class="pick-tag soraniwa">Soraniwa’s Pick</span></div>
+            <div class="ranking-links">
+              <a href="https://www.google.com/maps/search/?api=1&query=うしのほね Kyoto" target="_blank" rel="noopener noreferrer">Google Maps</a>
+              <a href="https://www.google.com/maps/dir/?api=1&destination=うしのほね Kyoto&travelmode=walking" target="_blank" rel="noopener noreferrer" data-i18n="directions_label">Directions</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="ranking-item">
+          <div class="ranking-number" data-i18n="food_rank_14_category">居酒屋</div>
+          <div class="ranking-icon">🍺</div>
+          <div class="ranking-text">
+            <h3 data-i18n="food_rank_14_name">おにかい</h3>
+            <p data-i18n="food_rank_14_desc">이자카야 / 여행 중 가볍게 들르기 좋은 곳</p>
+            <div class="ranking-picks"><span class="pick-tag hiyori">Hiyori’s Pick</span></div>
+            <div class="ranking-links">
+              <a href="https://www.google.com/maps/search/?api=1&query=おにかい Kyoto" target="_blank" rel="noopener noreferrer">Google Maps</a>
+              <a href="https://www.google.com/maps/dir/?api=1&destination=おにかい Kyoto&travelmode=walking" target="_blank" rel="noopener noreferrer" data-i18n="directions_label">Directions</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="ranking-item">
+          <div class="ranking-number" data-i18n="food_rank_15_category">居酒屋</div>
+          <div class="ranking-icon">🍺</div>
+          <div class="ranking-text">
+            <h3 data-i18n="food_rank_15_name">晴れ晴れ</h3>
+            <p data-i18n="food_rank_15_desc">이자카야 / 편안한 분위기의 저녁 식사</p>
+            <div class="ranking-picks"><span class="pick-tag hiyori">Hiyori’s Pick</span></div>
+            <div class="ranking-links">
+              <a href="https://www.google.com/maps/search/?api=1&query=晴れ晴れ Kyoto" target="_blank" rel="noopener noreferrer">Google Maps</a>
+              <a href="https://www.google.com/maps/dir/?api=1&destination=晴れ晴れ Kyoto&travelmode=walking" target="_blank" rel="noopener noreferrer" data-i18n="directions_label">Directions</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="ranking-item">
+          <div class="ranking-number" data-i18n="food_rank_16_category">居酒屋</div>
+          <div class="ranking-icon">🍺</div>
+          <div class="ranking-text">
+            <h3 data-i18n="food_rank_16_name">雅 炭火焼鳥</h3>
+            <p data-i18n="food_rank_16_desc">이자카야 / 숯불 향이 매력적인 메뉴</p>
+            <div class="ranking-picks"><span class="pick-tag hiyori">Hiyori’s Pick</span></div>
+            <div class="ranking-links">
+              <a href="https://www.google.com/maps/search/?api=1&query=雅 炭火焼鳥 Kyoto" target="_blank" rel="noopener noreferrer">Google Maps</a>
+              <a href="https://www.google.com/maps/dir/?api=1&destination=雅 炭火焼鳥 Kyoto&travelmode=walking" target="_blank" rel="noopener noreferrer" data-i18n="directions_label">Directions</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="ranking-item">
+          <div class="ranking-number" data-i18n="food_rank_17_category">居酒屋</div>
+          <div class="ranking-icon">🍺</div>
+          <div class="ranking-text">
+            <h3 data-i18n="food_rank_17_name">炭火焼鶏おとなり</h3>
+            <p data-i18n="food_rank_17_desc">이자카야 / 현지 느낌으로 즐기기 좋은 곳</p>
+            <div class="ranking-picks">
+              <span class="pick-tag hiyori">Hiyori’s Pick</span>
+              <span class="pick-tag stitch">STITCH’s Pick</span>
+            </div>
+            <div class="ranking-links">
+              <a href="https://www.google.com/maps/search/?api=1&query=炭火焼鶏おとなり Kyoto" target="_blank" rel="noopener noreferrer">Google Maps</a>
+              <a href="https://www.google.com/maps/dir/?api=1&destination=炭火焼鶏おとなり Kyoto&travelmode=walking" target="_blank" rel="noopener noreferrer" data-i18n="directions_label">Directions</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- hidden -->
+        <div class="staff-more">
+          <div class="ranking-item">
+            <div class="ranking-number" data-i18n="food_rank_18_category">ラーメン</div>
+            <div class="ranking-icon">🍜</div>
+            <div class="ranking-text">
+              <h3 data-i18n="food_rank_18_name">柳 札幌ラーメン</h3>
+              <p data-i18n="food_rank_18_desc">라멘 / 진한 국물 계열을 좋아한다면 추천</p>
+              <div class="ranking-picks"><span class="pick-tag hiyori">Hiyori’s Pick</span></div>
+              <div class="ranking-links">
+                <a href="https://www.google.com/maps/search/?api=1&query=柳 札幌ラーメン Kyoto" target="_blank" rel="noopener noreferrer">Google Maps</a>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=柳 札幌ラーメン Kyoto&travelmode=walking" target="_blank" rel="noopener noreferrer" data-i18n="directions_label">Directions</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="ranking-item">
+            <div class="ranking-number" data-i18n="food_rank_19_category">ラーメン</div>
+            <div class="ranking-icon">🍜</div>
+            <div class="ranking-text">
+              <h3 data-i18n="food_rank_19_name">麺屋EDITION京都本店</h3>
+              <p data-i18n="food_rank_19_desc">라멘 / 세련된 분위기의 인기 라멘점</p>
+              <div class="ranking-picks"><span class="pick-tag hiyori">Hiyori’s Pick</span></div>
+              <div class="ranking-links">
+                <a href="https://www.google.com/maps/search/?api=1&query=麺屋EDITION京都本店 Kyoto" target="_blank" rel="noopener noreferrer">Google Maps</a>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=麺屋EDITION京都本店 Kyoto&travelmode=walking" target="_blank" rel="noopener noreferrer" data-i18n="directions_label">Directions</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="ranking-item">
+            <div class="ranking-number" data-i18n="food_rank_20_category">ラーメン</div>
+            <div class="ranking-icon">🍜</div>
+            <div class="ranking-text">
+              <h3 data-i18n="food_rank_20_name">ラーメンの坊歩 七条本店</h3>
+              <p data-i18n="food_rank_20_desc">라멘 / 든든한 한 끼로 추천</p>
+              <div class="ranking-picks"><span class="pick-tag hiyori">Hiyori’s Pick</span></div>
+              <div class="ranking-links">
+                <a href="https://www.google.com/maps/search/?api=1&query=ラーメンの坊歩 七条本店 Kyoto" target="_blank" rel="noopener noreferrer">Google Maps</a>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=ラーメンの坊歩 七条本店 Kyoto&travelmode=walking" target="_blank" rel="noopener noreferrer" data-i18n="directions_label">Directions</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="ranking-item">
+            <div class="ranking-number" data-i18n="food_rank_21_category">ラーメン</div>
+            <div class="ranking-icon">🍜</div>
+            <div class="ranking-text">
+              <h3 data-i18n="food_rank_21_name">優光</h3>
+              <p data-i18n="food_rank_21_desc">라멘 / 여행객에게도 인기가 많은 편</p>
+              <div class="ranking-picks"><span class="pick-tag stitch">STITCH’s Pick</span></div>
+              <div class="ranking-links">
+                <a href="https://www.google.com/maps/search/?api=1&query=優光 Kyoto" target="_blank" rel="noopener noreferrer">Google Maps</a>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=優光 Kyoto&travelmode=walking" target="_blank" rel="noopener noreferrer" data-i18n="directions_label">Directions</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="ranking-item">
+            <div class="ranking-number" data-i18n="food_rank_22_category">中華</div>
+            <div class="ranking-icon">🥟</div>
+            <div class="ranking-text">
+              <h3 data-i18n="food_rank_22_name">CHAO CHAO</h3>
+              <p data-i18n="food_rank_22_desc">중식 / 교자 메뉴로 유명한 캐주얼한 선택</p>
+              <div class="ranking-picks"><span class="pick-tag stitch">STITCH’s Pick</span></div>
+              <div class="ranking-links">
+                <a href="https://www.google.com/maps/search/?api=1&query=CHAO CHAO Kyoto" target="_blank" rel="noopener noreferrer">Google Maps</a>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=CHAO CHAO Kyoto&travelmode=walking" target="_blank" rel="noopener noreferrer" data-i18n="directions_label">Directions</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="ranking-item">
+            <div class="ranking-number" data-i18n="food_rank_23_category">中華</div>
+            <div class="ranking-icon">🥟</div>
+            <div class="ranking-text">
+              <h3 data-i18n="food_rank_23_name">MING MING</h3>
+              <p data-i18n="food_rank_23_desc">중식 / 가볍게 즐기기 좋은 중화요리</p>
+              <div class="ranking-picks"><span class="pick-tag stitch">STITCH’s Pick</span></div>
+              <div class="ranking-links">
+                <a href="https://www.google.com/maps/search/?api=1&query=珉珉 四条店 Kyoto" target="_blank" rel="noopener noreferrer">Google Maps</a>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=珉珉 四条店 Kyoto&travelmode=walking" target="_blank" rel="noopener noreferrer" data-i18n="directions_label">Directions</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="ranking-item">
+            <div class="ranking-number" data-i18n="food_rank_24_category">しゃぶしゃぶ</div>
+            <div class="ranking-icon">🍲</div>
+            <div class="ranking-text">
+              <h3 data-i18n="food_rank_24_name">きんのぶたPREMIUM</h3>
+              <p data-i18n="food_rank_24_desc">샤브샤브 / 여러 명이 함께 가기 좋은 메뉴</p>
+              <div class="ranking-picks"><span class="pick-tag stitch">STITCH’s Pick</span></div>
+              <div class="ranking-links">
+                <a href="https://www.google.com/maps/search/?api=1&query=きんのぶたPREMIUM Kyoto" target="_blank" rel="noopener noreferrer">Google Maps</a>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=きんのぶたPREMIUM Kyoto&travelmode=walking" target="_blank" rel="noopener noreferrer" data-i18n="directions_label">Directions</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="ranking-item">
+            <div class="ranking-number" data-i18n="food_rank_25_category">ビーガン</div>
+            <div class="ranking-icon">🥗</div>
+            <div class="ranking-text">
+              <h3 data-i18n="food_rank_25_name">Veg Out</h3>
+              <p data-i18n="food_rank_25_desc">비건 / 건강하고 가벼운 식사를 원할 때 추천</p>
+              <div class="ranking-picks"><span class="pick-tag hiyori">Hiyori’s Pick</span></div>
+              <div class="ranking-links">
+                <a href="https://www.google.com/maps/search/?api=1&query=Veg Out Kyoto" target="_blank" rel="noopener noreferrer">Google Maps</a>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=Veg Out Kyoto&travelmode=walking" target="_blank" rel="noopener noreferrer" data-i18n="directions_label">Directions</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="ranking-item">
+            <div class="ranking-number" data-i18n="food_rank_26_category">ビーガン</div>
+            <div class="ranking-icon">🥗</div>
+            <div class="ranking-text">
+              <h3 data-i18n="food_rank_26_name">TU CASA - plant based &amp; zero waste</h3>
+              <p data-i18n="food_rank_26_desc">비건 / 친환경 콘셉트가 돋보이는 공간</p>
+              <div class="ranking-picks"><span class="pick-tag hiyori">Hiyori’s Pick</span></div>
+              <div class="ranking-links">
+                <a href="https://www.google.com/maps/search/?api=1&query=TU CASA plant based zero waste Kyoto" target="_blank" rel="noopener noreferrer">Google Maps</a>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=TU CASA plant based zero waste Kyoto&travelmode=walking" target="_blank" rel="noopener noreferrer" data-i18n="directions_label">Directions</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button class="staff-toggle" type="button" aria-label="Toggle more">
+          <span class="staff-toggle-icon">⌄</span>
+        </button>
       </div>
     </div>
   </div>
 </section>
+  
 
 <section class="food-ranking" id="food-ranking">
   <div class="section-heading">
