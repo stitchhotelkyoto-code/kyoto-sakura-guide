@@ -1645,12 +1645,7 @@ staffToggleBtns.forEach((button) => {
     document.documentElement.lang = lang;
     localStorage.setItem("siteLanguage", lang);
 
-    foodToggleButtons.forEach((btn) => {
-      if (!btn.classList.contains("is-open")) {
-        btn.textContent = dict.food_toggle_symbol || "+";
-      }
-    });
-
+    
     if (spotsList && foodList && currentGuideLocation) {
       updateAiGuideByKey(currentGuideLocation, currentGuideStatusKey);
     }
