@@ -1464,7 +1464,7 @@ html[lang="ko"] .sakura-slide-card:nth-child(6) .sakura-slide-copy {
   transition: transform 0.25s ease;
 }
 
-.ranking-list.is-open + .staff-toggle .staff-toggle-icon {
+.ranking-list.is-open .staff-toggle-icon {
   transform: rotate(180deg);
 }
 
