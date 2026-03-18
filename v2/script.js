@@ -1224,44 +1224,72 @@ food_place_4_3_menu: "メニュー 牛カツ",
     return translations[currentLanguage]?.[key] || translations.ko[key] || "";
   }
 
-  /* =========================
-     FOOD TOGGLE
-  ========================= */
-  const foodToggleButtons = document.querySelectorAll(".food-toggle-btn");
-  const foodPanels = document.querySelectorAll(".food-slide-panel");
+/* =========================
+   FOOD FLIP + STAFF MORE
+========================= */
+const foodFlipCards = document.querySelectorAll(".food-flip-card");
+const foodFlipOpenBtns = document.querySelectorAll(".food-flip-trigger");
+const foodFlipCloseBtns = document.querySelectorAll(".food-flip-close");
+const staffToggleBtns = document.querySelectorAll(".staff-toggle");
 
-  function closeAllFoodPanels() {
-    foodPanels.forEach((panel) => panel.classList.remove("open"));
-    foodToggleButtons.forEach((btn) => {
-      btn.classList.remove("is-open");
-      btn.textContent = tt("food_toggle_symbol") || "+";
-    });
-  }
-
-  foodToggleButtons.forEach((button) => {
-    button.addEventListener("click", (event) => {
-      event.stopPropagation();
-
-      const targetId = button.dataset.target;
-      const targetPanel = document.getElementById(targetId);
-      if (!targetPanel) return;
-
-      const isOpen = targetPanel.classList.contains("open");
-      closeAllFoodPanels();
-
-      if (!isOpen) {
-        targetPanel.classList.add("open");
-        button.classList.add("is-open");
-        button.textContent = "−";
-      }
-    });
-  });
-
-  document.addEventListener("click", (event) => {
-    if (!event.target.closest(".food-area-item")) {
-      closeAllFoodPanels();
+function closeAllFoodFlips(exceptCard = null) {
+  foodFlipCards.forEach((card) => {
+    if (card !== exceptCard) {
+      card.classList.remove("is-flipped");
     }
   });
+}
+
+foodFlipOpenBtns.forEach((button) => {
+  button.addEventListener("click", (event) => {
+    event.stopPropagation();
+    const card = button.closest(".food-flip-card");
+    if (!card) return;
+
+    const isOpened = card.classList.contains("is-flipped");
+    closeAllFoodFlips(card);
+
+    if (!isOpened) {
+      card.classList.add("is-flipped");
+    } else {
+      card.classList.remove("is-flipped");
+    }
+  });
+});
+
+foodFlipCloseBtns.forEach((button) => {
+  button.addEventListener("click", (event) => {
+    event.stopPropagation();
+    const card = button.closest(".food-flip-card");
+    if (!card) return;
+    card.classList.remove("is-flipped");
+  });
+});
+
+foodFlipCards.forEach((card) => {
+  card.addEventListener("click", (event) => {
+    if (event.target.closest("a, button")) return;
+    const isOpened = card.classList.contains("is-flipped");
+    closeAllFoodFlips(card);
+    if (!isOpened) {
+      card.classList.add("is-flipped");
+    }
+  });
+});
+
+document.addEventListener("click", (event) => {
+  if (!event.target.closest(".food-flip-card")) {
+    closeAllFoodFlips();
+  }
+});
+
+staffToggleBtns.forEach((button) => {
+  button.addEventListener("click", () => {
+    const list = button.previousElementSibling;
+    if (!list) return;
+    list.classList.toggle("is-open");
+  });
+});
 
   /* =========================
      SAKURA SLIDER
