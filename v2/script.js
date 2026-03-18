@@ -1285,9 +1285,10 @@ document.addEventListener("click", (event) => {
 
 staffToggleBtns.forEach((button) => {
   button.addEventListener("click", () => {
-    const list = button.previousElementSibling;
-    if (!list) return;
-    list.classList.toggle("is-open");
+    const rankingList = button.closest(".ranking-list");
+    if (!rankingList) return;
+
+    rankingList.classList.toggle("is-open");
   });
 });
 
