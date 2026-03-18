@@ -1618,38 +1618,37 @@ staffToggleBtns.forEach((button) => {
   ========================= */
   const langButtons = document.querySelectorAll(".lang-btn");
 
-  function setLanguage(lang) {
-    const dict = translations[lang];
-    if (!dict) return;
+function setLanguage(lang) {
+  const dict = translations[lang];
+  if (!dict) return;
 
-    currentLanguage = lang;
+  currentLanguage = lang;
 
-    const translatableEls = document.querySelectorAll("[data-i18n]");
-    translatableEls.forEach((el) => {
-      const key = el.dataset.i18n;
-      const attr = el.dataset.i18nAttr;
+  const translatableEls = document.querySelectorAll("[data-i18n]");
+  translatableEls.forEach((el) => {
+    const key = el.dataset.i18n;
+    const attr = el.dataset.i18nAttr;
 
-      if (!dict[key]) return;
+    if (!dict[key]) return;
 
-      if (attr) {
-        el.setAttribute(attr, dict[key]);
-      } else {
-        el.textContent = dict[key];
-      }
-    });
-
-    langButtons.forEach((btn) => {
-      btn.classList.toggle("active", btn.dataset.lang === lang);
-    });
-
-    document.documentElement.lang = lang;
-    localStorage.setItem("siteLanguage", lang);
-
-    
-    if (spotsList && foodList && currentGuideLocation) {
-      updateAiGuideByKey(currentGuideLocation, currentGuideStatusKey);
+    if (attr) {
+      el.setAttribute(attr, dict[key]);
+    } else {
+      el.textContent = dict[key];
     }
+  });
+
+  langButtons.forEach((btn) => {
+    btn.classList.toggle("active", btn.dataset.lang === lang);
+  });
+
+  document.documentElement.lang = lang;
+  localStorage.setItem("siteLanguage", lang);
+
+  if (spotsList && foodList && currentGuideLocation) {
+    updateAiGuideByKey(currentGuideLocation, currentGuideStatusKey);
   }
+}
 
   const savedLanguage = localStorage.getItem("siteLanguage") || "ko";
   setLanguage(savedLanguage);
