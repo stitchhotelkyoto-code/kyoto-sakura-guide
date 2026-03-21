@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="jp">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,71 +9,87 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css" />
 </head>
-<body>
+<body data-page="home">
   <div class="page-shell">
     <header class="site-header">
       <div class="container site-header-inner">
         <a href="./index.html" class="site-logo">Kyoto Sakura Guide</a>
-        <nav class="site-nav">
-          <a href="./index.html">Home</a>
-          <a href="./hotels/soraniwa.html">Soraniwa</a>
-          <a href="./hotels/hiyori.html">Hiyori</a>
-          <a href="./hotels/stitch.html">STITCH</a>
-          <a href="./all-sakura.html">Sakura</a>
-          <a href="./all-food.html">Food</a>
-          <a href="./all-events.html">Events</a>
-        </nav>
+
+        <div class="header-right">
+          <nav class="site-nav">
+            <a href="./index.html" data-i18n="nav_home">Home</a>
+            <a href="./hotels/soraniwa.html" data-i18n="nav_soraniwa">Soraniwa</a>
+            <a href="./hotels/hiyori.html" data-i18n="nav_hiyori">Hiyori</a>
+            <a href="./hotels/stitch.html" data-i18n="nav_stitch">STITCH</a>
+            <a href="./all-sakura.html" data-i18n="nav_sakura">Sakura</a>
+            <a href="./all-food.html" data-i18n="nav_food">Food</a>
+            <a href="./all-events.html" data-i18n="nav_events">Events</a>
+          </nav>
+
+          <div class="lang-switcher">
+            <button class="lang-btn" data-lang="jp" type="button">JP</button>
+            <button class="lang-btn" data-lang="en" type="button">EN</button>
+            <button class="lang-btn" data-lang="kr" type="button">KR</button>
+          </div>
+        </div>
       </div>
     </header>
 
     <main>
       <section class="hero">
-        <div class="container hero-grid">
-          <div class="hero-copy">
-            <div class="eyebrow">Hotel Based Spring Guide</div>
-            <h1 class="hero-title">あなたのホテルから<br>始まる京都の春</h1>
-            <p class="hero-desc">
-              숙박 중인 호텔을 기준으로, 벚꽃 명소・추천 코스・맛집・시즌 이벤트를 한눈에 확인할 수 있는 호텔 중심형 교토 가이드입니다.
-            </p>
-            <div class="hero-actions">
-              <a class="btn btn-primary" href="#hotel-select">호텔 선택하기</a>
-              <a class="btn btn-secondary" href="./all-sakura.html">전체 가이드 보기</a>
+        <div class="container">
+          <div class="hero-frame">
+            <div class="hero-copy">
+              <div class="eyebrow" data-i18n="hero_eyebrow">Hotel Based Spring Guide</div>
+              <h1 class="hero-title" data-i18n-html="hero_title">あなたのホテルから<br>始まる京都の春</h1>
+              <p class="hero-desc" data-i18n="hero_desc">
+                숙박 중인 호텔을 기준으로, 벚꽃 명소・추천 코스・맛집・시즌 이벤트를 한눈에 확인할 수 있는 호텔 중심형 가이드입니다.
+              </p>
+
+              <div class="hero-actions">
+                <a href="#hotel-select" class="btn btn-primary" data-i18n="hero_btn_primary">호텔 선택하기</a>
+                <a href="./all-sakura.html" class="btn btn-secondary" data-i18n="hero_btn_secondary">전체 교토 가이드</a>
+              </div>
             </div>
-          </div>
 
-          <div class="hero-side">
-            <div class="hotel-grid">
-              <a class="hotel-select-card" href="./hotels/soraniwa.html">
-                <div class="hotel-select-image"></div>
-                <div class="hotel-select-body">
-                  <h3>Soraniwa Hotel</h3>
-                  <p>메인 / Bettei를 포함한 Soraniwa 브랜드 가이드</p>
-                </div>
-              </a>
+            <div class="hero-side">
+              <div class="mini-card-grid">
+                <a class="mini-guide-card" href="./hotels/soraniwa.html">
+                  <div class="mini-guide-image"></div>
+                  <div class="mini-guide-body">
+                    <span class="mini-guide-tag" data-i18n="home_card_tag_hotel">Hotel Guide</span>
+                    <h3>Soraniwa Hotel</h3>
+                    <p data-i18n="home_card_soraniwa">Soraniwa + Bettei 통합 가이드</p>
+                  </div>
+                </a>
 
-              <a class="hotel-select-card" href="./hotels/hiyori.html">
-                <div class="hotel-select-image"></div>
-                <div class="hotel-select-body">
-                  <h3>Hiyori Stay Kyoto Gojo</h3>
-                  <p>편안한 동선과 실용적인 여행을 위한 스테이</p>
-                </div>
-              </a>
+                <a class="mini-guide-card" href="./hotels/hiyori.html">
+                  <div class="mini-guide-image"></div>
+                  <div class="mini-guide-body">
+                    <span class="mini-guide-tag" data-i18n="home_card_tag_hotel">Hotel Guide</span>
+                    <h3>Hiyori Stay Kyoto Gojo</h3>
+                    <p data-i18n="home_card_hiyori">고조 중심의 실용적인 교토 여행</p>
+                  </div>
+                </a>
 
-              <a class="hotel-select-card" href="./hotels/stitch.html">
-                <div class="hotel-select-image"></div>
-                <div class="hotel-select-body">
-                  <h3>STITCH HOTEL Kyoto</h3>
-                  <p>감각적인 교토 체류를 위한 도시형 스테이</p>
-                </div>
-              </a>
+                <a class="mini-guide-card" href="./hotels/stitch.html">
+                  <div class="mini-guide-image"></div>
+                  <div class="mini-guide-body">
+                    <span class="mini-guide-tag" data-i18n="home_card_tag_hotel">Hotel Guide</span>
+                    <h3>STITCH HOTEL Kyoto</h3>
+                    <p data-i18n="home_card_stitch">도시적인 감성으로 즐기는 교토</p>
+                  </div>
+                </a>
 
-              <a class="hotel-select-card" href="./all-events.html">
-                <div class="hotel-select-image"></div>
-                <div class="hotel-select-body">
-                  <h3>Explore Kyoto</h3>
-                  <p>호텔 구분 없이 전체 벚꽃・음식・이벤트 보기</p>
-                </div>
-              </a>
+                <a class="mini-guide-card" href="./all-events.html">
+                  <div class="mini-guide-image"></div>
+                  <div class="mini-guide-body">
+                    <span class="mini-guide-tag" data-i18n="home_card_tag_city">City Guide</span>
+                    <h3>Explore Kyoto</h3>
+                    <p data-i18n="home_card_explore">벚꽃 / 음식 / 이벤트 전체 보기</p>
+                  </div>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -81,41 +97,48 @@
 
       <section class="section" id="hotel-select">
         <div class="container">
-          <h2 class="section-title">Choose Your Hotel</h2>
-          <p class="section-desc">
-            각 호텔을 선택하면 해당 호텔 기준의 추천 코스와 주변 정보가 표시됩니다.
-          </p>
+          <div class="section-heading">
+            <p class="section-label" data-i18n="choose_label">Choose Your Stay</p>
+            <h2 class="section-title" data-i18n="choose_title">Choose Your Hotel</h2>
+            <p class="section-desc" data-i18n="choose_desc">
+              각 호텔을 선택하면 그 호텔을 기준으로 한 추천 코스와 주변 정보가 표시됩니다.
+            </p>
+          </div>
 
-          <div class="hotel-grid">
-            <a class="hotel-select-card" href="./hotels/soraniwa.html">
-              <div class="hotel-select-image"></div>
-              <div class="hotel-select-body">
+          <div class="hotel-select-grid">
+            <a class="hotel-feature-card" href="./hotels/soraniwa.html">
+              <div class="hotel-feature-image"></div>
+              <div class="hotel-feature-body">
+                <span class="hotel-feature-tag">Soraniwa Brand</span>
                 <h3>Soraniwa Hotel</h3>
-                <p>브랜드 통합 페이지 / Soraniwa + Bettei</p>
+                <p data-i18n="hotel_card_soraniwa">Soraniwa / Soraniwa Bettei를 함께 보는 브랜드 통합 페이지</p>
               </div>
             </a>
 
-            <a class="hotel-select-card" href="./hotels/hiyori.html">
-              <div class="hotel-select-image"></div>
-              <div class="hotel-select-body">
+            <a class="hotel-feature-card" href="./hotels/hiyori.html">
+              <div class="hotel-feature-image"></div>
+              <div class="hotel-feature-body">
+                <span class="hotel-feature-tag">Gojo Stay</span>
                 <h3>Hiyori Stay Kyoto Gojo</h3>
-                <p>고조 중심의 실용적인 교토 여행 가이드</p>
+                <p data-i18n="hotel_card_hiyori">기요미즈・고조・히가시야마 동선에 잘 맞는 실용형 가이드</p>
               </div>
             </a>
 
-            <a class="hotel-select-card" href="./hotels/stitch.html">
-              <div class="hotel-select-image"></div>
-              <div class="hotel-select-body">
+            <a class="hotel-feature-card" href="./hotels/stitch.html">
+              <div class="hotel-feature-image"></div>
+              <div class="hotel-feature-body">
+                <span class="hotel-feature-tag">Urban Stay</span>
                 <h3>STITCH HOTEL Kyoto</h3>
-                <p>도시적 감성으로 즐기는 교토의 봄</p>
+                <p data-i18n="hotel_card_stitch">가와라마치・기온・나이트 워크에 어울리는 도시형 가이드</p>
               </div>
             </a>
 
-            <a class="hotel-select-card" href="./all-sakura.html">
-              <div class="hotel-select-image"></div>
-              <div class="hotel-select-body">
-                <h3>All Sakura Guide</h3>
-                <p>호텔과 관계없이 교토 전체 벚꽃 가이드 보기</p>
+            <a class="hotel-feature-card" href="./all-sakura.html">
+              <div class="hotel-feature-image"></div>
+              <div class="hotel-feature-body">
+                <span class="hotel-feature-tag">All Kyoto</span>
+                <h3 data-i18n="hotel_card_all_title">All Kyoto Guide</h3>
+                <p data-i18n="hotel_card_all">호텔 구분 없이 교토 전체 벚꽃 / 음식 / 이벤트를 확인하는 페이지</p>
               </div>
             </a>
           </div>
@@ -123,11 +146,14 @@
       </section>
     </main>
 
-    <footer class="footer">
+    <footer class="site-footer">
       <div class="container">
         Kyoto Sakura Guide © Spring Stay Project
       </div>
     </footer>
   </div>
+
+  <script src="./js/hotel-data.js"></script>
+  <script src="./js/main.js"></script>
 </body>
 </html>
