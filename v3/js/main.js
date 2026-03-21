@@ -1,4 +1,48 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const savedLang = localStorage.getItem("siteLanguage") || "jp";
+  applyLanguage(savedLang);
+  setupLanguageSwitcher();
+
+  const hotelPage = document.body.dataset.hotelPage;
+  const allPage = document.body.dataset.allPage;
+
+  if (hotelPage) renderHotelPage(hotelPage, savedLang);
+  if (allPage) renderAllPage(allPage, savedLang);
+
+  setupCardSlider();
+});
+
+function setupLanguageSwitcher() {
+  document.addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-lang]");
+    if (!btn) return;
+
+    const lang = btn.dataset.lang;
+    localStorage.setItem("siteLanguage", lang);
+    applyLanguage(lang);
+
+    const hotelPage = document.body.dataset.hotelPage;
+    const allPage = document.body.dataset.allPage;
+
+    if (hotelPage) renderHotelPage(hotelPage, lang);
+    if (allPage) renderAllPage(allPage, lang);
+  });
+}
+
+function applyLanguage(lang) {
+  document.documentElement.lang = lang;
+
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    const key = el.dataset.i18n;
+    const value = window.UI_TEXT?.[lang]?.[key];
+    if (value) el.textContent = value;
+  });
+
+  document.querySelectorAll(".lang-btn").forEach((btn) => {
+    btn.classList.toggle("is-active", btn.dataset.lang === lang);
+  });
+}
+document.addEventListener("DOMContentLoaded", () => {
   const hotelPage = document.body.dataset.hotelPage;
   const allPage = document.body.dataset.allPage;
 
