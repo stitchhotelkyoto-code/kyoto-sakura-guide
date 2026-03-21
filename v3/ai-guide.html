@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Guide | Kyoto Sakura Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="container site-header-inner">
+        <a href="./index.html" class="site-logo">Kyoto Sakura Guide</a>
+        <div class="header-right">
+          <nav class="site-nav">
+            <a href="./index.html" data-i18n="nav_home">Home</a>
+            <a href="./hotels/soraniwa.html" data-i18n="nav_soraniwa">Soraniwa</a>
+            <a href="./hotels/hiyori.html" data-i18n="nav_hiyori">Hiyori</a>
+            <a href="./hotels/stitch.html" data-i18n="nav_stitch">STITCH</a>
+            <a href="./all-sakura.html" data-i18n="nav_sakura">Sakura</a>
+            <a href="./all-food.html" data-i18n="nav_food">Food</a>
+            <a href="./all-events.html" data-i18n="nav_events">Events</a>
+            <a href="./crowd-live.html" data-i18n="nav_crowd">Crowd</a>
+            <a href="./ai-guide.html" data-i18n="nav_ai">AI Guide</a>
+          </nav>
+          <div class="lang-switcher">
+            <button class="lang-btn" data-lang="jp" type="button">JP</button>
+            <button class="lang-btn" data-lang="en" type="button">EN</button>
+            <button class="lang-btn" data-lang="kr" type="button">KR</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero page-hero-ai">
+        <div class="container">
+          <div class="page-hero-box">
+            <p class="page-hero-label">AI Guide</p>
+            <h1 data-i18n="ai_title">AI Guide</h1>
+            <p data-i18n="ai_desc">호텔 기준으로 교토 여행 코스, 벚꽃 명소, 음식, 이벤트를 빠르게 정리해보는 안내 페이지입니다.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-tight" id="courses">
+        <div class="container">
+          <div class="feature-grid">
+            <article class="feature-card">
+              <div class="feature-image"></div>
+              <div class="feature-body">
+                <span class="feature-tag" data-i18n="ai_tag_1">Quick Plan</span>
+                <h3 data-i18n="ai_card_1_title">1-Day Course</h3>
+                <p data-i18n="ai_card_1_desc">하루 일정으로 교토를 보고 싶은 고객을 위한 빠른 추천 루트입니다.</p>
+              </div>
+            </article>
+
+            <article class="feature-card">
+              <div class="feature-image"></div>
+              <div class="feature-body">
+                <span class="feature-tag" data-i18n="ai_tag_2">By Mood</span>
+                <h3 data-i18n="ai_card_2_title">By Travel Mood</h3>
+                <p data-i18n="ai_card_2_desc">감성 산책, 전통 사찰, 야간 산책, 먹거리 중심 등 취향별로 골라볼 수 있습니다.</p>
+              </div>
+            </article>
+
+            <article class="feature-card">
+              <div class="feature-image"></div>
+              <div class="feature-body">
+                <span class="feature-tag" data-i18n="ai_tag_3">Nearby</span>
+                <h3 data-i18n="ai_card_3_title">By Hotel Base</h3>
+                <p data-i18n="ai_card_3_desc">각 호텔을 기준으로 가까운 지역부터 효율적으로 여행할 수 있게 구성했습니다.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">Kyoto Sakura Guide © Spring Stay Project</div>
+    </footer>
+  </div>
+
+  <script src="./js/hotel-data.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+</html>
