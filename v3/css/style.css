@@ -1036,3 +1036,19 @@ ul {
     line-height: 1.7;
   }
 }
+@media (max-width: 560px) {
+  .hotel-sub-intro h2 {
+    font-size: 1.9rem;
+    line-height: 1.18;
+    letter-spacing: -0.03em;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+}
+
+@media (max-width: 420px) {
+  .hotel-sub-intro h2 {
+    font-size: 1.72rem;
+    line-height: 1.16;
+  }
+}
