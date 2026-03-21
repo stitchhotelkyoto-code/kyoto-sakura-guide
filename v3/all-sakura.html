@@ -1,165 +1,66 @@
-window.HOTEL_DATA.allSakura = {
-  title: {
-    jp: "All Sakura Guide",
-    kr: "All Sakura Guide",
-    en: "All Sakura Guide"
-  },
-  description: {
-    jp: "京都の代表的な桜スポットを、雰囲気とエリア別にまとめたガイドです。",
-    kr: "교토의 대표적인 벚꽃 명소를 분위기와 지역별로 정리한 가이드입니다.",
-    en: "A curated guide to Kyoto’s best cherry blossom spots by mood and area."
-  },
-  items: [
-    {
-      tag: { jp: "East Kyoto", kr: "동부 교토", en: "East Kyoto" },
-      title: { jp: "Philosopher’s Path", kr: "철학의 길", en: "Philosopher’s Path" },
-      text: {
-        jp: "桜並木をゆっくり歩きながら、京都らしい静かな春を楽しめる定番散策コースです。",
-        kr: "벚꽃길을 따라 천천히 걸으며 교토다운 조용한 봄을 즐기기 좋은 정석 산책 코스입니다.",
-        en: "A classic spring walk lined with cherry blossoms and a calm Kyoto atmosphere."
-      }
-    },
-    {
-      tag: { jp: "Higashiyama", kr: "히가시야마", en: "Higashiyama" },
-      title: { jp: "Kiyomizudera Area", kr: "기요미즈데라 지역", en: "Kiyomizudera Area" },
-      text: {
-        jp: "清水寺と周辺の坂道風景を一緒に楽しめる、京都らしさの強い人気エリアです。",
-        kr: "기요미즈데라와 주변 언덕길 풍경을 함께 즐길 수 있는, 교토다운 분위기의 인기 지역입니다.",
-        en: "A scenic area where temple views and old Kyoto streets come together beautifully."
-      }
-    },
-    {
-      tag: { jp: "Central Kyoto", kr: "중심부", en: "Central Kyoto" },
-      title: { jp: "Maruyama Park", kr: "마루야마 공원", en: "Maruyama Park" },
-      text: {
-        jp: "昼も夜も人気が高く、お花見らしい賑わいを感じられる代表的なスポットです。",
-        kr: "낮과 밤 모두 인기가 많고, 하나미다운 분위기를 가장 잘 느낄 수 있는 대표 명소입니다.",
-        en: "One of Kyoto’s most iconic hanami spots, lively both day and night."
-      }
-    },
-    {
-      tag: { jp: "Central Kyoto", kr: "도심 산책", en: "City Walk" },
-      title: { jp: "Takasegawa", kr: "다카세가와", en: "Takasegawa" },
-      text: {
-        jp: "街中で気軽に歩ける川沿いの桜スポットで、夕方の散策にもおすすめです。",
-        kr: "도심 속에서 가볍게 걷기 좋은 강변 벚꽃 스팟으로, 저녁 산책에도 잘 어울립니다.",
-        en: "An easy riverside sakura walk in the city, perfect for a relaxed evening stroll."
-      }
-    },
-    {
-      tag: { jp: "West Kyoto", kr: "서부 교토", en: "West Kyoto" },
-      title: { jp: "Arashiyama", kr: "아라시야마", en: "Arashiyama" },
-      text: {
-        jp: "自然の景色と桜を一緒に楽しみたい方におすすめの、開放感ある人気エリアです。",
-        kr: "자연 풍경과 벚꽃을 함께 즐기고 싶은 사람에게 추천하는, 개방감 있는 인기 지역입니다.",
-        en: "A spacious and scenic area ideal for enjoying both nature and sakura."
-      }
-    },
-    {
-      tag: { jp: "Temple View", kr: "사찰 풍경", en: "Temple View" },
-      title: { jp: "Heian Shrine & Keage", kr: "헤이안신궁 & 게아게", en: "Heian Shrine & Keage" },
-      text: {
-        jp: "しだれ桜や線路跡の風景など、写真映えする春の景色を楽しめます。",
-        kr: "수양벚꽃과 철길 풍경 등 사진 찍기 좋은 봄 장면을 즐길 수 있습니다.",
-        en: "Known for photogenic spring scenery, from weeping sakura to old railway lines."
-      }
-    }
-  ]
-};
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All Sakura Guide | Kyoto Sakura Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body data-all-page="sakura">
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="container site-header-inner">
+        <a href="./index.html" class="site-logo">Kyoto Sakura Guide</a>
 
-window.HOTEL_DATA.allFood = {
-  title: {
-    jp: "All Food Guide",
-    kr: "All Food Guide",
-    en: "All Food Guide"
-  },
-  description: {
-    jp: "エリア別に楽しめる京都グルメをまとめました。",
-    kr: "지역별로 즐길 수 있는 교토 맛집을 정리했습니다.",
-    en: "A stylish area-based guide to food spots across Kyoto."
-  },
-  items: [
-    {
-      tag: { jp: "Arashiyama", kr: "아라시야마", en: "Arashiyama" },
-      title: { jp: "Arashiyama Food Picks", kr: "아라시야마 맛집", en: "Arashiyama Food Picks" },
-      text: {
-        jp: "散策の合間に立ち寄りやすい、景色と相性のよい人気店をまとめました。",
-        kr: "산책 중간에 들르기 좋고, 풍경과 잘 어울리는 인기 가게를 모았습니다.",
-        en: "Popular stops that pair well with a scenic day in Arashiyama."
-      },
-      list: ["Arashiyama Yoshimura", "% Arabica Kyoto Arashiyama", "Unagi Hirokawa"]
-    },
-    {
-      tag: { jp: "Gion", kr: "기온", en: "Gion" },
-      title: { jp: "Gion Food Picks", kr: "기온 맛집", en: "Gion Food Picks" },
-      text: {
-        jp: "京都らしい雰囲気の中で、食事と甘味を楽しめる定番エリアです。",
-        kr: "교토다운 분위기 속에서 식사와 디저트를 함께 즐기기 좋은 대표 지역입니다.",
-        en: "A classic Kyoto area for both savory meals and matcha sweets."
-      },
-      list: ["Gion Tanto", "Gion Tsujiri", "Izuju Sushi"]
-    },
-    {
-      tag: { jp: "Kiyomizu", kr: "기요미즈", en: "Kiyomizu" },
-      title: { jp: "Kiyomizu Food Picks", kr: "기요미즈 맛집", en: "Kiyomizu Food Picks" },
-      text: {
-        jp: "観光の途中に入りやすい、京都らしい豆腐料理や甘味のお店が多いエリアです。",
-        kr: "관광 중간에 들르기 쉽고, 교토다운 두부요리와 디저트가 많은 지역입니다.",
-        en: "A great stop for tofu cuisine and traditional sweets during sightseeing."
-      },
-      list: ["Okutan Kiyomizu", "Kiyomizu Junsei", "Kasagiya"]
-    },
-    {
-      tag: { jp: "Kawaramachi", kr: "가와라마치", en: "Kawaramachi" },
-      title: { jp: "Kawaramachi Food Picks", kr: "가와라마치 맛집", en: "Kawaramachi Food Picks" },
-      text: {
-        jp: "食べ歩きからラーメン、牛カツまで幅広く楽しめる便利なエリアです。",
-        kr: "먹거리 산책부터 라멘, 규카츠까지 폭넓게 즐길 수 있는 편리한 지역입니다.",
-        en: "A flexible food area with market bites, ramen, and beef cutlet."
-      },
-      list: ["Nishiki Market", "Menya Inoichi", "Gyukatsu Kyoto Katsugyu"]
-    }
-  ]
-};
+        <div class="header-right">
+          <nav class="site-nav">
+            <a href="./index.html" data-i18n="nav_home">Home</a>
+            <a href="./hotels/soraniwa.html" data-i18n="nav_soraniwa">Soraniwa</a>
+            <a href="./hotels/hiyori.html" data-i18n="nav_hiyori">Hiyori</a>
+            <a href="./hotels/stitch.html" data-i18n="nav_stitch">STITCH</a>
+            <a href="./all-sakura.html" data-i18n="nav_sakura">Sakura</a>
+            <a href="./all-food.html" data-i18n="nav_food">Food</a>
+            <a href="./all-events.html" data-i18n="nav_events">Events</a>
+          </nav>
 
-window.HOTEL_DATA.allEvents = {
-  title: {
-    jp: "All Events Guide",
-    kr: "All Events Guide",
-    en: "All Events Guide"
-  },
-  description: {
-    jp: "春の京都をもっと楽しめる季節イベントや夜の見どころをまとめました。",
-    kr: "봄의 교토를 더 즐길 수 있는 시즌 이벤트와 야간 볼거리를 정리했습니다.",
-    en: "Seasonal spring events and evening highlights across Kyoto."
-  },
-  items: [
-    {
-      tag: { jp: "Night View", kr: "야간 감상", en: "Night View" },
-      title: { jp: "Spring Illumination", kr: "봄 라이트업", en: "Spring Illumination" },
-      text: {
-        jp: "夜桜や寺院ライトアップなど、春の京都ならではの夜景を楽しめます。",
-        kr: "야간 벚꽃과 사찰 라이트업 등, 봄 교토만의 밤 풍경을 즐길 수 있습니다.",
-        en: "Enjoy night sakura and special evening illuminations at seasonal venues."
-      }
-    },
-    {
-      tag: { jp: "Temple Season", kr: "사찰 시즌", en: "Temple Season" },
-      title: { jp: "Temple Spring Openings", kr: "사찰 봄 특별 개방", en: "Temple Spring Openings" },
-      text: {
-        jp: "春だけの特別拝観や季節公開など、京都らしい体験ができるイベントです。",
-        kr: "봄 한정 특별관람과 시즌 공개 등, 교토다운 체험이 가능한 이벤트입니다.",
-        en: "Special seasonal temple openings and limited spring-time viewings."
-      }
-    },
-    {
-      tag: { jp: "Walking Route", kr: "산책형", en: "Walking Route" },
-      title: { jp: "Hanami Walk", kr: "하나미 산책", en: "Hanami Walk" },
-      text: {
-        jp: "気軽に歩きながら春を感じたい方に向けた、散策中心の楽しみ方です。",
-        kr: "가볍게 걸으며 봄을 느끼고 싶은 사람에게 맞는 산책 중심형 즐길거리입니다.",
-        en: "A relaxed way to enjoy spring through scenic walks and blossom-lined routes."
-      }
-    }
-  ]
-};
+          <div class="lang-switcher">
+            <button class="lang-btn" data-lang="jp" type="button">JP</button>
+            <button class="lang-btn" data-lang="en" type="button">EN</button>
+            <button class="lang-btn" data-lang="kr" type="button">KR</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero page-hero-sakura">
+        <div class="container">
+          <div class="page-hero-box">
+            <p class="page-hero-label">Sakura Guide</p>
+            <h1 data-all-title></h1>
+            <p data-all-desc></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-tight">
+        <div class="container">
+          <div class="feature-grid" data-all-content></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        Kyoto Sakura Guide © Spring Stay Project
+      </div>
+    </footer>
+  </div>
+
+  <script src="./js/hotel-data.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+</html>
