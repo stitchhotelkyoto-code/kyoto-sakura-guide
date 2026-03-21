@@ -1,1 +1,79 @@
 
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Soraniwa Hotel | Kyoto Sakura Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body data-hotel-page="soraniwa">
+  <header class="site-header">
+    <div class="container site-header-inner">
+      <a href="../index.html" class="site-logo">Kyoto Sakura Guide</a>
+      <nav class="site-nav">
+        <a href="../index.html">Home</a>
+        <a href="./soraniwa.html">Soraniwa</a>
+        <a href="./hiyori.html">Hiyori</a>
+        <a href="./stitch.html">STITCH</a>
+        <a href="../all-sakura.html">Sakura</a>
+        <a href="../all-food.html">Food</a>
+        <a href="../all-events.html">Events</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hotel-hero">
+      <div class="container">
+        <div class="hotel-hero-box">
+          <div class="hotel-hero-top">
+            <div class="hotel-hero-copy">
+              <h1 data-hotel-name></h1>
+              <p data-hotel-tagline></p>
+            </div>
+          </div>
+
+          <div class="hotel-tabs" data-hotel-tabs></div>
+
+          <div class="sub-intro">
+            <h2 data-intro-title></h2>
+            <p data-intro-text></p>
+          </div>
+
+          <div class="card-slider-wrap" data-cards></div>
+
+          <div class="info-grid">
+            <div class="info-box">
+              <h3>Recommended Course</h3>
+              <ul class="info-list" data-course></ul>
+            </div>
+
+            <div class="info-box">
+              <h3>Food Picks</h3>
+              <ul class="info-list" data-food></ul>
+            </div>
+
+            <div class="info-box">
+              <h3>Nearby Events</h3>
+              <ul class="info-list" data-events></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      Soraniwa Hotel Guide © Kyoto Sakura Guide
+    </div>
+  </footer>
+
+  <script src="../js/hotel-data.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>
