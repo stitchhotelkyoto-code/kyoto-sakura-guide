@@ -1,3 +1,53 @@
+window.UI_TEXT = {
+  jp: {
+    nav_home: "Home",
+    nav_soraniwa: "Soraniwa",
+    nav_hiyori: "Hiyori",
+    nav_stitch: "STITCH",
+    nav_sakura: "Sakura",
+    nav_food: "Food",
+    nav_events: "Events",
+    hero_eyebrow: "Hotel Based Spring Guide",
+    hero_title: "あなたのホテルから\n始まる京都の春",
+    hero_desc: "宿泊中のホテルを基準に、桜スポット・おすすめコース・グルメ・季節イベントをひと目で確認できるホテル中心型ガイドです。",
+    hero_btn_1: "ホテルを選ぶ",
+    hero_btn_2: "京都全体ガイドを見る",
+    choose_title: "Choose Your Hotel",
+    choose_desc: "各ホテルを選ぶと、そのホテルを基準にしたおすすめ情報をご覧いただけます。"
+  },
+  kr: {
+    nav_home: "Home",
+    nav_soraniwa: "Soraniwa",
+    nav_hiyori: "Hiyori",
+    nav_stitch: "STITCH",
+    nav_sakura: "Sakura",
+    nav_food: "Food",
+    nav_events: "Events",
+    hero_eyebrow: "Hotel Based Spring Guide",
+    hero_title: "당신의 호텔에서\n시작하는 교토의 봄",
+    hero_desc: "숙박 중인 호텔을 기준으로, 벚꽃 명소・추천 코스・맛집・시즌 이벤트를 한눈에 확인할 수 있는 호텔 중심형 가이드입니다.",
+    hero_btn_1: "호텔 선택하기",
+    hero_btn_2: "전체 가이드 보기",
+    choose_title: "Choose Your Hotel",
+    choose_desc: "각 호텔을 선택하면 해당 호텔 기준의 추천 정보를 확인할 수 있습니다."
+  },
+  en: {
+    nav_home: "Home",
+    nav_soraniwa: "Soraniwa",
+    nav_hiyori: "Hiyori",
+    nav_stitch: "STITCH",
+    nav_sakura: "Sakura",
+    nav_food: "Food",
+    nav_events: "Events",
+    hero_eyebrow: "Hotel Based Spring Guide",
+    hero_title: "Spring in Kyoto\nStarts from Your Hotel",
+    hero_desc: "A hotel-based guide to sakura spots, recommended courses, food, and seasonal events in Kyoto.",
+    hero_btn_1: "Choose Hotel",
+    hero_btn_2: "Explore Kyoto",
+    choose_title: "Choose Your Hotel",
+    choose_desc: "Select your hotel to view nearby recommendations and seasonal highlights."
+  }
+};
 window.HOTEL_DATA = {
   soraniwa: {
     id: "soraniwa",
