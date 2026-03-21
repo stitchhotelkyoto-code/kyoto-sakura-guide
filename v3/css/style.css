@@ -1773,3 +1773,21 @@ ul {
     line-height: 1.45;
   }
 }
+@media (max-width: 560px) {
+  .hotel-sub-intro h2,
+  [data-intro-title] {
+    font-size: 1.72rem !important;
+    line-height: 1.16 !important;
+    letter-spacing: -0.03em !important;
+    word-break: keep-all !important;
+    overflow-wrap: break-word !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .hotel-sub-intro h2,
+  [data-intro-title] {
+    font-size: 1.56rem !important;
+    line-height: 1.14 !important;
+  }
+}
