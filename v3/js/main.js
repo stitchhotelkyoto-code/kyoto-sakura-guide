@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const savedLang = localStorage.getItem("siteLanguage") || "jp";
+  const savedLangRaw = localStorage.getItem("siteLanguage") || "jp";
+  const savedLang = normalizeLang(savedLangRaw);
 
+  localStorage.setItem("siteLanguage", savedLang);
   applyLanguage(savedLang);
 
   const hotelPage = document.body.dataset.hotelPage;
@@ -18,12 +20,19 @@ document.addEventListener("DOMContentLoaded", () => {
   setupCardSlider();
 });
 
+function normalizeLang(lang) {
+  if (lang === "ko") return "kr";
+  if (lang === "ja") return "jp";
+  if (lang === "jp" || lang === "kr" || lang === "en") return lang;
+  return "jp";
+}
+
 function setupLanguageSwitcher() {
   document.addEventListener("click", (e) => {
     const btn = e.target.closest("[data-lang]");
     if (!btn) return;
 
-    const lang = btn.dataset.lang;
+    const lang = normalizeLang(btn.dataset.lang);
     localStorage.setItem("siteLanguage", lang);
 
     applyLanguage(lang);
@@ -42,11 +51,12 @@ function setupLanguageSwitcher() {
 }
 
 function applyLanguage(lang) {
-  document.documentElement.lang = lang;
+  const safeLang = normalizeLang(lang);
+  document.documentElement.lang = safeLang;
 
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.dataset.i18n;
-    const value = window.UI_TEXT?.[lang]?.[key];
+    const value = window.UI_TEXT?.[safeLang]?.[key];
     if (value) {
       el.textContent = value;
     }
@@ -54,18 +64,19 @@ function applyLanguage(lang) {
 
   document.querySelectorAll("[data-i18n-html]").forEach((el) => {
     const key = el.dataset.i18nHtml;
-    const value = window.UI_TEXT?.[lang]?.[key];
+    const value = window.UI_TEXT?.[safeLang]?.[key];
     if (value) {
       el.innerHTML = value.replace(/\n/g, "<br>");
     }
   });
 
   document.querySelectorAll(".lang-btn").forEach((btn) => {
-    btn.classList.toggle("is-active", btn.dataset.lang === lang);
+    btn.classList.toggle("is-active", normalizeLang(btn.dataset.lang) === safeLang);
   });
 }
 
 function renderHotelPage(hotelKey, lang = "jp") {
+  const safeLang = normalizeLang(lang);
   const data = window.HOTEL_DATA?.[hotelKey];
   if (!data) return;
 
@@ -82,11 +93,11 @@ function renderHotelPage(hotelKey, lang = "jp") {
   const foodEl = document.querySelector("[data-food]");
   const eventsEl = document.querySelector("[data-events]");
 
-  if (labelEl) labelEl.textContent = data.label?.[lang] || "";
-  if (nameEl) nameEl.textContent = data.name?.[lang] || "";
-  if (taglineEl) taglineEl.textContent = data.tagline?.[lang] || "";
-  if (descEl) descEl.textContent = data.description?.[lang] || "";
-  if (subLabelEl) subLabelEl.textContent = data.subLabel?.[lang] || "";
+  if (labelEl) labelEl.textContent = data.label?.[safeLang] || "";
+  if (nameEl) nameEl.textContent = data.name?.[safeLang] || "";
+  if (taglineEl) taglineEl.textContent = data.tagline?.[safeLang] || "";
+  if (descEl) descEl.textContent = data.description?.[safeLang] || "";
+  if (subLabelEl) subLabelEl.textContent = data.subLabel?.[safeLang] || "";
 
   if (data.tabs && tabsEl) {
     let activeKey = data.tabs[0].key;
@@ -95,13 +106,13 @@ function renderHotelPage(hotelKey, lang = "jp") {
       .map(
         (tab, index) => `
           <button class="hotel-tab ${index === 0 ? "is-active" : ""}" type="button" data-tab-key="${tab.key}">
-            ${tab.label?.[lang] || tab.key}
+            ${tab.label?.[safeLang] || tab.key}
           </button>
         `
       )
       .join("");
 
-    renderHotelTab(data, activeKey, lang);
+    renderHotelTab(data, activeKey, safeLang);
 
     tabsEl.onclick = (e) => {
       const btn = e.target.closest(".hotel-tab");
@@ -114,21 +125,22 @@ function renderHotelPage(hotelKey, lang = "jp") {
       });
 
       btn.classList.add("is-active");
-      renderHotelTab(data, activeKey, lang);
+      renderHotelTab(data, activeKey, safeLang);
     };
 
     return;
   }
 
-  if (introTitleEl) introTitleEl.textContent = data.introTitle?.[lang] || "";
-  if (introTextEl) introTextEl.textContent = data.introText?.[lang] || "";
-  renderCards(cardsEl, data.cards || [], lang);
-  renderList(courseEl, data.course?.[lang] || []);
-  renderList(foodEl, data.food?.[lang] || []);
-  renderList(eventsEl, data.events?.[lang] || []);
+  if (introTitleEl) introTitleEl.textContent = data.introTitle?.[safeLang] || "";
+  if (introTextEl) introTextEl.textContent = data.introText?.[safeLang] || "";
+  renderCards(cardsEl, data.cards || [], safeLang);
+  renderList(courseEl, data.course?.[safeLang] || []);
+  renderList(foodEl, data.food?.[safeLang] || []);
+  renderList(eventsEl, data.events?.[safeLang] || []);
 }
 
 function renderHotelTab(data, tabKey, lang) {
+  const safeLang = normalizeLang(lang);
   const tabData = data.tabs.find((tab) => tab.key === tabKey);
   if (!tabData) return;
 
@@ -139,13 +151,13 @@ function renderHotelTab(data, tabKey, lang) {
   const foodEl = document.querySelector("[data-food]");
   const eventsEl = document.querySelector("[data-events]");
 
-  if (introTitleEl) introTitleEl.textContent = tabData.introTitle?.[lang] || "";
-  if (introTextEl) introTextEl.textContent = tabData.introText?.[lang] || "";
+  if (introTitleEl) introTitleEl.textContent = tabData.introTitle?.[safeLang] || "";
+  if (introTextEl) introTextEl.textContent = tabData.introText?.[safeLang] || "";
 
-  renderCards(cardsEl, tabData.cards || [], lang);
-  renderList(courseEl, tabData.course?.[lang] || []);
-  renderList(foodEl, tabData.food?.[lang] || []);
-  renderList(eventsEl, tabData.events?.[lang] || []);
+  renderCards(cardsEl, tabData.cards || [], safeLang);
+  renderList(courseEl, tabData.course?.[safeLang] || []);
+  renderList(foodEl, tabData.food?.[safeLang] || []);
+  renderList(eventsEl, tabData.events?.[safeLang] || []);
 }
 
 function renderCards(container, cards, lang) {
@@ -191,6 +203,7 @@ function renderList(container, items) {
 }
 
 function renderAllPage(type, lang = "jp") {
+  const safeLang = normalizeLang(lang);
   const titleEl = document.querySelector("[data-all-title]");
   const descEl = document.querySelector("[data-all-desc]");
   const contentEl = document.querySelector("[data-all-content]");
@@ -206,8 +219,8 @@ function renderAllPage(type, lang = "jp") {
 
   if (!source) return;
 
-  titleEl.textContent = source.title?.[lang] || "";
-  descEl.textContent = source.description?.[lang] || "";
+  titleEl.textContent = source.title?.[safeLang] || "";
+  descEl.textContent = source.description?.[safeLang] || "";
 
   if (type === "food") {
     contentEl.innerHTML = source.items
@@ -216,9 +229,9 @@ function renderAllPage(type, lang = "jp") {
           <article class="feature-card large">
             <div class="feature-image"></div>
             <div class="feature-body">
-              <span class="feature-tag">${item.tag?.[lang] || ""}</span>
-              <h3>${item.title?.[lang] || ""}</h3>
-              <p>${item.text?.[lang] || ""}</p>
+              <span class="feature-tag">${item.tag?.[safeLang] || ""}</span>
+              <h3>${item.title?.[safeLang] || ""}</h3>
+              <p>${item.text?.[safeLang] || ""}</p>
               <ul class="feature-list">
                 ${(item.list || []).map((listItem) => `<li>${listItem}</li>`).join("")}
               </ul>
@@ -236,9 +249,9 @@ function renderAllPage(type, lang = "jp") {
         <article class="feature-card">
           <div class="feature-image"></div>
           <div class="feature-body">
-            <span class="feature-tag">${item.tag?.[lang] || ""}</span>
-            <h3>${item.title?.[lang] || ""}</h3>
-            <p>${item.text?.[lang] || ""}</p>
+            <span class="feature-tag">${item.tag?.[safeLang] || ""}</span>
+            <h3>${item.title?.[safeLang] || ""}</h3>
+            <p>${item.text?.[safeLang] || ""}</p>
           </div>
         </article>
       `
