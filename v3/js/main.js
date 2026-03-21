@@ -8,13 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const hotelPage = document.body.dataset.hotelPage;
   const allPage = document.body.dataset.allPage;
 
-  if (hotelPage) {
-    renderHotelPage(hotelPage, savedLang);
-  }
-
-  if (allPage) {
-    renderAllPage(allPage, savedLang);
-  }
+  if (hotelPage) renderHotelPage(hotelPage, savedLang);
+  if (allPage) renderAllPage(allPage, savedLang);
 
   setupLanguageSwitcher();
   setupCardSlider();
@@ -40,13 +35,8 @@ function setupLanguageSwitcher() {
     const hotelPage = document.body.dataset.hotelPage;
     const allPage = document.body.dataset.allPage;
 
-    if (hotelPage) {
-      renderHotelPage(hotelPage, lang);
-    }
-
-    if (allPage) {
-      renderAllPage(allPage, lang);
-    }
+    if (hotelPage) renderHotelPage(hotelPage, lang);
+    if (allPage) renderAllPage(allPage, lang);
   });
 }
 
@@ -57,17 +47,13 @@ function applyLanguage(lang) {
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.dataset.i18n;
     const value = window.UI_TEXT?.[safeLang]?.[key];
-    if (value) {
-      el.textContent = value;
-    }
+    if (value) el.textContent = value;
   });
 
   document.querySelectorAll("[data-i18n-html]").forEach((el) => {
     const key = el.dataset.i18nHtml;
     const value = window.UI_TEXT?.[safeLang]?.[key];
-    if (value) {
-      el.innerHTML = value.replace(/\n/g, "<br>");
-    }
+    if (value) el.innerHTML = value.replace(/\n/g, "<br>");
   });
 
   document.querySelectorAll(".lang-btn").forEach((btn) => {
@@ -117,17 +103,11 @@ function renderHotelPage(hotelKey, lang = "jp") {
     tabsEl.onclick = (e) => {
       const btn = e.target.closest(".hotel-tab");
       if (!btn) return;
-
       activeKey = btn.dataset.tabKey;
-
-      tabsEl.querySelectorAll(".hotel-tab").forEach((tabBtn) => {
-        tabBtn.classList.remove("is-active");
-      });
-
+      tabsEl.querySelectorAll(".hotel-tab").forEach((tabBtn) => tabBtn.classList.remove("is-active"));
       btn.classList.add("is-active");
       renderHotelTab(data, activeKey, safeLang);
     };
-
     return;
   }
 
@@ -165,21 +145,16 @@ function renderCards(container, cards, lang) {
 
   container.innerHTML = `
     <div class="card-slider-track">
-      ${cards
-        .map(
-          (card) => `
-            <article class="guide-card">
-              <div class="guide-card-image"></div>
-              <div class="guide-card-body">
-                <h3>${card.title?.[lang] || ""}</h3>
-                <p>${card.text?.[lang] || ""}</p>
-              </div>
-            </article>
-          `
-        )
-        .join("")}
+      ${cards.map((card) => `
+        <article class="guide-card">
+          <div class="guide-card-image"></div>
+          <div class="guide-card-body">
+            <h3>${card.title?.[lang] || ""}</h3>
+            <p>${card.text?.[lang] || ""}</p>
+          </div>
+        </article>
+      `).join("")}
     </div>
-
     <div class="slider-controls">
       <button class="slider-btn prev" type="button" aria-label="Previous">←</button>
       <button class="slider-btn next" type="button" aria-label="Next">→</button>
@@ -189,17 +164,12 @@ function renderCards(container, cards, lang) {
 
 function renderList(container, items) {
   if (!container) return;
-
-  container.innerHTML = items
-    .map(
-      (item, index) => `
-        <li>
-          <span class="list-number">${String(index + 1).padStart(2, "0")}</span>
-          <span class="list-text">${item}</span>
-        </li>
-      `
-    )
-    .join("");
+  container.innerHTML = items.map((item, index) => `
+    <li>
+      <span class="list-number">${String(index + 1).padStart(2, "0")}</span>
+      <span class="list-text">${item}</span>
+    </li>
+  `).join("");
 }
 
 function renderAllPage(type, lang = "jp") {
@@ -223,62 +193,46 @@ function renderAllPage(type, lang = "jp") {
   descEl.textContent = source.description?.[safeLang] || "";
 
   if (type === "food") {
-    contentEl.innerHTML = source.items
-      .map(
-        (item) => `
-          <article class="feature-card large">
-            <div class="feature-image"></div>
-            <div class="feature-body">
-              <span class="feature-tag">${item.tag?.[safeLang] || ""}</span>
-              <h3>${item.title?.[safeLang] || ""}</h3>
-              <p>${item.text?.[safeLang] || ""}</p>
-              <ul class="feature-list">
-                ${(item.list || []).map((listItem) => `<li>${listItem}</li>`).join("")}
-              </ul>
-            </div>
-          </article>
-        `
-      )
-      .join("");
+    contentEl.innerHTML = source.items.map((item) => `
+      <article class="feature-card large">
+        <div class="feature-image"></div>
+        <div class="feature-body">
+          <span class="feature-tag">${item.tag?.[safeLang] || ""}</span>
+          <h3>${item.title?.[safeLang] || ""}</h3>
+          <p>${item.text?.[safeLang] || ""}</p>
+          <ul class="feature-list">
+            ${(item.list || []).map((listItem) => `<li>${listItem}</li>`).join("")}
+          </ul>
+        </div>
+      </article>
+    `).join("");
     return;
   }
 
-  contentEl.innerHTML = source.items
-    .map(
-      (item) => `
-        <article class="feature-card">
-          <div class="feature-image"></div>
-          <div class="feature-body">
-            <span class="feature-tag">${item.tag?.[safeLang] || ""}</span>
-            <h3>${item.title?.[safeLang] || ""}</h3>
-            <p>${item.text?.[safeLang] || ""}</p>
-          </div>
-        </article>
-      `
-    )
-    .join("");
+  contentEl.innerHTML = source.items.map((item) => `
+    <article class="feature-card">
+      <div class="feature-image"></div>
+      <div class="feature-body">
+        <span class="feature-tag">${item.tag?.[safeLang] || ""}</span>
+        <h3>${item.title?.[safeLang] || ""}</h3>
+        <p>${item.text?.[safeLang] || ""}</p>
+      </div>
+    </article>
+  `).join("");
 }
 
 function setupCardSlider() {
   document.addEventListener("click", (e) => {
     const prevBtn = e.target.closest(".slider-btn.prev");
     const nextBtn = e.target.closest(".slider-btn.next");
-
     if (!prevBtn && !nextBtn) return;
 
     const controls = e.target.closest(".slider-controls");
     const track = controls?.previousElementSibling;
-
     if (!track || !track.classList.contains("card-slider-track")) return;
 
     const moveAmount = 320;
-
-    if (prevBtn) {
-      track.scrollBy({ left: -moveAmount, behavior: "smooth" });
-    }
-
-    if (nextBtn) {
-      track.scrollBy({ left: moveAmount, behavior: "smooth" });
-    }
+    if (prevBtn) track.scrollBy({ left: -moveAmount, behavior: "smooth" });
+    if (nextBtn) track.scrollBy({ left: moveAmount, behavior: "smooth" });
   });
 }
