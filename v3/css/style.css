@@ -195,13 +195,13 @@ ol {
   background: var(--pink-band);
   display: flex;
   align-items: center;
+  justify-content: flex-end;
 }
 
 .hero-copy-wrap {
-  width: 100%;
-  max-width: 860px;
-  margin-left: 0;
-  padding: 80px 64px 80px 96px;
+  width: min(100%, 620px);
+  margin: 0;
+  padding: 80px 56px 80px 40px;
 }
 
 .mega-label {
@@ -223,8 +223,8 @@ ol {
 
 .mega-title {
   margin: 0 0 26px;
-  max-width: 760px;
-  font-size: clamp(3rem, 4vw, 4.4rem);
+  max-width: 620px;
+  font-size: clamp(3rem, 4vw, 4.2rem);
   line-height: 1.14;
   letter-spacing: -0.03em;
   font-weight: 800;
