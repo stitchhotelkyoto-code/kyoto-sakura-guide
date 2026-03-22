@@ -64,41 +64,51 @@
           </div>
 
           <div class="hotel-info-grid">
-            <div class="hotel-info-box">
-              <div class="info-box-head"><span class="info-kicker">01</span><h3 data-i18n="section_course">Recommended Course</h3></div>
-              <ul class="info-list" data-course></ul>
+            <div class="hotel-info-box hotel-course-flip" id="hotelCourseFlipBox">
+              <div class="hotel-course-flip-inner">
+                <div class="hotel-course-face hotel-course-face-front">
+                  <div class="info-box-head">
+                    <span class="info-kicker">01</span>
+                    <h3 data-i18n="section_course">Recommended Course</h3>
+                  </div>
+                  <ul class="info-list" data-course></ul>
+                </div>
+
+                <div class="hotel-course-face hotel-course-face-back" id="hotelCourseBackFace">
+                  <p class="hotel-course-back-kicker">HOW TO GO</p>
+                  <h3 class="hotel-course-back-title" data-course-back-title></h3>
+                  <p class="hotel-course-back-route" data-course-back-route></p>
+                  <p class="hotel-course-back-desc" data-course-back-desc></p>
+                  <a
+                    class="hotel-mini-btn"
+                    data-course-back-direction
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Directions
+                  </a>
+                </div>
+              </div>
             </div>
+
             <div class="hotel-info-box">
-              <div class="info-box-head"><span class="info-kicker">02</span><h3 data-i18n="section_food">Food Picks</h3></div>
+              <div class="info-box-head">
+                <span class="info-kicker">02</span>
+                <h3 data-i18n="section_food">Food Picks</h3>
+              </div>
               <ul class="info-list" data-food></ul>
             </div>
+
             <div class="hotel-info-box">
-              <div class="info-box-head"><span class="info-kicker">03</span><h3 data-i18n="section_events">Nearby Events</h3></div>
+              <div class="info-box-head">
+                <span class="info-kicker">03</span>
+                <h3 data-i18n="section_events">Nearby Events</h3>
+              </div>
               <ul class="info-list" data-events></ul>
             </div>
           </div>
-
-          <div class="hotel-course-detail" id="hotelCourseDetail">
-  <div class="hotel-course-detail-inner">
-    <div class="hotel-course-detail-front is-empty">
-      <div class="hotel-course-detail-front-inner">
-        <p class="hotel-course-detail-label" data-detail-front-label></p>
-        <h3 data-detail-front-title></h3>
-        <p data-detail-front-desc></p>
-      </div>
-    </div>
-
-    <div class="hotel-course-detail-back">
-      <div class="hotel-course-detail-back-inner">
-        <p class="hotel-course-detail-label" data-detail-back-label></p>
-        <h3 data-detail-back-title></h3>
-        <p class="hotel-course-route" data-detail-back-route></p>
-        <p class="hotel-course-back-desc" data-detail-back-desc></p>
-        <a class="hotel-mini-btn" data-detail-direction href="#" target="_blank" rel="noopener noreferrer">Directions</a>
-      </div>
-    </div>
-  </div>
-</div>
+        </div>
       </section>
     </main>
 
