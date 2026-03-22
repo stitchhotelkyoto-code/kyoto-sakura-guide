@@ -186,151 +186,197 @@ ol {
 
 .home-hero {
   display: grid;
-  grid-template-columns: 1.08fr 0.92fr;
-  min-height: 780px;
+  grid-template-columns: 50% 50%;
+  min-height: 640px;
   align-items: stretch;
+  overflow: hidden;
+  background: linear-gradient(to right, #e9c3d3 0 50%, #f5edf1 50% 100%);
 }
 
 .home-hero-left {
-  background: var(--pink-band);
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  position: relative;
+  z-index: 1;
 }
 
 .hero-copy-wrap {
-  width: min(100%, 700px);
-  margin: 0 auto 0 0;
-  padding: 80px 56px 80px 72px;
+  width: 100%;
+  max-width: 620px;
+  margin: 0 0 0 auto;
+  padding: 92px 48px 92px 72px;
 }
 
 .mega-label {
   display: flex;
   align-items: center;
   gap: 16px;
-  margin: 0 0 24px;
-  font-size: 0.96rem;
+  margin: 0 0 28px;
+  font-size: 0.95rem;
   font-weight: 700;
-  color: #1c2641;
+  color: #1f2740;
 }
 
 .mega-label::after {
   content: "";
-  width: 140px;
+  width: 200px;
   height: 2px;
-  background: rgba(28, 38, 65, 0.38);
+  background: rgba(31, 39, 64, 0.7);
 }
 
 .mega-title {
-  margin: 0 0 26px;
-  max-width: 720px;
-  font-size: clamp(2.9rem, 3.9vw, 4.2rem);
-  line-height: 1.14;
-  letter-spacing: -0.02em;
+  margin: 0 0 18px;
+  max-width: 460px;
+  font-size: clamp(2.8rem, 4.1vw, 4.3rem);
+  line-height: 1.18;
+  letter-spacing: -0.04em;
   font-weight: 800;
-  color: #15203b;
+  color: #1f2740;
   word-break: keep-all;
-  overflow-wrap: normal;
-}
-
-html[lang="jp"] .mega-title,
-html[lang="ja"] .mega-title {
-  max-width: 720px;
-  font-size: clamp(2.7rem, 3.5vw, 3.8rem);
-  line-height: 1.16;
-  letter-spacing: -0.015em;
 }
 
 .mega-desc {
-  margin: 0 0 26px;
-  max-width: 520px;
-  font-size: 1.08rem;
-  line-height: 1.9;
-  color: #2c3653;
+  margin: 0 0 24px;
+  max-width: 420px;
+  font-size: 1.06rem;
+  line-height: 1.8;
+  color: #2e3550;
 }
 
 .mega-meta {
   margin: 0 0 34px;
-  font-size: 1.06rem;
+  font-size: 1.05rem;
   font-weight: 700;
-  color: #24304f;
+  color: #2a314a;
 }
 
 .mega-actions {
   display: flex;
-  gap: 14px;
+  gap: 12px;
   flex-wrap: wrap;
 }
 
 .mega-actions .btn {
-  min-height: 56px;
-  padding: 0 24px;
-  font-size: 1rem;
+  min-height: 44px;
+  padding: 0 16px;
+  font-size: 0.9rem;
+  border-radius: 10px;
+  box-shadow: none;
+}
+
+.btn-primary {
+  background: #2d3140;
+  color: #fff;
+}
+
+.btn-secondary {
+  background: #fff;
+  color: #2d3140;
+  border: 1px solid #e2d7dd;
 }
 
 .home-hero-right {
-  background: var(--right-band);
+  background: transparent;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 58px 34px 24px 0;
-  margin-left: -82px;
+  align-items: center;
+  padding: 64px 56px 64px 0;
+  margin-left: -88px; /* 왼쪽 핑크 영역 위로 첫 카드가 겹치게 */
   position: relative;
   z-index: 3;
 }
 
 .hero-cards {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
-  align-items: start;
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+  width: 100%;
 }
 
 .hero-card {
-  background: #fff;
+  background: #dfe7ee;
+  border-radius: 0;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  min-height: 470px;
-  transition: transform 0.22s ease;
-  box-shadow: 0 12px 28px rgba(31, 45, 82, 0.08);
+  min-height: 385px;
+  box-shadow: none;
+  transition: none;
+  flex: 1 1 0;
 }
 
 .hero-card:hover {
-  transform: translateY(-6px);
+  transform: none;
+}
+
+.hero-card:first-child {
+  margin-left: -14px;
+}
+
+.hero-card:nth-child(1) {
+  max-width: 350px;
+}
+
+.hero-card:nth-child(2) {
+  max-width: 330px;
+}
+
+.hero-card:nth-child(3) {
+  max-width: 330px;
 }
 
 .hero-card-image {
-  height: 310px;
+  height: 260px;
   position: relative;
   overflow: hidden;
+  border-radius: 0 0 999px 999px / 0 0 110px 110px;
+  background: #cfd8e2;
 }
 
 .hero-card-body {
-  padding: 22px 18px 24px;
+  flex: 1;
+  padding: 28px 18px 24px;
   text-align: center;
+  background: transparent;
 }
 
 .hero-card-body h3 {
-  margin: 0 0 10px;
-  font-size: 1.48rem;
+  margin: 0 0 12px;
+  font-size: 1.1rem;
   line-height: 1.35;
-  font-weight: 800;
-  color: #16203b;
+  font-weight: 900;
+  color: #1d2338;
+  letter-spacing: -0.03em;
 }
 
 .hero-card-body p {
   margin: 0;
-  font-size: 0.95rem;
+  font-size: 0.93rem;
   line-height: 1.7;
-  color: #65708c;
+  color: #343b52;
 }
 
+.hero-card-body p strong,
+.hero-card-body p b,
+.hero-card-body .point {
+  color: #68bcc6;
+  font-weight: 800;
+}
+
+/* 밑에 언덕 그림 제거 */
 .hero-bottom-visual {
-  position: relative;
-  height: 170px;
-  margin-top: 14px;
-  margin-left: -18px;
-  overflow: hidden;
+  display: none !important;
+}
+
+/* 혹시 슬라이드 버튼/카운터가 있으면 메인에서는 숨김 */
+.home-hero .slider-controls,
+.home-hero .slider-btn,
+.home-hero .hero-controls,
+.home-hero .hero-nav,
+.home-hero .hero-pagination,
+.home-hero .hero-arrows {
+  display: none !important;
 }
 
 /* =========================
@@ -840,42 +886,36 @@ html[lang="ja"] .mega-title {
 /* =========================
    RESPONSIVE
 ========================= */
-
 @media (max-width: 1440px) {
   .home-hero {
-    min-height: 700px;
+    min-height: 600px;
   }
 
-.hero-copy-wrap {
-  padding: 64px 40px 64px 64px;
-  max-width: 760px;
-  margin-left: 0;
-}
+  .hero-copy-wrap {
+    padding: 80px 36px 80px 56px;
+    max-width: 580px;
+  }
 
-.mega-title {
-  font-size: clamp(2.8rem, 3.8vw, 4rem);
-  max-width: 700px;
-}
+  .mega-title {
+    font-size: clamp(2.5rem, 3.7vw, 3.8rem);
+    max-width: 430px;
+  }
+
+  .home-hero-right {
+    margin-left: -64px;
+    padding: 52px 32px 52px 0;
+  }
+
+  .hero-cards {
+    gap: 16px;
+  }
 
   .hero-card {
-    min-height: 380px;
+    min-height: 350px;
   }
 
   .hero-card-image {
-    height: 220px;
-  }
-
-  .hero-card-body h3 {
-    font-size: 1.22rem;
-  }
-
-  .widget-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .feature-grid,
-  .hotel-info-grid {
-    grid-template-columns: 1fr;
+    height: 225px;
   }
 }
 
@@ -883,17 +923,26 @@ html[lang="ja"] .mega-title {
   .home-hero {
     grid-template-columns: 1fr;
     min-height: auto;
+    background: #f5edf1;
+  }
+
+  .home-hero-left {
+    background: #e9c3d3;
   }
 
   .hero-copy-wrap {
-  max-width: 100%;
-  margin: 0;
-  padding: 56px 28px 42px;
-}
+    max-width: 100%;
+    margin: 0;
+    padding: 56px 24px 40px;
+  }
+
+  .mega-label::after {
+    width: 120px;
+  }
 
   .mega-title {
-    font-size: clamp(2.8rem, 7vw, 4rem);
     max-width: 100%;
+    font-size: clamp(2.3rem, 7vw, 3.4rem);
   }
 
   .mega-desc {
@@ -901,62 +950,41 @@ html[lang="ja"] .mega-title {
   }
 
   .home-hero-right {
-    padding: 0 18px 18px;
+    margin-left: 0;
+    padding: 24px 20px 36px;
   }
 
   .hero-cards {
-    grid-template-columns: repeat(3, minmax(280px, 1fr));
-    overflow-x: auto;
-    gap: 18px;
-    scrollbar-width: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
 
-  .hero-cards::-webkit-scrollbar {
-    display: none;
+  .hero-card,
+  .hero-card:nth-child(1),
+  .hero-card:nth-child(2),
+  .hero-card:nth-child(3) {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .hero-card:first-child {
+    margin-left: 0;
   }
 
   .hero-card {
-    min-width: 280px;
-    min-height: 380px;
+    min-height: 320px;
   }
 
   .hero-card-image {
     height: 220px;
-  }
-
-  .hero-bottom-visual {
-    height: 120px;
-  }
-}
-
-@media (max-width: 840px) {
-  .site-header {
-    position: static;
-  }
-
-  .site-header-inner,
-  .header-right {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .site-header-inner {
-    min-height: auto;
-    padding: 14px 0;
-  }
-
-  .site-nav {
-    gap: 12px;
+    border-radius: 0 0 999px 999px / 0 0 90px 90px;
   }
 }
 
 @media (max-width: 560px) {
-  .container {
-    width: min(100% - 20px, var(--container));
-  }
-
   .hero-copy-wrap {
-    padding: 38px 18px 30px;
+    padding: 40px 18px 28px;
   }
 
   .mega-label {
@@ -965,18 +993,18 @@ html[lang="ja"] .mega-title {
   }
 
   .mega-label::after {
-    width: 54px;
+    width: 64px;
   }
 
   .mega-title {
-    font-size: clamp(2.2rem, 10vw, 3rem);
-    line-height: 1.12;
+    font-size: clamp(2rem, 10vw, 2.8rem);
+    line-height: 1.16;
     margin-bottom: 14px;
   }
 
   .mega-desc {
     font-size: 0.92rem;
-    line-height: 1.8;
+    line-height: 1.75;
     margin-bottom: 14px;
   }
 
@@ -986,68 +1014,38 @@ html[lang="ja"] .mega-title {
   }
 
   .mega-actions {
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 
   .mega-actions .btn {
-    width: 100%;
-    min-height: 48px;
-    font-size: 0.92rem;
+    min-height: 42px;
+    font-size: 0.84rem;
+    padding: 0 14px;
   }
 
   .home-hero-right {
-    padding: 0 14px 14px;
-  }
-
-  .hero-cards {
-    grid-template-columns: repeat(3, minmax(220px, 1fr));
-    gap: 12px;
+    padding: 18px 14px 24px;
   }
 
   .hero-card {
-    min-width: 220px;
-    min-height: 300px;
+    min-height: 280px;
   }
 
   .hero-card-image {
-    height: 160px;
+    height: 180px;
   }
 
   .hero-card-body {
-    padding: 16px 14px;
+    padding: 18px 14px 18px;
   }
 
   .hero-card-body h3 {
-    font-size: 1.02rem;
+    font-size: 1rem;
   }
 
   .hero-card-body p {
     font-size: 0.84rem;
     line-height: 1.6;
-  }
-
-  .hero-bottom-visual {
-    height: 90px;
-  }
-
-  .widget-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-  }
-
-  .widget-item {
-    min-height: 128px;
-    padding: 16px 10px;
-    border-radius: 18px;
-  }
-
-  .widget-icon {
-    width: 70px;
-    height: 70px;
-    font-size: 2rem;
-  }
-
-  .widget-label {
-    font-size: 0.9rem;
   }
 }
