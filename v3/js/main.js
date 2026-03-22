@@ -1,370 +1,374 @@
-.hotel-hero {
-  padding: 22px 0 10px;
-}
+document.addEventListener("DOMContentLoaded", () => {
+  const savedLangRaw = localStorage.getItem("siteLanguage") || "jp";
+  const savedLang = normalizeLang(savedLangRaw);
 
-.hotel-hero-box,
-.hotel-sub-intro {
-  background: #fafafa;
-  border-radius: 28px;
-  padding: 22px 26px;
-  box-shadow: 0 12px 28px rgba(27, 38, 79, 0.04);
-}
+  localStorage.setItem("siteLanguage", savedLang);
+  applyLanguage(savedLang);
 
-.hotel-sub-intro {
-  margin-top: 20px;
-}
+  const hotelPage = document.body.dataset.hotelPage;
+  const allPage = document.body.dataset.allPage;
 
-.hotel-hero-label,
-.hotel-sub-label,
-.hotel-course-back-kicker {
-  margin: 0 0 10px;
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  color: #7d6f8b;
-}
-
-.hotel-hero-box h1,
-.hotel-sub-intro h2 {
-  margin: 0 0 10px;
-  font-size: clamp(2.2rem, 4vw, 4rem);
-  line-height: 1.08;
-  color: #162657;
-  font-weight: 900;
-}
-
-.hotel-hero-tagline {
-  margin: 0 0 10px;
-  font-size: 1.08rem;
-  font-weight: 800;
-  color: #20315d;
-}
-
-.hotel-hero-description,
-.hotel-sub-intro p {
-  margin: 0;
-  line-height: 1.8;
-  color: #6a7892;
-}
-
-.hotel-tabs {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-top: 18px;
-}
-
-.hotel-tab {
-  min-height: 42px;
-  padding: 0 16px;
-  border: none;
-  border-radius: 999px;
-  background: #eaf0f6;
-  color: #162657;
-  font-weight: 800;
-  cursor: pointer;
-}
-
-.hotel-tab.is-active {
-  background: #23345e;
-  color: #fff;
-}
-
-.hotel-slider-block {
-  margin-top: 18px;
-}
-
-.card-slider-wrap {
-  position: relative;
-}
-
-.card-slider-track {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
-}
-
-.guide-card {
-  background: #fff;
-  border-radius: 22px;
-  overflow: hidden;
-  box-shadow: 0 10px 22px rgba(27, 38, 79, 0.05);
-}
-
-.guide-card-image {
-  height: 220px;
-  background: #e8e8e8;
-}
-
-.guide-card-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.guide-card-body {
-  padding: 16px 16px 18px;
-}
-
-.guide-card-body h3 {
-  margin: 0 0 8px;
-  font-size: 1.05rem;
-  font-weight: 900;
-  color: #162657;
-}
-
-.guide-card-body p {
-  margin: 0;
-  font-size: 0.92rem;
-  line-height: 1.7;
-  color: #6a7892;
-}
-
-.slider-controls {
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-  margin-top: 14px;
-}
-
-.slider-btn {
-  width: 40px;
-  height: 40px;
-  border: none;
-  border-radius: 999px;
-  background: #fff;
-  box-shadow: 0 8px 18px rgba(27, 38, 79, 0.08);
-  cursor: pointer;
-}
-
-.hotel-info-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
-  margin-top: 18px;
-  margin-bottom: 30px;
-}
-
-.hotel-info-box {
-  background: #fff;
-  border-radius: 24px;
-  padding: 18px 18px 14px;
-  box-shadow: 0 10px 22px rgba(27, 38, 79, 0.05);
-}
-
-.info-box-head {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 12px;
-}
-
-.info-kicker {
-  font-size: 0.8rem;
-  font-weight: 900;
-  color: #e0a4b5;
-}
-
-.info-box-head h3 {
-  margin: 0;
-  font-size: 1.1rem;
-  font-weight: 900;
-  color: #162657;
-}
-
-.info-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.info-list-row {
-  display: grid;
-  grid-template-columns: 30px 1fr auto;
-  gap: 12px;
-  align-items: center;
-  padding: 14px 0;
-  border-top: 1px solid #efe6eb;
-}
-
-.info-list-row:first-child {
-  border-top: none;
-  padding-top: 0;
-}
-
-.list-number {
-  font-size: 0.82rem;
-  font-weight: 900;
-  color: #e0a4b5;
-}
-
-.list-content {
-  min-width: 0;
-}
-
-.list-title,
-.course-title-btn {
-  display: inline-block;
-  margin: 0;
-  padding: 0;
-  border: none;
-  background: none;
-  font-size: 0.98rem;
-  font-weight: 800;
-  color: #162657;
-  text-align: left;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.link-title:hover,
-.course-title-btn:hover {
-  opacity: 0.82;
-}
-
-.list-sub {
-  display: block;
-  margin-top: 4px;
-  font-size: 0.84rem;
-  line-height: 1.55;
-  color: #7b879d;
-}
-
-.course-view-btn,
-.list-action-btn,
-.hotel-mini-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 32px;
-  padding: 0 12px;
-  border: none;
-  border-radius: 999px;
-  background: #23345e;
-  color: #fff;
-  font-size: 0.76rem;
-  font-weight: 800;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-/* flip course box */
-.hotel-course-flip {
-  perspective: 1400px;
-  min-height: 340px;
-  padding: 0;
-  overflow: hidden;
-}
-
-.hotel-course-flip-inner {
-  position: relative;
-  min-height: 340px;
-  width: 100%;
-  transform-style: preserve-3d;
-  transition: transform 0.75s ease;
-}
-
-.hotel-course-flip.is-flipped .hotel-course-flip-inner {
-  transform: rotateY(180deg);
-}
-
-.hotel-course-face {
-  position: absolute;
-  inset: 0;
-  padding: 18px 18px 14px;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  background: #fff;
-  border-radius: 24px;
-}
-
-.hotel-course-face-front {
-  z-index: 2;
-}
-
-.hotel-course-face-back {
-  transform: rotateY(180deg);
-  cursor: pointer;
-}
-
-.hotel-course-back-kicker {
-  margin: 0 0 10px;
-}
-
-.hotel-course-back-title {
-  margin: 0 0 10px;
-  font-size: 2rem;
-  line-height: 1.15;
-  color: #162657;
-  font-weight: 900;
-}
-
-.hotel-course-back-route {
-  margin: 0 0 12px;
-  font-weight: 800;
-  color: #1f315d;
-  line-height: 1.7;
-}
-
-.hotel-course-back-desc {
-  margin: 0 0 16px;
-  line-height: 1.8;
-  color: #6a7892;
-}
-
-.hotel-theme-soraniwa .hotel-hero-box {
-  background: #f6faf8;
-}
-
-.hotel-theme-hiyori .hotel-hero-box {
-  background: #f8f7fb;
-}
-
-.hotel-theme-stitch .hotel-hero-box {
-  background: #f7f8fb;
-}
-
-@media (max-width: 1100px) {
-  .card-slider-track {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  if (hotelPage) {
+    renderHotelPage(hotelPage, savedLang);
   }
 
-  .hotel-info-grid {
-    grid-template-columns: 1fr;
+  if (allPage) {
+    renderAllPage(allPage, savedLang);
   }
 
-  .hotel-course-flip,
-  .hotel-course-flip-inner {
-    min-height: 300px;
+  setupLanguageSwitcher();
+  setupCardSlider();
+  setupCourseFlipReset();
+});
+
+function normalizeLang(lang) {
+  if (lang === "ko") return "kr";
+  if (lang === "ja") return "jp";
+  if (lang === "jp" || lang === "kr" || lang === "en") return lang;
+  return "jp";
+}
+
+function setupLanguageSwitcher() {
+  document.addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-lang]");
+    if (!btn) return;
+
+    const lang = normalizeLang(btn.dataset.lang);
+    localStorage.setItem("siteLanguage", lang);
+
+    applyLanguage(lang);
+
+    const hotelPage = document.body.dataset.hotelPage;
+    const allPage = document.body.dataset.allPage;
+
+    if (hotelPage) renderHotelPage(hotelPage, lang);
+    if (allPage) renderAllPage(allPage, lang);
+  });
+}
+
+function applyLanguage(lang) {
+  const safeLang = normalizeLang(lang);
+  document.documentElement.lang = safeLang;
+
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    const key = el.dataset.i18n;
+    const value = window.UI_TEXT?.[safeLang]?.[key];
+    if (value) el.textContent = value;
+  });
+
+  document.querySelectorAll(".lang-btn").forEach((btn) => {
+    btn.classList.toggle("is-active", normalizeLang(btn.dataset.lang) === safeLang);
+  });
+}
+
+function renderHotelPage(hotelKey, lang = "jp") {
+  const safeLang = normalizeLang(lang);
+  const data = window.HOTEL_DATA?.[hotelKey];
+  if (!data) return;
+
+  const pageShell = document.querySelector(".page-shell");
+  if (pageShell) {
+    pageShell.classList.remove(
+      "hotel-theme-soraniwa",
+      "hotel-theme-hiyori",
+      "hotel-theme-stitch"
+    );
+    if (data.themeClass) pageShell.classList.add(data.themeClass);
+  }
+
+  const labelEl = document.querySelector("[data-hotel-label]");
+  const nameEl = document.querySelector("[data-hotel-name]");
+  const taglineEl = document.querySelector("[data-hotel-tagline]");
+  const descEl = document.querySelector("[data-hotel-description]");
+  const subLabelEl = document.querySelector("[data-hotel-sub-label]");
+  const tabsEl = document.querySelector("[data-hotel-tabs]");
+  const introTitleEl = document.querySelector("[data-intro-title]");
+  const introTextEl = document.querySelector("[data-intro-text]");
+  const cardsEl = document.querySelector("[data-cards]");
+  const courseEl = document.querySelector("[data-course]");
+  const foodEl = document.querySelector("[data-food]");
+  const eventsEl = document.querySelector("[data-events]");
+
+  if (labelEl) labelEl.textContent = data.label?.[safeLang] || "";
+  if (nameEl) nameEl.textContent = data.name?.[safeLang] || "";
+  if (taglineEl) taglineEl.textContent = data.tagline?.[safeLang] || "";
+  if (descEl) descEl.textContent = data.description?.[safeLang] || "";
+  if (subLabelEl) subLabelEl.textContent = data.subLabel?.[safeLang] || "";
+
+  if (data.tabs && tabsEl) {
+    let activeKey = data.tabs[0].key;
+
+    if (tabsEl.dataset.activeKey && data.tabs.some((tab) => tab.key === tabsEl.dataset.activeKey)) {
+      activeKey = tabsEl.dataset.activeKey;
+    }
+
+    tabsEl.innerHTML = data.tabs
+      .map(
+        (tab) => `
+          <button class="hotel-tab ${tab.key === activeKey ? "is-active" : ""}" type="button" data-tab-key="${tab.key}">
+            ${tab.label?.[safeLang] || tab.key}
+          </button>
+        `
+      )
+      .join("");
+
+    tabsEl.dataset.activeKey = activeKey;
+    renderHotelTab(data, activeKey, safeLang);
+
+    tabsEl.onclick = (e) => {
+      const btn = e.target.closest(".hotel-tab");
+      if (!btn) return;
+
+      const nextKey = btn.dataset.tabKey;
+      tabsEl.dataset.activeKey = nextKey;
+
+      tabsEl.querySelectorAll(".hotel-tab").forEach((tabBtn) => {
+        tabBtn.classList.remove("is-active");
+      });
+      btn.classList.add("is-active");
+
+      renderHotelTab(data, nextKey, safeLang);
+    };
+  } else {
+    if (introTitleEl) introTitleEl.textContent = data.introTitle?.[safeLang] || "";
+    if (introTextEl) introTextEl.textContent = data.introText?.[safeLang] || "";
+    renderCards(cardsEl, data.cards || [], safeLang);
+    renderCourseList(courseEl, data.courses || [], safeLang);
+    renderFoodList(foodEl, data.foods || [], safeLang);
+    renderEventList(eventsEl, data.events || [], safeLang);
+  }
+
+  resetCourseFlip();
+}
+
+function renderHotelTab(data, tabKey, lang) {
+  const safeLang = normalizeLang(lang);
+  const tabData = data.tabs.find((tab) => tab.key === tabKey);
+  if (!tabData) return;
+
+  const introTitleEl = document.querySelector("[data-intro-title]");
+  const introTextEl = document.querySelector("[data-intro-text]");
+  const cardsEl = document.querySelector("[data-cards]");
+  const courseEl = document.querySelector("[data-course]");
+  const foodEl = document.querySelector("[data-food]");
+  const eventsEl = document.querySelector("[data-events]");
+
+  if (introTitleEl) introTitleEl.textContent = tabData.introTitle?.[safeLang] || "";
+  if (introTextEl) introTextEl.textContent = tabData.introText?.[safeLang] || "";
+
+  renderCards(cardsEl, tabData.cards || [], safeLang);
+  renderCourseList(courseEl, tabData.courses || [], safeLang);
+  renderFoodList(foodEl, tabData.foods || [], safeLang);
+  renderEventList(eventsEl, tabData.events || [], safeLang);
+
+  resetCourseFlip();
+}
+
+function renderCards(container, cards, lang) {
+  if (!container) return;
+
+  container.innerHTML = `
+    <div class="card-slider-track">
+      ${cards
+        .map(
+          (card) => `
+            <article class="guide-card">
+              <div class="guide-card-image">
+                <img src="${card.image || ""}" alt="${card.title?.[lang] || ""}">
+              </div>
+              <div class="guide-card-body">
+                <h3>${card.title?.[lang] || ""}</h3>
+                <p>${card.text?.[lang] || ""}</p>
+              </div>
+            </article>
+          `
+        )
+        .join("")}
+    </div>
+
+    <div class="slider-controls">
+      <button class="slider-btn prev" type="button" aria-label="Previous">←</button>
+      <button class="slider-btn next" type="button" aria-label="Next">→</button>
+    </div>
+  `;
+}
+
+function renderCourseList(container, items, lang) {
+  if (!container) return;
+
+  container.innerHTML = items
+    .map(
+      (item, index) => `
+        <li class="info-list-row">
+          <span class="list-number">${item.no}</span>
+          <div class="list-content">
+            <button class="course-title-btn" type="button" data-course-index="${index}">
+              ${item.title?.[lang] || ""}
+            </button>
+            <span class="list-sub">${item.sub?.[lang] || ""}</span>
+          </div>
+          <button class="course-view-btn" type="button" data-course-index="${index}">View</button>
+        </li>
+      `
+    )
+    .join("");
+
+  container.querySelectorAll("[data-course-index]").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const index = Number(btn.dataset.courseIndex);
+      const course = items[index];
+      if (!course) return;
+      showCourseFlip(course, lang);
+    });
+  });
+}
+
+function renderFoodList(container, items) {
+  if (!container) return;
+
+  container.innerHTML = items
+    .map(
+      (item) => `
+        <li class="info-list-row">
+          <span class="list-number">${item.no}</span>
+          <div class="list-content">
+            <span class="list-title">${item.name}</span>
+            <span class="list-sub">${item.type}</span>
+          </div>
+          <a class="list-action-btn" href="${item.direction}" target="_blank" rel="noopener noreferrer">Directions</a>
+        </li>
+      `
+    )
+    .join("");
+}
+
+function renderEventList(container, items) {
+  if (!container) return;
+
+  container.innerHTML = items
+    .map(
+      (item) => `
+        <li class="info-list-row">
+          <span class="list-number">${item.no}</span>
+          <div class="list-content">
+            <a class="list-title link-title" href="${item.link}" target="_blank" rel="noopener noreferrer">${item.name}</a>
+            <span class="list-sub">${item.sub}</span>
+          </div>
+        </li>
+      `
+    )
+    .join("");
+}
+
+function resetCourseFlip() {
+  const box = document.getElementById("hotelCourseFlipBox");
+  if (!box) return;
+
+  box.classList.remove("is-flipped");
+
+  const titleEl = box.querySelector("[data-course-back-title]");
+  const routeEl = box.querySelector("[data-course-back-route]");
+  const descEl = box.querySelector("[data-course-back-desc]");
+  const directionEl = box.querySelector("[data-course-back-direction]");
+
+  if (titleEl) titleEl.textContent = "";
+  if (routeEl) routeEl.textContent = "";
+  if (descEl) descEl.textContent = "";
+  if (directionEl) {
+    directionEl.textContent = "Directions";
+    directionEl.href = "#";
   }
 }
 
-@media (max-width: 700px) {
-  .card-slider-track {
-    grid-template-columns: 1fr;
+function showCourseFlip(course, lang) {
+  const safeLang = normalizeLang(lang);
+  const box = document.getElementById("hotelCourseFlipBox");
+  if (!box) return;
+
+  const titleEl = box.querySelector("[data-course-back-title]");
+  const routeEl = box.querySelector("[data-course-back-route]");
+  const descEl = box.querySelector("[data-course-back-desc]");
+  const directionEl = box.querySelector("[data-course-back-direction]");
+
+  if (titleEl) titleEl.textContent = course.title?.[safeLang] || "";
+  if (routeEl) routeEl.textContent = course.route?.[safeLang] || "";
+  if (descEl) descEl.textContent = course.detail?.[safeLang] || "";
+  if (directionEl) {
+    directionEl.textContent = "Directions";
+    directionEl.href = course.direction || "#";
   }
 
-  .hotel-hero-box,
-  .hotel-sub-intro,
-  .hotel-info-box,
-  .hotel-course-face {
-    border-radius: 20px;
-    padding: 18px;
-  }
+  box.classList.remove("is-flipped");
+  requestAnimationFrame(() => {
+    box.classList.add("is-flipped");
+  });
+}
 
-  .info-list-row {
-    grid-template-columns: 24px 1fr;
-  }
+function setupCourseFlipReset() {
+  document.addEventListener("click", (e) => {
+    const box = document.getElementById("hotelCourseFlipBox");
+    if (!box || !box.classList.contains("is-flipped")) return;
 
-  .course-view-btn,
-  .list-action-btn {
-    grid-column: 2 / 3;
-    justify-self: start;
-    margin-top: 8px;
-  }
+    const clickedInsideBack = e.target.closest(".hotel-course-face-back");
+    const clickedDirection = e.target.closest("[data-course-back-direction]");
+    const clickedCourseTrigger = e.target.closest("[data-course-index]");
 
-  .hotel-course-back-title {
-    font-size: 1.5rem;
-  }
+    if (clickedDirection || clickedCourseTrigger) return;
+
+    if (clickedInsideBack) {
+      box.classList.remove("is-flipped");
+    }
+  });
+}
+
+function renderAllPage(type, lang = "jp") {
+  const safeLang = normalizeLang(lang);
+  const titleEl = document.querySelector("[data-all-title]");
+  const descEl = document.querySelector("[data-all-desc]");
+  const contentEl = document.querySelector("[data-all-content]");
+
+  if (!titleEl || !descEl || !contentEl) return;
+
+  let source = null;
+  if (type === "sakura") source = window.HOTEL_DATA.allSakura;
+  if (type === "food") source = window.HOTEL_DATA.allFood;
+  if (type === "events") source = window.HOTEL_DATA.allEvents;
+  if (type === "ai") source = window.HOTEL_DATA.allAi;
+  if (type === "crowd") source = window.HOTEL_DATA.allCrowd;
+  if (!source) return;
+
+  titleEl.textContent = source.title?.[safeLang] || "";
+  descEl.textContent = source.description?.[safeLang] || "";
+
+  contentEl.innerHTML = source.items
+    .map(
+      (item) => `
+        <article class="feature-card">
+          <div class="feature-image"></div>
+          <div class="feature-body">
+            <span class="feature-tag">${item.tag?.[safeLang] || ""}</span>
+            <h3>${item.title?.[safeLang] || ""}</h3>
+            <p>${item.text?.[safeLang] || ""}</p>
+          </div>
+        </article>
+      `
+    )
+    .join("");
+}
+
+function setupCardSlider() {
+  document.addEventListener("click", (e) => {
+    const prevBtn = e.target.closest(".slider-btn.prev");
+    const nextBtn = e.target.closest(".slider-btn.next");
+    if (!prevBtn && !nextBtn) return;
+
+    const controls = e.target.closest(".slider-controls");
+    const track = controls?.previousElementSibling;
+    if (!track || !track.classList.contains("card-slider-track")) return;
+
+    const moveAmount = 320;
+    if (prevBtn) track.scrollBy({ left: -moveAmount, behavior: "smooth" });
+    if (nextBtn) track.scrollBy({ left: moveAmount, behavior: "smooth" });
+  });
 }
