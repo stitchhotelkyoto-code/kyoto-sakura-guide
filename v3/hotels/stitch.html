@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/hotel-detail.css" />
 </head>
 <body data-hotel-page="stitch">
   <div class="page-shell">
@@ -35,48 +36,64 @@
       </div>
     </header>
 
-    <main>
-      <section class="hotel-hero hotel-theme-stitch">
-        <div class="container">
-          <div class="hotel-hero-box">
-            <div class="hotel-hero-intro">
-              <p class="hotel-hero-label" data-hotel-label></p>
-              <h1 data-hotel-name></h1>
-              <p class="hotel-hero-tagline" data-hotel-tagline></p>
-              <p class="hotel-hero-description" data-hotel-description></p>
-            </div>
+    <main class="hotel-detail-page">
+      <div class="hotel-hero-box" id="hotelHeroBox"></div>
+
+      <div class="hotel-brand-box" id="hotelBrandBox"></div>
+
+      <div class="hotel-gallery-section">
+        <div class="hotel-gallery-grid" id="hotelGalleryGrid"></div>
+        <div class="hotel-gallery-nav">
+          <button class="hotel-gallery-arrow" id="hotelGalleryPrev" type="button">←</button>
+          <button class="hotel-gallery-arrow" id="hotelGalleryNext" type="button">→</button>
+        </div>
+      </div>
+
+      <div class="hotel-info-grid">
+        <div class="hotel-info-box">
+          <div class="hotel-info-head">
+            <span>01</span>
+            <h3>Recommended Course</h3>
+          </div>
+          <div class="hotel-list" id="hotelCourseList"></div>
+        </div>
+
+        <div class="hotel-info-box">
+          <div class="hotel-info-head">
+            <span>02</span>
+            <h3>Food Picks</h3>
+          </div>
+          <div class="hotel-list" id="hotelFoodList"></div>
+        </div>
+
+        <div class="hotel-info-box">
+          <div class="hotel-info-head">
+            <span>03</span>
+            <h3>Nearby Events</h3>
+          </div>
+          <div class="hotel-list" id="hotelEventList"></div>
+        </div>
+      </div>
+
+      <div class="hotel-course-detail" id="hotelCourseDetail">
+        <div class="hotel-course-detail-inner">
+          <div class="hotel-course-detail-front" id="hotelCourseFront">
+            <p class="hotel-course-detail-label">COURSE DETAIL</p>
+            <h3 id="hotelCourseFrontTitle">코스를 선택해 주세요</h3>
+            <p id="hotelCourseFrontDesc">왼쪽의 1~5번 코스를 누르면 상세 설명이 나옵니다.</p>
+          </div>
+
+          <div class="hotel-course-detail-back" id="hotelCourseBack">
+            <p class="hotel-course-detail-label">HOW TO GO</p>
+            <h3 id="hotelCourseBackTitle"></h3>
+            <p class="hotel-course-route" id="hotelCourseBackRoute"></p>
+            <p class="hotel-course-back-desc" id="hotelCourseBackDesc"></p>
+            <a class="hotel-mini-btn" id="hotelCourseDirectionBtn" href="#" target="_blank" rel="noopener noreferrer">
+              Directions
+            </a>
           </div>
         </div>
-      </section>
-
-      <section class="section section-tight">
-        <div class="container">
-          <div class="hotel-sub-intro">
-            <p class="hotel-sub-label" data-hotel-sub-label></p>
-            <h2 data-intro-title></h2>
-            <p data-intro-text></p>
-          </div>
-
-          <div class="hotel-slider-block">
-            <div class="card-slider-wrap" data-cards></div>
-          </div>
-
-          <div class="hotel-info-grid">
-            <div class="hotel-info-box">
-              <div class="info-box-head"><span class="info-kicker">01</span><h3 data-i18n="section_course">Recommended Course</h3></div>
-              <ul class="info-list" data-course></ul>
-            </div>
-            <div class="hotel-info-box">
-              <div class="info-box-head"><span class="info-kicker">02</span><h3 data-i18n="section_food">Food Picks</h3></div>
-              <ul class="info-list" data-food></ul>
-            </div>
-            <div class="hotel-info-box">
-              <div class="info-box-head"><span class="info-kicker">03</span><h3 data-i18n="section_events">Nearby Events</h3></div>
-              <ul class="info-list" data-events></ul>
-            </div>
-          </div>
-        </div>
-      </section>
+      </div>
     </main>
 
     <footer class="site-footer">
@@ -84,7 +101,12 @@
     </footer>
   </div>
 
-  <script src="../js/hotel-data.js"></script>
   <script src="../js/main.js"></script>
+  <script src="../js/hotel-detail.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      renderHotelPage("stitch");
+    });
+  </script>
 </body>
 </html>
