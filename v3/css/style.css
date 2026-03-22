@@ -8,14 +8,12 @@
   --point-dark: #1f2d52;
   --pink-band: #e8c2d1;
   --right-band: #f7f0f4;
+  --card-bg: #dce4eb;
   --shadow-soft: 0 10px 24px rgba(28, 33, 50, 0.06);
   --shadow-btn: 0 10px 22px rgba(31, 45, 82, 0.18);
   --container: 1180px;
 }
 
-/* =========================
-   RESET / BASE
-========================= */
 * {
   box-sizing: border-box;
 }
@@ -27,8 +25,8 @@ html {
 body {
   margin: 0;
   font-family: "Noto Sans JP", "Noto Sans KR", sans-serif;
-  background: #f5f1f4;
-  color: #1b2340;
+  background: var(--bg);
+  color: var(--text);
   overflow-x: hidden;
 }
 
@@ -49,73 +47,57 @@ button {
   cursor: pointer;
 }
 
-section {
-  position: relative;
-}
-
-/* =========================
-   LAYOUT
-========================= */
-.container {
-  width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 32px;
-}
-
 /* =========================
    HEADER
 ========================= */
+
 .site-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: #f7f4f6;
-  border-bottom: 1px solid rgba(24, 37, 79, 0.06);
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(31, 39, 64, 0.05);
 }
 
 .site-header-inner {
-  max-width: 1440px;
+  width: min(var(--container), calc(100% - 48px));
   margin: 0 auto;
-  padding: 14px 28px;
-  display: flex;
+  min-height: 68px;
+  display: grid;
+  grid-template-columns: 220px 1fr auto;
   align-items: center;
-  justify-content: space-between;
   gap: 20px;
 }
 
 .site-brand {
-  font-size: 1.55rem;
+  font-size: 1.15rem;
   font-weight: 800;
-  color: #1c2957;
+  color: var(--point-dark);
   letter-spacing: -0.02em;
   white-space: nowrap;
 }
 
 .site-nav {
   display: flex;
-  align-items: center;
-  gap: 18px;
+  justify-content: center;
+  gap: 20px;
   flex-wrap: wrap;
 }
 
 .site-nav a {
   font-size: 0.92rem;
-  font-weight: 600;
-  color: #67728f;
+  font-weight: 700;
+  color: #5f6c89;
   transition: 0.2s ease;
 }
 
 .site-nav a:hover,
-.site-nav a.is-active {
-  color: #1c2957;
+.site-nav a.active {
+  color: var(--point-dark);
 }
 
 .lang-switch {
   display: flex;
-  align-items: center;
   gap: 8px;
-  flex-shrink: 0;
+  align-items: center;
 }
 
 .lang-btn {
@@ -125,99 +107,94 @@ section {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.82rem;
-  font-weight: 700;
-  background: #ece8ed;
-  color: #7b8193;
-  transition: 0.2s ease;
+  background: #efebee;
+  color: #7c8396;
+  font-size: 0.8rem;
+  font-weight: 800;
 }
 
 .lang-btn.active {
-  background: #1f2b59;
+  background: var(--point-dark);
   color: #fff;
 }
 
 /* =========================
    HERO
 ========================= */
+
 .home-hero {
   position: relative;
   display: grid;
-  grid-template-columns: 51% 49%;
-  align-items: stretch;
-  min-height: 690px;
+  grid-template-columns: 50.5% 49.5%;
+  min-height: 640px;
+  background: linear-gradient(
+    to right,
+    var(--pink-band) 0 50%,
+    var(--right-band) 50% 100%
+  );
   overflow: hidden;
-  background: linear-gradient(to right, #e8c0d1 0 50%, #f1eaee 50% 100%);
 }
 
-/* LEFT */
 .home-hero-left {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   min-width: 0;
-  position: relative;
-  z-index: 1;
 }
 
 .hero-copy-wrap {
   width: 100%;
-  max-width: 760px;
-  margin: 0;
-  padding: 92px 30px 92px 110px;
+  max-width: 720px;
+  padding: 76px 36px 76px 64px;
 }
 
 .mega-label {
   display: flex;
   align-items: center;
   gap: 16px;
-  margin: 0 0 30px;
+  margin: 0 0 24px;
   font-size: 0.95rem;
   font-weight: 700;
+  color: var(--point-dark);
   line-height: 1.2;
-  color: #1f2740;
 }
 
 .mega-label::after {
   content: "";
-  display: block;
-  width: 190px;
+  width: 130px;
   height: 2px;
-  background: rgba(31, 39, 64, 0.75);
+  background: rgba(31, 45, 82, 0.65);
 }
 
 .mega-title {
-  margin: 0 0 18px;
-  max-width: 590px;
-  font-size: clamp(3.6rem, 5.4vw, 5.6rem);
-  line-height: 1.03;
-  letter-spacing: -0.05em;
+  margin: 0 0 20px;
+  max-width: 520px;
+  font-size: clamp(3rem, 4.8vw, 4.8rem);
+  line-height: 1.05;
   font-weight: 900;
-  color: #172450;
+  letter-spacing: -0.05em;
+  color: #172554;
   word-break: keep-all;
-  overflow-wrap: break-word;
 }
 
 .mega-desc {
   margin: 0 0 24px;
-  max-width: 500px;
+  max-width: 470px;
   font-size: 1rem;
-  line-height: 1.85;
+  line-height: 1.9;
   color: #33405d;
   word-break: keep-all;
 }
 
 .mega-meta {
   margin: 0 0 34px;
-  font-size: 1.08rem;
+  font-size: 1.05rem;
   font-weight: 800;
-  color: #1c2957;
-  line-height: 1.4;
+  color: #172554;
 }
 
 .mega-actions {
   display: flex;
-  align-items: center;
   gap: 12px;
   flex-wrap: wrap;
 }
@@ -231,82 +208,67 @@ section {
   min-height: 46px;
   padding: 0 18px;
   border-radius: 10px;
-  font-size: 0.92rem;
-  font-weight: 700;
+  font-size: 0.9rem;
+  font-weight: 800;
   transition: 0.2s ease;
 }
 
 .btn-primary {
-  background: #1f2b59;
+  background: var(--point-dark);
   color: #fff;
-  border: 1px solid #1f2b59;
-}
-
-.btn-primary:hover {
-  transform: translateY(-1px);
+  box-shadow: var(--shadow-btn);
 }
 
 .btn-secondary {
   background: #fff;
-  color: #1f2b59;
-  border: 1px solid #ddd6dd;
+  color: var(--point-dark);
+  border: 1px solid #e0d7dd;
 }
 
+.btn-primary:hover,
 .btn-secondary:hover {
   transform: translateY(-1px);
 }
 
 /* RIGHT */
+
 .home-hero-right {
   display: flex;
   align-items: center;
   min-width: 0;
-  padding: 62px 62px 62px 0;
-  margin-left: -82px;
-  position: relative;
-  z-index: 2;
+  padding: 54px 52px 54px 0;
+  margin-left: -58px;
 }
 
 .hero-cards {
-  width: 100%;
   display: flex;
   align-items: stretch;
-  gap: 14px;
+  gap: 16px;
+  width: 100%;
 }
 
 .hero-card {
   flex: 1 1 0;
   min-width: 0;
-  min-height: 430px;
-  background: #dce4eb;
+  max-width: 300px;
+  background: var(--card-bg);
   border-radius: 30px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  box-shadow: none;
 }
 
 .hero-card:first-child {
-  margin-left: -4px;
-}
-
-.hero-card:nth-child(1) {
-  max-width: 325px;
-}
-
-.hero-card:nth-child(2) {
-  max-width: 300px;
-}
-
-.hero-card:nth-child(3) {
-  max-width: 300px;
+  max-width: 320px;
 }
 
 .hero-card-image {
   width: 100%;
-  height: 258px;
-  overflow: hidden;
+  height: 210px;
   background: #cfd9e2;
-  border-radius: 30px 30px 110px 110px;
+  border-radius: 30px 30px 88px 88px;
+  overflow: hidden;
   position: relative;
 }
 
@@ -318,7 +280,7 @@ section {
 
 .hero-card-body {
   flex: 1;
-  padding: 24px 18px 22px;
+  padding: 22px 18px 20px;
   text-align: center;
 }
 
@@ -327,28 +289,25 @@ section {
   font-size: 1.08rem;
   line-height: 1.35;
   font-weight: 900;
+  color: #172554;
   letter-spacing: -0.02em;
-  color: #172450;
-  word-break: keep-all;
 }
 
 .hero-card-body p {
   margin: 0;
   font-size: 0.9rem;
   line-height: 1.7;
-  color: #37425f;
-  word-break: keep-all;
+  color: #41506d;
 }
 
+.hero-card-body .point,
 .hero-card-body strong,
-.hero-card-body b,
-.hero-card-body .point {
-  color: #6dbfc7;
+.hero-card-body b {
+  color: #67bcc5;
   font-weight: 800;
 }
 
-/* 히어로 안 불필요 요소 숨김 */
-.hero-bottom-visual,
+/* 혹시 메인 아래 슬라이드 버튼 같은 거 남아 있으면 숨김 */
 .home-hero .slider-controls,
 .home-hero .slider-btn,
 .home-hero .hero-controls,
@@ -361,170 +320,268 @@ section {
 .home-hero .hero-counter,
 .home-hero .hero-progress,
 .home-hero .carousel-controls,
-.home-hero .hero-bottom-controls,
-.home-hero .pause-btn,
-.home-hero .play-btn {
+.hero-bottom-visual {
   display: none !important;
 }
 
 /* =========================
-   SECTION COMMON
+   EXPLORE KYOTO
 ========================= */
-.section-heading {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 44px 32px 0;
+<section class="explore-kyoto" id="explore-kyoto">
+  <div class="explore-kyoto-inner">
+    <h2 class="explore-kyoto-title">Explore Kyoto</h2>
+
+    <div class="explore-kyoto-grid">
+      <a href="#sakura-spots" class="explore-tile">
+        <div class="explore-tile-icon">🌸</div>
+        <div class="explore-tile-label">Sakura Spots</div>
+      </a>
+
+      <a href="#travel-courses" class="explore-tile">
+        <div class="explore-tile-icon">🗺️</div>
+        <div class="explore-tile-label">Travel Courses</div>
+      </a>
+
+      <a href="#food-guide" class="explore-tile">
+        <div class="explore-tile-icon">🍜</div>
+        <div class="explore-tile-label">Food Guide</div>
+      </a>
+
+      <a href="#events" class="explore-tile">
+        <div class="explore-tile-icon">🧘</div>
+        <div class="explore-tile-label">Events</div>
+      </a>
+
+      <a href="#ai-guide" class="explore-tile">
+        <div class="explore-tile-icon">✨</div>
+        <div class="explore-tile-label">AI Guide</div>
+      </a>
+
+      <a href="#live-crowd" class="explore-tile">
+        <div class="explore-tile-icon">📍</div>
+        <div class="explore-tile-label">Live Crowd</div>
+      </a>
+    </div>
+
+    <p class="explore-kyoto-footer">Kyoto Sakura Guide © Spring Stay Project</p>
+  </div>
+</section>
+
+/* =========================
+   EXPLORE KYOTO
+========================= */
+
+.explore-kyoto {
+  background: #f5f1f3;
+  padding: 38px 0 64px;
 }
 
-.section-heading h2 {
-  margin: 0;
-  font-size: clamp(2.4rem, 4vw, 4rem);
-  line-height: 1.08;
+.explore-kyoto-inner {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.explore-kyoto-title {
+  margin: 0 0 22px;
+  font-size: clamp(2.8rem, 4.6vw, 4.4rem);
+  line-height: 1.05;
   letter-spacing: -0.04em;
   font-weight: 900;
-  color: #172450;
+  color: #172554;
 }
 
-.section-label {
-  margin: 0 0 10px;
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: #6b7388;
-}
-
-.section-desc {
-  margin: 12px 0 0;
-  font-size: 1rem;
-  line-height: 1.75;
-  color: #49536f;
-}
-
-/* =========================
-   EXPLORE SECTION SAMPLE
-========================= */
-.explore-section {
-  padding: 10px 0 80px;
-  background: #f5f1f4;
-}
-
-.explore-grid {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 32px;
+.explore-kyoto-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 22px;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 14px;
+  align-items: stretch;
 }
 
-.explore-card {
-  min-height: 220px;
-  background: #fff;
-  border-radius: 26px;
-  padding: 24px;
-  box-shadow: 0 8px 24px rgba(20, 25, 45, 0.04);
+.explore-tile {
+  background: #ffffff;
+  border-radius: 18px;
+  min-height: 112px;
+  padding: 16px 14px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
+  box-shadow: 0 8px 22px rgba(23, 37, 84, 0.05);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 
-.explore-card h3 {
-  margin: 0 0 10px;
-  font-size: 1.2rem;
-  font-weight: 800;
-  color: #172450;
+.explore-tile:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(23, 37, 84, 0.08);
 }
 
-.explore-card p {
-  margin: 0;
+.explore-tile-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 999px;
+  background: #f2ecef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.65rem;
+  line-height: 1;
+}
+
+.explore-tile-label {
   font-size: 0.95rem;
-  line-height: 1.7;
-  color: #4a546d;
+  line-height: 1.35;
+  font-weight: 800;
+  color: #172554;
+  letter-spacing: -0.01em;
+}
+
+.explore-kyoto-footer {
+  margin: 28px 0 0;
+  font-size: 0.88rem;
+  color: #8a90a1;
 }
 
 /* =========================
-   FOOTER
+   RESPONSIVE
 ========================= */
-.site-footer {
-  padding: 40px 32px 60px;
-  background: #f5f1f4;
-  color: #6d7589;
-  font-size: 0.9rem;
+
+@media (max-width: 1200px) {
+  .explore-kyoto-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .explore-kyoto {
+    padding: 28px 0 44px;
+  }
+
+  .explore-kyoto-inner {
+    width: calc(100% - 28px);
+  }
+
+  .explore-kyoto-title {
+    margin-bottom: 18px;
+    font-size: clamp(2.2rem, 9vw, 3rem);
+  }
+
+  .explore-kyoto-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .explore-tile {
+    min-height: 104px;
+    border-radius: 16px;
+    padding: 14px 10px 12px;
+    gap: 10px;
+  }
+
+  .explore-tile-icon {
+    width: 52px;
+    height: 52px;
+    font-size: 1.45rem;
+  }
+
+  .explore-tile-label {
+    font-size: 0.88rem;
+  }
+
+  .explore-kyoto-footer {
+    margin-top: 20px;
+    font-size: 0.82rem;
+  }
+}
+
+/* =========================
+   FOOTER / SMALL TEXT
+========================= */
+
+.site-footer,
+.footer-note {
+  padding: 20px 0 48px;
+  color: #7a8091;
+  font-size: 0.88rem;
   text-align: center;
 }
 
 /* =========================
-   1440
+   RESPONSIVE
 ========================= */
-@media (max-width: 1440px) {
-  .site-header-inner {
-    padding: 14px 24px;
-  }
 
+@media (max-width: 1440px) {
   .home-hero {
-    min-height: 640px;
+    min-height: 600px;
   }
 
   .hero-copy-wrap {
-    padding: 82px 26px 82px 78px;
-    max-width: 700px;
+    padding: 68px 32px 68px 54px;
+    max-width: 660px;
   }
 
   .mega-title {
-    max-width: 540px;
-    font-size: clamp(3rem, 4.8vw, 4.8rem);
+    max-width: 480px;
+    font-size: clamp(2.8rem, 4.4vw, 4.3rem);
   }
 
   .home-hero-right {
-    padding: 48px 34px 48px 0;
-    margin-left: -52px;
+    padding: 42px 34px 42px 0;
+    margin-left: -40px;
   }
 
   .hero-card {
-    min-height: 395px;
+    max-width: 280px;
+  }
+
+  .hero-card:first-child {
+    max-width: 295px;
   }
 
   .hero-card-image {
-    height: 228px;
+    height: 195px;
   }
 }
 
-/* =========================
-   1200
-========================= */
-@media (max-width: 1200px) {
+@media (max-width: 1180px) {
   .site-header-inner {
-    flex-wrap: wrap;
-    justify-content: center;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    padding: 14px 0;
   }
 
   .site-brand {
-    width: 100%;
     text-align: center;
   }
 
   .site-nav {
     justify-content: center;
+    gap: 16px;
   }
 
   .home-hero {
     grid-template-columns: 1fr;
     min-height: auto;
-    background: #f1eaee;
+    background: var(--right-band);
   }
 
   .home-hero-left {
-    background: #e8c0d1;
+    background: var(--pink-band);
   }
 
   .hero-copy-wrap {
     max-width: 100%;
-    padding: 74px 28px 42px 28px;
+    padding: 58px 28px 34px;
   }
 
   .mega-label::after {
-    width: 120px;
+    width: 80px;
   }
 
   .mega-title {
     max-width: 100%;
-    font-size: clamp(2.6rem, 6vw, 4rem);
+    font-size: clamp(2.5rem, 6vw, 3.8rem);
   }
 
   .mega-desc,
@@ -534,31 +591,18 @@ section {
 
   .home-hero-right {
     margin-left: 0;
-    padding: 20px 28px 44px;
-  }
-
-  .hero-card:first-child {
-    margin-left: 0;
+    padding: 20px 28px 34px;
   }
 
   .hero-card,
-  .hero-card:nth-child(1),
-  .hero-card:nth-child(2),
-  .hero-card:nth-child(3) {
+  .hero-card:first-child {
     max-width: none;
-  }
-
-  .explore-grid {
-    grid-template-columns: 1fr 1fr;
   }
 }
 
-/* =========================
-   900
-========================= */
 @media (max-width: 900px) {
   .site-header-inner {
-    gap: 14px;
+    width: calc(100% - 28px);
   }
 
   .site-nav {
@@ -566,7 +610,7 @@ section {
   }
 
   .site-nav a {
-    font-size: 0.86rem;
+    font-size: 0.84rem;
   }
 
   .hero-cards {
@@ -577,16 +621,11 @@ section {
 
   .hero-card {
     width: 100%;
-    min-height: 340px;
   }
 
   .hero-card-image {
     height: 220px;
-    border-radius: 28px 28px 88px 88px;
-  }
-
-  .hero-card-body {
-    padding: 20px 16px 20px;
+    border-radius: 30px 30px 78px 78px;
   }
 
   .explore-grid {
@@ -594,28 +633,18 @@ section {
   }
 }
 
-/* =========================
-   560
-========================= */
 @media (max-width: 560px) {
-  .container {
-    padding: 0 18px;
-  }
-
-  .site-header-inner {
-    padding: 12px 14px;
+  .site-header-inner,
+  .section-heading,
+  .explore-heading,
+  .explore-links,
+  .quick-links,
+  .explore-grid {
+    width: calc(100% - 28px);
   }
 
   .site-brand {
-    font-size: 1.2rem;
-  }
-
-  .site-nav {
-    gap: 10px;
-  }
-
-  .site-nav a {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
 
   .lang-btn {
@@ -625,22 +654,22 @@ section {
   }
 
   .hero-copy-wrap {
-    padding: 42px 18px 28px 18px;
+    padding: 40px 18px 26px;
   }
 
   .mega-label {
     gap: 10px;
-    margin-bottom: 16px;
-    font-size: 0.8rem;
+    font-size: 0.82rem;
+    margin-bottom: 14px;
   }
 
   .mega-label::after {
-    width: 56px;
+    width: 48px;
   }
 
   .mega-title {
     font-size: clamp(2rem, 10vw, 2.8rem);
-    line-height: 1.1;
+    line-height: 1.08;
     margin-bottom: 14px;
   }
 
@@ -655,30 +684,29 @@ section {
     margin-bottom: 18px;
   }
 
-  .mega-actions {
-    gap: 10px;
-  }
-
   .mega-actions .btn,
   .mega-actions a,
   .mega-actions button {
     min-height: 42px;
-    font-size: 0.84rem;
     padding: 0 14px;
+    font-size: 0.84rem;
   }
 
   .home-hero-right {
-    padding: 12px 14px 24px;
+    padding: 12px 14px 22px;
   }
 
   .hero-card {
-    min-height: 290px;
     border-radius: 22px;
   }
 
   .hero-card-image {
     height: 180px;
-    border-radius: 22px 22px 70px 70px;
+    border-radius: 22px 22px 60px 60px;
+  }
+
+  .hero-card-body {
+    padding: 18px 14px 18px;
   }
 
   .hero-card-body h3 {
@@ -690,24 +718,8 @@ section {
     line-height: 1.6;
   }
 
-  .section-heading {
-    padding: 32px 18px 0;
-  }
-
-  .section-heading h2 {
+  .section-heading h2,
+  .explore-heading h2 {
     font-size: 2.2rem;
-  }
-
-  .explore-grid {
-    padding: 18px;
-  }
-
-  .explore-card {
-    border-radius: 20px;
-    padding: 20px;
-  }
-
-  .site-footer {
-    padding: 32px 18px 50px;
   }
 }
