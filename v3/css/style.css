@@ -9,8 +9,9 @@
   --pink-band: #e8c2d1;
   --right-band: #f7f0f4;
   --card-bg: #dce4eb;
+  --icon-bg: #f1ebee;
   --shadow-soft: 0 10px 24px rgba(28, 33, 50, 0.06);
-  --shadow-btn: 0 10px 22px rgba(31, 45, 82, 0.18);
+  --shadow-btn: 0 10px 22px rgba(31, 45, 82, 0.14);
   --container: 1180px;
 }
 
@@ -52,7 +53,9 @@ button {
 ========================= */
 
 .site-header {
-  background: rgba(255, 255, 255, 0.88);
+  position: relative;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(31, 39, 64, 0.05);
 }
@@ -68,7 +71,7 @@ button {
 }
 
 .site-brand {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-weight: 800;
   color: var(--point-dark);
   letter-spacing: -0.02em;
@@ -78,19 +81,21 @@ button {
 .site-nav {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  align-items: center;
+  gap: 18px;
   flex-wrap: wrap;
 }
 
 .site-nav a {
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   font-weight: 700;
-  color: #5f6c89;
-  transition: 0.2s ease;
+  color: #66718d;
+  transition: color 0.2s ease;
 }
 
 .site-nav a:hover,
-.site-nav a.active {
+.site-nav a.active,
+.site-nav a.is-active {
   color: var(--point-dark);
 }
 
@@ -113,7 +118,8 @@ button {
   font-weight: 800;
 }
 
-.lang-btn.active {
+.lang-btn.active,
+.lang-btn.is-active {
   background: var(--point-dark);
   color: #fff;
 }
@@ -125,8 +131,8 @@ button {
 .home-hero {
   position: relative;
   display: grid;
-  grid-template-columns: 50.5% 49.5%;
-  min-height: 640px;
+  grid-template-columns: 50% 50%;
+  min-height: 620px;
   background: linear-gradient(
     to right,
     var(--pink-band) 0 50%,
@@ -144,33 +150,33 @@ button {
 
 .hero-copy-wrap {
   width: 100%;
-  max-width: 720px;
-  padding: 76px 36px 76px 64px;
+  max-width: 700px;
+  padding: 72px 34px 72px 56px;
 }
 
 .mega-label {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
   margin: 0 0 24px;
-  font-size: 0.95rem;
+  font-size: 0.94rem;
   font-weight: 700;
-  color: var(--point-dark);
   line-height: 1.2;
+  color: var(--point-dark);
 }
 
 .mega-label::after {
   content: "";
-  width: 130px;
+  width: 120px;
   height: 2px;
   background: rgba(31, 45, 82, 0.65);
 }
 
 .mega-title {
-  margin: 0 0 20px;
+  margin: 0 0 18px;
   max-width: 520px;
-  font-size: clamp(3rem, 4.8vw, 4.8rem);
-  line-height: 1.05;
+  font-size: clamp(3rem, 4.4vw, 4.7rem);
+  line-height: 1.06;
   font-weight: 900;
   letter-spacing: -0.05em;
   color: #172554;
@@ -178,7 +184,7 @@ button {
 }
 
 .mega-desc {
-  margin: 0 0 24px;
+  margin: 0 0 22px;
   max-width: 470px;
   font-size: 1rem;
   line-height: 1.9;
@@ -187,8 +193,8 @@ button {
 }
 
 .mega-meta {
-  margin: 0 0 34px;
-  font-size: 1.05rem;
+  margin: 0 0 30px;
+  font-size: 1.04rem;
   font-weight: 800;
   color: #172554;
 }
@@ -205,12 +211,12 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 46px;
+  min-height: 44px;
   padding: 0 18px;
   border-radius: 10px;
   font-size: 0.9rem;
   font-weight: 800;
-  transition: 0.2s ease;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 
 .btn-primary {
@@ -236,14 +242,14 @@ button {
   display: flex;
   align-items: center;
   min-width: 0;
-  padding: 54px 52px 54px 0;
-  margin-left: -58px;
+  padding: 52px 52px 52px 0;
+  margin-left: -56px;
 }
 
 .hero-cards {
   display: flex;
   align-items: stretch;
-  gap: 16px;
+  gap: 14px;
   width: 100%;
 }
 
@@ -252,11 +258,10 @@ button {
   min-width: 0;
   max-width: 300px;
   background: var(--card-bg);
-  border-radius: 30px;
+  border-radius: 28px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  box-shadow: none;
 }
 
 .hero-card:first-child {
@@ -265,9 +270,9 @@ button {
 
 .hero-card-image {
   width: 100%;
-  height: 210px;
+  height: 208px;
   background: #cfd9e2;
-  border-radius: 30px 30px 88px 88px;
+  border-radius: 28px 28px 84px 84px;
   overflow: hidden;
   position: relative;
 }
@@ -280,13 +285,13 @@ button {
 
 .hero-card-body {
   flex: 1;
-  padding: 22px 18px 20px;
+  padding: 20px 16px 18px;
   text-align: center;
 }
 
 .hero-card-body h3 {
   margin: 0 0 10px;
-  font-size: 1.08rem;
+  font-size: 1.05rem;
   line-height: 1.35;
   font-weight: 900;
   color: #172554;
@@ -295,7 +300,7 @@ button {
 
 .hero-card-body p {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   line-height: 1.7;
   color: #41506d;
 }
@@ -307,7 +312,7 @@ button {
   font-weight: 800;
 }
 
-/* 혹시 메인 아래 슬라이드 버튼 같은 거 남아 있으면 숨김 */
+/* hero 안에 혹시 남아있는 슬라이더 조작 숨김 */
 .home-hero .slider-controls,
 .home-hero .slider-btn,
 .home-hero .hero-controls,
@@ -327,63 +332,20 @@ button {
 /* =========================
    EXPLORE KYOTO
 ========================= */
-<section class="explore-kyoto" id="explore-kyoto">
-  <div class="explore-kyoto-inner">
-    <h2 class="explore-kyoto-title">Explore Kyoto</h2>
-
-    <div class="explore-kyoto-grid">
-      <a href="#sakura-spots" class="explore-tile">
-        <div class="explore-tile-icon">🌸</div>
-        <div class="explore-tile-label">Sakura Spots</div>
-      </a>
-
-      <a href="#travel-courses" class="explore-tile">
-        <div class="explore-tile-icon">🗺️</div>
-        <div class="explore-tile-label">Travel Courses</div>
-      </a>
-
-      <a href="#food-guide" class="explore-tile">
-        <div class="explore-tile-icon">🍜</div>
-        <div class="explore-tile-label">Food Guide</div>
-      </a>
-
-      <a href="#events" class="explore-tile">
-        <div class="explore-tile-icon">🧘</div>
-        <div class="explore-tile-label">Events</div>
-      </a>
-
-      <a href="#ai-guide" class="explore-tile">
-        <div class="explore-tile-icon">✨</div>
-        <div class="explore-tile-label">AI Guide</div>
-      </a>
-
-      <a href="#live-crowd" class="explore-tile">
-        <div class="explore-tile-icon">📍</div>
-        <div class="explore-tile-label">Live Crowd</div>
-      </a>
-    </div>
-
-    <p class="explore-kyoto-footer">Kyoto Sakura Guide © Spring Stay Project</p>
-  </div>
-</section>
-
-/* =========================
-   EXPLORE KYOTO
-========================= */
 
 .explore-kyoto {
-  background: #f5f1f3;
-  padding: 38px 0 64px;
+  background: var(--bg);
+  padding: 34px 0 56px;
 }
 
 .explore-kyoto-inner {
-  width: min(1180px, calc(100% - 48px));
+  width: min(var(--container), calc(100% - 48px));
   margin: 0 auto;
 }
 
 .explore-kyoto-title {
-  margin: 0 0 22px;
-  font-size: clamp(2.8rem, 4.6vw, 4.4rem);
+  margin: 0 0 20px;
+  font-size: clamp(2.8rem, 4.2vw, 4.2rem);
   line-height: 1.05;
   letter-spacing: -0.04em;
   font-weight: 900;
@@ -401,14 +363,14 @@ button {
   background: #ffffff;
   border-radius: 18px;
   min-height: 112px;
-  padding: 16px 14px 14px;
+  padding: 16px 12px 14px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 12px;
   text-align: center;
-  box-shadow: 0 8px 22px rgba(23, 37, 84, 0.05);
+  box-shadow: var(--shadow-soft);
   transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 
@@ -418,19 +380,19 @@ button {
 }
 
 .explore-tile-icon {
-  width: 60px;
-  height: 60px;
+  width: 56px;
+  height: 56px;
   border-radius: 999px;
-  background: #f2ecef;
+  background: var(--icon-bg);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.65rem;
+  font-size: 1.55rem;
   line-height: 1;
 }
 
 .explore-tile-label {
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   line-height: 1.35;
   font-weight: 800;
   color: #172554;
@@ -438,65 +400,13 @@ button {
 }
 
 .explore-kyoto-footer {
-  margin: 28px 0 0;
-  font-size: 0.88rem;
+  margin: 26px 0 0;
+  font-size: 0.86rem;
   color: #8a90a1;
 }
 
 /* =========================
-   RESPONSIVE
-========================= */
-
-@media (max-width: 1200px) {
-  .explore-kyoto-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 700px) {
-  .explore-kyoto {
-    padding: 28px 0 44px;
-  }
-
-  .explore-kyoto-inner {
-    width: calc(100% - 28px);
-  }
-
-  .explore-kyoto-title {
-    margin-bottom: 18px;
-    font-size: clamp(2.2rem, 9vw, 3rem);
-  }
-
-  .explore-kyoto-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-  }
-
-  .explore-tile {
-    min-height: 104px;
-    border-radius: 16px;
-    padding: 14px 10px 12px;
-    gap: 10px;
-  }
-
-  .explore-tile-icon {
-    width: 52px;
-    height: 52px;
-    font-size: 1.45rem;
-  }
-
-  .explore-tile-label {
-    font-size: 0.88rem;
-  }
-
-  .explore-kyoto-footer {
-    margin-top: 20px;
-    font-size: 0.82rem;
-  }
-}
-
-/* =========================
-   FOOTER / SMALL TEXT
+   FOOTER
 ========================= */
 
 .site-footer,
@@ -513,22 +423,22 @@ button {
 
 @media (max-width: 1440px) {
   .home-hero {
-    min-height: 600px;
+    min-height: 590px;
   }
 
   .hero-copy-wrap {
-    padding: 68px 32px 68px 54px;
-    max-width: 660px;
+    padding: 66px 30px 66px 50px;
+    max-width: 640px;
   }
 
   .mega-title {
-    max-width: 480px;
-    font-size: clamp(2.8rem, 4.4vw, 4.3rem);
+    max-width: 470px;
+    font-size: clamp(2.8rem, 4.2vw, 4.2rem);
   }
 
   .home-hero-right {
-    padding: 42px 34px 42px 0;
-    margin-left: -40px;
+    padding: 40px 34px 40px 0;
+    margin-left: -34px;
   }
 
   .hero-card {
@@ -536,19 +446,20 @@ button {
   }
 
   .hero-card:first-child {
-    max-width: 295px;
+    max-width: 294px;
   }
 
   .hero-card-image {
-    height: 195px;
+    height: 190px;
   }
 }
 
-@media (max-width: 1180px) {
+@media (max-width: 1200px) {
   .site-header-inner {
     grid-template-columns: 1fr;
     justify-items: center;
     padding: 14px 0;
+    width: calc(100% - 32px);
   }
 
   .site-brand {
@@ -572,21 +483,21 @@ button {
 
   .hero-copy-wrap {
     max-width: 100%;
-    padding: 58px 28px 34px;
+    padding: 56px 28px 34px;
   }
 
   .mega-label::after {
     width: 80px;
   }
 
-  .mega-title {
-    max-width: 100%;
-    font-size: clamp(2.5rem, 6vw, 3.8rem);
-  }
-
+  .mega-title,
   .mega-desc,
   .mega-meta {
     max-width: 100%;
+  }
+
+  .mega-title {
+    font-size: clamp(2.5rem, 6vw, 3.8rem);
   }
 
   .home-hero-right {
@@ -597,6 +508,10 @@ button {
   .hero-card,
   .hero-card:first-child {
     max-width: none;
+  }
+
+  .explore-kyoto-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -625,21 +540,17 @@ button {
 
   .hero-card-image {
     height: 220px;
-    border-radius: 30px 30px 78px 78px;
+    border-radius: 28px 28px 76px 76px;
   }
 
-  .explore-grid {
-    grid-template-columns: 1fr;
+  .explore-kyoto-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 560px) {
   .site-header-inner,
-  .section-heading,
-  .explore-heading,
-  .explore-links,
-  .quick-links,
-  .explore-grid {
+  .explore-kyoto-inner {
     width: calc(100% - 28px);
   }
 
@@ -718,8 +629,34 @@ button {
     line-height: 1.6;
   }
 
-  .section-heading h2,
-  .explore-heading h2 {
-    font-size: 2.2rem;
+  .explore-kyoto {
+    padding: 28px 0 44px;
+  }
+
+  .explore-kyoto-title {
+    margin-bottom: 18px;
+    font-size: clamp(2.2rem, 9vw, 3rem);
+  }
+
+  .explore-tile {
+    min-height: 104px;
+    border-radius: 16px;
+    padding: 14px 10px 12px;
+    gap: 10px;
+  }
+
+  .explore-tile-icon {
+    width: 52px;
+    height: 52px;
+    font-size: 1.45rem;
+  }
+
+  .explore-tile-label {
+    font-size: 0.88rem;
+  }
+
+  .explore-kyoto-footer {
+    margin-top: 20px;
+    font-size: 0.82rem;
   }
 }
