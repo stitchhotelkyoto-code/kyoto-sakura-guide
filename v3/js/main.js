@@ -137,7 +137,7 @@ function renderHotelPage(hotelKey, lang = "jp") {
     renderEventList(eventsEl, data.events || [], safeLang);
   }
 
-  resetCourseDetail(safeLang);
+  resetCourseDetail();
 }
 
 function renderHotelTab(data, tabKey, lang) {
@@ -160,7 +160,7 @@ function renderHotelTab(data, tabKey, lang) {
   renderFoodList(foodEl, tabData.foods || [], safeLang);
   renderEventList(eventsEl, tabData.events || [], safeLang);
 
-  resetCourseDetail(safeLang);
+  resetCourseDetail();
 }
 
 function renderCards(container, cards, lang) {
@@ -222,7 +222,7 @@ function renderCourseList(container, items, lang) {
   });
 }
 
-function renderFoodList(container, items, lang) {
+function renderFoodList(container, items) {
   if (!container) return;
 
   container.innerHTML = items
@@ -259,8 +259,7 @@ function renderEventList(container, items) {
     .join("");
 }
 
-function resetCourseDetail(lang) {
-  const safeLang = normalizeLang(lang);
+function resetCourseDetail() {
   const detail = document.getElementById("hotelCourseDetail");
   if (!detail) return;
 
@@ -275,7 +274,7 @@ function resetCourseDetail(lang) {
   const backDesc = detail.querySelector("[data-detail-back-desc]");
   const backBtn = detail.querySelector("[data-detail-direction]");
 
-  if (frontLabel) frontLabel.textContent = window.UI_TEXT?.[safeLang]?.detail_placeholder_label || "COURSE DETAIL";
+  if (frontLabel) frontLabel.textContent = "";
   if (frontTitle) frontTitle.textContent = "";
   if (frontDesc) frontDesc.textContent = "";
   if (backLabel) backLabel.textContent = "";
@@ -283,7 +282,7 @@ function resetCourseDetail(lang) {
   if (backRoute) backRoute.textContent = "";
   if (backDesc) backDesc.textContent = "";
   if (backBtn) {
-    backBtn.textContent = window.UI_TEXT?.[safeLang]?.direction_btn || "Directions";
+    backBtn.textContent = "Directions";
     backBtn.href = "#";
   }
 }
@@ -302,7 +301,7 @@ function showCourseDetail(course, lang) {
   const backDesc = detail.querySelector("[data-detail-back-desc]");
   const backBtn = detail.querySelector("[data-detail-direction]");
 
-  if (frontLabel) frontLabel.textContent = "COURSE DETAIL";
+  if (frontLabel) frontLabel.textContent = "";
   if (frontTitle) frontTitle.textContent = course.title?.[safeLang] || "";
   if (frontDesc) frontDesc.textContent = "";
 
@@ -311,11 +310,15 @@ function showCourseDetail(course, lang) {
   if (backRoute) backRoute.textContent = course.route?.[safeLang] || "";
   if (backDesc) backDesc.textContent = course.detail?.[safeLang] || "";
   if (backBtn) {
-    backBtn.textContent = window.UI_TEXT?.[safeLang]?.direction_btn || "Directions";
+    backBtn.textContent = "Directions";
     backBtn.href = course.direction || "#";
   }
 
-  detail.classList.add("is-flipped");
+  detail.classList.remove("is-flipped");
+  requestAnimationFrame(() => {
+    detail.classList.add("is-flipped");
+  });
+
   detail.scrollIntoView({ behavior: "smooth", block: "nearest" });
 }
 
