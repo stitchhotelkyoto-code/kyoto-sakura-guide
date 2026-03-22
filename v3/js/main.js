@@ -8,15 +8,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const hotelPage = document.body.dataset.hotelPage;
   const allPage = document.body.dataset.allPage;
 
-  window.__hotelState = {
-    activeVariant: null,
-    selectedCourseIndex: 0
-  };
+  if (hotelPage) {
+    renderHotelPage(hotelPage, savedLang);
+  }
 
-  if (hotelPage) renderHotelPage(hotelPage, savedLang);
-  if (allPage) renderAllPage(allPage, savedLang);
+  if (allPage) {
+    renderAllPage(allPage, savedLang);
+  }
 
   setupLanguageSwitcher();
+  setupCardSlider();
 });
 
 function normalizeLang(lang) {
@@ -24,21 +25,6 @@ function normalizeLang(lang) {
   if (lang === "ja") return "jp";
   if (lang === "jp" || lang === "kr" || lang === "en") return lang;
   return "jp";
-}
-
-function pickText(value, lang = "jp") {
-  if (value == null) return "";
-  if (typeof value === "string") return value;
-  return value[lang] || value.kr || value.jp || value.en || "";
-}
-
-function resolveAssetPath(path) {
-  if (!path) return "";
-  if (/^https?:\/\//.test(path)) return path;
-
-  const cleaned = path.replace(/^(\.\/|\.\.\/)+/, "");
-  const prefix = document.body.dataset.hotelPage ? "../" : "./";
-  return prefix + cleaned;
 }
 
 function setupLanguageSwitcher() {
@@ -69,12 +55,6 @@ function applyLanguage(lang) {
     if (value) el.textContent = value;
   });
 
-  document.querySelectorAll("[data-i18n-html]").forEach((el) => {
-    const key = el.dataset.i18nHtml;
-    const value = window.UI_TEXT?.[safeLang]?.[key];
-    if (value) el.innerHTML = value.replace(/\n/g, "<br>");
-  });
-
   document.querySelectorAll(".lang-btn").forEach((btn) => {
     btn.classList.toggle("is-active", normalizeLang(btn.dataset.lang) === safeLang);
   });
@@ -84,6 +64,16 @@ function renderHotelPage(hotelKey, lang = "jp") {
   const safeLang = normalizeLang(lang);
   const data = window.HOTEL_DATA?.[hotelKey];
   if (!data) return;
+
+  const pageShell = document.querySelector(".page-shell");
+  if (pageShell) {
+    pageShell.classList.remove(
+      "hotel-theme-soraniwa",
+      "hotel-theme-hiyori",
+      "hotel-theme-stitch"
+    );
+    if (data.themeClass) pageShell.classList.add(data.themeClass);
+  }
 
   const labelEl = document.querySelector("[data-hotel-label]");
   const nameEl = document.querySelector("[data-hotel-name]");
@@ -98,205 +88,235 @@ function renderHotelPage(hotelKey, lang = "jp") {
   const foodEl = document.querySelector("[data-food]");
   const eventsEl = document.querySelector("[data-events]");
 
-  if (labelEl) labelEl.textContent = pickText(data.label, safeLang);
-  if (nameEl) nameEl.textContent = pickText(data.name, safeLang);
-  if (taglineEl) taglineEl.textContent = pickText(data.tagline, safeLang);
-  if (descEl) descEl.textContent = pickText(data.description, safeLang);
-  if (subLabelEl) subLabelEl.textContent = pickText(data.subLabel, safeLang);
+  if (labelEl) labelEl.textContent = data.label?.[safeLang] || "";
+  if (nameEl) nameEl.textContent = data.name?.[safeLang] || "";
+  if (taglineEl) taglineEl.textContent = data.tagline?.[safeLang] || "";
+  if (descEl) descEl.textContent = data.description?.[safeLang] || "";
+  if (subLabelEl) subLabelEl.textContent = data.subLabel?.[safeLang] || "";
 
-  if (data.variants && tabsEl) {
-    const variantKeys = Object.keys(data.variants);
-    if (!window.__hotelState.activeVariant || !data.variants[window.__hotelState.activeVariant]) {
-      window.__hotelState.activeVariant = variantKeys[0];
+  if (data.tabs && tabsEl) {
+    let activeKey = data.tabs[0].key;
+    const prevActive = tabsEl.dataset.activeKey;
+    if (prevActive && data.tabs.some((tab) => tab.key === prevActive)) {
+      activeKey = prevActive;
     }
 
-    tabsEl.innerHTML = variantKeys.map((key) => {
-      const variant = data.variants[key];
-      const active = key === window.__hotelState.activeVariant ? "is-active" : "";
-      return `
-        <button class="hotel-tab ${active}" type="button" data-variant-key="${key}">
-          ${pickText(variant.tabLabel, safeLang)}
-        </button>
-      `;
-    }).join("");
+    tabsEl.innerHTML = data.tabs
+      .map(
+        (tab) => `
+          <button class="hotel-tab ${tab.key === activeKey ? "is-active" : ""}" type="button" data-tab-key="${tab.key}">
+            ${tab.label?.[safeLang] || tab.key}
+          </button>
+        `
+      )
+      .join("");
+
+    tabsEl.dataset.activeKey = activeKey;
+    renderHotelTab(data, activeKey, safeLang);
 
     tabsEl.onclick = (e) => {
       const btn = e.target.closest(".hotel-tab");
       if (!btn) return;
 
-      window.__hotelState.activeVariant = btn.dataset.variantKey;
-      window.__hotelState.selectedCourseIndex = 0;
-      renderHotelPage(hotelKey, safeLang);
-    };
+      const nextKey = btn.dataset.tabKey;
+      tabsEl.dataset.activeKey = nextKey;
 
-    const activeVariant = data.variants[window.__hotelState.activeVariant];
-    renderHotelVariant(activeVariant, safeLang, {
-      introTitleEl,
-      introTextEl,
-      cardsEl,
-      courseEl,
-      foodEl,
-      eventsEl
-    });
-    return;
+      tabsEl.querySelectorAll(".hotel-tab").forEach((tabBtn) => {
+        tabBtn.classList.remove("is-active");
+      });
+      btn.classList.add("is-active");
+
+      renderHotelTab(data, nextKey, safeLang);
+    };
+  } else {
+    if (introTitleEl) introTitleEl.textContent = data.introTitle?.[safeLang] || "";
+    if (introTextEl) introTextEl.textContent = data.introText?.[safeLang] || "";
+    renderCards(cardsEl, data.cards || [], safeLang);
+    renderCourseList(courseEl, data.courses || [], safeLang);
+    renderFoodList(foodEl, data.foods || [], safeLang);
+    renderEventList(eventsEl, data.events || [], safeLang);
   }
 
-  renderHotelVariant(data, safeLang, {
-    introTitleEl,
-    introTextEl,
-    cardsEl,
-    courseEl,
-    foodEl,
-    eventsEl
-  });
+  resetCourseDetail(safeLang);
 }
 
-function renderHotelVariant(data, lang, refs) {
-  const {
-    introTitleEl,
-    introTextEl,
-    cardsEl,
-    courseEl,
-    foodEl,
-    eventsEl
-  } = refs;
+function renderHotelTab(data, tabKey, lang) {
+  const safeLang = normalizeLang(lang);
+  const tabData = data.tabs.find((tab) => tab.key === tabKey);
+  if (!tabData) return;
 
-  if (introTitleEl) introTitleEl.textContent = pickText(data.introTitle, lang);
-  if (introTextEl) introTextEl.textContent = pickText(data.introText, lang);
+  const introTitleEl = document.querySelector("[data-intro-title]");
+  const introTextEl = document.querySelector("[data-intro-text]");
+  const cardsEl = document.querySelector("[data-cards]");
+  const courseEl = document.querySelector("[data-course]");
+  const foodEl = document.querySelector("[data-food]");
+  const eventsEl = document.querySelector("[data-events]");
 
-  renderCards(cardsEl, data.cards || [], lang);
-  renderCourseList(courseEl, data.courses || [], lang);
-  renderFoodList(foodEl, data.foods || [], lang);
-  renderEventList(eventsEl, data.events || [], lang);
+  if (introTitleEl) introTitleEl.textContent = tabData.introTitle?.[safeLang] || "";
+  if (introTextEl) introTextEl.textContent = tabData.introText?.[safeLang] || "";
 
-  const safeIndex = Math.min(window.__hotelState.selectedCourseIndex || 0, (data.courses || []).length - 1);
-  if ((data.courses || []).length > 0) {
-    window.__hotelState.selectedCourseIndex = safeIndex;
-    updateCourseDetail(data.courses[safeIndex], lang, true);
-    highlightActiveCourseButton(safeIndex);
-  }
+  renderCards(cardsEl, tabData.cards || [], safeLang);
+  renderCourseList(courseEl, tabData.courses || [], safeLang);
+  renderFoodList(foodEl, tabData.foods || [], safeLang);
+  renderEventList(eventsEl, tabData.events || [], safeLang);
+
+  resetCourseDetail(safeLang);
 }
 
 function renderCards(container, cards, lang) {
   if (!container) return;
 
-  container.innerHTML = cards.map((card) => `
-    <article class="hotel-image-card">
-      <img class="hotel-image-card-photo" src="${resolveAssetPath(card.image)}" alt="${pickText(card.title, lang)}">
-      <div class="hotel-image-card-body">
-        <h3>${pickText(card.title, lang)}</h3>
-        <p>${pickText(card.text, lang)}</p>
-      </div>
-    </article>
-  `).join("");
+  container.innerHTML = `
+    <div class="card-slider-track">
+      ${cards
+        .map(
+          (card) => `
+            <article class="guide-card">
+              <div class="guide-card-image">
+                <img src="${card.image || ""}" alt="${card.title?.[lang] || ""}">
+              </div>
+              <div class="guide-card-body">
+                <h3>${card.title?.[lang] || ""}</h3>
+                <p>${card.text?.[lang] || ""}</p>
+              </div>
+            </article>
+          `
+        )
+        .join("")}
+    </div>
+
+    <div class="slider-controls">
+      <button class="slider-btn prev" type="button" aria-label="Previous">←</button>
+      <button class="slider-btn next" type="button" aria-label="Next">→</button>
+    </div>
+  `;
 }
 
 function renderCourseList(container, items, lang) {
   if (!container) return;
 
-  container.innerHTML = items.map((item, index) => `
-    <li class="info-item">
-      <div class="info-item-number">${item.no || String(index + 1).padStart(2, "0")}</div>
-      <div class="info-item-main">
-        <button type="button" class="info-title-btn course-trigger" data-course-index="${index}">
-          ${pickText(item.title, lang)}
-        </button>
-      </div>
-    </li>
-  `).join("");
+  container.innerHTML = items
+    .map(
+      (item, index) => `
+        <li class="info-list-row">
+          <span class="list-number">${item.no}</span>
+          <div class="list-content">
+            <button class="course-title-btn" type="button" data-course-index="${index}">
+              ${item.title?.[lang] || ""}
+            </button>
+            <span class="list-sub">${item.sub?.[lang] || ""}</span>
+          </div>
+          <button class="course-view-btn" type="button" data-course-index="${index}">View</button>
+        </li>
+      `
+    )
+    .join("");
 
-  container.querySelectorAll(".course-trigger").forEach((btn) => {
+  container.querySelectorAll("[data-course-index]").forEach((btn) => {
     btn.addEventListener("click", () => {
-      const hotelPage = document.body.dataset.hotelPage;
-      const baseData = window.HOTEL_DATA?.[hotelPage];
-      if (!baseData) return;
-
-      let currentData = baseData;
-      if (baseData.variants) {
-        currentData = baseData.variants[window.__hotelState.activeVariant];
-      }
-
-      const idx = Number(btn.dataset.courseIndex);
-      const course = currentData.courses?.[idx];
+      const index = Number(btn.dataset.courseIndex);
+      const course = items[index];
       if (!course) return;
-
-      window.__hotelState.selectedCourseIndex = idx;
-      highlightActiveCourseButton(idx);
-      updateCourseDetail(course, lang, false);
+      showCourseDetail(course, lang);
     });
-  });
-}
-
-function highlightActiveCourseButton(activeIndex) {
-  document.querySelectorAll(".course-trigger").forEach((btn, index) => {
-    btn.classList.toggle("is-active", index === activeIndex);
   });
 }
 
 function renderFoodList(container, items, lang) {
   if (!container) return;
 
-  container.innerHTML = items.map((item, index) => `
-    <li class="info-item with-action">
-      <div class="info-item-number">${item.no || String(index + 1).padStart(2, "0")}</div>
-      <div class="info-item-main">
-        <div class="info-title-text">${pickText(item.name, lang)}</div>
-        <div class="info-sub-text">${pickText(item.type, lang)}</div>
-      </div>
-      <div class="info-item-action">
-        <a class="info-mini-btn" href="${item.direction}" target="_blank" rel="noopener noreferrer">Directions</a>
-      </div>
-    </li>
-  `).join("");
+  container.innerHTML = items
+    .map(
+      (item) => `
+        <li class="info-list-row">
+          <span class="list-number">${item.no}</span>
+          <div class="list-content">
+            <span class="list-title">${item.name}</span>
+            <span class="list-sub">${item.type}</span>
+          </div>
+          <a class="list-action-btn" href="${item.direction}" target="_blank" rel="noopener noreferrer">Directions</a>
+        </li>
+      `
+    )
+    .join("");
 }
 
-function renderEventList(container, items, lang) {
+function renderEventList(container, items) {
   if (!container) return;
 
-  container.innerHTML = items.map((item, index) => `
-    <li class="info-item">
-      <div class="info-item-number">${item.no || String(index + 1).padStart(2, "0")}</div>
-      <div class="info-item-main">
-        <a class="info-title-link" href="${item.link}" target="_blank" rel="noopener noreferrer">
-          ${pickText(item.name, lang)}
-        </a>
-        <div class="info-sub-text">${pickText(item.sub, lang)}</div>
-      </div>
-    </li>
-  `).join("");
+  container.innerHTML = items
+    .map(
+      (item) => `
+        <li class="info-list-row">
+          <span class="list-number">${item.no}</span>
+          <div class="list-content">
+            <a class="list-title link-title" href="${item.link}" target="_blank" rel="noopener noreferrer">${item.name}</a>
+            <span class="list-sub">${item.sub}</span>
+          </div>
+        </li>
+      `
+    )
+    .join("");
 }
 
-function updateCourseDetail(course, lang, instant = false) {
+function resetCourseDetail(lang) {
+  const safeLang = normalizeLang(lang);
   const detail = document.getElementById("hotelCourseDetail");
-  const frontTitle = document.getElementById("hotelCourseFrontTitle");
-  const backTitle = document.getElementById("hotelCourseBackTitle");
-  const backRoute = document.getElementById("hotelCourseBackRoute");
-  const backDesc = document.getElementById("hotelCourseBackDesc");
-  const backBtn = document.getElementById("hotelCourseDirectionBtn");
-
-  if (!detail || !frontTitle || !backTitle || !backRoute || !backDesc || !backBtn) return;
-
-  const title = pickText(course.title, lang);
-  const route = pickText(course.route, lang);
-  const detailText = pickText(course.detail, lang);
-
-  frontTitle.textContent = title;
-  backTitle.textContent = title;
-  backRoute.textContent = route;
-  backDesc.textContent = detailText;
-  backBtn.href = course.direction || "#";
-
-  if (instant) {
-    detail.classList.add("is-flipped");
-    return;
-  }
+  if (!detail) return;
 
   detail.classList.remove("is-flipped");
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      detail.classList.add("is-flipped");
-    });
-  });
+
+  const frontLabel = detail.querySelector("[data-detail-front-label]");
+  const frontTitle = detail.querySelector("[data-detail-front-title]");
+  const frontDesc = detail.querySelector("[data-detail-front-desc]");
+  const backLabel = detail.querySelector("[data-detail-back-label]");
+  const backTitle = detail.querySelector("[data-detail-back-title]");
+  const backRoute = detail.querySelector("[data-detail-back-route]");
+  const backDesc = detail.querySelector("[data-detail-back-desc]");
+  const backBtn = detail.querySelector("[data-detail-direction]");
+
+  if (frontLabel) frontLabel.textContent = window.UI_TEXT?.[safeLang]?.detail_placeholder_label || "COURSE DETAIL";
+  if (frontTitle) frontTitle.textContent = "";
+  if (frontDesc) frontDesc.textContent = "";
+  if (backLabel) backLabel.textContent = "";
+  if (backTitle) backTitle.textContent = "";
+  if (backRoute) backRoute.textContent = "";
+  if (backDesc) backDesc.textContent = "";
+  if (backBtn) {
+    backBtn.textContent = window.UI_TEXT?.[safeLang]?.direction_btn || "Directions";
+    backBtn.href = "#";
+  }
+}
+
+function showCourseDetail(course, lang) {
+  const safeLang = normalizeLang(lang);
+  const detail = document.getElementById("hotelCourseDetail");
+  if (!detail) return;
+
+  const frontLabel = detail.querySelector("[data-detail-front-label]");
+  const frontTitle = detail.querySelector("[data-detail-front-title]");
+  const frontDesc = detail.querySelector("[data-detail-front-desc]");
+  const backLabel = detail.querySelector("[data-detail-back-label]");
+  const backTitle = detail.querySelector("[data-detail-back-title]");
+  const backRoute = detail.querySelector("[data-detail-back-route]");
+  const backDesc = detail.querySelector("[data-detail-back-desc]");
+  const backBtn = detail.querySelector("[data-detail-direction]");
+
+  if (frontLabel) frontLabel.textContent = "COURSE DETAIL";
+  if (frontTitle) frontTitle.textContent = course.title?.[safeLang] || "";
+  if (frontDesc) frontDesc.textContent = "";
+
+  if (backLabel) backLabel.textContent = "HOW TO GO";
+  if (backTitle) backTitle.textContent = course.title?.[safeLang] || "";
+  if (backRoute) backRoute.textContent = course.route?.[safeLang] || "";
+  if (backDesc) backDesc.textContent = course.detail?.[safeLang] || "";
+  if (backBtn) {
+    backBtn.textContent = window.UI_TEXT?.[safeLang]?.direction_btn || "Directions";
+    backBtn.href = course.direction || "#";
+  }
+
+  detail.classList.add("is-flipped");
+  detail.scrollIntoView({ behavior: "smooth", block: "nearest" });
 }
 
 function renderAllPage(type, lang = "jp") {
@@ -313,30 +333,39 @@ function renderAllPage(type, lang = "jp") {
   if (type === "events") source = window.HOTEL_DATA.allEvents;
   if (type === "ai") source = window.HOTEL_DATA.allAi;
   if (type === "crowd") source = window.HOTEL_DATA.allCrowd;
-
   if (!source) return;
 
-  titleEl.textContent = pickText(source.title, safeLang);
-  descEl.textContent = pickText(source.description, safeLang);
+  titleEl.textContent = source.title?.[safeLang] || "";
+  descEl.textContent = source.description?.[safeLang] || "";
 
-  contentEl.innerHTML = (source.items || []).map((item) => `
-    <article class="feature-card ${type === "food" ? "large" : ""}">
-      <img class="feature-image-img" src="${resolveAssetPath(item.image || "images/placeholder-guide.jpg")}" alt="${pickText(item.title, safeLang)}">
-      <div class="feature-body">
-        <span class="feature-tag">${pickText(item.tag, safeLang)}</span>
-        <h3>${pickText(item.title, safeLang)}</h3>
-        <p>${pickText(item.text, safeLang)}</p>
-        ${
-          item.list
-            ? `<ul class="feature-list">${item.list.map((listItem) => `<li>${pickText(listItem, safeLang)}</li>`).join("")}</ul>`
-            : ""
-        }
-        ${
-          item.link
-            ? `<a class="feature-link-btn" href="${item.link}" target="_blank" rel="noopener noreferrer">Official Site</a>`
-            : ""
-        }
-      </div>
-    </article>
-  `).join("");
+  contentEl.innerHTML = source.items
+    .map(
+      (item) => `
+        <article class="feature-card">
+          <div class="feature-image"></div>
+          <div class="feature-body">
+            <span class="feature-tag">${item.tag?.[safeLang] || ""}</span>
+            <h3>${item.title?.[safeLang] || ""}</h3>
+            <p>${item.text?.[safeLang] || ""}</p>
+          </div>
+        </article>
+      `
+    )
+    .join("");
+}
+
+function setupCardSlider() {
+  document.addEventListener("click", (e) => {
+    const prevBtn = e.target.closest(".slider-btn.prev");
+    const nextBtn = e.target.closest(".slider-btn.next");
+    if (!prevBtn && !nextBtn) return;
+
+    const controls = e.target.closest(".slider-controls");
+    const track = controls?.previousElementSibling;
+    if (!track || !track.classList.contains("card-slider-track")) return;
+
+    const moveAmount = 320;
+    if (prevBtn) track.scrollBy({ left: -moveAmount, behavior: "smooth" });
+    if (nextBtn) track.scrollBy({ left: moveAmount, behavior: "smooth" });
+  });
 }
