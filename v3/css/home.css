@@ -22,15 +22,14 @@ body[data-page="home"] .home-hero {
 body[data-page="home"] .home-hero-left {
   display: flex;
   align-items: center;
-  justify-content: flex-start; 
-  padding-left: 80px; 
-  min-width: 0;
+  justify-content: center; 
 }
 
 body[data-page="home"] .hero-copy-wrap {
   width: 100%;
-  max-width: 420px; 
-  margin-right: 0; 
+  max-width: 520px;
+  margin: 0 auto;
+  transform: translateX(-60px); 
 }
 
 body[data-page="home"] .mega-label {
