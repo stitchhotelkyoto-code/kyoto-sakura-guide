@@ -3,22 +3,20 @@
 }
 
 .hotel-hero-box,
-.hotel-sub-intro,
-.hotel-course-detail {
+.hotel-sub-intro {
   background: #fafafa;
   border-radius: 28px;
   padding: 22px 26px;
   box-shadow: 0 12px 28px rgba(27, 38, 79, 0.04);
 }
 
-.hotel-sub-intro,
-.hotel-course-detail {
+.hotel-sub-intro {
   margin-top: 20px;
 }
 
 .hotel-hero-label,
 .hotel-sub-label,
-.hotel-course-detail-label {
+.hotel-course-back-kicker {
   margin: 0 0 10px;
   font-size: 0.72rem;
   font-weight: 800;
@@ -43,9 +41,7 @@
 }
 
 .hotel-hero-description,
-.hotel-sub-intro p,
-.hotel-course-back-desc,
-.hotel-course-detail-front p {
+.hotel-sub-intro p {
   margin: 0;
   line-height: 1.8;
   color: #6a7892;
@@ -147,6 +143,8 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
   margin-top: 18px;
+  margin-bottom: 30px;
+  align-items: start;
 }
 
 .hotel-info-box {
@@ -252,46 +250,64 @@
   cursor: pointer;
 }
 
-.hotel-course-detail {
-  perspective: 1200px;
-  min-height: 190px;
-  margin-bottom: 30px;
-}
+/* =========================
+   FLIP COURSE BOX
+========================= */
 
-.hotel-course-detail-inner {
+.hotel-course-flip {
   position: relative;
-  min-height: 140px;
-  transform-style: preserve-3d;
-  transition: transform 0.7s ease;
+  perspective: 1400px;
+  min-height: 470px;
+  padding: 0;
+  overflow: visible;
+  background: transparent;
+  box-shadow: none;
 }
 
-.hotel-course-detail.is-flipped .hotel-course-detail-inner {
+.hotel-course-flip-inner {
+  position: relative;
+  width: 100%;
+  min-height: 470px;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transition: transform 0.75s ease;
+}
+
+.hotel-course-flip.is-flipped .hotel-course-flip-inner {
   transform: rotateY(180deg);
 }
 
-.hotel-course-detail-front,
-.hotel-course-detail-back {
+.hotel-course-face {
   position: absolute;
   inset: 0;
-  padding: 0;
-  background: transparent;
+  width: 100%;
+  min-height: 470px;
+  background: #fff;
+  border-radius: 24px;
+  padding: 18px 18px 14px;
+  box-shadow: 0 10px 22px rgba(27, 38, 79, 0.05);
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  overflow: hidden;
 }
 
-.hotel-course-detail-front {
+.hotel-course-face-front {
+  z-index: 2;
+}
+
+.hotel-course-face-back {
+  transform: rotateY(180deg);
+  cursor: pointer;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
-.hotel-course-detail-front-inner,
-.hotel-course-detail-back-inner {
-  width: 100%;
+.hotel-course-back-kicker {
+  margin: 0 0 10px;
 }
 
-.hotel-course-detail-front h3,
-.hotel-course-detail-back h3 {
+.hotel-course-back-title {
   margin: 0 0 10px;
   font-size: 2rem;
   line-height: 1.15;
@@ -299,22 +315,25 @@
   font-weight: 900;
 }
 
-.hotel-course-detail-back {
-  transform: rotateY(180deg);
-}
-
-.hotel-course-route {
+.hotel-course-back-route {
   margin: 0 0 12px;
   font-weight: 800;
   color: #1f315d;
+  line-height: 1.7;
+  word-break: break-word;
 }
 
-.hotel-course-detail-front.is-empty h3,
-.hotel-course-detail-front.is-empty p,
-.hotel-course-detail-front.is-empty .hotel-course-detail-label {
-  display: none;
+.hotel-course-back-desc {
+  margin: 0 0 16px;
+  line-height: 1.8;
+  color: #6a7892;
 }
 
+.hotel-course-face-back .hotel-mini-btn {
+  align-self: flex-start;
+}
+
+/* hotel theme */
 .hotel-theme-soraniwa .hotel-hero-box {
   background: #f6faf8;
 }
@@ -327,6 +346,7 @@
   background: #f7f8fb;
 }
 
+/* responsive */
 @media (max-width: 1100px) {
   .card-slider-track {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -334,6 +354,12 @@
 
   .hotel-info-grid {
     grid-template-columns: 1fr;
+  }
+
+  .hotel-course-flip,
+  .hotel-course-flip-inner,
+  .hotel-course-face {
+    min-height: 340px;
   }
 }
 
@@ -344,8 +370,8 @@
 
   .hotel-hero-box,
   .hotel-sub-intro,
-  .hotel-course-detail,
-  .hotel-info-box {
+  .hotel-info-box,
+  .hotel-course-face {
     border-radius: 20px;
     padding: 18px;
   }
@@ -361,8 +387,13 @@
     margin-top: 8px;
   }
 
-  .hotel-course-detail-front h3,
-  .hotel-course-detail-back h3 {
+  .hotel-course-back-title {
     font-size: 1.5rem;
+  }
+
+  .hotel-course-flip,
+  .hotel-course-flip-inner,
+  .hotel-course-face {
+    min-height: 320px;
   }
 }
