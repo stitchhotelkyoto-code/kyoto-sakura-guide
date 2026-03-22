@@ -237,8 +237,8 @@ ol {
 
 .mega-hero {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 760px;
+  grid-template-columns: 0.95fr 1.05fr;
+  min-height: 820px;
   background: #f7eff3;
   border-radius: 0;
   overflow: hidden;
@@ -248,7 +248,7 @@ ol {
 /* LEFT */
 .mega-hero-copy {
   background: #e6bfd0;
-  padding: 0 72px 0 96px;
+  padding: 0 72px 0 110px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -259,8 +259,8 @@ ol {
 .mega-label {
   display: flex;
   align-items: center;
-  gap: 14px;
-  margin: 0 0 24px;
+  gap: 16px;
+  margin: 0 0 26px;
   font-size: 0.98rem;
   font-weight: 700;
   color: #1c2641;
@@ -268,26 +268,26 @@ ol {
 
 .mega-label::after {
   content: "";
-  width: 160px;
+  width: 170px;
   height: 2px;
-  background: rgba(28, 38, 65, 0.4);
+  background: rgba(28, 38, 65, 0.38);
 }
 
 .mega-title {
-  margin: 0 0 26px;
-  font-size: clamp(3.8rem, 5vw, 5.6rem);
-  line-height: 1.12;
+  margin: 0 0 28px;
+  max-width: 620px;
+  font-size: clamp(4rem, 5vw, 5.8rem);
+  line-height: 1.08;
   letter-spacing: -0.05em;
   font-weight: 800;
   color: #15203b;
   word-break: keep-all;
   overflow-wrap: normal;
-  max-width: 540px;
 }
 
 .mega-desc {
-  margin: 0 0 26px;
-  max-width: 520px;
+  margin: 0 0 28px;
+  max-width: 560px;
   font-size: 1.08rem;
   line-height: 1.9;
   color: #2c3653;
@@ -320,9 +320,9 @@ ol {
 /* RIGHT */
 .mega-hero-side {
   display: grid;
-  grid-template-rows: 1fr 160px;
+  grid-template-rows: 1fr 190px;
   background: #f8f2f5;
-  padding: 56px 36px 0 12px;
+  padding: 54px 34px 0 22px;
   min-width: 0;
 }
 
@@ -331,27 +331,28 @@ ol {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
   align-items: center;
+  align-content: center;
 }
 
 .mega-card {
   display: flex;
   flex-direction: column;
-  min-height: 380px;
+  min-height: 430px;
   background: #fff;
   border-radius: 0;
   overflow: hidden;
   text-decoration: none;
   box-shadow: none;
-  transition: transform 0.2s ease;
+  transition: transform 0.22s ease;
 }
 
 .mega-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
 }
 
 .mega-card-image {
   width: 100%;
-  height: 230px;
+  height: 270px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -370,13 +371,13 @@ ol {
 }
 
 .mega-card-body {
-  padding: 22px 18px 22px;
+  padding: 24px 20px 24px;
   text-align: center;
 }
 
 .mega-card-body h3 {
   margin: 0 0 10px;
-  font-size: 1.5rem;
+  font-size: 1.52rem;
   line-height: 1.35;
   font-weight: 800;
   color: #16203b;
@@ -392,12 +393,12 @@ ol {
 .mega-hero-visual {
   display: flex;
   align-items: end;
-  padding-top: 10px;
+  padding-top: 8px;
 }
 
 .mega-visual-image {
   width: 100%;
-  height: 160px;
+  height: 190px;
   background-image: url("./images/hero-bottom-illustration.jpg");
   background-size: contain;
   background-position: center bottom;
@@ -952,30 +953,31 @@ ol {
    RESPONSIVE
 ========================= */
 
-@media (max-width: 1360px) {
+@media (max-width: 1440px) {
   .mega-hero {
-    min-height: 680px;
+    grid-template-columns: 0.94fr 1.06fr;
+    min-height: 760px;
   }
 
   .mega-hero-copy {
-    padding: 0 48px 0 64px;
+    padding: 0 54px 0 72px;
   }
 
   .mega-title {
-    font-size: clamp(3rem, 4.6vw, 4.6rem);
-    max-width: 460px;
+    font-size: clamp(3.3rem, 4.7vw, 5rem);
+    max-width: 520px;
   }
 
   .mega-card {
-    min-height: 330px;
+    min-height: 380px;
   }
 
   .mega-card-image {
-    height: 190px;
+    height: 220px;
   }
 
   .mega-card-body h3 {
-    font-size: 1.2rem;
+    font-size: 1.22rem;
   }
 
   .widget-grid {
@@ -995,12 +997,12 @@ ol {
   }
 
   .mega-hero-copy {
-    padding: 56px 28px 40px;
+    padding: 64px 30px 42px;
     align-items: flex-start;
   }
 
   .mega-title {
-    font-size: clamp(2.6rem, 7vw, 4rem);
+    font-size: clamp(2.8rem, 7vw, 4rem);
     max-width: 100%;
   }
 
@@ -1014,9 +1016,11 @@ ol {
   }
 
   .mega-hero-cards {
-    grid-template-columns: repeat(3, minmax(260px, 1fr));
+    grid-template-columns: repeat(3, minmax(280px, 1fr));
     overflow-x: auto;
-    gap: 16px;
+    gap: 18px;
+    align-items: stretch;
+    align-content: stretch;
     scrollbar-width: none;
   }
 
@@ -1025,12 +1029,12 @@ ol {
   }
 
   .mega-card {
-    min-width: 260px;
-    min-height: 350px;
+    min-width: 280px;
+    min-height: 380px;
   }
 
   .mega-card-image {
-    height: 210px;
+    height: 220px;
   }
 
   .mega-visual-image {
@@ -1102,7 +1106,7 @@ ol {
   }
 
   .mega-hero-copy {
-    padding: 34px 18px 28px;
+    padding: 38px 18px 30px;
   }
 
   .mega-label {
@@ -1155,11 +1159,11 @@ ol {
 
   .mega-card {
     min-width: 220px;
-    min-height: 290px;
+    min-height: 300px;
   }
 
   .mega-card-image {
-    height: 150px;
+    height: 160px;
   }
 
   .mega-card-body {
@@ -1172,6 +1176,7 @@ ol {
 
   .mega-card-body p {
     font-size: 0.84rem;
+    line-height: 1.6;
   }
 
   .mega-visual-image {
