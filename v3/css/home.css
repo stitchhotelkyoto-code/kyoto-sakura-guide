@@ -592,3 +592,50 @@ body[data-page="home"] .widget-label {
     font-size: 0.88rem;
   }
 }
+
+/* =========================================================
+   HERO FIX (override only)
+========================================================= */
+
+body[data-page="home"] .home-hero {
+  display: flex;
+  height: 620px;
+}
+
+body[data-page="home"] .home-hero-left {
+  width: 50%;
+}
+
+body[data-page="home"] .hero-copy-wrap {
+  width: 520px;
+  margin-left: 140px;
+  padding: 0;
+}
+
+body[data-page="home"] .home-hero-right {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 60px;
+}
+
+body[data-page="home"] .hero-cards {
+  display: flex !important;
+  gap: 20px;
+  transform: none !important;
+}
+
+body[data-page="home"] .hero-card {
+  width: 320px;
+  height: 420px;
+}
+
+body[data-page="home"] .hero-card-image {
+  height: 240px;
+  border-radius: 16px 16px 100px 100px;
+}
+
+body[data-page="home"] .hero-bottom-visual {
+  display: none !important;
+}
