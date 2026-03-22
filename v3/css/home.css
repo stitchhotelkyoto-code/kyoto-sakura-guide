@@ -22,14 +22,15 @@ body[data-page="home"] .home-hero {
 body[data-page="home"] .home-hero-left {
   display: flex;
   align-items: center;
-  justify-content: center; 
+  justify-content: flex-end;
+  min-width: 0;
 }
 
 body[data-page="home"] .hero-copy-wrap {
   width: 100%;
-  max-width: 520px;
-  margin: 0 auto;
-  transform: translateX(-60px); 
+  max-width: 470px;
+  margin-right: 52px;
+  padding: 0;
 }
 
 body[data-page="home"] .mega-label {
@@ -255,6 +256,7 @@ body[data-page="home"] .widget-label {
 @media (max-width: 1500px) {
   body[data-page="home"] .hero-copy-wrap {
     max-width: 440px;
+    margin-right: 40px;
   }
 
   body[data-page="home"] .mega-title {
