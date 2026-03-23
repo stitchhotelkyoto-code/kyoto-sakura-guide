@@ -229,3 +229,170 @@
     aspect-ratio: 1.6 / 1;
   }
 }
+
+
+/*호텔 상세*/
+.hotel-detail-page {
+  --hotel-bg: #fbf7fa;
+  --hotel-surface: #ffffff;
+  --hotel-surface-soft: #fff8fb;
+  --hotel-hero: #fff4f7;
+  --hotel-line: #f0d9e3;
+  --hotel-text: #1f2c4f;
+  --hotel-muted: #6f6b7a;
+  --hotel-pill: #ffeaf1;
+  --hotel-pill-text: #8d4e68;
+  --hotel-shadow: 0 10px 30px rgba(180, 115, 145, 0.08);
+}
+
+.hotel-detail-page .hero-card {
+  background: var(--hotel-hero);
+}
+
+.hotel-detail-page .section-card {
+  background: #fffdfd;
+}
+
+.hotel-detail-page .hotel-panels {
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  align-items: stretch;
+}
+
+.hotel-detail-page .panel-card {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.hotel-detail-page .course-card {
+  min-height: 228px;
+}
+
+.hotel-detail-page .course-card.is-open {
+  min-height: 252px;
+}
+
+.hotel-detail-page .course-face {
+  min-height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border: 1px solid var(--hotel-line);
+  border-radius: 18px;
+  background: var(--hotel-surface-soft);
+  padding: 14px;
+  backface-visibility: hidden;
+}
+
+.hotel-detail-page .course-front,
+.hotel-detail-page .course-back {
+  gap: 10px;
+}
+
+.hotel-detail-page .course-back-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+  flex-wrap: wrap;
+}
+
+.hotel-detail-page .course-open-btn {
+  margin-top: auto;
+  width: fit-content;
+}
+
+.hotel-detail-page .item-detail {
+  margin: 0;
+  color: var(--hotel-muted);
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+
+.hotel-detail-page .course-access {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 2px;
+}
+
+.hotel-detail-page .course-access-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 30px;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid var(--hotel-line);
+}
+
+.hotel-detail-page .course-access-label {
+  color: var(--hotel-muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.hotel-detail-page .course-access-value {
+  color: var(--hotel-text);
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.hotel-detail-page .mini-item.has-thumb {
+  display: grid;
+  grid-template-columns: 84px 1fr;
+  gap: 12px;
+  align-items: start;
+}
+
+.hotel-detail-page .mini-thumb {
+  width: 84px;
+  aspect-ratio: 1 / 1;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--hotel-line);
+  background: #f3e5eb;
+}
+
+.hotel-detail-page .mini-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hotel-detail-page .mini-item-body {
+  min-width: 0;
+}
+
+.hotel-detail-page .hotel-photo-thumb {
+  background: #f4e6ec;
+  border-color: #efd6e0;
+}
+
+.hotel-detail-page .soft-pill {
+  background: var(--hotel-pill);
+  color: var(--hotel-pill-text);
+}
+
+.hotel-detail-page .line-pill {
+  border-color: #ead2dc;
+  color: var(--hotel-text);
+  background: #fff;
+}
+
+@media (max-width: 1080px) {
+  .hotel-detail-page .hotel-panels {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .hotel-detail-page .mini-item.has-thumb {
+    grid-template-columns: 1fr;
+  }
+
+  .hotel-detail-page .mini-thumb {
+    width: 100%;
+    aspect-ratio: 1.6 / 1;
+  }
+}
