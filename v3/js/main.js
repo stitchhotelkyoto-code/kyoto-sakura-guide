@@ -4,10 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
   applyLanguageUI(lang);
 
   const hotelPage = document.body.dataset.hotelPage;
-  const allPage = document.body.dataset.allPage;
-
-  if (hotelPage) renderHotelPage(hotelPage, lang);
-  if (allPage) renderAllPage(allPage, lang);
+  if (hotelPage) {
+    renderHotelPage(hotelPage, lang);
+  }
 
   bindLanguageSwitcher();
 });
@@ -37,10 +36,9 @@ function bindLanguageSwitcher() {
     applyLanguageUI(nextLang);
 
     const hotelPage = document.body.dataset.hotelPage;
-    const allPage = document.body.dataset.allPage;
-
-    if (hotelPage) renderHotelPage(hotelPage, nextLang);
-    if (allPage) renderAllPage(allPage, nextLang);
+    if (hotelPage) {
+      renderHotelPage(hotelPage, nextLang);
+    }
   });
 }
 
@@ -68,7 +66,8 @@ function getHotelDataForCurrentPage(key) {
   if (!base) return null;
 
   const pathname = window.location.pathname.toLowerCase();
-  const isBettelPage = pathname.endsWith("/bettel.html") || pathname.endsWith("bettel.html");
+  const isBettelPage =
+    pathname.endsWith("/bettel.html") || pathname.endsWith("bettel.html");
 
   if (!isBettelPage) return base;
 
@@ -296,233 +295,6 @@ function renderMiniEvents(items, lang) {
         })
         .join("")}
     </div>
-  `;
-}
-
-function renderAllPage(type, lang) {
-  if (type === "sakura") {
-    renderSakuraPage(lang);
-    return;
-  }
-
-  if (type === "food") {
-    renderFoodPage(lang);
-    return;
-  }
-
-  if (type === "events") {
-    renderEventsPage(lang);
-    return;
-  }
-}
-
-function renderSakuraPage(lang) {
-  const data = window.HOTEL_DATA?.allSakura;
-  if (!data) return;
-
-  setText("[data-all-title]", resolveText(data.title, lang));
-  setText("[data-all-desc]", resolveText(data.description, lang));
-
-  const el = document.querySelector("[data-all-content]");
-  if (!el) return;
-
-  el.innerHTML = `
-    <section class="sakura-grid">
-      ${data.items
-        .map((item) => {
-          const tag = escapeHtml(resolveText(item.tag, lang));
-          const title = escapeHtml(resolveText(item.title, lang));
-          const text = escapeHtml(resolveText(item.text, lang));
-          const direction = escapeHtml(item.direction || "#");
-          const image = escapeHtml(item.image || "");
-
-          return `
-            <article class="sakura-card">
-              <div class="sakura-card-media">
-                <img src="${image}" alt="${title}" loading="lazy">
-              </div>
-              <div class="sakura-card-body">
-                <span class="sakura-tag">${tag}</span>
-                <h3 class="sakura-card-title">${title}</h3>
-                <p class="sakura-card-text">${text}</p>
-                <a class="soft-pill" href="${direction}" target="_blank" rel="noopener noreferrer">Directions</a>
-              </div>
-            </article>
-          `;
-        })
-        .join("")}
-    </section>
-  `;
-}
-
-function renderFoodPage(lang) {
-  const data = window.HOTEL_DATA?.allFood;
-  if (!data) return;
-
-  setText("[data-all-title]", resolveText(data.title, lang));
-  setText("[data-all-desc]", resolveText(data.description, lang));
-
-  const el = document.querySelector("[data-all-content]");
-  if (!el) return;
-
-  el.innerHTML = `
-    <section class="food-shell">
-      <div class="food-grid" data-food-grid>
-        ${data.items
-          .map((item) => {
-            const eyebrow = escapeHtml(resolveText(item.eyebrow, lang));
-            const title = escapeHtml(resolveText(item.title, lang));
-            const summary = escapeHtml(resolveText(item.summary, lang));
-
-            return `
-              <article class="food-area-card" data-food-area="${escapeHtml(item.key || "")}">
-                <p class="item-no">${escapeHtml(item.no || "")}</p>
-                <p class="eyebrow">${eyebrow}</p>
-                <h3 class="item-title">${title}</h3>
-                <p class="item-sub">${summary}</p>
-              </article>
-            `;
-          })
-          .join("")}
-      </div>
-      <div class="food-overlay" data-food-overlay></div>
-    </section>
-  `;
-
-  bindFoodOverlay(data, lang);
-}
-
-function bindFoodOverlay(data, lang) {
-  const overlay = document.querySelector("[data-food-overlay]");
-  if (!overlay) return;
-
-  document.querySelectorAll("[data-food-area]").forEach((card) => {
-    card.addEventListener("click", (e) => {
-      e.stopPropagation();
-
-      const key = card.dataset.foodArea;
-      const area = data.items.find((x) => x.key === key);
-      if (!area) return;
-
-      overlay.innerHTML = `
-        <div class="food-overlay-card">
-          <div class="food-overlay-top">
-            <div>
-              <p class="eyebrow">${escapeHtml(resolveText(area.eyebrow, lang))}</p>
-              <h3 class="food-overlay-title">${escapeHtml(resolveText(area.title, lang))}</h3>
-              <p class="food-overlay-desc">${escapeHtml(resolveText(area.summary, lang))}</p>
-            </div>
-            <button class="overlay-close" type="button" data-food-close>×</button>
-          </div>
-
-          <div class="food-spot-grid">
-            ${(area.spots || [])
-              .map((spot) => {
-                const name = escapeHtml(resolveText(spot.name, lang));
-                const type = escapeHtml(resolveText(spot.type, lang));
-                const desc = escapeHtml(resolveText(spot.desc, lang));
-                const hours = escapeHtml(resolveText(spot.hours, lang));
-                const menu = escapeHtml(resolveText(spot.menu, lang));
-                const direction = escapeHtml(spot.direction || "#");
-                const image = spot.image ? escapeHtml(spot.image) : "";
-
-                return `
-                  <article class="food-spot-card ${image ? "has-image" : ""}">
-                    ${
-                      image
-                        ? `
-                          <div class="food-spot-image">
-                            <img src="${image}" alt="${name}" loading="lazy">
-                          </div>
-                        `
-                        : ""
-                    }
-
-                    <div class="food-spot-top">
-                      <div>
-                        <h4>${name}</h4>
-                        <p class="food-spot-type">${type}</p>
-                      </div>
-                      <a class="soft-pill" href="${direction}" target="_blank" rel="noopener noreferrer">Directions</a>
-                    </div>
-
-                    <p class="food-spot-desc">${desc}</p>
-                    <p class="food-spot-meta">Hours ${hours}</p>
-                    <p class="food-spot-meta">Menu ${menu}</p>
-                  </article>
-                `;
-              })
-              .join("")}
-          </div>
-        </div>
-      `;
-
-      overlay.classList.add("is-open");
-    });
-  });
-
-  document.addEventListener("click", (e) => {
-    const closeBtn = e.target.closest("[data-food-close]");
-    if (closeBtn) {
-      overlay.classList.remove("is-open");
-      overlay.innerHTML = "";
-      return;
-    }
-
-    const clickedCard = e.target.closest("[data-food-area]");
-    const clickedOverlay = e.target.closest(".food-overlay-card");
-
-    if (!clickedCard && !clickedOverlay) {
-      overlay.classList.remove("is-open");
-      overlay.innerHTML = "";
-    }
-  });
-}
-
-function renderEventsPage(lang) {
-  const data = window.HOTEL_DATA?.allEvents;
-  if (!data) return;
-
-  setText("[data-all-title]", resolveText(data.title, lang));
-  setText("[data-all-desc]", resolveText(data.description, lang));
-
-  const el = document.querySelector("[data-all-content]");
-  if (!el) return;
-
-  el.innerHTML = `
-    <section class="event-grid">
-      ${data.items
-        .map((item) => {
-          const image = escapeHtml(item.image || "");
-          const title = escapeHtml(resolveText(item.title, lang));
-          const date = escapeHtml(resolveText(item.date, lang));
-          const location = escapeHtml(resolveText(item.location, lang));
-          const text = escapeHtml(resolveText(item.text, lang));
-          const official = escapeHtml(item.official || "#");
-          const direction = escapeHtml(item.direction || "#");
-
-          return `
-            <article class="event-card">
-              <div class="event-card-media">
-                <img src="${image}" alt="${title}" loading="lazy">
-              </div>
-              <div class="event-card-body">
-                <div class="event-topline">
-                  <span class="event-place">${location}</span>
-                </div>
-                <h3 class="sakura-card-title">${title}</h3>
-                <p class="item-sub">${date}</p>
-                <p class="sakura-card-text">${text}</p>
-                <div class="event-actions">
-                  <a class="soft-pill" href="${official}" target="_blank" rel="noopener noreferrer">Official Website</a>
-                  <a class="line-pill" href="${direction}" target="_blank" rel="noopener noreferrer">Directions</a>
-                </div>
-              </div>
-            </article>
-          `;
-        })
-        .join("")}
-    </section>
   `;
 }
 
