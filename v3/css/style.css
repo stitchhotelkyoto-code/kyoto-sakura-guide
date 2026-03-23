@@ -902,3 +902,388 @@ ul {
     line-height: 1.14 !important;
   }
 }
+
+
+/* all pages */
+.all-page-hero {
+  background: #fafafa;
+  border-radius: 28px;
+  padding: 24px 28px;
+  box-shadow: 0 12px 28px rgba(27, 38, 79, 0.04);
+  margin-bottom: 28px;
+}
+
+.all-page-hero h1 {
+  margin: 0 0 10px;
+  font-size: clamp(2.2rem, 4vw, 4rem);
+  line-height: 1.08;
+  color: #162657;
+  font-weight: 900;
+}
+
+.all-page-hero p:last-child {
+  margin: 0;
+  line-height: 1.8;
+  color: #6a7892;
+  max-width: 860px;
+}
+
+.all-page-content {
+  display: block;
+}
+
+.all-generic-card .feature-body h3 {
+  margin: 0 0 10px;
+  font-size: 1.15rem;
+}
+
+.all-generic-card .feature-body p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.all-events-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.event-guide-card {
+  background: #fff;
+  border-radius: 24px;
+  padding: 22px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.event-guide-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.event-guide-no {
+  display: inline-flex;
+  min-width: 32px;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: #f7edf1;
+  color: #8e6070;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.event-guide-place {
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #b07a8c;
+}
+
+.event-guide-card h3 {
+  margin: 0;
+  font-size: 1.24rem;
+  line-height: 1.4;
+  color: #162657;
+}
+
+.event-guide-date {
+  margin: 0;
+  color: #8e6070;
+  font-weight: 800;
+}
+
+.event-guide-text {
+  margin: 0;
+  color: #42506f;
+  line-height: 1.8;
+}
+
+.event-guide-links {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+.event-guide-links a,
+.food-spot-top a,
+.sakura-guide-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: #111;
+  color: #fff;
+  font-size: 0.84rem;
+  font-weight: 800;
+}
+
+.food-area-shell {
+  display: grid;
+  gap: 24px;
+}
+
+.food-area-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.food-area-card {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: #fff;
+  border: 1px solid #efd7df;
+  border-radius: 24px;
+  padding: 20px;
+  box-shadow: 0 12px 28px rgba(27, 38, 79, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
+}
+
+.food-area-card:hover,
+.food-area-card.is-active {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+  border-color: #d8acb9;
+}
+
+.food-area-card-no {
+  display: inline-flex;
+  min-width: 36px;
+  height: 36px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: #f7edf1;
+  color: #8e6070;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.food-area-card-copy {
+  min-width: 0;
+}
+
+.food-area-card-copy span,
+.food-area-detail-eyebrow {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8e6070;
+  font-weight: 800;
+}
+
+.food-area-card-copy h3,
+.food-area-detail-head h3 {
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+  color: #162657;
+}
+
+.food-area-card-copy p,
+.food-area-detail-head p {
+  margin: 0;
+  color: #42506f;
+  line-height: 1.8;
+}
+
+.food-area-detail {
+  display: none;
+  background: linear-gradient(180deg, #fff, #fff8fb);
+  border-radius: 28px;
+  padding: 12px;
+  border: 1px solid #efd7df;
+  box-shadow: var(--shadow);
+}
+
+.food-area-detail.is-open {
+  display: block;
+}
+
+.food-area-detail-inner {
+  padding: 18px;
+}
+
+.food-area-detail-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.food-area-close,
+.sakura-slider-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  background: #111;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.food-area-spot-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.food-spot-item {
+  background: #fff;
+  border-radius: 22px;
+  padding: 18px;
+  border: 1px solid var(--line);
+}
+
+.food-spot-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.food-spot-top h4 {
+  margin: 0 0 6px;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #162657;
+}
+
+.food-spot-type {
+  margin: 0;
+  color: #8e6070;
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.food-spot-desc {
+  margin: 0 0 12px;
+  color: #42506f;
+  line-height: 1.8;
+}
+
+.food-spot-meta {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 0.92rem;
+}
+
+.sakura-guide-shell {
+  display: block;
+}
+
+.sakura-slider-frame {
+  position: relative;
+}
+
+.sakura-slider-track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% - 36px) / 3);
+  gap: 18px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.sakura-slider-track::-webkit-scrollbar {
+  display: none;
+}
+
+.sakura-guide-card {
+  background: linear-gradient(180deg, #fff, #fff8fb);
+  border-radius: 24px;
+  padding: 22px;
+  box-shadow: var(--shadow);
+  border: 1px solid #f0e2e8;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sakura-guide-tag {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: #f7edf1;
+  color: #8e6070;
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.sakura-guide-card h3 {
+  margin: 0;
+  font-size: 1.24rem;
+  line-height: 1.4;
+  color: #162657;
+}
+
+.sakura-guide-text,
+.sakura-guide-best {
+  margin: 0;
+  color: #42506f;
+  line-height: 1.8;
+}
+
+.sakura-guide-links {
+  margin-top: auto;
+}
+
+.sakura-slider-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+@media (max-width: 1100px) {
+  .all-events-grid,
+  .food-area-grid,
+  .food-area-spot-list {
+    grid-template-columns: 1fr;
+  }
+
+  .sakura-slider-track {
+    grid-auto-columns: calc((100% - 18px) / 2);
+  }
+}
+
+@media (max-width: 700px) {
+  .all-page-hero {
+    border-radius: 20px;
+    padding: 18px;
+  }
+
+  .event-guide-links {
+    flex-direction: column;
+  }
+
+  .food-area-detail-head {
+    flex-direction: column;
+  }
+
+  .food-area-close {
+    align-self: flex-end;
+  }
+
+  .sakura-slider-track {
+    grid-auto-columns: 100%;
+  }
+}
