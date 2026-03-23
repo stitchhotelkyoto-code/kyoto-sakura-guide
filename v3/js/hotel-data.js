@@ -1106,161 +1106,684 @@ window.HOTEL_DATA = {
     ]
   },
 
-  allSakura: {
-    theme: "sakura",
-    title: {
-      jp: "Sakura Guide",
-      kr: "Sakura Guide",
-      en: "Sakura Guide"
-    },
-    description: {
-      jp: "京都らしい桜スポットをエリア別にまとめたガイドです。",
-      kr: "교토다운 벚꽃 명소를 지역별로 정리한 가이드입니다.",
-      en: "A guide to Kyoto’s sakura areas and spring highlights."
-    },
-    items: [
-      {
-        tag: { jp: "Higashiyama", kr: "히가시야마", en: "Higashiyama" },
-        title: { jp: "Kiyomizudera Area", kr: "기요미즈데라 지역", en: "Kiyomizudera Area" },
-        text: {
-          jp: "寺院と坂道の景色を一緒に楽しめる人気エリアです。",
-          kr: "사찰과 언덕길 풍경을 함께 즐길 수 있는 인기 지역입니다.",
-          en: "A scenic temple-and-street area in spring."
-        }
-      },
-      {
-        tag: { jp: "Classic Spot", kr: "대표 명소", en: "Classic Spot" },
-        title: { jp: "Maruyama Park", kr: "마루야마 공원", en: "Maruyama Park" },
-        text: {
-          jp: "昼も夜も人気の高い桜スポットです。",
-          kr: "낮과 밤 모두 인기가 높은 대표 벚꽃 명소입니다.",
-          en: "One of Kyoto’s iconic hanami spots."
-        }
-      },
-      {
-        tag: { jp: "City Walk", kr: "도심 산책", en: "City Walk" },
-        title: { jp: "Takasegawa", kr: "다카세가와", en: "Takasegawa" },
-        text: {
-          jp: "街中で気軽に歩ける川沿いの桜ルートです。",
-          kr: "도심 속에서 가볍게 걸을 수 있는 강변 벚꽃 루트입니다.",
-          en: "An easy in-city riverside sakura walk."
-        }
-      },
-      {
-        tag: { jp: "Photo Spot", kr: "포토 스팟", en: "Photo Spot" },
-        title: { jp: "Heian Shrine & Keage", kr: "헤이안신궁 & 게아게", en: "Heian Shrine & Keage" },
-        text: {
-          jp: "写真映えする春の景色を楽しめます。",
-          kr: "사진 찍기 좋은 봄 풍경을 즐길 수 있습니다.",
-          en: "Known for photogenic spring scenery."
-        }
-      }
-    ]
+ allEvents: {
+  title: {
+    jp: "EVENTS GUIDE",
+    kr: "EVENTS GUIDE",
+    en: "EVENTS GUIDE"
   },
+  description: {
+    jp: "京都で楽しめる春イベントを10件まとめました。気になるイベントは公式サイトへ直接移動できます。",
+    kr: "교토에서 즐길 수 있는 봄 이벤트 10개를 한 번에 볼 수 있도록 정리했습니다. 각 카드를 누르면 공식 홈페이지와 길찾기로 바로 이동할 수 있습니다.",
+    en: "A curated guide to 10 spring events in Kyoto with direct official links and directions."
+  },
+  items: [
+    {
+      no: "01",
+      title: {
+        jp: "円山公園 桜ライトアップ",
+        kr: "마루야마 공원 벚꽃 라이트업",
+        en: "Maruyama Park Sakura Light-up"
+      },
+      date: {
+        jp: "2026. 3. 25. - 2026. 4. 9.",
+        kr: "2026. 3. 25. - 2026. 4. 9.",
+        en: "2026. 3. 25. - 2026. 4. 9."
+      },
+      location: {
+        jp: "Maruyama Park",
+        kr: "Maruyama Park",
+        en: "Maruyama Park"
+      },
+      text: {
+        jp: "京都らしい夜桜ムードを気軽に楽しめる定番スポットです。八坂神社や祇園散策とあわせて回りやすいです。",
+        kr: "교토다운 야간 벚꽃 분위기를 가장 쉽게 즐기기 좋은 대표 스팟입니다. 야사카 신사와 기온 동선에 같이 묶기 좋습니다.",
+        en: "A classic night sakura spot that pairs well with Yasaka Shrine and Gion."
+      },
+      site: "https://kyoto-maruyama-park.jp/",
+      direction: "https://www.google.com/maps/search/?api=1&query=Maruyama+Park+Kyoto"
+    },
+    {
+      no: "02",
+      title: {
+        jp: "二条城 桜まつり",
+        kr: "니조성 벚꽃 축제",
+        en: "Nijo Castle Sakura Festival"
+      },
+      date: {
+        jp: "2026. 3. 20. - 2026. 4. 12.",
+        kr: "2026. 3. 20. - 2026. 4. 12.",
+        en: "2026. 3. 20. - 2026. 4. 12."
+      },
+      location: {
+        jp: "Nijo Castle",
+        kr: "Nijo Castle",
+        en: "Nijo Castle"
+      },
+      text: {
+        jp: "城内の春景色とライトアップの両方を楽しみたい方におすすめです。歴史ある空間で写真映えもしやすいイベントです。",
+        kr: "성 안의 봄 풍경과 라이트업을 함께 즐기고 싶은 고객에게 잘 맞습니다. 역사적인 분위기 덕분에 사진도 잘 나오는 편입니다.",
+        en: "A strong choice for guests who want castle scenery and spring illumination together."
+      },
+      site: "https://nijo-jocastle.city.kyoto.lg.jp/",
+      direction: "https://www.google.com/maps/search/?api=1&query=Nijo+Castle+Kyoto"
+    },
+    {
+      no: "03",
+      title: {
+        jp: "岡崎疏水 桜ライトアップ",
+        kr: "오카자키 소스이 벚꽃 라이트업",
+        en: "Okazaki Canal Sakura Light-up"
+      },
+      date: {
+        jp: "2026. 3. 28. - 2026. 4. 7.",
+        kr: "2026. 3. 28. - 2026. 4. 7.",
+        en: "2026. 3. 28. - 2026. 4. 7."
+      },
+      location: {
+        jp: "Okazaki Canal",
+        kr: "Okazaki Canal",
+        en: "Okazaki Canal"
+      },
+      text: {
+        jp: "水辺と桜が一緒に見えるので、やわらかい京都の春景色を楽しみたい方に向いています。",
+        kr: "수변 풍경과 벚꽃이 함께 잡혀서 부드러운 교토 봄 분위기를 즐기기 좋습니다.",
+        en: "A gentle waterside sakura route with a relaxed Kyoto feel."
+      },
+      site: "https://ja.kyoto.travel/event/single.php?event_id=6074",
+      direction: "https://www.google.com/maps/search/?api=1&query=Okazaki+Canal+Kyoto"
+    },
+    {
+      no: "04",
+      title: {
+        jp: "祇園白川 桜ライトアップ",
+        kr: "기온 시라카와 벚꽃 라이트업",
+        en: "Gion Shirakawa Sakura Light-up"
+      },
+      date: {
+        jp: "2026. 3. 27. - 2026. 4. 6.",
+        kr: "2026. 3. 27. - 2026. 4. 6.",
+        en: "2026. 3. 27. - 2026. 4. 6."
+      },
+      location: {
+        jp: "Gion Shirakawa",
+        kr: "Gion Shirakawa",
+        en: "Gion Shirakawa"
+      },
+      text: {
+        jp: "町家、白川、桜の組み合わせで京都らしい夜景を楽しめます。ホテル周辺散策とも相性が良いです。",
+        kr: "마치야, 시라카와, 벚꽃 조합으로 교토다운 야경을 즐길 수 있습니다. 저녁 산책 코스와도 잘 맞습니다.",
+        en: "A highly photogenic Kyoto night walk with machiya streets and sakura."
+      },
+      site: "https://www.gion.or.jp/",
+      direction: "https://www.google.com/maps/search/?api=1&query=Gion+Shirakawa+Kyoto"
+    },
+    {
+      no: "05",
+      title: {
+        jp: "東寺 夜桜特別拝観",
+        kr: "도지 야간 벚꽃 특별관람",
+        en: "Toji Temple Night Sakura Special Viewing"
+      },
+      date: {
+        jp: "2026. 3. 20. - 2026. 4. 12.",
+        kr: "2026. 3. 20. - 2026. 4. 12.",
+        en: "2026. 3. 20. - 2026. 4. 12."
+      },
+      location: {
+        jp: "Toji Temple",
+        kr: "Toji Temple",
+        en: "Toji Temple"
+      },
+      text: {
+        jp: "五重塔と夜桜の組み合わせが印象的な定番イベントです。京都駅周辺からも比較的動きやすいです。",
+        kr: "오층탑과 야간 벚꽃 조합이 인상적인 대표 이벤트입니다. 교토역 근처 동선과 같이 묶기 좋습니다.",
+        en: "A classic Kyoto spring event featuring the iconic pagoda and illuminated cherry blossoms."
+      },
+      site: "https://toji.or.jp/",
+      direction: "https://www.google.com/maps/search/?api=1&query=Toji+Temple+Kyoto"
+    },
+    {
+      no: "06",
+      title: {
+        jp: "平安神宮 桜音夜",
+        kr: "헤이안 신궁 벚꽃 음악의 밤",
+        en: "Heian Shrine Sakura Otoyo"
+      },
+      date: {
+        jp: "2026. 4. 3. - 2026. 4. 6.",
+        kr: "2026. 4. 3. - 2026. 4. 6.",
+        en: "2026. 4. 3. - 2026. 4. 6."
+      },
+      location: {
+        jp: "Heian Shrine",
+        kr: "Heian Shrine",
+        en: "Heian Shrine"
+      },
+      text: {
+        jp: "しだれ桜と夜の演出を少し特別な気分で味わいたい方におすすめです。",
+        kr: "수양벚꽃과 야간 연출을 조금 특별한 분위기로 즐기고 싶은 고객에게 추천됩니다.",
+        en: "A more atmospheric evening event centered on the shrine’s famous weeping sakura."
+      },
+      site: "https://www.heianjingu.or.jp/",
+      direction: "https://www.google.com/maps/search/?api=1&query=Heian+Shrine+Kyoto"
+    },
+    {
+      no: "07",
+      title: {
+        jp: "平野神社 桜祭り",
+        kr: "히라노 신사 벚꽃 축제",
+        en: "Hirano Shrine Sakura Festival"
+      },
+      date: {
+        jp: "2026. 4. 1. - 2026. 4. 14.",
+        kr: "2026. 4. 1. - 2026. 4. 14.",
+        en: "2026. 4. 1. - 2026. 4. 14."
+      },
+      location: {
+        jp: "Hirano Shrine",
+        kr: "Hirano Shrine",
+        en: "Hirano Shrine"
+      },
+      text: {
+        jp: "桜の名所として有名で、にぎやかな春祭りの雰囲気まで楽しみたい方に向いています。",
+        kr: "벚꽃 명소로 유명해서 화사한 봄 축제 분위기까지 느끼고 싶은 분에게 잘 맞습니다.",
+        en: "A lively sakura festival atmosphere at one of Kyoto’s best-known cherry blossom shrines."
+      },
+      site: "https://www.hiranojinja.com/",
+      direction: "https://www.google.com/maps/search/?api=1&query=Hirano+Shrine+Kyoto"
+    },
+    {
+      no: "08",
+      title: {
+        jp: "亀岡さくらウィーク",
+        kr: "가메오카 사쿠라 위크",
+        en: "Kameoka Sakura Week"
+      },
+      date: {
+        jp: "2026. 3. 28. - 2026. 4. 10.",
+        kr: "2026. 3. 28. - 2026. 4. 10.",
+        en: "2026. 3. 28. - 2026. 4. 10."
+      },
+      location: {
+        jp: "Kameoka",
+        kr: "Kameoka",
+        en: "Kameoka"
+      },
+      text: {
+        jp: "市内中心部とは少し違う、のどかな春景色を見たいお客様向けの候補です。",
+        kr: "시내 중심부와는 다른 한적한 봄 풍경을 보고 싶은 고객에게 어울립니다.",
+        en: "A quieter option for guests who want a more spacious countryside spring mood."
+      },
+      site: "https://www.kameoka.info/",
+      direction: "https://www.google.com/maps/search/?api=1&query=Kameoka+Kyoto"
+    },
+    {
+      no: "09",
+      title: {
+        jp: "清水寺 春の夜間特別拝観",
+        kr: "기요미즈데라 봄 야간 특별관람",
+        en: "Kiyomizu-dera Spring Night Viewing"
+      },
+      date: {
+        jp: "2026. 3. 27. - 2026. 4. 5.",
+        kr: "2026. 3. 27. - 2026. 4. 5.",
+        en: "2026. 3. 27. - 2026. 4. 5."
+      },
+      location: {
+        jp: "Kiyomizudera",
+        kr: "Kiyomizudera",
+        en: "Kiyomizudera"
+      },
+      text: {
+        jp: "京都らしい絶景感を重視する方に人気が高いイベントです。東山エリアと一緒に回りやすいです。",
+        kr: "교토다운 전망감을 중시하는 고객에게 특히 만족도가 높은 이벤트입니다. 히가시야마 동선과 함께 묶기 좋습니다.",
+        en: "A strong choice for guests who want panoramic Kyoto night views with sakura."
+      },
+      site: "https://www.kiyomizudera.or.jp/",
+      direction: "https://www.google.com/maps/search/?api=1&query=Kiyomizu-dera+Kyoto"
+    },
+    {
+      no: "10",
+      title: {
+        jp: "高台寺 春のライトアップ",
+        kr: "고다이지 봄 라이트업",
+        en: "Kodai-ji Spring Light-up"
+      },
+      date: {
+        jp: "2026. 3. 14. - 2026. 5. 6.",
+        kr: "2026. 3. 14. - 2026. 5. 6.",
+        en: "2026. 3. 14. - 2026. 5. 6."
+      },
+      location: {
+        jp: "Kodaiji Temple",
+        kr: "Kodaiji Temple",
+        en: "Kodaiji Temple"
+      },
+      text: {
+        jp: "春の演出期間が比較的長く、夜景と庭園の雰囲気を落ち着いて楽しみたい方におすすめです。",
+        kr: "봄 연출 기간이 비교적 길고, 야경과 정원 분위기를 차분하게 즐기고 싶은 고객에게 추천됩니다.",
+        en: "A long-running spring illumination with a calm temple-garden atmosphere."
+      },
+      site: "https://www.kodaiji.com/",
+      direction: "https://www.google.com/maps/search/?api=1&query=Kodai-ji+Temple+Kyoto"
+    }
+  ]
+},
 
-  allFood: {
-    theme: "food",
-    title: {
-      jp: "Food Guide",
-      kr: "Food Guide",
-      en: "Food Guide"
-    },
-    description: {
-      jp: "エリア別に楽しめる京都グルメをまとめました。",
-      kr: "지역별로 즐길 수 있는 교토 맛집을 정리했습니다.",
-      en: "Food picks across Kyoto by area and mood."
-    },
-    items: [
-      {
-        tag: { jp: "Gion", kr: "기온", en: "Gion" },
-        title: { jp: "Gion Food Picks", kr: "기온 맛집", en: "Gion Food Picks" },
-        text: {
-          jp: "京都らしい雰囲気の中で食事と甘味を楽しめます。",
-          kr: "교토다운 분위기 속에서 식사와 디저트를 즐길 수 있습니다.",
-          en: "A classic Kyoto area for meals and sweets."
-        }
-      },
-      {
-        tag: { jp: "Kiyomizu", kr: "기요미즈", en: "Kiyomizu" },
-        title: { jp: "Kiyomizu Food Picks", kr: "기요미즈 맛집", en: "Kiyomizu Food Picks" },
-        text: {
-          jp: "豆腐料理や甘味のお店が多いエリアです。",
-          kr: "두부요리와 디저트 가게가 많은 지역입니다.",
-          en: "Known for tofu dishes and traditional sweets."
-        }
-      },
-      {
-        tag: { jp: "Kawaramachi", kr: "가와라마치", en: "Kawaramachi" },
-        title: { jp: "Kawaramachi Food Picks", kr: "가와라마치 맛집", en: "Kawaramachi Food Picks" },
-        text: {
-          jp: "食べ歩きからラーメンまで幅広く楽しめるエリアです。",
-          kr: "먹거리 산책부터 라멘까지 폭넓게 즐길 수 있는 지역입니다.",
-          en: "A flexible area for bites, cafés, and ramen."
-        }
-      },
-      {
-        tag: { jp: "Arashiyama", kr: "아라시야마", en: "Arashiyama" },
-        title: { jp: "Arashiyama Food Picks", kr: "아라시야마 맛집", en: "Arashiyama Food Picks" },
-        text: {
-          jp: "景色と食事を一緒に楽しみやすいエリアです。",
-          kr: "풍경과 식사를 함께 즐기기 좋은 지역입니다.",
-          en: "A scenic area that pairs well with a food stop."
-        }
-      }
-    ]
+allFood: {
+  title: {
+    jp: "FOOD GUIDE",
+    kr: "FOOD GUIDE",
+    en: "FOOD GUIDE"
   },
+  description: {
+    jp: "観光エリアごとにおすすめの飲食店を確認できます。カードを押すと詳細が大きく開きます。",
+    kr: "관광 지역별 추천 음식점을 볼 수 있습니다. 카드를 누르면 큰 상세 위젯이 펼쳐집니다.",
+    en: "Browse food picks by area. Click a card to open a larger detail widget."
+  },
+  items: [
+    {
+      key: "arashiyama",
+      no: "01",
+      eyebrow: { jp: "West Kyoto", kr: "West Kyoto", en: "West Kyoto" },
+      title: { jp: "Arashiyama", kr: "Arashiyama", en: "Arashiyama" },
+      summary: {
+        jp: "嵐山散策の前後に寄りやすい、景色と相性の良い定番店をまとめました。",
+        kr: "아라시야마 산책 전후로 들르기 좋은 대표 맛집들입니다.",
+        en: "Reliable picks that pair well with an Arashiyama walk."
+      },
+      spots: [
+        {
+          name: { jp: "Arashiyama Yoshimura", kr: "Arashiyama Yoshimura", en: "Arashiyama Yoshimura" },
+          type: { jp: "そば", kr: "소바", en: "Soba" },
+          hours: { jp: "11:00 – 17:00", kr: "11:00 – 17:00", en: "11:00 – 17:00" },
+          menu: { jp: "手打ちそば", kr: "수타 소바", en: "Handmade soba" },
+          desc: {
+            jp: "渡月橋エリアの景色と合わせやすい定番そば店です。",
+            kr: "도게츠교 주변 풍경과 함께 묶기 좋은 대표 소바집입니다.",
+            en: "A classic soba stop near the Togetsukyo area."
+          },
+          direction: "https://www.google.com/maps/search/?api=1&query=Arashiyama+Yoshimura+Kyoto"
+        },
+        {
+          name: { jp: "% Arabica Kyoto Arashiyama", kr: "% Arabica Kyoto Arashiyama", en: "% Arabica Kyoto Arashiyama" },
+          type: { jp: "カフェ", kr: "카페", en: "Cafe" },
+          hours: { jp: "08:00 – 18:00", kr: "08:00 – 18:00", en: "08:00 – 18:00" },
+          menu: { jp: "カフェラテ", kr: "카페라테", en: "Cafe latte" },
+          desc: {
+            jp: "짧게 쉬어가기 좋은 커피 스톱으로, 사진 감성도 잘 맞습니다.",
+            kr: "짧게 쉬어가기 좋은 커피 스폿으로 사진 감성도 좋습니다.",
+            en: "A stylish coffee stop for a short break."
+          },
+          direction: "https://www.google.com/maps/search/?api=1&query=%25+Arabica+Kyoto+Arashiyama"
+        },
+        {
+          name: { jp: "Unagi Hirokawa", kr: "Unagi Hirokawa", en: "Unagi Hirokawa" },
+          type: { jp: "うなぎ", kr: "장어", en: "Unagi" },
+          hours: { jp: "11:00 – 14:30 / 17:00 – 20:00", kr: "11:00 – 14:30 / 17:00 – 20:00", en: "11:00 – 14:30 / 17:00 – 20:00" },
+          menu: { jp: "うな重", kr: "장어덮밥", en: "Unagi rice bowl" },
+          desc: {
+            jp: "조금 제대로 된 식사를 하고 싶을 때 잘 맞는 선택지입니다.",
+            kr: "조금 제대로 된 식사를 하고 싶을 때 잘 맞는 선택지입니다.",
+            en: "A good option for a more satisfying sit-down meal."
+          },
+          direction: "https://www.google.com/maps/search/?api=1&query=Unagi+Hirokawa+Kyoto"
+        }
+      ]
+    },
+    {
+      key: "gion",
+      no: "02",
+      eyebrow: { jp: "East Kyoto", kr: "East Kyoto", en: "East Kyoto" },
+      title: { jp: "Gion", kr: "Gion", en: "Gion" },
+      summary: {
+        jp: "祇園散策と相性の良い、京都らしい雰囲気の店を中心にまとめました。",
+        kr: "기온 산책과 잘 어울리는 교토다운 분위기의 맛집들입니다.",
+        en: "Kyoto-style picks that work well with a Gion walk."
+      },
+      spots: [
+        {
+          name: { jp: "Gion Tanto", kr: "Gion Tanto", en: "Gion Tanto" },
+          type: { jp: "お好み焼き", kr: "오코노미야키", en: "Okonomiyaki" },
+          hours: { jp: "11:30 – 22:00", kr: "11:30 – 22:00", en: "11:30 – 22:00" },
+          menu: { jp: "お好み焼き", kr: "오코노미야키", en: "Okonomiyaki" },
+          desc: {
+            jp: "가볍게 교토 저녁을 시작하기 좋은 인기점입니다.",
+            kr: "가볍게 교토 저녁을 시작하기 좋은 인기점입니다.",
+            en: "An easy and popular choice for a casual dinner."
+          },
+          direction: "https://www.google.com/maps/search/?api=1&query=Gion+Tanto+Kyoto"
+        },
+        {
+          name: { jp: "Gion Tsujiri", kr: "Gion Tsujiri", en: "Gion Tsujiri" },
+          type: { jp: "デザート", kr: "디저트", en: "Dessert" },
+          hours: { jp: "10:00 – 21:00", kr: "10:00 – 21:00", en: "10:00 – 21:00" },
+          menu: { jp: "抹茶パフェ", kr: "말차 파르페", en: "Matcha parfait" },
+          desc: {
+            jp: "산책 중간 디저트 스톱으로 안정적인 선택입니다.",
+            kr: "산책 중간 디저트 스톱으로 안정적인 선택입니다.",
+            en: "A classic dessert stop in the middle of a Gion stroll."
+          },
+          direction: "https://www.google.com/maps/search/?api=1&query=Gion+Tsujiri+Kyoto"
+        },
+        {
+          name: { jp: "いづ重", kr: "Izuju Sushi", en: "Izuju Sushi" },
+          type: { jp: "寿司", kr: "스시", en: "Sushi" },
+          hours: { jp: "10:30 – 19:00", kr: "10:30 – 19:00", en: "10:30 – 19:00" },
+          menu: { jp: "京寿司", kr: "교토식 스시", en: "Kyoto style sushi" },
+          desc: {
+            jp: "기온다운 전통 분위기를 음식으로 이어가기 좋은 곳입니다.",
+            kr: "기온다운 전통 분위기를 음식으로 이어가기 좋은 곳입니다.",
+            en: "A well-known Kyoto-style sushi stop."
+          },
+          direction: "https://www.google.com/maps/search/?api=1&query=Izuju+Sushi+Kyoto"
+        }
+      ]
+    },
+    {
+      key: "kiyomizu",
+      no: "03",
+      eyebrow: { jp: "Higashiyama", kr: "Higashiyama", en: "Higashiyama" },
+      title: { jp: "Kiyomizu", kr: "Kiyomizu", en: "Kiyomizu" },
+      summary: {
+        jp: "清水寺周辺で、京都らしい豆腐料理と甘味を楽しみやすい構成です。",
+        kr: "기요미즈데라 주변에서 교토다운 두부요리와 디저트를 즐기기 좋은 조합입니다.",
+        en: "A strong Kiyomizu area mix of tofu classics and sweets."
+      },
+      spots: [
+        {
+          name: { jp: "奥丹清水", kr: "Okutan Kiyomizu", en: "Okutan Kiyomizu" },
+          type: { jp: "豆腐", kr: "두부", en: "Tofu" },
+          hours: { jp: "11:00 – 16:30", kr: "11:00 – 16:30", en: "11:00 – 16:30" },
+          menu: { jp: "湯豆腐", kr: "유도후", en: "Yudofu" },
+          desc: {
+            jp: "청수사 산책과 가장 잘 어울리는 교토다운 대표 메뉴입니다.",
+            kr: "기요미즈 산책과 가장 잘 어울리는 교토다운 대표 메뉴입니다.",
+            en: "A classic Kyoto tofu meal for the Kiyomizu area."
+          },
+          direction: "https://www.google.com/maps/search/?api=1&query=Okutan+Kiyomizu+Kyoto"
+        },
+        {
+          name: { jp: "清水順正", kr: "Kiyomizu Junsei", en: "Kiyomizu Junsei" },
+          type: { jp: "豆腐", kr: "두부", en: "Tofu" },
+          hours: { jp: "11:00 – 17:00", kr: "11:00 – 17:00", en: "11:00 – 17:00" },
+          menu: { jp: "豆腐コース", kr: "두부 코스", en: "Tofu course" },
+          desc: {
+            jp: "조금 더 차분하게 식사를 하고 싶은 고객에게 추천하기 좋습니다.",
+            kr: "조금 더 차분하게 식사를 하고 싶은 고객에게 추천하기 좋습니다.",
+            en: "A calmer sit-down tofu course option."
+          },
+          direction: "https://www.google.com/maps/search/?api=1&query=Kiyomizu+Junsei+Kyoto"
+        },
+        {
+          name: { jp: "かさぎ屋", kr: "Kasagiya", en: "Kasagiya" },
+          type: { jp: "甘味", kr: "디저트", en: "Dessert" },
+          hours: { jp: "11:00 – 17:30", kr: "11:00 – 17:30", en: "11:00 – 17:30" },
+          menu: { jp: "ぜんざい", kr: "젠자이", en: "Zenzai" },
+          desc: {
+            jp: "坂道散策 중간에 잠깐 쉬어가기 좋은 교토식 디저트 스톱입니다.",
+            kr: "언덕길 산책 중간에 쉬어가기 좋은 교토식 디저트 스톱입니다.",
+            en: "A traditional sweet stop during the slope walk."
+          },
+          direction: "https://www.google.com/maps/search/?api=1&query=Kasagiya+Kyoto"
+        }
+      ]
+    },
+    {
+      key: "kawaramachi",
+      no: "04",
+      eyebrow: { jp: "Central Kyoto", kr: "Central Kyoto", en: "Central Kyoto" },
+      title: { jp: "Kawaramachi", kr: "Kawaramachi", en: "Kawaramachi" },
+      summary: {
+        jp: "市場・ラーメン・牛カツまで、旅行中に使いやすい人気エリアの食べ方です。",
+        kr: "시장, 라멘, 규카츠까지 여행 중 쓰기 좋은 인기 에어리어 구성입니다.",
+        en: "A practical mix of market food, ramen, and gyukatsu."
+      },
+      spots: [
+        {
+          name: { jp: "錦市場", kr: "Nishiki Market", en: "Nishiki Market" },
+          type: { jp: "市場グルメ", kr: "시장 음식", en: "Market Food" },
+          hours: { jp: "10:00 – 18:00", kr: "10:00 – 18:00", en: "10:00 – 18:00" },
+          menu: { jp: "食べ歩き", kr: "길거리 음식", en: "Street food" },
+          desc: {
+            jp: "짧은 시간에도 교토 먹거리를 다양하게 보기 좋습니다.",
+            kr: "짧은 시간에도 교토 먹거리를 다양하게 보기 좋습니다.",
+            en: "A great area for sampling several foods in a short time."
+          },
+          direction: "https://www.google.com/maps/search/?api=1&query=Nishiki+Market+Kyoto"
+        },
+        {
+          name: { jp: "麺屋 猪一", kr: "Menya Inoichi", en: "Menya Inoichi" },
+          type: { jp: "ラーメン", kr: "라멘", en: "Ramen" },
+          hours: { jp: "11:00 – 14:30 / 17:30 – 21:00", kr: "11:00 – 14:30 / 17:30 – 21:00", en: "11:00 – 14:30 / 17:30 – 21:00" },
+          menu: { jp: "ラーメン", kr: "라멘", en: "Ramen" },
+          desc: {
+            jp: "시장 산책 뒤 한 끼 식사로 연결하기 좋은 안정적인 인기점입니다.",
+            kr: "시장 산책 뒤 한 끼 식사로 연결하기 좋은 안정적인 인기점입니다.",
+            en: "A dependable ramen stop after market wandering."
+          },
+          direction: "https://www.google.com/maps/search/?api=1&query=Menya+Inoichi+Kyoto"
+        },
+        {
+          name: { jp: "牛カツ京都勝牛", kr: "Gyukatsu Kyoto Katsugyu", en: "Gyukatsu Kyoto Katsugyu" },
+          type: { jp: "牛カツ", kr: "규카츠", en: "Gyukatsu" },
+          hours: { jp: "11:00 – 22:00", kr: "11:00 – 22:00", en: "11:00 – 22:00" },
+          menu: { jp: "牛カツ", kr: "소고기 커틀릿", en: "Beef cutlet" },
+          desc: {
+            jp: "처음 오는 여행객에게도 설명하기 쉬운 인기 메뉴입니다.",
+            kr: "처음 오는 여행객에게도 설명하기 쉬운 인기 메뉴입니다.",
+            en: "An easy-to-recommend crowd-pleaser for travelers."
+          },
+          direction: "https://www.google.com/maps/search/?api=1&query=Gyukatsu+Kyoto+Katsugyu"
+        }
+      ]
+    },
+    {
+      key: "fushimiinari",
+      no: "05",
+      eyebrow: { jp: "South Kyoto", kr: "South Kyoto", en: "South Kyoto" },
+      title: { jp: "Fushimi Inari", kr: "Fushimi Inari", en: "Fushimi Inari" },
+      summary: {
+        jp: "参道と伏見稲荷散策に合わせやすい、軽食から和甘味までの候補です。",
+        kr: "참배길과 후시미이나리 산책에 잘 맞는 가벼운 식사와 디저트 후보들입니다.",
+        en: "Good matches for the shrine approach and Fushimi Inari walk."
+      },
+      spots: [
+        {
+          name: { jp: "祢ざめ家", kr: "Nezameya", en: "Nezameya" },
+          type: { jp: "和食", kr: "일식", en: "Japanese" },
+          hours: { jp: "10:00 – 16:00", kr: "10:00 – 16:00", en: "10:00 – 16:00" },
+          menu: { jp: "いなり寿司・うどん", kr: "유부초밥·우동", en: "Inari sushi & udon" },
+          desc: {
+            jp: "伏見稲荷らしい 메뉴感を伝えやすい定番店です。",
+            kr: "후시미이나리다운 메뉴 느낌을 설명하기 쉬운 대표점입니다.",
+            en: "A classic stop that fits the shrine atmosphere well."
+          },
+          direction: "https://www.google.com/maps/search/?api=1&query=Nezameya+Kyoto"
+        },
+        {
+          name: { jp: "稲福", kr: "Inafuku", en: "Inafuku" },
+          type: { jp: "甘味", kr: "디저트", en: "Dessert" },
+          hours: { jp: "10:00 – 17:00", kr: "10:00 – 17:00", en: "10:00 – 17:00" },
+          menu: { jp: "抹茶スイーツ", kr: "말차 디저트", en: "Matcha sweets" },
+          desc: {
+            jp: "참배 후 가볍게 쉬어가기 좋은 단맛 계열 스톱입니다.",
+            kr: "참배 후 가볍게 쉬어가기 좋은 단맛 계열 스톱입니다.",
+            en: "A light sweets stop after the shrine walk."
+          },
+          direction: "https://www.google.com/maps/search/?api=1&query=Inafuku+Fushimi+Inari+Kyoto"
+        },
+        {
+          name: { jp: "京豆庵 伏見稲荷店", kr: "Kyotouan Fushimi Inari", en: "Kyotouan Fushimi Inari" },
+          type: { jp: "豆乳スイーツ", kr: "두유 디저트", en: "Soy dessert" },
+          hours: { jp: "10:00 – 18:00", kr: "10:00 – 18:00", en: "10:00 – 18:00" },
+          menu: { jp: "豆乳ソフト", kr: "두유 소프트아이스크림", en: "Soy milk soft serve" },
+          desc: {
+            jp: "계단길과 토리이 동선 후에 가볍게 먹기 좋은 메뉴입니다.",
+            kr: "계단길과 토리이 동선 후에 가볍게 먹기 좋은 메뉴입니다.",
+            en: "A refreshing stop after walking the torii route."
+          },
+          direction: "https://www.google.com/maps/search/?api=1&query=Kyotouan+Fushimi+Inari+Kyoto"
+        }
+      ]
+    },
+    {
+      key: "kyotostation",
+      no: "06",
+      eyebrow: { jp: "Transport Hub", kr: "Transport Hub", en: "Transport Hub" },
+      title: { jp: "Kyoto Station", kr: "Kyoto Station", en: "Kyoto Station" },
+      summary: {
+        jp: "到着直後・出発前にも使いやすい、アクセス重視の食事候補です。",
+        kr: "도착 직후나 출발 전에도 쓰기 좋은 접근성 중심 식사 후보입니다.",
+        en: "Convenient choices before departure or right after arrival."
+      },
+      spots: [
+        {
+          name: { jp: "本家 第一旭 たかばし本店", kr: "Honke Daiichi Asahi", en: "Honke Daiichi Asahi" },
+          type: { jp: "ラーメン", kr: "라멘", en: "Ramen" },
+          hours: { jp: "06:00 – 01:00", kr: "06:00 – 01:00", en: "06:00 – 01:00" },
+          menu: { jp: "醤油ラーメン", kr: "쇼유 라멘", en: "Shoyu ramen" },
+          desc: {
+            jp: "교토역 근처에서 설명하기 쉬운 가장 유명한 라멘 후보 중 하나입니다.",
+            kr: "교토역 근처에서 설명하기 쉬운 가장 유명한 라멘 후보 중 하나입니다.",
+            en: "One of the easiest famous ramen recommendations near Kyoto Station."
+          },
+          direction: "https://www.google.com/maps/search/?api=1&query=Honke+Daiichi+Asahi+Kyoto"
+        },
+        {
+          name: { jp: "新福菜館 本店", kr: "Shinpuku Saikan", en: "Shinpuku Saikan" },
+          type: { jp: "中華そば", kr: "중화소바", en: "Chuka soba" },
+          hours: { jp: "10:00 – 21:00", kr: "10:00 – 21:00", en: "10:00 – 21:00" },
+          menu: { jp: "中華そば", kr: "중화소바", en: "Chuka soba" },
+          desc: {
+            jp: "역 주변에서 교토식 라멘 계열을 소개하기 좋습니다.",
+            kr: "역 주변에서 교토식 라멘 계열을 소개하기 좋습니다.",
+            en: "Another reliable Kyoto ramen classic near the station."
+          },
+          direction: "https://www.google.com/maps/search/?api=1&query=Shinpuku+Saikan+Kyoto"
+        },
+        {
+          name: { jp: "はしたて", kr: "Hashitate", en: "Hashitate" },
+          type: { jp: "和食", kr: "일식", en: "Japanese" },
+          hours: { jp: "11:00 – 21:00", kr: "11:00 – 21:00", en: "11:00 – 21:00" },
+          menu: { jp: "どんぶり・麺", kr: "덮밥·면", en: "Rice bowls & noodles" },
+          desc: {
+            jp: "駅ビル内で使いやすく、待ち時間を減らしたいお客様にも案内しやすいです。",
+            kr: "역 빌딩 안에서 쓰기 쉽고 이동 시간을 줄이고 싶은 고객에게 안내하기 좋습니다.",
+            en: "A practical station-building option when convenience matters most."
+          },
+          direction: "https://www.google.com/maps/search/?api=1&query=Hashitate+Kyoto+Station"
+        }
+      ]
+    }
+  ]
+},
 
-  allEvents: {
-    theme: "events",
-    title: {
-      jp: "Events Guide",
-      kr: "Events Guide",
-      en: "Events Guide"
-    },
-    description: {
-      jp: "春の京都をもっと楽しめる季節イベントをまとめました。",
-      kr: "봄의 교토를 더 즐길 수 있는 시즌 이벤트를 정리했습니다.",
-      en: "Seasonal spring events and night highlights in Kyoto."
-    },
-    items: [
-      {
-        tag: { jp: "Night View", kr: "야간 감상", en: "Night View" },
-        title: { jp: "Spring Illumination", kr: "봄 라이트업", en: "Spring Illumination" },
-        text: {
-          jp: "夜桜や寺院ライトアップを楽しめます。",
-          kr: "야간 벚꽃과 사찰 라이트업 등을 즐길 수 있습니다.",
-          en: "Night sakura and seasonal evening illuminations."
-        }
-      },
-      {
-        tag: { jp: "Temple Season", kr: "사찰 시즌", en: "Temple Season" },
-        title: { jp: "Temple Spring Openings", kr: "사찰 봄 특별 개방", en: "Temple Spring Openings" },
-        text: {
-          jp: "春限定の特別拝観や季節公開。",
-          kr: "봄 한정 특별관람과 시즌 공개.",
-          en: "Special seasonal temple openings and viewings."
-        }
-      },
-      {
-        tag: { jp: "Walking Route", kr: "산책형", en: "Walking Route" },
-        title: { jp: "Hanami Walk", kr: "하나미 산책", en: "Hanami Walk" },
-        text: {
-          jp: "歩きながら春を感じたい方におすすめです。",
-          kr: "가볍게 걸으며 봄을 느끼고 싶은 사람에게 추천합니다.",
-          en: "A relaxed spring activity centered on scenic walks."
-        }
-      },
-      {
-        tag: { jp: "Photo Spot", kr: "포토 스팟", en: "Photo Spot" },
-        title: { jp: "Evening Highlights", kr: "저녁 하이라이트", en: "Evening Highlights" },
-        text: {
-          jp: "写真と雰囲気を一緒に楽しめる夜の見どころ。",
-          kr: "사진과 분위기를 함께 즐길 수 있는 저녁 볼거리입니다.",
-          en: "Evening spots that combine atmosphere and photography."
-        }
-      }
-    ]
+allSakura: {
+  title: {
+    jp: "SAKURA GUIDE",
+    kr: "SAKURA GUIDE",
+    en: "SAKURA GUIDE"
   },
+  description: {
+    jp: "v2の6つの桜スポット構成をそのまま活かしつつ、カードスライダーで見やすく整理しました。",
+    kr: "v2의 6개 사쿠라 스팟 구성을 그대로 살리면서 슬라이더 카드 형식으로 정리했습니다.",
+    en: "The same 6 sakura spots from v2, organized in a cleaner slider format."
+  },
+  items: [
+    {
+      tag: { jp: "#Arashiyama #KyotoSakura", kr: "#Arashiyama #KyotoSakura", en: "#Arashiyama #KyotoSakura" },
+      title: { jp: "Arashiyama", kr: "Arashiyama", en: "Arashiyama" },
+      text: {
+        jp: "渡月橋や川沿いの景色と一緒に春らしい京都を楽しめる定番エリアです。朝から昼にかけて回ると景色がきれいです。",
+        kr: "도게츠교와 강변 풍경을 함께 즐길 수 있는 대표 벚꽃 지역입니다. 오전부터 낮 사이에 돌면 풍경이 특히 좋습니다.",
+        en: "A classic Kyoto spring area with river views and iconic Arashiyama scenery."
+      },
+      bestTime: {
+        jp: "おすすめ：午前〜昼",
+        kr: "추천 시간: 오전 ~ 낮",
+        en: "Best time: Morning to afternoon"
+      },
+      direction: "https://www.google.com/maps/search/?api=1&query=Arashiyama+Kyoto"
+    },
+    {
+      tag: { jp: "#PhilosophersPath #SpringWalk", kr: "#PhilosophersPath #SpringWalk", en: "#PhilosophersPath #SpringWalk" },
+      title: { jp: "Philosopher’s Path", kr: "Philosopher’s Path", en: "Philosopher’s Path" },
+      text: {
+        jp: "벚꽃 길을 따라 천천히 걷는 산책형 코스로 만족도가 높습니다. 난젠지와 케아게 인클라인 동선과도 연결하기 쉽습니다.",
+        kr: "벚꽃길을 따라 천천히 걷는 산책형 코스로 만족도가 높습니다. 난젠지와 케아게 인클라인과도 묶기 쉽습니다.",
+        en: "One of Kyoto’s best slow sakura walks, easy to combine with nearby temple routes."
+      },
+      bestTime: {
+        jp: "おすすめ：午前",
+        kr: "추천 시간: 오전",
+        en: "Best time: Morning"
+      },
+      direction: "https://www.google.com/maps/search/?api=1&query=Philosopher%27s+Path+Kyoto"
+    },
+    {
+      tag: { jp: "#KiyomizuDera #KyotoView", kr: "#KiyomizuDera #KyotoView", en: "#KiyomizuDera #KyotoView" },
+      title: { jp: "Kiyomizu-dera", kr: "Kiyomizu-dera", en: "Kiyomizu-dera" },
+      text: {
+        jp: "京都らしい景色と東山の坂道をまとめて楽しめる王道スポットです。昼と夜で印象が変わるのも魅力です。",
+        kr: "교토다운 전망과 히가시야마 언덕길을 함께 즐길 수 있는 대표 스팟입니다. 낮과 밤 분위기가 다른 점도 좋습니다.",
+        en: "A must-see sakura location for guests who want classic Higashiyama scenery."
+      },
+      bestTime: {
+        jp: "おすすめ：午後〜夜",
+        kr: "추천 시간: 오후 ~ 밤",
+        en: "Best time: Afternoon to evening"
+      },
+      direction: "https://www.google.com/maps/search/?api=1&query=Kiyomizu-dera+Kyoto"
+    },
+    {
+      tag: { jp: "#MaruyamaPark #Hanami", kr: "#MaruyamaPark #Hanami", en: "#MaruyamaPark #Hanami" },
+      title: { jp: "Maruyama Park", kr: "Maruyama Park", en: "Maruyama Park" },
+      text: {
+        jp: "祇園・八坂神社と一緒に回りやすい、京都の定番花見スポットです。夜桜の雰囲気も強いです。",
+        kr: "기온과 야사카 신사와 함께 돌아보기 좋은 교토 대표 하나미 스팟입니다. 야간 분위기도 강한 편입니다.",
+        en: "A classic hanami location that works well with Gion and Yasaka."
+      },
+      bestTime: {
+        jp: "おすすめ：夕方〜夜",
+        kr: "추천 시간: 저녁 ~ 밤",
+        en: "Best time: Evening to night"
+      },
+      direction: "https://www.google.com/maps/search/?api=1&query=Maruyama+Park+Kyoto"
+    },
+    {
+      tag: { jp: "#HeianShrine #WeepingSakura", kr: "#HeianShrine #WeepingSakura", en: "#HeianShrine #WeepingSakura" },
+      title: { jp: "Heian Shrine", kr: "Heian Shrine", en: "Heian Shrine" },
+      text: {
+        jp: "しだれ桜の華やかさをしっかり見たい方に向いています。岡崎エリア散策とも相性が良いです。",
+        kr: "수양벚꽃의 화사함을 제대로 보고 싶은 고객에게 잘 맞습니다. 오카자키 에어리어 산책과도 잘 어울립니다.",
+        en: "A strong pick for guests who want to see dramatic weeping cherry blossoms."
+      },
+      bestTime: {
+        jp: "おすすめ：昼〜夕方",
+        kr: "추천 시간: 낮 ~ 저녁",
+        en: "Best time: Daytime to early evening"
+      },
+      direction: "https://www.google.com/maps/search/?api=1&query=Heian+Shrine+Kyoto"
+    },
+    {
+      tag: { jp: "#KeageIncline #RailwaySakura", kr: "#KeageIncline #RailwaySakura", en: "#KeageIncline #RailwaySakura" },
+      title: { jp: "Keage Incline", kr: "Keage Incline", en: "Keage Incline" },
+      text: {
+        jp: "線路跡と桜の組み合わせで写真人気が高いスポットです。徒歩移動中心の春散策に組み込みやすいです。",
+        kr: "철길 흔적과 벚꽃 조합으로 사진 인기가 높은 스팟입니다. 도보 중심 봄 산책 코스에 넣기 좋습니다.",
+        en: "A photogenic sakura spot known for the old railway track setting."
+      },
+      bestTime: {
+        jp: "おすすめ：朝〜午前",
+        kr: "추천 시간: 아침 ~ 오전",
+        en: "Best time: Early morning to morning"
+      },
+      direction: "https://www.google.com/maps/search/?api=1&query=Keage+Incline+Kyoto"
+    }
+  ]
+},
 
   allAi: {
     theme: "ai",
