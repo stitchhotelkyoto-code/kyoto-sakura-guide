@@ -1,15 +1,11 @@
-.hotel-detail-page .hero-card{
-  background:#eef2f1;
+.hotel-detail-page .hero-card {
+  background: #eef4f2;
 }
 
-.hotel-detail-page .section-card{
-  background:#ffffff;
+.hotel-detail-page .section-card {
+  background: #ffffff;
 }
 
-.hotel-detail-page .course-flip-shell{
-  margin-bottom:26px;
-}
-
-.hotel-detail-page .info-panel{
-  min-height:360px;
+.hotel-detail-page .panel-card {
+  min-height: 100%;
 }
