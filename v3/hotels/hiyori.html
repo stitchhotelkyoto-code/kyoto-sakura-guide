@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hiyori Stay Kyoto Gojo - Kyoto Sakura Guide</title>
+  <title>Hiyori Stay Kamogawa Gojo - Kyoto Sakura Guide</title>
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/hotel-detail.css">
 </head>
@@ -12,8 +12,8 @@
     <div class="site-header-inner">
       <a class="site-brand" href="../index.html">Kyoto Sakura Guide</a>
 
-      <div class="site-nav">
-        <nav class="site-nav-links">
+      <div class="site-header-right">
+        <nav class="site-nav">
           <a href="../index.html">Home</a>
           <a href="soraniwa.html">Soraniwa</a>
           <a href="hiyori.html">Hiyori</a>
@@ -21,12 +21,14 @@
           <a href="../all-sakura.html">Sakura</a>
           <a href="../all-food.html">Food</a>
           <a href="../all-events.html">Events</a>
+          <a href="../all-crowd.html">Crowd</a>
+          <a href="../all-ai.html">AI Guide</a>
         </nav>
 
         <div class="lang-switch">
-          <button class="lang-btn is-active" data-lang="jp">JP</button>
-          <button class="lang-btn" data-lang="en">EN</button>
-          <button class="lang-btn" data-lang="kr">KR</button>
+          <button class="lang-btn is-active" data-lang="jp" type="button">JP</button>
+          <button class="lang-btn" data-lang="en" type="button">EN</button>
+          <button class="lang-btn" data-lang="kr" type="button">KR</button>
         </div>
       </div>
     </div>
@@ -34,57 +36,29 @@
 
   <main class="page-shell">
     <section class="hero-card">
-      <div class="hero-label" data-hotel-label></div>
-      <h1 data-hotel-name></h1>
+      <p class="eyebrow" data-hotel-label></p>
+      <h1 class="hero-title" data-hotel-name></h1>
       <p class="hero-tagline" data-hotel-tagline></p>
       <p class="hero-desc" data-hotel-description></p>
-
-      <div class="hero-buttons">
-        <a class="hero-pill" href="soraniwa.html">Soraniwa</a>
-        <a class="hero-pill is-primary" href="hiyori.html">Hiyori</a>
-        <a class="hero-pill" href="stitch.html">STITCH</a>
-      </div>
+      <div class="hotel-pill-row" data-hero-buttons></div>
     </section>
 
     <section class="section-card">
-      <div class="section-label">BRAND VIEW</div>
-      <h2 data-intro-title></h2>
-      <p data-intro-text></p>
+      <p class="eyebrow">BRAND VIEW</p>
+      <h2 class="section-title" data-intro-title></h2>
+      <p class="section-desc" data-intro-text></p>
     </section>
 
-    <section class="card-slider-wrap" data-cards></section>
+    <section class="hotel-photo-grid" data-photo-grid></section>
 
-    <section class="course-flip-shell">
-      <div class="course-flip-box" id="hotelCourseFlipBox">
-        <div class="course-face course-face-front">
-          <div class="course-face-front-inner">
-            <h3>Recommended Course Detail</h3>
-            <p>下の View を押すとコースの詳細がここに表示されます。</p>
-          </div>
-        </div>
-
-        <div class="course-face course-face-back">
-          <div class="course-face-top">
-            <h3 data-course-back-title></h3>
-            <button class="course-close" type="button" data-course-flip-close>×</button>
-          </div>
-          <p class="course-back-route" data-course-back-route></p>
-          <p class="course-back-desc" data-course-back-desc></p>
-          <div class="course-back-actions">
-            <a href="#" target="_blank" rel="noopener noreferrer" data-course-back-direction>Directions</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="info-panels">
-      <div class="info-panel" data-course></div>
-      <div class="info-panel" data-food></div>
-      <div class="info-panel" data-events></div>
+    <section class="hotel-panels">
+      <div class="panel-card" data-course-panel></div>
+      <div class="panel-card" data-food-panel></div>
+      <div class="panel-card" data-events-panel></div>
     </section>
   </main>
 
-  <footer class="site-footer">
+  <footer class="footer-note">
     Kyoto Sakura Guide © Spring Stay Project
   </footer>
 
