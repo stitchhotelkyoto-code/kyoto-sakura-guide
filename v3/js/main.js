@@ -205,6 +205,7 @@ function renderHotelPage(key, lang) {
   renderMiniFood(data.foods || [], lang);
   renderMiniEvents(data.events || [], lang);
   bindCourseFlip();
+  bindHotelTabs();
 }
 
 function getHotelDataForCurrentPage(key) {
@@ -396,6 +397,28 @@ function bindCourseFlip() {
       const index = event.currentTarget.dataset.courseClose;
       const card = document.querySelector(`[data-course-card="${index}"]`);
       if (card) card.classList.remove("is-open");
+    });
+  });
+}
+
+function bindHotelTabs() {
+  const tabButtons = document.querySelectorAll("[data-tab-target]");
+  const tabPanels = document.querySelectorAll("[data-tab-panel]");
+
+  tabButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const target = btn.dataset.tabTarget;
+
+      tabButtons.forEach((b) =>
+        b.classList.toggle("is-active", b === btn)
+      );
+
+      tabPanels.forEach((panel) =>
+        panel.classList.toggle(
+          "is-active",
+          panel.dataset.tabPanel === target
+        )
+      );
     });
   });
 }
