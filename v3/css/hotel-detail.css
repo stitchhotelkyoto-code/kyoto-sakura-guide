@@ -123,3 +123,51 @@
     grid-template-columns: 1fr;
   }
 }
+
+.hotel-detail-page .hero-card {
+  position: relative;
+  padding-bottom: 84px;
+}
+
+.hotel-detail-page .hotel-hero-links {
+  position: absolute;
+  right: 28px;
+  bottom: 24px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.hotel-detail-page .hotel-hero-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 1px solid #efd6e0;
+  background: #fff;
+  color: #8d4e68;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.hotel-detail-page .hotel-hero-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(31, 45, 82, 0.08);
+}
+
+@media (max-width: 768px) {
+  .hotel-detail-page .hero-card {
+    padding-bottom: 28px;
+  }
+
+  .hotel-detail-page .hotel-hero-links {
+    position: static;
+    margin-top: 18px;
+    justify-content: flex-start;
+  }
+}
