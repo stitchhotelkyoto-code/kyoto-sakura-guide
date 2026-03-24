@@ -51,11 +51,33 @@
 
     <section class="hotel-photo-grid" data-photo-grid></section>
 
-    <section class="hotel-panels">
-      <div class="panel-card" data-course-panel></div>
-      <div class="panel-card" data-food-panel></div>
-      <div class="panel-card" data-events-panel></div>
+    <section class="hotel-tabs-shell">
+  <div class="hotel-tabs-nav" data-hotel-tabs-nav>
+    <button class="hotel-tab-btn is-active" type="button" data-tab-target="course">
+      Recommended Course
+    </button>
+    <button class="hotel-tab-btn" type="button" data-tab-target="food">
+      Food Picks
+    </button>
+    <button class="hotel-tab-btn" type="button" data-tab-target="events">
+      Nearby Events
+    </button>
+  </div>
+
+  <div class="hotel-tabs-body">
+    <section class="hotel-tab-panel is-active" data-tab-panel="course">
+      <div class="panel-card hotel-tab-card" data-course-panel></div>
     </section>
+
+    <section class="hotel-tab-panel" data-tab-panel="food">
+      <div class="panel-card hotel-tab-card" data-food-panel></div>
+    </section>
+
+    <section class="hotel-tab-panel" data-tab-panel="events">
+      <div class="panel-card hotel-tab-card" data-events-panel></div>
+    </section>
+  </div>
+</section>
   </main>
 
   <footer class="footer-note">
