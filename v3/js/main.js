@@ -199,7 +199,6 @@ function renderHotelPage(key, lang) {
   setText("[data-intro-title]", resolveText(data.introTitle, lang));
   setText("[data-intro-text]", resolveText(data.introText, lang));
 
-  renderHeroButtons(data.heroButtons || []);
   renderPhotoCards(data.cards || [], lang);
   renderCourseCards(data.courses || [], lang);
   renderMiniFood(data.foods || [], lang);
