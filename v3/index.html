@@ -35,74 +35,89 @@
     </header>
 
     <main>
-      <section class="home-hero home-hero-redesign">
-        <div class="home-hero-left">
-          <div class="hero-copy-wrap">
-            <p class="mega-label">Spring Stay in Kyoto</p>
+     <section class="home-hero home-hero-slider">
+  <div class="home-hero-left">
+    <div class="hero-copy-wrap">
+      <p class="mega-label">Spring Stay in Kyoto</p>
 
-            <h1 class="mega-title">
-              Explore Kyoto,<br>
-              Stay Your Way
-            </h1>
+      <h1 class="mega-title">
+        Explore Kyoto,<br>
+        Stay Your Way
+      </h1>
 
-            <p class="mega-desc">
-              京都の春を、それぞれの滞在スタイルで。<br>
-              4つのホテルから、あなたに合う春の京都ステイを見つけてください。
-            </p>
+      <p class="mega-desc">
+        京都の春を、それぞれの滞在スタイルで。<br>
+        4つのホテルから、あなたに合う京都ステイを見つけてください。
+      </p>
 
-            <div class="mega-meta">2026 Spring Hotel Guide</div>
+      <div class="mega-meta">2026 Spring Hotel Guide</div>
 
-            <div class="mega-actions">
-              <a href="./hotels/soraniwa.html" class="btn btn-primary">View Hotels</a>
-              <a href="./all-sakura.html" class="btn btn-secondary">Explore Sakura</a>
-            </div>
+      <div class="mega-actions">
+        <a href="./all-sakura.html" class="btn btn-primary">Explore Sakura</a>
+        <a href="./hotels/soraniwa.html" class="btn btn-secondary">View Hotels</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="home-hero-right">
+    <div class="hero-slider-shell">
+      <div class="hero-slider-track" id="heroSliderTrack">
+        <a class="hero-slide is-active" href="./hotels/soraniwa.html">
+          <div class="hero-slide-image">
+            <img src="./img/soraniwa-main.jpg" alt="Soraniwa Hotel">
           </div>
+          <div class="hero-slide-body">
+            <h3>Soraniwa</h3>
+            <p>Sky onsen stay with open views and a relaxed Kyoto atmosphere.</p>
+          </div>
+        </a>
+
+        <a class="hero-slide" href="./hotels/bettel.html">
+          <div class="hero-slide-image">
+            <img src="./img/bettei-main.jpg" alt="Soraniwa Bettei">
+          </div>
+          <div class="hero-slide-body">
+            <h3>Bettei</h3>
+            <p>Private luxury stay with a quieter and more refined Kyoto mood.</p>
+          </div>
+        </a>
+
+        <a class="hero-slide" href="./hotels/hiyori.html">
+          <div class="hero-slide-image">
+            <img src="./img/hiyori-main.jpg" alt="Hiyori Stay Kyoto Gojo">
+          </div>
+          <div class="hero-slide-body">
+            <h3>Hiyori</h3>
+            <p>Practical and comfortable base for exploring central Kyoto.</p>
+          </div>
+        </a>
+
+        <a class="hero-slide" href="./hotels/stitch.html">
+          <div class="hero-slide-image">
+            <img src="./img/stitch-main.jpg" alt="STITCH HOTEL Kyoto">
+          </div>
+          <div class="hero-slide-body">
+            <h3>STITCH</h3>
+            <p>Urban and stylish stay for guests who want a modern Kyoto trip.</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="hero-slider-ui">
+        <div class="hero-slider-nav">
+          <button class="hero-slider-btn" id="heroPrevBtn" type="button" aria-label="Previous slide">‹</button>
+          <button class="hero-slider-btn" id="heroNextBtn" type="button" aria-label="Next slide">›</button>
         </div>
 
-        <div class="home-hero-right">
-          <div class="hero-hotel-grid">
-            <a class="hero-hotel-card hero-hotel-card-large" href="./hotels/soraniwa.html">
-              <div class="hero-hotel-image">
-                <img src="./images/home-hotel-1.jpg" alt="Soraniwa Hotel">
-              </div>
-              <div class="hero-hotel-body">
-                <h3>Soraniwa</h3>
-                <p>Sky onsen stay with open views and a relaxed Kyoto atmosphere.</p>
-              </div>
-            </a>
-
-            <a class="hero-hotel-card" href="./hotels/bettel.html">
-              <div class="hero-hotel-image">
-                <img src="./images/home-hotel-4.jpg" alt="Soraniwa Bettei">
-              </div>
-              <div class="hero-hotel-body">
-                <h3>Bettei</h3>
-                <p>Private luxury stay with a quieter and more refined Kyoto mood.</p>
-              </div>
-            </a>
-
-            <a class="hero-hotel-card" href="./hotels/hiyori.html">
-              <div class="hero-hotel-image">
-                <img src="./images/home-hotel-2.jpg" alt="Hiyori Stay Kyoto Gojo">
-              </div>
-              <div class="hero-hotel-body">
-                <h3>Hiyori</h3>
-                <p>Practical and comfortable base for exploring central Kyoto.</p>
-              </div>
-            </a>
-
-            <a class="hero-hotel-card" href="./hotels/stitch.html">
-              <div class="hero-hotel-image">
-                <img src="./images/home-hotel-3.jpg" alt="STITCH HOTEL Kyoto">
-              </div>
-              <div class="hero-hotel-body">
-                <h3>STITCH</h3>
-                <p>Urban and stylish stay for guests who want a modern Kyoto trip.</p>
-              </div>
-            </a>
-          </div>
+        <div class="hero-slider-status">
+          <span id="heroCurrent">1</span>
+          <span>/</span>
+          <span id="heroTotal">4</span>
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+</section>
 
       <section class="section widgets-section">
         <div class="container widgets-inner">
