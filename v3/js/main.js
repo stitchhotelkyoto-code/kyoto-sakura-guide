@@ -19,6 +19,7 @@ const STATIC_TRANSLATIONS = {
   jp: {
     nav_home: "Home",
     nav_soraniwa: "Soraniwa",
+    nav_bettei: "Bettei",
     nav_hiyori: "Hiyori",
     nav_stitch: "STITCH",
     nav_sakura: "Sakura",
@@ -62,6 +63,7 @@ const STATIC_TRANSLATIONS = {
   en: {
     nav_home: "Home",
     nav_soraniwa: "Soraniwa",
+    nav_bettei: "Bettei",
     nav_hiyori: "Hiyori",
     nav_stitch: "STITCH",
     nav_sakura: "Sakura",
@@ -105,6 +107,7 @@ const STATIC_TRANSLATIONS = {
   kr: {
     nav_home: "Home",
     nav_soraniwa: "Soraniwa",
+    nav_bettei: "Bettei",
     nav_hiyori: "Hiyori",
     nav_stitch: "STITCH",
     nav_sakura: "Sakura",
