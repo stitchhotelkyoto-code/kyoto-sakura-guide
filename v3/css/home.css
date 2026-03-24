@@ -511,3 +511,17 @@ body[data-page="home"] .widget-label {
     font-size: 0.84rem;
   }
 }
+body[data-page="home"] .hero-slider-shell {
+  position: relative;
+}
+
+body[data-page="home"] .hero-slider-ui {
+  position: relative;
+  z-index: 10;
+}
+
+body[data-page="home"] .hero-slider-btn {
+  position: relative;
+  z-index: 11;
+  pointer-events: auto;
+}
