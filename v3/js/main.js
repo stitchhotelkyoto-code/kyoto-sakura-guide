@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (hotelPage) renderHotelPage(hotelPage, lang);
   if (allPage) renderAllPage(allPage, lang);
 
+  if (document.body.dataset.page === "home") bindHomeHeroSlider();
   bindLanguageSwitcher();
 });
 
@@ -730,4 +731,71 @@ function escapeHtml(value) {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#39;");
+}
+
+function bindHomeHeroSlider() {
+  const slides = Array.from(document.querySelectorAll(".hero-slide"));
+  const prevBtn = document.getElementById("heroPrevBtn");
+  const nextBtn = document.getElementById("heroNextBtn");
+  const currentEl = document.getElementById("heroCurrent");
+  const totalEl = document.getElementById("heroTotal");
+
+  if (!slides.length || !prevBtn || !nextBtn || !currentEl || !totalEl) return;
+
+  let current = 0;
+  let autoTimer = null;
+  const autoDelay = 3500;
+
+  totalEl.textContent = String(slides.length);
+
+  function showSlide(index) {
+    current = (index + slides.length) % slides.length;
+
+    slides.forEach((slide, i) => {
+      slide.classList.toggle("is-active", i === current);
+    });
+
+    currentEl.textContent = String(current + 1);
+  }
+
+  function startAuto() {
+    stopAuto();
+    autoTimer = window.setInterval(() => {
+      showSlide(current + 1);
+    }, autoDelay);
+  }
+
+  function stopAuto() {
+    if (autoTimer) {
+      window.clearInterval(autoTimer);
+      autoTimer = null;
+    }
+  }
+
+  prevBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    showSlide(current - 1);
+    startAuto();
+  });
+
+  nextBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    showSlide(current + 1);
+    startAuto();
+  });
+
+  slides.forEach((slide) => {
+    slide.addEventListener("mouseenter", stopAuto);
+    slide.addEventListener("mouseleave", startAuto);
+  });
+
+  prevBtn.addEventListener("mouseenter", stopAuto);
+  nextBtn.addEventListener("mouseenter", stopAuto);
+  prevBtn.addEventListener("mouseleave", startAuto);
+  nextBtn.addEventListener("mouseleave", startAuto);
+
+  showSlide(0);
+  startAuto();
 }
