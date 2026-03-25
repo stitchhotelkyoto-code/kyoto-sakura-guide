@@ -388,6 +388,87 @@ main {
   margin-top: auto;
 }
 
+/* courses page */
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+
+.courses-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow);
+}
+
+.courses-card-media {
+  aspect-ratio: 1.6 / 1;
+  background: #f4e6ec;
+  overflow: hidden;
+}
+
+.courses-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.courses-card-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #f7eaf0 0%, #f2e3ea 100%);
+}
+
+.courses-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+  flex: 1;
+}
+
+.courses-tag {
+  display: inline-block;
+  margin: 0;
+  color: #9a7081;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.courses-card-title {
+  margin: 0;
+  font-size: 1.28rem;
+  line-height: 1.4;
+  color: var(--text);
+}
+
+.courses-card-text {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.96rem;
+  line-height: 1.75;
+  flex: 1;
+}
+
+.courses-card .soft-pill {
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+@media (max-width: 768px) {
+  .courses-grid {
+    grid-template-columns: 1fr;
+  }
+}
 
 /* all food */
 .food-shell {
