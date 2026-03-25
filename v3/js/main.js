@@ -502,6 +502,7 @@ function renderMiniEvents(items, lang) {
 
 function renderAllPage(type, lang) {
   if (type === "sakura") renderSakuraPage(lang);
+  if (type === "courses") renderCoursesPage(lang);
   if (type === "food") renderFoodPage(lang);
   if (type === "events") renderEventsPage(lang);
 }
@@ -542,6 +543,45 @@ function renderSakuraPage(lang) {
         })
         .join("")}
     </section>
+  `;
+}
+
+function renderCoursesPage(lang) {
+  const data = window.HOTEL_DATA?.allCourses;
+  if (!data) return;
+
+  setText("[data-all-title]", resolveText(data.title, lang));
+  setText("[data-all-desc]", resolveText(data.description, lang));
+
+  const el = document.querySelector("[data-all-content]");
+  if (!el) return;
+
+  el.innerHTML = `
+    ${data.items.map((item) => {
+      const tag = escapeHtml(resolveText(item.tag, lang));
+      const title = escapeHtml(resolveText(item.title, lang));
+      const text = escapeHtml(resolveText(item.text, lang));
+      const image = escapeHtml(item.image || "");
+      const direction = escapeHtml(item.direction || "#");
+
+      return `
+        <article class="feature-card">
+          ${image ? `
+            <div class="feature-card-image">
+              <img src="${image}" alt="${title}">
+            </div>
+          ` : `
+            <div class="feature-card-image"></div>
+          `}
+          <div class="feature-card-body">
+            <p class="feature-card-tag">${tag}</p>
+            <h3>${title}</h3>
+            <p>${text}</p>
+            <a class="text-link" href="${direction}" target="_blank" rel="noopener noreferrer">Directions</a>
+          </div>
+        </article>
+      `;
+    }).join("")}
   `;
 }
 
