@@ -948,6 +948,97 @@ window.HOTEL_DATA = {
     ]
   },
 
+    allCourses: {
+    title: {
+      jp: "TRAVEL COURSES",
+      kr: "TRAVEL COURSES",
+      en: "TRAVEL COURSES"
+    },
+    description: {
+      jp: "ホテルごとのおすすめ動線をまとめた、京都散策コース一覧です。",
+      kr: "호텔별 추천 동선을 모아둔 교토 산책 코스 페이지입니다.",
+      en: "A collection of recommended Kyoto routes organized by hotel base."
+    },
+    items: [
+      {
+        tag: {
+          jp: "SORANIWA",
+          kr: "SORANIWA",
+          en: "SORANIWA"
+        },
+        title: {
+          jp: "Gion Night Walk",
+          kr: "기온 야간 산책 코스",
+          en: "Gion Night Walk"
+        },
+        text: {
+          jp: "祇園白川、八坂神社、円山公園をゆっくり回る定番夜散策ルートです。",
+          kr: "기온 시라카와, 야사카 신사, 마루야마 공원을 천천히 도는 대표 야간 산책 코스입니다.",
+          en: "A classic evening route through Gion Shirakawa, Yasaka Shrine, and Maruyama Park."
+        },
+        image: "img/course-soraniwa.jpg",
+        direction: "https://www.google.com/maps/search/?api=1&query=Gion+Shirakawa+Kyoto"
+      },
+      {
+        tag: {
+          jp: "BETTEI",
+          kr: "BETTEI",
+          en: "BETTEI"
+        },
+        title: {
+          jp: "Quiet Spring Route",
+          kr: "차분한 봄 산책 코스",
+          en: "Quiet Spring Route"
+        },
+        text: {
+          jp: "落ち着いた別邸滞在に合わせて、静かに 봄의 교토를 즐길 수 있는 루트입니다.",
+          kr: "차분한 벳테이 스테이에 맞춰 조용한 봄의 교토를 즐길 수 있는 코스입니다.",
+          en: "A calmer spring route designed to match the quieter Bettei stay."
+        },
+        image: "img/course-bettei.jpg",
+        direction: "https://www.google.com/maps/search/?api=1&query=Maruyama+Park+Kyoto"
+      },
+      {
+        tag: {
+          jp: "HIYORI",
+          kr: "HIYORI",
+          en: "HIYORI"
+        },
+        title: {
+          jp: "Gojo to Kiyomizu",
+          kr: "고조-기요미즈 코스",
+          en: "Gojo to Kiyomizu"
+        },
+        text: {
+          jp: "五条から東山方面へ、カフェや街歩きも含めて回りやすい半日ルートです。",
+          kr: "고조에서 히가시야마 방면으로 카페와 산책을 함께 즐기기 좋은 반나절 코스입니다.",
+          en: "A half-day route from Gojo toward Higashiyama with cafes and easy walking."
+        },
+        image: "img/course-hiyori.jpg",
+        direction: "https://www.google.com/maps/search/?api=1&query=Kiyomizu-dera+Kyoto"
+      },
+      {
+        tag: {
+          jp: "STITCH",
+          kr: "STITCH",
+          en: "STITCH"
+        },
+        title: {
+          jp: "City Night Mood",
+          kr: "시티 나이트 무드 코스",
+          en: "City Night Mood"
+        },
+        text: {
+          jp: "河原町、先斗町、鴨川をつなげて楽しむ都会型の夜コースです。",
+          kr: "가와라마치, 폰토초, 가모가와를 연결해 즐기는 도심형 나이트 코스입니다.",
+          en: "An urban night route connecting Kawaramachi, Pontocho, and the Kamo River."
+        },
+        image: "img/course-stitch.jpg",
+        direction: "https://www.google.com/maps/search/?api=1&query=Pontocho+Kyoto"
+      }
+    ]
+  },
+
   allEvents: {
     title: { jp: "EVENTS GUIDE", kr: "EVENTS GUIDE", en: "EVENTS GUIDE" },
     description: {
