@@ -557,36 +557,34 @@ function renderCoursesPage(lang) {
   if (!el) return;
 
   el.innerHTML = `
-    <section class="sakura-grid">
-      ${data.items
-        .map((item) => {
-          const tag = escapeHtml(resolveText(item.tag, lang));
-          const title = escapeHtml(resolveText(item.title, lang));
-          const text = escapeHtml(resolveText(item.text, lang));
-          const image = escapeHtml(item.image || "");
-          const direction = escapeHtml(item.direction || "#");
+    <section class="courses-grid">
+      ${data.items.map((item) => {
+        const tag = escapeHtml(resolveText(item.tag, lang));
+        const title = escapeHtml(resolveText(item.title, lang));
+        const text = escapeHtml(resolveText(item.text, lang));
+        const image = escapeHtml(item.image || "");
+        const direction = escapeHtml(item.direction || "#");
 
-          return `
-            <article class="sakura-card">
-              <div class="sakura-card-media">
-                ${
-                  image
-                    ? `<img src="${image}" alt="${title}" loading="lazy">`
-                    : ``
-                }
-              </div>
-              <div class="sakura-card-body">
-                <span class="sakura-tag">${tag}</span>
-                <h3 class="sakura-card-title">${title}</h3>
-                <p class="sakura-card-text">${text}</p>
-                <a class="soft-pill" href="${direction}" target="_blank" rel="noopener noreferrer">
-                  Directions
-                </a>
-              </div>
-            </article>
-          `;
-        })
-        .join("")}
+        return `
+          <article class="courses-card">
+            <div class="courses-card-media">
+              ${
+                image
+                  ? `<img src="${image}" alt="${title}" loading="lazy">`
+                  : `<div class="courses-card-placeholder"></div>`
+              }
+            </div>
+            <div class="courses-card-body">
+              <span class="courses-tag">${tag}</span>
+              <h3 class="courses-card-title">${title}</h3>
+              <p class="courses-card-text">${text}</p>
+              <a class="soft-pill" href="${direction}" target="_blank" rel="noopener noreferrer">
+                Directions
+              </a>
+            </div>
+          </article>
+        `;
+      }).join("")}
     </section>
   `;
 }
