@@ -321,8 +321,8 @@ main {
 /* all sakura */
 .sakura-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(320px, 1fr));
-  gap: 28px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
   align-items: stretch;
 }
 
@@ -334,14 +334,12 @@ main {
   border: 1px solid var(--line);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow);
-  min-height: 440px;
 }
 
 .sakura-card-media {
-  height: 210px;
+  aspect-ratio: 1.25 / 1;
   background: #f4e6ec;
   overflow: hidden;
-  flex-shrink: 0;
 }
 
 .sakura-card-media img {
@@ -354,8 +352,8 @@ main {
 .sakura-card-body {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding: 22px;
+  gap: 10px;
+  padding: 18px;
   flex: 1;
 }
 
@@ -371,14 +369,14 @@ main {
 
 .sakura-card-title {
   margin: 0;
-  font-size: 1.3rem;
-  line-height: 1.35;
+  font-size: 1.12rem;
+  line-height: 1.45;
 }
 
 .sakura-card-text {
   margin: 0;
   color: var(--muted);
-  font-size: 0.96rem;
+  font-size: 0.95rem;
   line-height: 1.7;
   flex: 1;
 }
@@ -387,6 +385,7 @@ main {
   align-self: flex-start;
   margin-top: auto;
 }
+
 
 /* all food */
 .food-shell {
