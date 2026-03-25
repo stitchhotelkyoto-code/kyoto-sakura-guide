@@ -321,50 +321,71 @@ main {
 /* all sakura */
 .sakura-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(2, minmax(320px, 1fr));
+  gap: 28px;
+  align-items: stretch;
 }
 
 .sakura-card {
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow);
+  min-height: 440px;
 }
 
 .sakura-card-media {
-  aspect-ratio: 1.5 / 1;
+  height: 210px;
   background: #f4e6ec;
+  overflow: hidden;
+  flex-shrink: 0;
 }
 
 .sakura-card-media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 .sakura-card-body {
-  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 22px;
+  flex: 1;
 }
 
 .sakura-tag {
   display: inline-block;
-  margin-bottom: 8px;
+  margin: 0;
   color: #9a7081;
   font-size: 0.75rem;
   font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .sakura-card-title {
-  margin: 0 0 8px;
-  font-size: 1.2rem;
+  margin: 0;
+  font-size: 1.3rem;
+  line-height: 1.35;
 }
 
 .sakura-card-text {
-  margin: 0 0 14px;
+  margin: 0;
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: 0.96rem;
+  line-height: 1.7;
+  flex: 1;
+}
+
+.sakura-card .soft-pill {
+  align-self: flex-start;
+  margin-top: auto;
 }
 
 /* all food */
