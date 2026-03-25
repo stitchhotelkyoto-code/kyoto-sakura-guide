@@ -557,34 +557,37 @@ function renderCoursesPage(lang) {
   if (!el) return;
 
   el.innerHTML = `
-    <div class="course-page-grid">
-      ${data.items.map((item) => {
+    <section class="sakura-grid">
+      ${data.items
+        .map((item) => {
+          const tag = escapeHtml(resolveText(item.tag, lang));
+          const title = escapeHtml(resolveText(item.title, lang));
+          const text = escapeHtml(resolveText(item.text, lang));
+          const image = escapeHtml(item.image || "");
+          const direction = escapeHtml(item.direction || "#");
 
-        const tag = escapeHtml(resolveText(item.tag, lang));
-        const title = escapeHtml(resolveText(item.title, lang));
-        const text = escapeHtml(resolveText(item.text, lang));
-        const image = escapeHtml(item.image || "");
-        const direction = escapeHtml(item.direction || "#");
-
-        return `
-          <article class="course-page-card">
-            ${image ? `
-              <div class="course-page-image">
-                <img src="${image}" alt="${title}">
+          return `
+            <article class="sakura-card">
+              <div class="sakura-card-media">
+                ${
+                  image
+                    ? `<img src="${image}" alt="${title}" loading="lazy">`
+                    : ``
+                }
               </div>
-            ` : `
-              <div class="course-page-image"></div>
-            `}
-            <div class="course-page-body">
-              <p class="course-page-tag">${tag}</p>
-              <h3>${title}</h3>
-              <p>${text}</p>
-              <a class="course-page-link" href="${direction}" target="_blank" rel="noopener noreferrer">Directions</a>
-            </div>
-          </article>
-        `;
-      }).join("")}
-    </div>
+              <div class="sakura-card-body">
+                <span class="sakura-tag">${tag}</span>
+                <h3 class="sakura-card-title">${title}</h3>
+                <p class="sakura-card-text">${text}</p>
+                <a class="soft-pill" href="${direction}" target="_blank" rel="noopener noreferrer">
+                  Directions
+                </a>
+              </div>
+            </article>
+          `;
+        })
+        .join("")}
+    </section>
   `;
 }
 
