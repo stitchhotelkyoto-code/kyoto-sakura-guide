@@ -557,31 +557,34 @@ function renderCoursesPage(lang) {
   if (!el) return;
 
   el.innerHTML = `
-    ${data.items.map((item) => {
-      const tag = escapeHtml(resolveText(item.tag, lang));
-      const title = escapeHtml(resolveText(item.title, lang));
-      const text = escapeHtml(resolveText(item.text, lang));
-      const image = escapeHtml(item.image || "");
-      const direction = escapeHtml(item.direction || "#");
+    <div class="course-page-grid">
+      ${data.items.map((item) => {
 
-      return `
-        <article class="feature-card">
-          ${image ? `
-            <div class="feature-card-image">
-              <img src="${image}" alt="${title}">
+        const tag = escapeHtml(resolveText(item.tag, lang));
+        const title = escapeHtml(resolveText(item.title, lang));
+        const text = escapeHtml(resolveText(item.text, lang));
+        const image = escapeHtml(item.image || "");
+        const direction = escapeHtml(item.direction || "#");
+
+        return `
+          <article class="course-page-card">
+            ${image ? `
+              <div class="course-page-image">
+                <img src="${image}" alt="${title}">
+              </div>
+            ` : `
+              <div class="course-page-image"></div>
+            `}
+            <div class="course-page-body">
+              <p class="course-page-tag">${tag}</p>
+              <h3>${title}</h3>
+              <p>${text}</p>
+              <a class="course-page-link" href="${direction}" target="_blank" rel="noopener noreferrer">Directions</a>
             </div>
-          ` : `
-            <div class="feature-card-image"></div>
-          `}
-          <div class="feature-card-body">
-            <p class="feature-card-tag">${tag}</p>
-            <h3>${title}</h3>
-            <p>${text}</p>
-            <a class="text-link" href="${direction}" target="_blank" rel="noopener noreferrer">Directions</a>
-          </div>
-        </article>
-      `;
-    }).join("")}
+          </article>
+        `;
+      }).join("")}
+    </div>
   `;
 }
 
