@@ -66,41 +66,89 @@
         <div class="container">
           <div class="crowd-hero-card">
             <p class="eyebrow">LIVE CROWD</p>
-            <h1 data-i18n="crowd_title">Live Crowd Guide</h1>
-            <p data-i18n="crowd_desc">
-              실시간 혼잡도와 이동 전 확인하면 좋은 링크를 모아둔 페이지입니다.
+            <h1 data-crowd-text="heroTitle">혼잡도 검색 가이드</h1>
+            <p data-crowd-text="heroDesc">
+              가고 싶은 장소를 검색하면, 혼잡도 경향과 추천 시간대, 대체 동선을 빠르게 확인할 수 있습니다.
             </p>
           </div>
         </div>
       </section>
 
-      <section class="crowd-section">
+      <section class="crowd-search-section">
         <div class="container">
-          <div class="crowd-grid">
-            <article class="crowd-card">
-              <span class="crowd-tag" data-i18n="crowd_tag_1">Best Time</span>
-              <h3 data-i18n="crowd_card_1_title">Morning vs Noon</h3>
-              <p data-i18n="crowd_card_1_desc">
-                관광지 방문 전 주변 지역의 혼잡도를 먼저 확인하는 용도입니다.
+          <div class="crowd-search-card">
+            <div class="crowd-search-head">
+              <div>
+                <p class="crowd-mini-label" data-crowd-text="searchEyebrow">Smart Spot Search</p>
+                <h2 data-crowd-text="searchTitle">어디로 가고 싶으신가요?</h2>
+              </div>
+              <p class="crowd-search-desc" data-crowd-text="searchDesc">
+                스팟명, 지역명, 분위기로 검색해 현재 이동하기 좋은 장소를 찾아보세요.
               </p>
-            </article>
+            </div>
 
-            <article class="crowd-card">
-              <span class="crowd-tag" data-i18n="crowd_tag_2">Busy Hours</span>
-              <h3 data-i18n="crowd_card_2_title">Evening Crowd Around Gion</h3>
-              <p data-i18n="crowd_card_2_desc">
-                아침・점심・저녁 시간대에 따라 이동 순서를 바꿔 혼잡을 피할 수 있습니다.
-              </p>
-            </article>
+            <div class="crowd-search-bar">
+              <input
+                type="text"
+                class="crowd-search-input"
+                data-crowd-search-input
+                placeholder="清水寺 / Gion / 桜 / 기요미즈데라"
+              />
+              <button type="button" class="crowd-search-btn" data-crowd-search-btn>
+                <span data-crowd-text="searchButton">검색</span>
+              </button>
+            </div>
 
-            <article class="crowd-card">
-              <span class="crowd-tag" data-i18n="crowd_tag_3">Smart Timing</span>
-              <h3 data-i18n="crowd_card_3_title">Choose the Order Wisely</h3>
-              <p data-i18n="crowd_card_3_desc">
-                혼잡한 곳 대신 비슷한 분위기의 대체 산책 코스도 함께 제안할 수 있습니다.
-              </p>
-            </article>
+            <div class="crowd-keywords">
+              <button type="button" class="crowd-keyword-chip" data-crowd-keyword="Gion">Gion</button>
+              <button type="button" class="crowd-keyword-chip" data-crowd-keyword="Kiyomizu">Kiyomizu</button>
+              <button type="button" class="crowd-keyword-chip" data-crowd-keyword="Arashiyama">Arashiyama</button>
+              <button type="button" class="crowd-keyword-chip" data-crowd-keyword="Fushimi Inari">Fushimi Inari</button>
+              <button type="button" class="crowd-keyword-chip" data-crowd-keyword="Sakura">Sakura</button>
+            </div>
           </div>
+        </div>
+      </section>
+
+      <section class="crowd-featured-section">
+        <div class="container">
+          <div class="section-heading crowd-section-heading">
+            <div>
+              <p class="section-kicker" data-crowd-text="featuredEyebrow">Top Picks</p>
+              <h2 data-crowd-text="featuredTitle">대표 스팟</h2>
+            </div>
+            <p data-crowd-text="featuredDesc">
+              많이 찾는 장소를 먼저 확인하고, 상세 검색으로 이어질 수 있도록 구성했습니다.
+            </p>
+          </div>
+
+          <div class="crowd-featured-grid" data-crowd-featured-list></div>
+        </div>
+      </section>
+
+      <section class="crowd-result-section">
+        <div class="container">
+          <div class="section-heading crowd-section-heading">
+            <div>
+              <p class="section-kicker" data-crowd-text="resultEyebrow">Search Result</p>
+              <h2 data-crowd-text="resultTitle">검색 결과</h2>
+            </div>
+            <p data-crowd-text="resultDesc">
+              혼잡도 경향과 추천 시간대, 대체 제안을 함께 보여줍니다.
+            </p>
+          </div>
+
+          <div class="crowd-result-state" data-crowd-empty-state>
+            <div class="crowd-empty-card">
+              <p class="crowd-empty-label" data-crowd-text="emptyLabel">No Search Yet</p>
+              <h3 data-crowd-text="emptyTitle">장소를 검색해보세요</h3>
+              <p data-crowd-text="emptyDesc">
+                검색 전에는 대표 스팟을 먼저 보고, 원하는 장소명이나 지역명으로 바로 찾을 수 있습니다.
+              </p>
+            </div>
+          </div>
+
+          <div class="crowd-result-list" data-crowd-result-list hidden></div>
         </div>
       </section>
     </main>
@@ -112,5 +160,394 @@
 
   <script src="./js/hotel-data.js"></script>
   <script src="./js/main.js"></script>
+  <script src="./js/crowd-data.js"></script>
+  <script src="./js/crowd-guide.js"></script>
+
+  <script>
+    (function () {
+      const CROWD_TEXT = {
+        jp: {
+          heroTitle: "混雑検索ガイド",
+          heroDesc: "行きたい場所を検索すると、混雑傾向・おすすめ時間帯・代替動線をすばやく確認できます。",
+          searchEyebrow: "Smart Spot Search",
+          searchTitle: "どこへ行きたいですか？",
+          searchDesc: "スポット名・エリア名・雰囲気で検索して、今動きやすい場所を見つけてください。",
+          searchButton: "検索",
+          featuredEyebrow: "Top Picks",
+          featuredTitle: "人気スポット",
+          featuredDesc: "よく見られる場所を先に確認し、そのまま詳細検索につなげられる構成です。",
+          resultEyebrow: "Search Result",
+          resultTitle: "検索結果",
+          resultDesc: "混雑傾向、おすすめ時間帯、代替提案をまとめて表示します。",
+          emptyLabel: "No Search Yet",
+          emptyTitle: "場所を検索してみてください",
+          emptyDesc: "まずは代表スポットを見てから、スポット名やエリア名で探すこともできます。",
+          featuredTag: "POPULAR",
+          resultTag: "RESULT",
+          statusLabel: "混雑傾向",
+          bestTimeLabel: "おすすめ時間",
+          avoidLabel: "避けたい時間",
+          altLabel: "代替提案",
+          areaLabel: "エリア",
+          searchNoResultTitle: "検索結果が見つかりませんでした",
+          searchNoResultDesc: "別の地名・スポット名・桜などのキーワードで再検索してみてください。",
+          directionButton: "Google Map"
+        },
+        en: {
+          heroTitle: "Live Crowd Search Guide",
+          heroDesc: "Search where you want to go and quickly check crowd tendency, best timing, and alternative ideas.",
+          searchEyebrow: "Smart Spot Search",
+          searchTitle: "Where would you like to go?",
+          searchDesc: "Search by spot name, area, or mood to find places that are easier to visit now.",
+          searchButton: "Search",
+          featuredEyebrow: "Top Picks",
+          featuredTitle: "Featured Spots",
+          featuredDesc: "Start with the most searched places, then move into detailed search results.",
+          resultEyebrow: "Search Result",
+          resultTitle: "Search Results",
+          resultDesc: "We show crowd tendency, better timing, and alternative suggestions together.",
+          emptyLabel: "No Search Yet",
+          emptyTitle: "Try searching a place",
+          emptyDesc: "You can first browse the featured spots, then search by place name or area.",
+          featuredTag: "POPULAR",
+          resultTag: "RESULT",
+          statusLabel: "Crowd Level",
+          bestTimeLabel: "Best Time",
+          avoidLabel: "Avoid",
+          altLabel: "Alternative",
+          areaLabel: "Area",
+          searchNoResultTitle: "No matching result found",
+          searchNoResultDesc: "Try another place name, area, or keyword such as sakura.",
+          directionButton: "Google Map"
+        },
+        kr: {
+          heroTitle: "혼잡도 검색 가이드",
+          heroDesc: "가고 싶은 장소를 검색하면, 혼잡도 경향과 추천 시간대, 대체 동선을 빠르게 확인할 수 있습니다.",
+          searchEyebrow: "Smart Spot Search",
+          searchTitle: "어디로 가고 싶으신가요?",
+          searchDesc: "스팟명, 지역명, 분위기로 검색해 현재 이동하기 좋은 장소를 찾아보세요.",
+          searchButton: "검색",
+          featuredEyebrow: "Top Picks",
+          featuredTitle: "대표 스팟",
+          featuredDesc: "많이 찾는 장소를 먼저 확인하고, 상세 검색으로 이어질 수 있도록 구성했습니다.",
+          resultEyebrow: "Search Result",
+          resultTitle: "검색 결과",
+          resultDesc: "혼잡도 경향과 추천 시간대, 대체 제안을 함께 보여줍니다.",
+          emptyLabel: "No Search Yet",
+          emptyTitle: "장소를 검색해보세요",
+          emptyDesc: "검색 전에는 대표 스팟을 먼저 보고, 원하는 장소명이나 지역명으로 바로 찾을 수 있습니다.",
+          featuredTag: "POPULAR",
+          resultTag: "RESULT",
+          statusLabel: "혼잡도 경향",
+          bestTimeLabel: "추천 시간",
+          avoidLabel: "피하면 좋은 시간",
+          altLabel: "대체 제안",
+          areaLabel: "지역",
+          searchNoResultTitle: "검색 결과가 없습니다",
+          searchNoResultDesc: "다른 지역명, 장소명, 벚꽃 같은 키워드로 다시 검색해보세요.",
+          directionButton: "Google Map"
+        }
+      };
+
+      const FALLBACK_SPOTS = [
+        {
+          id: "kiyomizu",
+          name: { jp: "清水寺", en: "Kiyomizu-dera", kr: "기요미즈데라" },
+          area: { jp: "東山", en: "Higashiyama", kr: "히가시야마" },
+          crowd: { jp: "昼前後はかなり混みやすい", en: "Often very busy around midday", kr: "점심 전후로 매우 붐비는 편" },
+          bestTime: { jp: "朝 8:00〜10:00", en: "Morning 8:00–10:00", kr: "오전 8:00–10:00" },
+          avoid: { jp: "11:30〜15:30", en: "11:30–15:30", kr: "11:30–15:30" },
+          alt: { jp: "高台寺・ねねの道へ流す", en: "Shift toward Kodai-ji and Nene-no-Michi", kr: "고다이지·네네노미치 쪽으로 분산" },
+          keywords: ["kiyomizu", "清水寺", "기요미즈", "higashiyama", "東山", "히가시야마", "sakura", "벚꽃"],
+          map: "https://www.google.com/maps/search/?api=1&query=Kiyomizu-dera"
+        },
+        {
+          id: "gion",
+          name: { jp: "祇園", en: "Gion", kr: "기온" },
+          area: { jp: "祇園", en: "Gion", kr: "기온" },
+          crowd: { jp: "夕方から夜にかけて人が増えやすい", en: "Gets busier from late afternoon into evening", kr: "늦은 오후부터 밤까지 붐비기 쉬움" },
+          bestTime: { jp: "朝 7:30〜9:30", en: "Morning 7:30–9:30", kr: "오전 7:30–9:30" },
+          avoid: { jp: "17:00〜21:00", en: "17:00–21:00", kr: "17:00–21:00" },
+          alt: { jp: "白川・岡崎方面へ調整", en: "Move toward Shirakawa or Okazaki", kr: "시라카와·오카자키 쪽으로 조정" },
+          keywords: ["gion", "祇園", "기온", "yasaka", "야사카", "shirakawa", "白川"],
+          map: "https://www.google.com/maps/search/?api=1&query=Gion+Kyoto"
+        },
+        {
+          id: "arashiyama",
+          name: { jp: "嵐山", en: "Arashiyama", kr: "아라시야마" },
+          area: { jp: "嵐山", en: "Arashiyama", kr: "아라시야마" },
+          crowd: { jp: "昼以降は広範囲で混雑しやすい", en: "Generally crowded across the area after late morning", kr: "늦은 오전 이후 지역 전체가 붐비기 쉬움" },
+          bestTime: { jp: "朝 8:00前", en: "Before 8:00 AM", kr: "오전 8시 이전" },
+          avoid: { jp: "11:00〜16:00", en: "11:00–16:00", kr: "11:00–16:00" },
+          alt: { jp: "竹林より先に渡月橋周辺を先行", en: "Visit Togetsukyo side first before bamboo grove", kr: "대나무숲보다 도게츠교 주변 먼저" },
+          keywords: ["arashiyama", "嵐山", "아라시야마", "bamboo", "竹林", "togetsukyo"],
+          map: "https://www.google.com/maps/search/?api=1&query=Arashiyama+Kyoto"
+        },
+        {
+          id: "fushimi",
+          name: { jp: "伏見稲荷", en: "Fushimi Inari", kr: "후시미 이나리" },
+          area: { jp: "伏見", en: "Fushimi", kr: "후시미" },
+          crowd: { jp: "昼は入口周辺がかなり混みやすい", en: "Very busy around the lower entrance at midday", kr: "점심 시간대 입구 주변이 많이 붐빔" },
+          bestTime: { jp: "早朝", en: "Early morning", kr: "이른 아침" },
+          avoid: { jp: "10:30〜15:00", en: "10:30–15:00", kr: "10:30–15:00" },
+          alt: { jp: "山頂まで行かず中腹で折り返し", en: "Turn back mid-route instead of peak hours below", kr: "하단 혼잡 피해서 중간까지만 보고 회차" },
+          keywords: ["fushimi", "inari", "伏見", "伏見稲荷", "후시미", "이나리", "torii"],
+          map: "https://www.google.com/maps/search/?api=1&query=Fushimi+Inari+Taisha"
+        },
+        {
+          id: "philosopher",
+          name: { jp: "哲学の道", en: "Philosopher's Path", kr: "철학의 길" },
+          area: { jp: "岡崎・左京", en: "Okazaki / Sakyo", kr: "오카자키 / 사쿄" },
+          crowd: { jp: "桜時期は昼前後に散策客が集中", en: "During sakura season it fills up around midday", kr: "벚꽃철에는 점심 전후 산책객 집중" },
+          bestTime: { jp: "朝 8:00〜10:30", en: "Morning 8:00–10:30", kr: "오전 8:00–10:30" },
+          avoid: { jp: "11:30〜15:30", en: "11:30–15:30", kr: "11:30–15:30" },
+          alt: { jp: "南禅寺・岡崎疏水側へ分散", en: "Split toward Nanzen-ji and Okazaki Canal", kr: "난젠지·오카자키 소수 쪽으로 분산" },
+          keywords: ["philosopher", "哲学の道", "철학의 길", "sakura", "벚꽃", "okazaki", "岡崎"],
+          map: "https://www.google.com/maps/search/?api=1&query=Philosopher%27s+Path+Kyoto"
+        }
+      };
+
+      function getLang() {
+        return document.documentElement.lang === "en" || document.documentElement.lang === "kr"
+          ? document.documentElement.lang
+          : (localStorage.getItem("preferredLang") || "jp");
+      }
+
+      function t(lang, key) {
+        return (CROWD_TEXT[lang] && CROWD_TEXT[lang][key]) || CROWD_TEXT.jp[key] || "";
+      }
+
+      function pickText(obj, lang) {
+        if (!obj) return "";
+        return obj[lang] || obj.jp || obj.en || obj.kr || "";
+      }
+
+      function normalizeKeyword(value) {
+        return String(value || "").trim().toLowerCase();
+      }
+
+      function getCrowdSource() {
+        if (Array.isArray(window.CROWD_SPOTS) && window.CROWD_SPOTS.length) return window.CROWD_SPOTS;
+        if (window.CROWD_DATA && Array.isArray(window.CROWD_DATA.spots) && window.CROWD_DATA.spots.length) return window.CROWD_DATA.spots;
+        if (Array.isArray(window.crowdSpots) && window.crowdSpots.length) return window.crowdSpots;
+        return FALLBACK_SPOTS;
+      }
+
+      function adaptSpot(spot) {
+        return {
+          id: spot.id || "",
+          name: spot.name || { jp: "", en: "", kr: "" },
+          area: spot.area || { jp: "", en: "", kr: "" },
+          crowd: spot.crowd || spot.status || spot.crowdText || { jp: "", en: "", kr: "" },
+          bestTime: spot.bestTime || { jp: "", en: "", kr: "" },
+          avoid: spot.avoid || spot.avoidTime || { jp: "", en: "", kr: "" },
+          alt: spot.alt || spot.alternative || { jp: "", en: "", kr: "" },
+          keywords: Array.isArray(spot.keywords) ? spot.keywords : [],
+          map: spot.map || spot.direction || spot.url || "#"
+        };
+      }
+
+      function searchSpots(keyword) {
+        const source = getCrowdSource().map(adaptSpot);
+        if (!keyword) return [];
+
+        const q = normalizeKeyword(keyword);
+
+        return source.filter((spot) => {
+          const bag = [
+            pickText(spot.name, "jp"),
+            pickText(spot.name, "en"),
+            pickText(spot.name, "kr"),
+            pickText(spot.area, "jp"),
+            pickText(spot.area, "en"),
+            pickText(spot.area, "kr"),
+            ...(spot.keywords || [])
+          ]
+            .join(" ")
+            .toLowerCase();
+
+          return bag.includes(q);
+        });
+      }
+
+      function renderFeatured(lang) {
+        const wrap = document.querySelector("[data-crowd-featured-list]");
+        if (!wrap) return;
+
+        const source = getCrowdSource().map(adaptSpot).slice(0, 5);
+
+        wrap.innerHTML = source.map((spot) => `
+          <article class="crowd-spot-card">
+            <div class="crowd-spot-top">
+              <span class="crowd-spot-badge">${t(lang, "featuredTag")}</span>
+              <span class="crowd-spot-area">${t(lang, "areaLabel")} · ${pickText(spot.area, lang)}</span>
+            </div>
+            <h3 class="crowd-spot-title">${pickText(spot.name, lang)}</h3>
+            <p class="crowd-spot-desc">${pickText(spot.crowd, lang)}</p>
+
+            <div class="crowd-spot-meta">
+              <div class="crowd-spot-meta-item">
+                <span class="crowd-spot-meta-label">${t(lang, "bestTimeLabel")}</span>
+                <strong>${pickText(spot.bestTime, lang)}</strong>
+              </div>
+              <div class="crowd-spot-meta-item">
+                <span class="crowd-spot-meta-label">${t(lang, "avoidLabel")}</span>
+                <strong>${pickText(spot.avoid, lang)}</strong>
+              </div>
+            </div>
+
+            <div class="crowd-spot-actions">
+              <button type="button" class="crowd-inline-search-btn" data-search-name="${pickText(spot.name, lang)}">
+                ${t(lang, "searchButton")}
+              </button>
+              <a class="crowd-map-btn" href="${spot.map}" target="_blank" rel="noopener noreferrer">
+                ${t(lang, "directionButton")}
+              </a>
+            </div>
+          </article>
+        `).join("");
+      }
+
+      function renderResults(items, keyword, lang) {
+        const resultWrap = document.querySelector("[data-crowd-result-list]");
+        const emptyWrap = document.querySelector("[data-crowd-empty-state]");
+        if (!resultWrap || !emptyWrap) return;
+
+        if (!items.length) {
+          emptyWrap.hidden = false;
+          resultWrap.hidden = true;
+          resultWrap.innerHTML = `
+            <div class="crowd-empty-card">
+              <p class="crowd-empty-label">${t(lang, "emptyLabel")}</p>
+              <h3>${t(lang, "searchNoResultTitle")}</h3>
+              <p>${t(lang, "searchNoResultDesc")}</p>
+            </div>
+          `;
+          return;
+        }
+
+        emptyWrap.hidden = true;
+        resultWrap.hidden = false;
+
+        resultWrap.innerHTML = items.map((spot) => `
+          <article class="crowd-result-card">
+            <div class="crowd-result-head">
+              <div>
+                <span class="crowd-result-badge">${t(lang, "resultTag")}</span>
+                <h3 class="crowd-result-title">${pickText(spot.name, lang)}</h3>
+              </div>
+              <span class="crowd-result-area">${t(lang, "areaLabel")} · ${pickText(spot.area, lang)}</span>
+            </div>
+
+            <div class="crowd-result-body">
+              <div class="crowd-result-line">
+                <span class="crowd-result-label">${t(lang, "statusLabel")}</span>
+                <p>${pickText(spot.crowd, lang)}</p>
+              </div>
+              <div class="crowd-result-line">
+                <span class="crowd-result-label">${t(lang, "bestTimeLabel")}</span>
+                <p>${pickText(spot.bestTime, lang)}</p>
+              </div>
+              <div class="crowd-result-line">
+                <span class="crowd-result-label">${t(lang, "avoidLabel")}</span>
+                <p>${pickText(spot.avoid, lang)}</p>
+              </div>
+              <div class="crowd-result-line">
+                <span class="crowd-result-label">${t(lang, "altLabel")}</span>
+                <p>${pickText(spot.alt, lang)}</p>
+              </div>
+            </div>
+
+            <div class="crowd-result-actions">
+              <button type="button" class="crowd-inline-search-btn" data-search-name="${pickText(spot.area, lang)}">
+                ${pickText(spot.area, lang)}
+              </button>
+              <a class="crowd-map-btn" href="${spot.map}" target="_blank" rel="noopener noreferrer">
+                ${t(lang, "directionButton")}
+              </a>
+            </div>
+          </article>
+        `).join("");
+      }
+
+      function renderCrowdTexts(lang) {
+        document.querySelectorAll("[data-crowd-text]").forEach((el) => {
+          const key = el.getAttribute("data-crowd-text");
+          if (!key) return;
+          el.textContent = t(lang, key);
+        });
+
+        const input = document.querySelector("[data-crowd-search-input]");
+        if (input) {
+          input.placeholder =
+            lang === "kr"
+              ? "기요미즈데라 / Gion / 벚꽃 / 아라시야마"
+              : lang === "en"
+              ? "Kiyomizu / Gion / sakura / Arashiyama"
+              : "清水寺 / Gion / 桜 / 嵐山";
+        }
+      }
+
+      function performSearch(value) {
+        const lang = getLang();
+        const results = searchSpots(value);
+        renderResults(results, value, lang);
+      }
+
+      function bindCrowdEvents() {
+        const input = document.querySelector("[data-crowd-search-input]");
+        const btn = document.querySelector("[data-crowd-search-btn]");
+        if (input && btn) {
+          btn.addEventListener("click", function () {
+            performSearch(input.value);
+          });
+
+          input.addEventListener("keydown", function (e) {
+            if (e.key === "Enter") {
+              e.preventDefault();
+              performSearch(input.value);
+            }
+          });
+        }
+
+        document.addEventListener("click", function (e) {
+          const keywordBtn = e.target.closest("[data-crowd-keyword]");
+          if (keywordBtn) {
+            const value = keywordBtn.getAttribute("data-crowd-keyword") || "";
+            const inputEl = document.querySelector("[data-crowd-search-input]");
+            if (inputEl) inputEl.value = value;
+            performSearch(value);
+          }
+
+          const searchBtn = e.target.closest("[data-search-name]");
+          if (searchBtn) {
+            const value = searchBtn.getAttribute("data-search-name") || "";
+            const inputEl = document.querySelector("[data-crowd-search-input]");
+            if (inputEl) inputEl.value = value;
+            performSearch(value);
+          }
+        });
+      }
+
+      function initCrowdPage() {
+        const lang = getLang();
+        renderCrowdTexts(lang);
+        renderFeatured(lang);
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        initCrowdPage();
+        bindCrowdEvents();
+
+        document.querySelectorAll(".lang-btn").forEach((btn) => {
+          btn.addEventListener("click", function () {
+            setTimeout(function () {
+              initCrowdPage();
+            }, 30);
+          });
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
