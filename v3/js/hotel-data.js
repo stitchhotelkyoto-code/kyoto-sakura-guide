@@ -232,44 +232,44 @@ window.HOTEL_DATA = {
     en: "Ideal for guests who want a slower, quieter Kyoto spring."
   },
 
-  cards: [
-    {
-      image: "../img/bettei/bettei-room.jpg",
-      title: { jp: "Private Room", kr: "Private Room", en: "Private Room" },
-      text: {
-        jp: "客室でひと息つきながら、静かな春の京都へ気持ちを整える時間。",
-        kr: "객실에서 한숨 돌리며 조용한 봄의 교토로 마음을 정돈하는 시간.",
-        en: "A calm room moment to ease into a quieter Kyoto spring."
-      }
-    },
-    {
-      image: "../img/bettei/bettei-teatime.jpg",
-      title: { jp: "Tea Moment", kr: "Tea Moment", en: "Tea Moment" },
-      text: {
-        jp: "散策の前後に、別邸らしい落ち着いた空気でひと息つける時間。",
-        kr: "산책 전후로 벳테이다운 차분한 분위기 속에서 쉬어갈 수 있는 시간.",
-        en: "A quiet tea break before or after your walk."
-      }
-    },
-    {
-      image: "../img/bettei/bettei-breakfast.jpg",
-      title: { jp: "Breakfast Start", kr: "Breakfast Start", en: "Breakfast Start" },
-      text: {
-        jp: "朝をゆっくり始めるための、やわらかな食の時間。",
-        kr: "아침을 천천히 시작하기 위한 부드러운 식사의 시간.",
-        en: "A gentle breakfast start for a slow Kyoto morning."
-      }
-    },
-    {
-      image: "../img/bettei/bettei-evening.jpg",
-      title: { jp: "Evening View", kr: "Evening View", en: "Evening View" },
-      text: {
-        jp: "一日の終わりを静かに締めくくる、別邸らしい夜の景色。",
-        kr: "하루의 끝을 조용히 마무리하는 벳테이다운 밤의 풍경.",
-        en: "A calm evening view to close the day."
-      }
+ cards: [
+  {
+    image: "../img/bettei/bettei-huro.jpg",
+    title: { jp: "Bath View", kr: "Bath View", en: "Bath View" },
+    text: {
+      jp: "京都の景色を眺めながら、静かに心と身体をほどける別邸らしい湯の時間。",
+      kr: "교토의 풍경을 바라보며 조용히 몸과 마음을 풀 수 있는 벳테이다운 온천의 시간.",
+      en: "A quiet bath moment with Kyoto views, perfect for a slower Bettei stay."
     }
-  ],
+  },
+  {
+    image: "../img/bettei/bettei-onsen.jpg",
+    title: { jp: "Open-air Onsen", kr: "Open-air Onsen", en: "Open-air Onsen" },
+    text: {
+      jp: "開放感のある露天風呂で、空と街並みを感じながらゆったり過ごす春のひととき。",
+      kr: "개방감 있는 노천탕에서 하늘과 거리 풍경을 느끼며 여유롭게 보내는 봄의 한때.",
+      en: "An open-air onsen experience with spacious city views and a calm Kyoto mood."
+    }
+  },
+  {
+    image: "../img/bettei/bettei-room.jpg",
+    title: { jp: "Private Room", kr: "Private Room", en: "Private Room" },
+    text: {
+      jp: "落ち着いた客室で景色とともにゆっくり過ごせる、上質で静かなプライベート空間。",
+      kr: "차분한 객실에서 전망과 함께 여유롭게 머물 수 있는 고급스럽고 조용한 프라이빗 공간.",
+      en: "A refined private room designed for a calm and comfortable Kyoto stay."
+    }
+  },
+  {
+    image: "../img/bettei/bettei-dinner.jpg",
+    title: { jp: "Seasonal Dinner", kr: "Seasonal Dinner", en: "Seasonal Dinner" },
+    text: {
+      jp: "季節感を大切にした料理とともに、一日の終わりを上品に彩る食の時間。",
+      kr: "계절감을 살린 요리와 함께 하루의 끝을 우아하게 마무리하는 식사의 시간.",
+      en: "A seasonal dinner moment that brings a graceful close to the day."
+    }
+  }
+],
 
   courses: [
     {
