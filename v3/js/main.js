@@ -16,139 +16,166 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 const STATIC_TRANSLATIONS = {
-  jp: {
-    nav_home: "Home",
-    nav_soraniwa: "Soraniwa",
-    nav_bettei: "Bettei",
-    nav_hiyori: "Hiyori",
-    nav_stitch: "STITCH",
-    nav_sakura: "Sakura",
-    nav_food: "Food",
-    nav_events: "Events",
-    nav_crowd: "Crowd",
-    nav_ai: "AI Guide",
+jp: {
+  nav_home: "Home",
+  nav_soraniwa: "Soraniwa",
+  nav_bettei: "Bettei",
+  nav_hiyori: "Hiyori",
+  nav_stitch: "STITCH",
+  nav_sakura: "Sakura",
+  nav_food: "Food",
+  nav_events: "Events",
+  nav_crowd: "Crowd",
+  nav_ai: "AI Guide",
 
-    widget_title: "Explore Kyoto",
-    widget_sakura: "Sakura Spots",
-    widget_courses: "Travel Courses",
-    widget_food: "Food Guide",
-    widget_events: "Events",
-    widget_ai: "AI Guide",
-    widget_crowd: "Live Crowd",
+  widget_title: "Explore Kyoto",
+  widget_sakura: "Sakura Spots",
+  widget_courses: "Travel Courses",
+  widget_food: "Food Guide",
+  widget_events: "Events",
+  widget_ai: "AI Guide",
+  widget_crowd: "Live Crowd",
 
-    ai_title: "AI Guide",
-    ai_desc: "ホテル基準で京都旅行のコース、桜スポット、食、イベントを素早く整理するガイドページです。",
-    ai_tag_1: "Quick Plan",
-    ai_tag_2: "By Mood",
-    ai_tag_3: "Nearby",
-    ai_card_1_title: "1-Day Course",
-    ai_card_1_desc: "1日で京都を見て回りたいお客様向けのクイックルートです。",
-    ai_card_2_title: "By Travel Mood",
-    ai_card_2_desc: "感性散策・寺社・夜散歩・食中心など、気分に合わせて選べます。",
-    ai_card_3_title: "By Hotel Base",
-    ai_card_3_desc: "各ホテルを基準に、近いエリアから効率よく回れるように構成しました。",
+  ai_title: "AI Guide",
+  ai_desc: "ホテルを起点に、その時の気分・時間帯・同行者に合わせて京都の過ごし方を整理するガイドです。『今夜1時間だけ歩きたい』『雨の日でも動きやすい場所を知りたい』『チェックイン後に遅めの夕食を探したい』といった使い方を想定しています。",
 
-    crowd_title: "Live Crowd Guide",
-    crowd_desc: "移動前に確認しやすい混雑情報リンクをまとめたページです。",
-    crowd_tag_1: "Before You Go",
-    crowd_tag_2: "Best Time",
-    crowd_tag_3: "Smart Route",
-    crowd_card_1_title: "Check Area Crowd",
-    crowd_card_1_desc: "観光地へ向かう前に、周辺エリアの混雑を確認する用途です。",
-    crowd_card_2_title: "Time-Based Planning",
-    crowd_card_2_desc: "朝・昼・夜の時間帯に合わせて移動順を変え、混雑を避けられます。",
-    crowd_card_3_title: "Alternative Route",
-    crowd_card_3_desc: "混雑地の代わりに、似た雰囲気の散策ルートも提案できます."
-  },
-  en: {
-    nav_home: "Home",
-    nav_soraniwa: "Soraniwa",
-    nav_bettei: "Bettei",
-    nav_hiyori: "Hiyori",
-    nav_stitch: "STITCH",
-    nav_sakura: "Sakura",
-    nav_food: "Food",
-    nav_events: "Events",
-    nav_crowd: "Crowd",
-    nav_ai: "AI Guide",
+  ai_tag_1: "Tonight",
+  ai_tag_2: "By Situation",
+  ai_tag_3: "By Stay Style",
 
-    widget_title: "Explore Kyoto",
-    widget_sakura: "Sakura Spots",
-    widget_courses: "Travel Courses",
-    widget_food: "Food Guide",
-    widget_events: "Events",
-    widget_ai: "AI Guide",
-    widget_crowd: "Live Crowd",
+  ai_card_1_title: "1-Hour Evening Walk",
+  ai_card_1_desc: "到着後や夕食後に、無理なく京都らしい雰囲気を感じられる夜散策ルートを考えるためのガイドです。ホテル近くから始めやすい流れを想定しています。",
 
-    ai_title: "AI Guide",
-    ai_desc: "A quick guide page for Kyoto routes, sakura spots, food, and events based on each hotel.",
-    ai_tag_1: "Quick Plan",
-    ai_tag_2: "By Mood",
-    ai_tag_3: "Nearby",
-    ai_card_1_title: "1-Day Course",
-    ai_card_1_desc: "A quick route for guests who want to see Kyoto in one day.",
-    ai_card_2_title: "By Travel Mood",
-    ai_card_2_desc: "Choose by mood: scenic walks, temples, evening strolls, or food-focused plans.",
-    ai_card_3_title: "By Hotel Base",
-    ai_card_3_desc: "Organized so guests can travel efficiently starting from each hotel area.",
+  ai_card_2_title: "Rainy Day / Late Dinner / Short Time",
+  ai_card_2_desc: "雨の日、移動を増やしたくない日、遅い時間の食事を探したい時など、状況に合わせて無理のない回り方を組み立てるための案内です。",
 
-    crowd_title: "Live Crowd Guide",
-    crowd_desc: "A page collecting useful crowd-check links before heading out.",
-    crowd_tag_1: "Before You Go",
-    crowd_tag_2: "Best Time",
-    crowd_tag_3: "Smart Route",
-    crowd_card_1_title: "Check Area Crowd",
-    crowd_card_1_desc: "Use this to check the surrounding area before visiting a sightseeing spot.",
-    crowd_card_2_title: "Time-Based Planning",
-    crowd_card_2_desc: "Adjust your route by morning, afternoon, or evening to avoid crowd peaks.",
-    crowd_card_3_title: "Alternative Route",
-    crowd_card_3_desc: "We can also suggest alternative stroll routes with a similar mood."
-  },
-  kr: {
-    nav_home: "Home",
-    nav_soraniwa: "Soraniwa",
-    nav_bettei: "Bettei",
-    nav_hiyori: "Hiyori",
-    nav_stitch: "STITCH",
-    nav_sakura: "Sakura",
-    nav_food: "Food",
-    nav_events: "Events",
-    nav_crowd: "Crowd",
-    nav_ai: "AI Guide",
+  ai_card_3_title: "Family / Group / Easy Pace",
+  ai_card_3_desc: "家族旅行やグループ滞在でも動きやすいように、移動距離・休憩しやすさ・食事のつなげやすさを意識してプランを考えるためのガイドです。",
 
-    widget_title: "Explore Kyoto",
-    widget_sakura: "Sakura Spots",
-    widget_courses: "Travel Courses",
-    widget_food: "Food Guide",
-    widget_events: "Events",
-    widget_ai: "AI Guide",
-    widget_crowd: "Live Crowd",
+  crowd_title: "Live Crowd Guide",
+  crowd_desc: "リアルタイム表示というより、混みやすい時間帯や動きやすい時間の目安をもとに、京都を少しでもスムーズに回るためのガイドです。出発前の判断や、混雑を避ける順番決めに使える想定です。",
 
-    ai_title: "AI Guide",
-    ai_desc: "호텔을 기준으로 교토 여행 코스, 벚꽃 명소, 음식, 이벤트를 빠르게 정리한 안내 페이지입니다.",
-    ai_tag_1: "Quick Plan",
-    ai_tag_2: "By Mood",
-    ai_tag_3: "Nearby",
-    ai_card_1_title: "1-Day Course",
-    ai_card_1_desc: "하루 일정으로 교토를 보고 싶은 고객을 위한 빠른 추천 루트입니다.",
-    ai_card_2_title: "By Travel Mood",
-    ai_card_2_desc: "감성 산책, 전통 사찰, 야간 산책, 먹거리 중심 등 취향별로 고를 수 있습니다.",
-    ai_card_3_title: "By Hotel Base",
-    ai_card_3_desc: "각 호텔을 기준으로 가까운 지역부터 효율적으로 여행할 수 있게 구성했습니다.",
+  crowd_tag_1: "Best Time",
+  crowd_tag_2: "Busy Hours",
+  crowd_tag_3: "Smart Timing",
 
-    crowd_title: "Live Crowd Guide",
-    crowd_desc: "실시간 혼잡도와 이동 전 확인하면 좋은 링크를 모아둔 페이지입니다.",
-    crowd_tag_1: "Before You Go",
-    crowd_tag_2: "Best Time",
-    crowd_tag_3: "Smart Route",
-    crowd_card_1_title: "Check Area Crowd",
-    crowd_card_1_desc: "관광지 방문 전 주변 지역의 혼잡도를 먼저 확인하는 용도입니다.",
-    crowd_card_2_title: "Time-Based Planning",
-    crowd_card_2_desc: "아침, 점심, 저녁 시간대에 따라 이동 순서를 바꿔 혼잡을 피할 수 있습니다.",
-    crowd_card_3_title: "Alternative Route",
-    crowd_card_3_desc: "혼잡한 곳 대신 비슷한 분위기의 대체 산책 코스도 함께 제안할 수 있습니다."
-  }
+  crowd_card_1_title: "Morning vs Noon",
+  crowd_card_1_desc: "錦市場や中心部エリアは昼前後に人が増えやすいため、朝の早い時間から回る方が歩きやすいスポットを見分けるための考え方です。",
+
+  crowd_card_2_title: "Evening Crowd Around Gion",
+  crowd_card_2_desc: "祇園・白川・東山エリアは、桜シーズンやライトアップ時に夜の混雑が強くなりやすいため、夕方前後に動くか、余裕を持って出る判断につなげます。",
+
+  crowd_card_3_title: "Choose the Order Wisely",
+  crowd_card_3_desc: "『人気エリアを先に行くか、あとに行くか』を時間帯で調整し、混雑が強い場所は避けながら、似た雰囲気の散策ルートへ切り替える発想を持たせるためのガイドです."
+},
+
+en: {
+  nav_home: "Home",
+  nav_soraniwa: "Soraniwa",
+  nav_bettei: "Bettei",
+  nav_hiyori: "Hiyori",
+  nav_stitch: "STITCH",
+  nav_sakura: "Sakura",
+  nav_food: "Food",
+  nav_events: "Events",
+  nav_crowd: "Crowd",
+  nav_ai: "AI Guide",
+
+  widget_title: "Explore Kyoto",
+  widget_sakura: "Sakura Spots",
+  widget_courses: "Travel Courses",
+  widget_food: "Food Guide",
+  widget_events: "Events",
+  widget_ai: "AI Guide",
+  widget_crowd: "Live Crowd",
+
+  ai_title: "AI Guide",
+  ai_desc: "This guide helps guests shape their Kyoto plan based on where they stay, how much time they have, and what kind of mood they are in. It is meant for requests like “I only want a 1-hour evening walk,” “I need rainy-day ideas,” or “I want a late dinner after check-in.”",
+
+  ai_tag_1: "Tonight",
+  ai_tag_2: "By Situation",
+  ai_tag_3: "By Stay Style",
+
+  ai_card_1_title: "1-Hour Evening Walk",
+  ai_card_1_desc: "A guide for building a light evening route after arrival or after dinner, so guests can enjoy Kyoto’s atmosphere without committing to a long outing.",
+
+  ai_card_2_title: "Rainy Day / Late Dinner / Short Time",
+  ai_card_2_desc: "Useful when guests want a practical plan for rainy weather, a shorter outing, or a later dinner without adding too much movement to the day.",
+
+  ai_card_3_title: "Family / Group / Easy Pace",
+  ai_card_3_desc: "Built around shorter distances, easier pacing, and smoother meal breaks, so families and groups can enjoy Kyoto more comfortably.",
+
+  crowd_title: "Live Crowd Guide",
+  crowd_desc: "Rather than showing exact live tracking, this page is designed as a practical timing guide: when an area is usually easier, when it tends to get busy, and how guests can move more smoothly by choosing the order of their route well.",
+
+  crowd_tag_1: "Best Time",
+  crowd_tag_2: "Busy Hours",
+  crowd_tag_3: "Smart Timing",
+
+  crowd_card_1_title: "Morning vs Noon",
+  crowd_card_1_desc: "Useful for areas like Nishiki Market and central shopping streets, where walking is often easier in the morning and noticeably busier around lunch.",
+
+  crowd_card_2_title: "Evening Crowd Around Gion",
+  crowd_card_2_desc: "Helpful for Gion, Shirakawa, and Higashiyama, where spring evenings and light-up periods can become much more crowded than daytime.",
+
+  crowd_card_3_title: "Choose the Order Wisely",
+  crowd_card_3_desc: "The idea is to avoid crowd peaks by changing the order of visits, or by switching to another stroll area with a similar mood when one place feels too busy."
+},
+
+kr: {
+  nav_home: "Home",
+  nav_soraniwa: "Soraniwa",
+  nav_bettei: "Bettei",
+  nav_hiyori: "Hiyori",
+  nav_stitch: "STITCH",
+  nav_sakura: "Sakura",
+  nav_food: "Food",
+  nav_events: "Events",
+  nav_crowd: "Crowd",
+  nav_ai: "AI Guide",
+
+  widget_title: "Explore Kyoto",
+  widget_sakura: "Sakura Spots",
+  widget_courses: "Travel Courses",
+  widget_food: "Food Guide",
+  widget_events: "Events",
+  widget_ai: "AI Guide",
+  widget_crowd: "Live Crowd",
+
+  ai_title: "AI Guide",
+  ai_desc: "이 페이지는 호텔을 기준으로, 지금의 시간대·기분·동행 형태에 맞춰 교토에서 어떻게 움직일지 정리해주는 가이드입니다. ‘오늘 밤 1시간만 걷고 싶다’, ‘비 오는 날에도 가기 쉬운 곳이 궁금하다’, ‘체크인 후 늦은 저녁을 먹고 싶다’ 같은 상황을 상정했습니다.",
+
+  ai_tag_1: "Tonight",
+  ai_tag_2: "By Situation",
+  ai_tag_3: "By Stay Style",
+
+  ai_card_1_title: "1-Hour Evening Walk",
+  ai_card_1_desc: "도착 후나 저녁 식사 후, 너무 무리하지 않으면서도 교토다운 밤 분위기를 느낄 수 있는 짧은 산책 루트를 생각할 때 쓰는 가이드입니다.",
+
+  ai_card_2_title: "Rainy Day / Late Dinner / Short Time",
+  ai_card_2_desc: "비 오는 날, 오래 걷고 싶지 않은 날, 체크인 후 늦게 식사할 곳을 찾고 싶은 상황처럼 조건이 애매할 때 실용적으로 동선을 정리하기 위한 안내입니다.",
+
+  ai_card_3_title: "Family / Group / Easy Pace",
+  ai_card_3_desc: "가족 여행이나 그룹 여행에서도 무리 없이 움직일 수 있도록, 이동 거리·쉬기 쉬운 흐름·식사 연결을 고려해 코스를 잡는 데 초점을 둔 가이드입니다.",
+
+  crowd_title: "Live Crowd Guide",
+  crowd_desc: "정확한 실시간 추적보다는, 어디가 어느 시간대에 붐비기 쉬운지와 언제 움직이면 조금 더 편한지를 바탕으로 교토를 더 부드럽게 돌아보기 위한 가이드입니다. 출발 전 판단이나 방문 순서 조정에 쓰는 것을 상정했습니다.",
+
+  crowd_tag_1: "Best Time",
+  crowd_tag_2: "Busy Hours",
+  crowd_tag_3: "Smart Timing",
+
+  crowd_card_1_title: "Morning vs Noon",
+  crowd_card_1_desc: "니시키시장이나 도심권처럼 점심 전후로 사람이 확 늘어나는 곳은, 아침에 먼저 가는 편이 훨씬 걷기 편하다는 기준을 잡기 위한 내용입니다.",
+
+  crowd_card_2_title: "Evening Crowd Around Gion",
+  crowd_card_2_desc: "기온·시라카와·히가시야마 방면은 벚꽃 시즌과 라이트업 시간대에 저녁 혼잡이 커지기 쉬워, 해 지기 전 이동이나 여유 있는 출발 판단에 도움이 되는 내용입니다.",
+
+  crowd_card_3_title: "Choose the Order Wisely",
+  crowd_card_3_desc: "인기 지역을 언제 먼저 갈지, 언제 뒤로 미룰지 시간대에 따라 조정하고, 너무 붐비면 비슷한 분위기의 다른 산책 구간으로 바꾸는 발상을 주기 위한 가이드입니다."
+}
 };
+
 
 function normalizeLang(lang) {
   if (lang === "ko") return "kr";
