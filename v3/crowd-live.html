@@ -4,9 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Live Crowd | Kyoto Sakura Guide</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css" />
 </head>
 <body>
@@ -19,72 +16,89 @@
           <nav class="site-nav">
             <a href="./index.html" data-i18n="nav_home">Home</a>
             <a href="./hotels/soraniwa.html" data-i18n="nav_soraniwa">Soraniwa</a>
-            <a href="./hotels/bettel.html" data-i18n="nav_bettei">Bettei</a>
+            <a href="./hotels/bettei.html" data-i18n="nav_bettei">Bettei</a>
             <a href="./hotels/hiyori.html" data-i18n="nav_hiyori">Hiyori</a>
             <a href="./hotels/stitch.html" data-i18n="nav_stitch">STITCH</a>
           </nav>
 
           <div class="lang-switcher">
-            <button class="lang-btn" data-lang="jp" type="button">JP</button>
-            <button class="lang-btn" data-lang="en" type="button">EN</button>
-            <button class="lang-btn" data-lang="kr" type="button">KR</button>
+            <button class="lang-btn" type="button" data-lang="jp">JP</button>
+            <button class="lang-btn" type="button" data-lang="en">EN</button>
+            <button class="lang-btn" type="button" data-lang="kr">KR</button>
           </div>
         </div>
       </div>
     </header>
 
-    <section class="page-link-widget">
+    <section class="subpage-widget-nav">
       <div class="container">
-        <div class="page-link-grid">
-          <a href="./all-sakura.html" class="page-link-chip" data-i18n="widget_sakura">Sakura Spots</a>
-          <a href="./all-course.html" class="page-link-chip" data-i18n="widget_courses">Travel Courses</a>
-          <a href="./all-food.html" class="page-link-chip" data-i18n="widget_food">Food Guide</a>
-          <a href="./all-events.html" class="page-link-chip" data-i18n="widget_events">Events</a>
-          <a href="./ai-guide.html" class="page-link-chip" data-i18n="widget_ai">AI Guide</a>
-          <a href="./crowd-live.html" class="page-link-chip is-active" data-i18n="widget_crowd">Live Crowd</a>
+        <div class="subpage-widget-grid">
+          <a href="./all-sakura.html" class="subpage-widget-card">
+            <span class="subpage-widget-icon">🌸</span>
+            <span class="subpage-widget-text" data-i18n="widget_sakura">Sakura Spots</span>
+          </a>
+          <a href="./all-course.html" class="subpage-widget-card">
+            <span class="subpage-widget-icon">🗺️</span>
+            <span class="subpage-widget-text" data-i18n="widget_courses">Travel Courses</span>
+          </a>
+          <a href="./all-food.html" class="subpage-widget-card">
+            <span class="subpage-widget-icon">🍜</span>
+            <span class="subpage-widget-text" data-i18n="widget_food">Food Guide</span>
+          </a>
+          <a href="./all-events.html" class="subpage-widget-card">
+            <span class="subpage-widget-icon">🎎</span>
+            <span class="subpage-widget-text" data-i18n="widget_events">Events</span>
+          </a>
+          <a href="./ai-guide.html" class="subpage-widget-card">
+            <span class="subpage-widget-icon">✨</span>
+            <span class="subpage-widget-text" data-i18n="widget_ai">AI Guide</span>
+          </a>
+          <a href="./crowd-live.html" class="subpage-widget-card is-active">
+            <span class="subpage-widget-icon">📍</span>
+            <span class="subpage-widget-text" data-i18n="widget_crowd">Live Crowd</span>
+          </a>
         </div>
       </div>
     </section>
 
     <main>
-      <section class="page-hero page-hero-crowd">
+      <section class="crowd-hero">
         <div class="container">
-          <div class="page-hero-box">
-            <p class="page-hero-label">Live Crowd</p>
+          <div class="crowd-hero-card">
+            <p class="eyebrow">LIVE CROWD</p>
             <h1 data-i18n="crowd_title">Live Crowd Guide</h1>
-            <p data-i18n="crowd_desc">실시간 혼잡도와 이동 전 확인하면 좋은 링크를 모아둔 페이지입니다.</p>
+            <p data-i18n="crowd_desc">
+              실시간 혼잡도와 이동 전 확인하면 좋은 링크를 모아둔 페이지입니다.
+            </p>
           </div>
         </div>
       </section>
 
-      <section class="section section-tight">
+      <section class="crowd-section">
         <div class="container">
-          <div class="feature-grid">
-            <article class="feature-card">
-              <div class="feature-image"></div>
-              <div class="feature-body">
-                <span class="feature-tag" data-i18n="crowd_tag_1">Before You Go</span>
-                <h3 data-i18n="crowd_card_1_title">Check Area Crowd</h3>
-                <p data-i18n="crowd_card_1_desc">관광지 방문 전 주변 지역의 혼잡도를 먼저 확인하는 용도입니다.</p>
-              </div>
+          <div class="crowd-grid">
+            <article class="crowd-card">
+              <span class="crowd-tag" data-i18n="crowd_tag_1">Best Time</span>
+              <h3 data-i18n="crowd_card_1_title">Morning vs Noon</h3>
+              <p data-i18n="crowd_card_1_desc">
+                관광지 방문 전 주변 지역의 혼잡도를 먼저 확인하는 용도입니다.
+              </p>
             </article>
 
-            <article class="feature-card">
-              <div class="feature-image"></div>
-              <div class="feature-body">
-                <span class="feature-tag" data-i18n="crowd_tag_2">Best Time</span>
-                <h3 data-i18n="crowd_card_2_title">Time-Based Planning</h3>
-                <p data-i18n="crowd_card_2_desc">아침・점심・저녁 시간대에 따라 이동 순서를 바꿔 혼잡을 피할 수 있습니다.</p>
-              </div>
+            <article class="crowd-card">
+              <span class="crowd-tag" data-i18n="crowd_tag_2">Busy Hours</span>
+              <h3 data-i18n="crowd_card_2_title">Evening Crowd Around Gion</h3>
+              <p data-i18n="crowd_card_2_desc">
+                아침・점심・저녁 시간대에 따라 이동 순서를 바꿔 혼잡을 피할 수 있습니다.
+              </p>
             </article>
 
-            <article class="feature-card">
-              <div class="feature-image"></div>
-              <div class="feature-body">
-                <span class="feature-tag" data-i18n="crowd_tag_3">Smart Route</span>
-                <h3 data-i18n="crowd_card_3_title">Alternative Route</h3>
-                <p data-i18n="crowd_card_3_desc">혼잡한 곳 대신 비슷한 분위기의 대체 산책 코스도 함께 제안할 수 있습니다.</p>
-              </div>
+            <article class="crowd-card">
+              <span class="crowd-tag" data-i18n="crowd_tag_3">Smart Timing</span>
+              <h3 data-i18n="crowd_card_3_title">Choose the Order Wisely</h3>
+              <p data-i18n="crowd_card_3_desc">
+                혼잡한 곳 대신 비슷한 분위기의 대체 산책 코스도 함께 제안할 수 있습니다.
+              </p>
             </article>
           </div>
         </div>
