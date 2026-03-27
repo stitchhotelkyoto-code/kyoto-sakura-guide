@@ -344,6 +344,11 @@ function renderPhotoCards(cards, lang) {
           `
       }
     </div>
+
+        <div class="hotel-photo-body">
+      <h3 class="hotel-photo-title">${title}</h3>
+      <p class="hotel-photo-text">${text}</p>
+    </div>
         </article>
       `;
     })
