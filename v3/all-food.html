@@ -6,19 +6,21 @@
   <title>Food Guide - Kyoto Sakura Guide</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body data-all-page="food">
+<body>
   <div class="page-shell">
     <header class="site-header">
       <div class="container site-header-inner">
         <a href="./index.html" class="site-logo">Kyoto Sakura Guide</a>
+
         <div class="header-right">
-           <nav class="site-nav">
-          <a href="./index.html" data-i18n="nav_home">Home</a>
-          <a href="./hotels/soraniwa.html" data-i18n="nav_soraniwa">Soraniwa</a>
-          <a href="./hotels/bettel.html" data-i18n="nav_bettei">Bettei</a>
-          <a href="./hotels/hiyori.html" data-i18n="nav_hiyori">Hiyori</a>
-          <a href="./hotels/stitch.html" data-i18n="nav_stitch">STITCH</a>
-        </nav>
+          <nav class="site-nav">
+            <a href="./index.html" data-i18n="nav_home">Home</a>
+            <a href="./hotels/soraniwa.html" data-i18n="nav_soraniwa">Soraniwa</a>
+            <a href="./hotels/bettel.html" data-i18n="nav_bettei">Bettei</a>
+            <a href="./hotels/hiyori.html" data-i18n="nav_hiyori">Hiyori</a>
+            <a href="./hotels/stitch.html" data-i18n="nav_stitch">STITCH</a>
+          </nav>
+
           <div class="lang-switcher">
             <button class="lang-btn" data-lang="jp" type="button">JP</button>
             <button class="lang-btn" data-lang="en" type="button">EN</button>
@@ -27,21 +29,248 @@
         </div>
       </div>
     </header>
-  <main class="page-shell">
-    <section class="page-heading">
-      <p class="eyebrow">FOOD GUIDE</p>
-      <h1 data-all-title></h1>
-      <p data-all-desc></p>
+
+    <section class="page-link-widget">
+      <div class="container">
+        <div class="page-link-grid">
+          <a href="./all-sakura.html" class="page-link-chip" data-i18n="widget_sakura">Sakura Spots</a>
+          <a href="./all-course.html" class="page-link-chip" data-i18n="widget_courses">Travel Courses</a>
+          <a href="./all-food.html" class="page-link-chip is-active" data-i18n="widget_food">Food Guide</a>
+          <a href="./all-events.html" class="page-link-chip" data-i18n="widget_events">Events</a>
+          <a href="./ai-guide.html" class="page-link-chip" data-i18n="widget_ai">AI Guide</a>
+          <a href="./crowd-live.html" class="page-link-chip" data-i18n="widget_crowd">Live Crowd</a>
+        </div>
+      </div>
     </section>
 
-    <div data-all-content></div>
-  </main>
+    <main>
+      <section class="page-heading food-page-heading">
+        <div class="container">
+          <p class="eyebrow">FOOD GUIDE</p>
+          <h1 id="foodPageTitle">Kyoto Food by Area</h1>
+          <p id="foodPageDesc">Choose an area and open the local food picks.</p>
+        </div>
+      </section>
 
-  <footer class="footer-note">
-    Kyoto Sakura Guide © Spring Stay Project
-  </footer>
+      <section class="food-page-section">
+        <div class="container">
+          <div id="foodAreaGrid" class="food-area-grid"></div>
+        </div>
+      </section>
+    </main>
+
+    <div id="foodOverlay" class="food-overlay" aria-hidden="true"></div>
+
+    <footer class="site-footer">
+      <div class="container">Kyoto Sakura Guide © Spring Stay Project</div>
+    </footer>
+  </div>
 
   <script src="js/hotel-data.js"></script>
   <script src="js/main.js"></script>
+  <script>
+    (function () {
+      const FALLBACK_AREA_IMAGES = [
+        "./img/arashiyama-food.jpg",
+        "./img/gion-food.jpg",
+        "./img/fushimi-food.jpg",
+        "./img/kawaramachi-food.jpg"
+      ];
+
+      const FOOD_PAGE_COPY = {
+        jp: {
+          title: "Kyoto Food by Area",
+          desc: "エリアごとに、立ち寄りやすい京都の食のスポットをまとめています。気になるエリアを選ぶと、おすすめの店一覧を開けます。",
+          open: "View Spots",
+          direction: "Directions",
+          hours: "Hours",
+          menu: "Menu"
+        },
+        en: {
+          title: "Kyoto Food by Area",
+          desc: "Browse Kyoto food picks by area. Tap a card to open the local restaurant list.",
+          open: "View Spots",
+          direction: "Directions",
+          hours: "Hours",
+          menu: "Menu"
+        },
+        kr: {
+          title: "Kyoto Food by Area",
+          desc: "지역별로 교토에서 들르기 좋은 맛집을 정리했습니다. 카드를 누르면 해당 지역 맛집 리스트가 열립니다.",
+          open: "View Spots",
+          direction: "Directions",
+          hours: "Hours",
+          menu: "Menu"
+        }
+      };
+
+      function getLang() {
+        const saved = localStorage.getItem("siteLanguage") || "jp";
+        if (saved === "jp" || saved === "en" || saved === "kr") return saved;
+        return "jp";
+      }
+
+      function resolveText(value, lang) {
+        if (value == null) return "";
+        if (typeof value === "string") return value;
+        return value[lang] || value.jp || value.en || value.kr || "";
+      }
+
+      function escapeHtml(value) {
+        return String(value)
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("'", "&#39;");
+      }
+
+      function getFoodItems() {
+        const items = window.HOTEL_DATA?.allFood?.items || [];
+        return items.slice(0, 4);
+      }
+
+      function renderFoodPage() {
+        const lang = getLang();
+        const copy = FOOD_PAGE_COPY[lang];
+        const data = window.HOTEL_DATA?.allFood || {};
+        const items = getFoodItems();
+
+        const titleEl = document.getElementById("foodPageTitle");
+        const descEl = document.getElementById("foodPageDesc");
+        const gridEl = document.getElementById("foodAreaGrid");
+
+        if (titleEl) {
+          titleEl.textContent = resolveText(data.title, lang) || copy.title;
+        }
+
+        if (descEl) {
+          descEl.textContent = resolveText(data.description, lang) || copy.desc;
+        }
+
+        if (!gridEl) return;
+
+        gridEl.innerHTML = items.map((item, index) => {
+          const eyebrow = escapeHtml(resolveText(item.eyebrow, lang));
+          const title = escapeHtml(resolveText(item.title, lang));
+          const summary = escapeHtml(resolveText(item.summary, lang));
+          const image = escapeHtml(item.image || FALLBACK_AREA_IMAGES[index] || "");
+          const no = escapeHtml(item.no || String(index + 1).padStart(2, "0"));
+          const key = escapeHtml(item.key || `food-${index}`);
+
+          return `
+            <article class="food-area-card" data-food-area="${key}">
+              <div class="food-area-photo">
+                <img src="${image}" alt="${title}" loading="lazy">
+              </div>
+
+              <div class="food-area-body">
+                <div class="food-area-meta">
+                  <span class="food-area-no">${no}</span>
+                  <span class="food-area-eyebrow">${eyebrow}</span>
+                </div>
+
+                <h3 class="food-area-title">${title}</h3>
+                <p class="food-area-summary">${summary}</p>
+
+                <button type="button" class="food-area-open-btn">${copy.open}</button>
+              </div>
+            </article>
+          `;
+        }).join("");
+
+        bindFoodOverlay(items, lang);
+      }
+
+      function bindFoodOverlay(items, lang) {
+        const copy = FOOD_PAGE_COPY[lang];
+        const overlay = document.getElementById("foodOverlay");
+        if (!overlay) return;
+
+        document.querySelectorAll("[data-food-area]").forEach((card) => {
+          card.addEventListener("click", () => {
+            const key = card.dataset.foodArea;
+            const area = items.find((item, index) => (item.key || `food-${index}`) === key);
+            if (!area) return;
+
+            const eyebrow = escapeHtml(resolveText(area.eyebrow, lang));
+            const title = escapeHtml(resolveText(area.title, lang));
+            const summary = escapeHtml(resolveText(area.summary, lang));
+
+            overlay.innerHTML = `
+              <div class="food-overlay-backdrop" data-food-close></div>
+              <div class="food-overlay-card">
+                <button type="button" class="food-overlay-close" data-food-close aria-label="Close">×</button>
+
+                <div class="food-overlay-head">
+                  <p class="food-overlay-eyebrow">${eyebrow}</p>
+                  <h3 class="food-overlay-title">${title}</h3>
+                  <p class="food-overlay-summary">${summary}</p>
+                </div>
+
+                <div class="food-spot-grid">
+                  ${(area.spots || []).map((spot) => {
+                    const name = escapeHtml(resolveText(spot.name, lang));
+                    const type = escapeHtml(resolveText(spot.type, lang));
+                    const desc = escapeHtml(resolveText(spot.desc, lang));
+                    const hours = escapeHtml(resolveText(spot.hours, lang));
+                    const menu = escapeHtml(resolveText(spot.menu, lang));
+                    const direction = escapeHtml(spot.direction || "#");
+                    const image = spot.image ? escapeHtml(spot.image) : "";
+
+                    return `
+                      <article class="food-spot-card">
+                        ${image ? `
+                          <div class="food-spot-photo">
+                            <img src="${image}" alt="${name}" loading="lazy">
+                          </div>
+                        ` : ""}
+
+                        <div class="food-spot-body">
+                          <div class="food-spot-top">
+                            <span class="food-spot-type">${type}</span>
+                            <a href="${direction}" target="_blank" rel="noopener noreferrer" class="food-spot-link">${copy.direction}</a>
+                          </div>
+
+                          <h4 class="food-spot-title">${name}</h4>
+                          <p class="food-spot-desc">${desc}</p>
+
+                          ${hours ? `<p class="food-spot-info"><strong>${copy.hours}</strong> ${hours}</p>` : ""}
+                          ${menu ? `<p class="food-spot-info"><strong>${copy.menu}</strong> ${menu}</p>` : ""}
+                        </div>
+                      </article>
+                    `;
+                  }).join("")}
+                </div>
+              </div>
+            `;
+
+            overlay.classList.add("is-open");
+            overlay.setAttribute("aria-hidden", "false");
+          });
+        });
+
+        overlay.addEventListener("click", (event) => {
+          if (event.target.closest("[data-food-close]")) {
+            overlay.classList.remove("is-open");
+            overlay.setAttribute("aria-hidden", "true");
+            overlay.innerHTML = "";
+          }
+        });
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        renderFoodPage();
+
+        document.querySelectorAll(".lang-btn").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            setTimeout(() => {
+              renderFoodPage();
+            }, 0);
+          });
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
