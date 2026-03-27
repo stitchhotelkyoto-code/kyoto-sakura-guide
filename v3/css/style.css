@@ -1158,3 +1158,81 @@ main {
   font-size: 16px;
   color: #7a4e5d;
 }
+
+/* 🔥 Crowd Live UI */
+
+.crowd-live-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.crowd-card {
+  background: #fff;
+  border: 1px solid #f2d6db;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+}
+
+.crowd-card h3 {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+/* 상태 */
+.crowd-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.crowd-status .label {
+  font-size: 12px;
+  color: #888;
+}
+
+.status {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status.busy {
+  background: #ffe0e0;
+  color: #d33;
+}
+
+.status.medium {
+  background: #fff4d6;
+  color: #b98b00;
+}
+
+.status.calm {
+  background: #e6f7ec;
+  color: #2a9d5b;
+}
+
+/* row */
+.crowd-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+/* 설명 */
+.crowd-tip {
+  margin-top: 12px;
+  font-size: 12px;
+  color: #666;
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .crowd-live-grid {
+    grid-template-columns: 1fr;
+  }
+}
