@@ -402,35 +402,30 @@ window.HOTEL_DATA = {
   foods: [
     {
       no: "01",
-      image: "../img/bettei/bettei-food-obanzai.jpg",
       name: "祇園 末友",
       type: "京料理",
       direction: "https://www.google.com/maps/search/?api=1&query=祇園+末友"
     },
     {
       no: "02",
-      image: "../img/bettei/bettei-food-tofu.jpg",
       name: "順正 清水店",
       type: "湯豆腐",
       direction: "https://www.google.com/maps/search/?api=1&query=順正+清水店"
     },
     {
       no: "03",
-      image: "../img/bettei/bettei-food-soba.jpg",
       name: "総本家にしんそば 松葉",
       type: "そば",
       direction: "https://www.google.com/maps/search/?api=1&query=総本家にしんそば+松葉"
     },
     {
       no: "04",
-      image: "../img/bettei/bettei-food-wagashi.jpg",
       name: "ぎおん徳屋",
       type: "甘味",
       direction: "https://www.google.com/maps/search/?api=1&query=ぎおん徳屋"
     },
     {
       no: "05",
-      image: "../img/bettei/bettei-food-cafe.jpg",
       name: "イノダコーヒ 本店",
       type: "Cafe",
       direction: "https://www.google.com/maps/search/?api=1&query=イノダコーヒ+本店"
