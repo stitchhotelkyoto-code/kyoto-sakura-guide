@@ -184,7 +184,7 @@
 
     .ai-route-list {
       display: grid;
-      gap: 16px;
+      gap: 18px;
     }
 
     .ai-route-card {
@@ -219,9 +219,9 @@
     }
 
     .ai-route-title {
-      margin: 10px 0 4px;
-      font-size: 1.28rem;
-      line-height: 1.25;
+      margin: 10px 0 6px;
+      font-size: 1.3rem;
+      line-height: 1.28;
       color: #34272d;
     }
 
@@ -232,38 +232,59 @@
       white-space: nowrap;
     }
 
-    .ai-route-meta {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
+    .ai-route-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
       margin-bottom: 14px;
     }
 
-    .ai-meta-box {
-      background: #fff8fb;
-      border: 1px solid rgba(228, 198, 208, 0.4);
-      border-radius: 18px;
-      padding: 12px 14px;
+    .ai-route-tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 32px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: #fff6fa;
+      border: 1px solid rgba(228, 198, 208, 0.6);
+      color: #7c5364;
+      font-size: 0.82rem;
+      font-weight: 800;
+      line-height: 1;
     }
 
-    .ai-meta-box span {
+    .ai-route-highlight {
+      margin-bottom: 14px;
+      padding: 16px 18px;
+      background: linear-gradient(135deg, #fff8fb, #fffdfd);
+      border: 1px solid rgba(228, 198, 208, 0.42);
+      border-radius: 18px;
+    }
+
+    .ai-route-highlight-label {
       display: block;
-      margin-bottom: 4px;
-      font-size: 0.78rem;
-      color: #8d6f7b;
+      margin-bottom: 6px;
+      font-size: 0.76rem;
+      color: #9a7181;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .ai-route-highlight-text {
+      margin: 0;
+      color: #51424a;
+      font-size: 0.97rem;
+      line-height: 1.7;
       font-weight: 700;
     }
 
-    .ai-meta-box strong {
-      color: #4f3c45;
-      font-size: 0.96rem;
-      line-height: 1.45;
-    }
-
-    .ai-route-reason {
+    .ai-route-subcopy {
       margin: 0 0 16px;
-      color: #62545c;
+      color: #6a5a62;
       line-height: 1.72;
+      font-size: 0.94rem;
     }
 
     .ai-route-actions {
@@ -369,10 +390,6 @@
         white-space: normal;
       }
 
-      .ai-route-meta {
-        grid-template-columns: 1fr;
-      }
-
       .ai-link-btn {
         width: 100%;
       }
@@ -455,7 +472,7 @@
                 <span class="mini" data-ai-text="filterEyebrow">Smart Route Builder</span>
                 <h2 data-ai-text="filterTitle">조건을 선택해주세요</h2>
                 <p data-ai-text="filterDesc">
-                  호텔, 시간, 분위기, 이동 템포, 날씨를 고르면 40개 스팟 중 적합한 후보를 점수화해서 자동으로 조합합니다.
+                  호텔, 시간, 분위기, 이동 템포, 날씨를 고르면 교토 스팟 중 적합한 후보를 자동으로 조합합니다.
                 </p>
               </div>
 
@@ -554,7 +571,7 @@
           heroDesc: "条件を選ぶと、京都スポットデータをもとに今使いやすい流れを自動で組み立てます。",
           filterEyebrow: "Smart Route Builder",
           filterTitle: "条件を選んでください",
-          filterDesc: "ホテル、時間、雰囲気、移動テンポ、天気を選ぶと、40スポットの中から相性の良いルートを自動提案します。",
+          filterDesc: "ホテル、時間、雰囲気、移動テンポ、天気を選ぶと、京都スポットの中から相性の良いルートを自動提案します。",
           hotelLabel: "ホテル",
           durationLabel: "所要時間",
           durationShort: "1〜2時間",
@@ -584,7 +601,6 @@
           emptyTitle: "まだコースがありません",
           emptyDesc: "条件を選択後、ボタンを押すとここにおすすめルートが表示されます。",
           stopLabel: "STOP",
-          scoreLabel: "相性スコア",
           areaLabel: "エリア",
           reasonLabel: "おすすめ理由",
           mapButton: "Google Map",
@@ -597,14 +613,27 @@
           mood_quiet: "落ち着いて歩ける流れ",
           mood_food: "食も含めて楽しむ流れ",
           mood_night: "夕方から夜の雰囲気を活かす流れ",
-          mood_family: "移動しやすい家族向けの流れ"
+          mood_family: "移動しやすい家族向けの流れ",
+          tagMoodSakura: "🌸 桜",
+          tagMoodClassic: "🏯 京都らしさ",
+          tagMoodQuiet: "🚶 静かな散策",
+          tagMoodFood: "🍽 食",
+          tagMoodNight: "🌙 夜の雰囲気",
+          tagMoodFamily: "👨‍👩‍👧 家族向け",
+          tagPaceEasy: "🐢 ゆっくり",
+          tagPaceBalanced: "✨ バランス",
+          tagPaceActive: "📍 しっかり回る",
+          tagWeatherSunny: "☀ 晴れ向き",
+          tagWeatherRainy: "☔ 雨でもOK",
+          tagWeatherNight: "🌃 夜向き",
+          tagWeatherAny: "🗓 いつでも"
         },
         en: {
           heroTitle: "AI Route Builder",
           heroDesc: "Choose your conditions and the guide will build a Kyoto route from prepared spot data.",
           filterEyebrow: "Smart Route Builder",
           filterTitle: "Choose your conditions",
-          filterDesc: "Select hotel, time, mood, pace, and weather, then the guide scores 40 spots and builds a usable route.",
+          filterDesc: "Select hotel, time, mood, pace, and weather, then the guide builds a usable route from Kyoto spots.",
           hotelLabel: "Hotel",
           durationLabel: "Duration",
           durationShort: "1–2 hours",
@@ -634,7 +663,6 @@
           emptyTitle: "No route yet",
           emptyDesc: "Your generated route will appear here after selection.",
           stopLabel: "STOP",
-          scoreLabel: "Match Score",
           areaLabel: "Area",
           reasonLabel: "Why this works",
           mapButton: "Google Map",
@@ -647,14 +675,27 @@
           mood_quiet: "Built for a calmer walking flow.",
           mood_food: "Built to include food-focused stops.",
           mood_night: "Built to suit late afternoon and night mood.",
-          mood_family: "Built for easier family-friendly movement."
+          mood_family: "Built for easier family-friendly movement.",
+          tagMoodSakura: "🌸 Sakura",
+          tagMoodClassic: "🏯 Classic Kyoto",
+          tagMoodQuiet: "🚶 Quiet walk",
+          tagMoodFood: "🍽 Food",
+          tagMoodNight: "🌙 Night mood",
+          tagMoodFamily: "👨‍👩‍👧 Family",
+          tagPaceEasy: "🐢 Easy pace",
+          tagPaceBalanced: "✨ Balanced",
+          tagPaceActive: "📍 Active",
+          tagWeatherSunny: "☀ Sunny",
+          tagWeatherRainy: "☔ Rain-friendly",
+          tagWeatherNight: "🌃 Night",
+          tagWeatherAny: "🗓 Flexible"
         },
         kr: {
           heroTitle: "AI Route Builder",
           heroDesc: "조건을 선택하면, 교토 스팟 데이터를 바탕으로 지금 가장 쓰기 좋은 루트를 자동으로 조합합니다.",
           filterEyebrow: "Smart Route Builder",
           filterTitle: "조건을 선택해주세요",
-          filterDesc: "호텔, 시간, 분위기, 이동 템포, 날씨를 고르면 40개 스팟 중 적합한 후보를 점수화해서 자동으로 조합합니다.",
+          filterDesc: "호텔, 시간, 분위기, 이동 템포, 날씨를 고르면 교토 스팟 중 적합한 후보를 자동으로 조합합니다.",
           hotelLabel: "호텔",
           durationLabel: "소요 시간",
           durationShort: "1~2시간",
@@ -684,7 +725,6 @@
           emptyTitle: "아직 생성된 코스가 없습니다",
           emptyDesc: "조건을 고른 뒤 버튼을 누르면 추천 루트가 여기 나타납니다.",
           stopLabel: "STOP",
-          scoreLabel: "적합도",
           areaLabel: "지역",
           reasonLabel: "추천 이유",
           mapButton: "Google Map",
@@ -697,7 +737,20 @@
           mood_quiet: "조용하고 차분하게 걷기 좋게 조합했습니다.",
           mood_food: "먹거리와 함께 즐기기 좋게 조합했습니다.",
           mood_night: "늦은 오후부터 밤 분위기에 맞게 조합했습니다.",
-          mood_family: "가족 단위도 움직이기 편하게 조합했습니다."
+          mood_family: "가족 단위도 움직이기 편하게 조합했습니다.",
+          tagMoodSakura: "🌸 벚꽃",
+          tagMoodClassic: "🏯 교토 정석",
+          tagMoodQuiet: "🚶 조용한 산책",
+          tagMoodFood: "🍽 먹거리",
+          tagMoodNight: "🌙 야간 분위기",
+          tagMoodFamily: "👨‍👩‍👧 가족 동선",
+          tagPaceEasy: "🐢 천천히",
+          tagPaceBalanced: "✨ 균형형",
+          tagPaceActive: "📍 많이 보기",
+          tagWeatherSunny: "☀ 맑은 날",
+          tagWeatherRainy: "☔ 비 오는 날",
+          tagWeatherNight: "🌃 저녁 / 야간",
+          tagWeatherAny: "🗓 언제든"
         }
       };
 
@@ -958,23 +1011,6 @@
           map: "https://www.google.com/maps/search/?api=1&query=To-ji+Kyoto"
         },
         {
-          id: "kyoto_station",
-          name: { jp: "京都駅周辺", en: "Kyoto Station Area", kr: "교토역 주변" },
-          area: { jp: "駅周辺", en: "Station Area", kr: "역 주변" },
-          moods: ["food", "family"],
-          durations: ["short"],
-          paces: ["easy", "balanced"],
-          weathers: ["any", "rainy"],
-          hotels: ["stitch", "hiyori"],
-          scoreBase: 68,
-          reason: {
-            jp: "移動前後の空き時間にも組み込みやすい実用的なエリアです。",
-            en: "Useful before or after transport with easy access.",
-            kr: "이동 전후 빈 시간에 넣기 쉬운 실용적인 지역입니다."
-          },
-          map: "https://www.google.com/maps/search/?api=1&query=Kyoto+Station"
-        },
-        {
           id: "nijo",
           name: { jp: "二条城", en: "Nijo Castle", kr: "니조성" },
           area: { jp: "中京", en: "Nakagyo", kr: "나카교" },
@@ -1009,23 +1045,6 @@
           map: "https://www.google.com/maps/search/?api=1&query=Kyoto+Gyoen"
         },
         {
-          id: "demachiyanagi",
-          name: { jp: "出町柳・鴨川", en: "Demachiyanagi & Kamo River", kr: "데마치야나기 · 가모가와" },
-          area: { jp: "鴨川北側", en: "North Kamo", kr: "가모가와 북부" },
-          moods: ["quiet", "family"],
-          durations: ["short", "half"],
-          paces: ["easy"],
-          weathers: ["sunny", "any"],
-          hotels: ["stitch", "bettei"],
-          scoreBase: 71,
-          reason: {
-            jp: "歩くこと自体を楽しむ流れに向いていて、軽い散歩にちょうど良いです。",
-            en: "Great for guests who simply want an easy riverside walk.",
-            kr: "걷는 자체를 즐기고 싶은 흐름에 잘 맞고 가벼운 산책용으로 좋습니다."
-          },
-          map: "https://www.google.com/maps/search/?api=1&query=Demachiyanagi+Kyoto"
-        },
-        {
           id: "ginkakuji",
           name: { jp: "銀閣寺", en: "Ginkaku-ji", kr: "긴카쿠지" },
           area: { jp: "左京", en: "Sakyo", kr: "사쿄" },
@@ -1041,23 +1060,6 @@
             kr: "철학의 길과 묶기 좋고 차분한 교토 감성이 있습니다."
           },
           map: "https://www.google.com/maps/search/?api=1&query=Ginkaku-ji+Kyoto"
-        },
-        {
-          id: "eikando",
-          name: { jp: "永観堂", en: "Eikando", kr: "에이칸도" },
-          area: { jp: "左京", en: "Sakyo", kr: "사쿄" },
-          moods: ["quiet", "classic", "night"],
-          durations: ["short", "half"],
-          paces: ["easy", "balanced"],
-          weathers: ["any", "sunny", "night"],
-          hotels: ["stitch", "bettei", "soraniwa"],
-          scoreBase: 73,
-          reason: {
-            jp: "静かな寺社ルートの密度を上げる時に入れやすいです。",
-            en: "Useful for adding depth to a quiet temple-focused route.",
-            kr: "조용한 절 중심 루트의 밀도를 높이고 싶을 때 넣기 좋습니다."
-          },
-          map: "https://www.google.com/maps/search/?api=1&query=Eikando+Kyoto"
         },
         {
           id: "keage",
@@ -1092,125 +1094,6 @@
             kr: "가볍게 넣기 쉽고 앞뒤 일정과 연결하기 편한 산책 동선입니다."
           },
           map: "https://www.google.com/maps/search/?api=1&query=Kamogawa+Kyoto"
-        },
-        {
-          id: "kifune",
-          name: { jp: "貴船", en: "Kibune", kr: "기부네" },
-          area: { jp: "北部", en: "Northern Kyoto", kr: "북부" },
-          moods: ["quiet", "classic"],
-          durations: ["half", "full"],
-          paces: ["balanced", "active"],
-          weathers: ["sunny", "any"],
-          hotels: ["bettei", "soraniwa"],
-          scoreBase: 66,
-          reason: {
-            jp: "少し遠出でも静けさを優先したい時に向いています。",
-            en: "Good for guests who want a quieter excursion outside the core center.",
-            kr: "중심부보다 조금 멀어도 조용함을 우선하고 싶을 때 적합합니다."
-          },
-          map: "https://www.google.com/maps/search/?api=1&query=Kibune+Kyoto"
-        },
-        {
-          id: "kurama",
-          name: { jp: "鞍馬", en: "Kurama", kr: "구라마" },
-          area: { jp: "北部", en: "Northern Kyoto", kr: "북부" },
-          moods: ["quiet", "classic"],
-          durations: ["half", "full"],
-          paces: ["balanced", "active"],
-          weathers: ["sunny", "any"],
-          hotels: ["bettei", "soraniwa"],
-          scoreBase: 64,
-          reason: {
-            jp: "自然寄りの雰囲気を入れたい時に使いやすいです。",
-            en: "Useful for adding a more nature-oriented atmosphere.",
-            kr: "자연 쪽 분위기를 더하고 싶을 때 쓰기 좋습니다."
-          },
-          map: "https://www.google.com/maps/search/?api=1&query=Kurama+Kyoto"
-        },
-        {
-          id: "umekoji",
-          name: { jp: "梅小路公園", en: "Umekoji Park", kr: "우메코지 공원" },
-          area: { jp: "南西", en: "Southwest", kr: "남서부" },
-          moods: ["family", "quiet"],
-          durations: ["short", "half"],
-          paces: ["easy"],
-          weathers: ["sunny", "any"],
-          hotels: ["stitch", "hiyori"],
-          scoreBase: 65,
-          reason: {
-            jp: "子連れやゆったり系の導線に入れやすい開放感のある公園です。",
-            en: "Open and easy, especially for family-friendly routes.",
-            kr: "아이 동반이나 느긋한 흐름에 넣기 좋은 개방감 있는 공원입니다."
-          },
-          map: "https://www.google.com/maps/search/?api=1&query=Umekoji+Park+Kyoto"
-        },
-        {
-          id: "kyoto_aquarium",
-          name: { jp: "京都水族館", en: "Kyoto Aquarium", kr: "교토 수족관" },
-          area: { jp: "梅小路", en: "Umekoji", kr: "우메코지" },
-          moods: ["family"],
-          durations: ["short", "half"],
-          paces: ["easy"],
-          weathers: ["rainy", "any"],
-          hotels: ["stitch", "hiyori"],
-          scoreBase: 67,
-          reason: {
-            jp: "雨の日や家族向けの代替候補として使いやすいです。",
-            en: "A useful indoor alternative for rainy days and family plans.",
-            kr: "비 오는 날이나 가족형 대체 코스로 쓰기 좋습니다."
-          },
-          map: "https://www.google.com/maps/search/?api=1&query=Kyoto+Aquarium"
-        },
-        {
-          id: "toa_stroll",
-          name: { jp: "東山夕方散歩", en: "Higashiyama Evening Walk", kr: "히가시야마 저녁 산책" },
-          area: { jp: "東山", en: "Higashiyama", kr: "히가시야마" },
-          moods: ["night", "quiet"],
-          durations: ["short", "half"],
-          paces: ["easy", "balanced"],
-          weathers: ["night", "any"],
-          hotels: ["stitch", "soraniwa", "bettei"],
-          scoreBase: 72,
-          reason: {
-            jp: "夕方以降の雰囲気重視でまとめたい時に相性が良いです。",
-            en: "Works well when the guest wants an evening atmosphere rather than a packed route.",
-            kr: "저녁 이후 분위기 중심으로 묶고 싶을 때 잘 맞습니다."
-          },
-          map: "https://www.google.com/maps/search/?api=1&query=Higashiyama+Kyoto"
-        },
-        {
-          id: "gion_dinner",
-          name: { jp: "祇園ディナー導線", en: "Gion Dinner Flow", kr: "기온 디너 동선" },
-          area: { jp: "祇園", en: "Gion", kr: "기온" },
-          moods: ["food", "night"],
-          durations: ["short", "half"],
-          paces: ["easy"],
-          weathers: ["night", "any", "rainy"],
-          hotels: ["stitch", "soraniwa", "bettei"],
-          scoreBase: 74,
-          reason: {
-            jp: "夕食まで含めてまとまりよく動きたい時に便利です。",
-            en: "Useful for turning an evening outing into a dinner-centered flow.",
-            kr: "저녁 식사까지 포함해 자연스럽게 묶고 싶을 때 편합니다."
-          },
-          map: "https://www.google.com/maps/search/?api=1&query=Gion+Kyoto"
-        },
-        {
-          id: "pont_bridge",
-          name: { jp: "三条・四条河原町", en: "Sanjo & Shijo Kawaramachi", kr: "산조 · 시조가와라마치" },
-          area: { jp: "中心部", en: "Central Kyoto", kr: "중심부" },
-          moods: ["food", "night", "family"],
-          durations: ["short", "half"],
-          paces: ["easy", "balanced"],
-          weathers: ["any", "rainy", "night"],
-          hotels: ["stitch", "soraniwa", "bettei"],
-          scoreBase: 72,
-          reason: {
-            jp: "買い物・食事・移動の切り替えがしやすい便利な中心地です。",
-            en: "A practical center for shopping, food, and easy movement.",
-            kr: "쇼핑, 식사, 이동 전환이 쉬운 편리한 중심지입니다."
-          },
-          map: "https://www.google.com/maps/search/?api=1&query=Shijo+Kawaramachi+Kyoto"
         },
         {
           id: "bamboo",
@@ -1281,23 +1164,6 @@
           map: "https://www.google.com/maps/search/?api=1&query=Fushimi+Sake+District+Kyoto"
         },
         {
-          id: "uji_side",
-          name: { jp: "宇治方面", en: "Uji Side Trip", kr: "우지 방면" },
-          area: { jp: "郊外", en: "Outskirts", kr: "외곽" },
-          moods: ["quiet", "classic", "food"],
-          durations: ["full"],
-          paces: ["balanced", "active"],
-          weathers: ["sunny", "any"],
-          hotels: ["hiyori", "stitch"],
-          scoreBase: 60,
-          reason: {
-            jp: "1日使える時に少し足を伸ばして変化を出したい場合に向いています。",
-            en: "Good when the guest has a full day and wants a different flavor beyond central Kyoto.",
-            kr: "하루 시간이 있을 때 중심부 밖으로 조금 변화를 주고 싶을 때 좋습니다."
-          },
-          map: "https://www.google.com/maps/search/?api=1&query=Uji+Kyoto"
-        },
-        {
           id: "gion_cafe",
           name: { jp: "祇園カフェ寄り道", en: "Gion Cafe Stop", kr: "기온 카페 들름" },
           area: { jp: "祇園", en: "Gion", kr: "기온" },
@@ -1330,142 +1196,6 @@
             kr: "밤 마무리용으로 쓰기 좋고 가벼운 산책만으로도 분위기가 납니다."
           },
           map: "https://www.google.com/maps/search/?api=1&query=Kamogawa+Night+Kyoto"
-        },
-        {
-          id: "shoseien",
-          name: { jp: "渉成園", en: "Shosei-en Garden", kr: "쇼세이엔" },
-          area: { jp: "駅周辺", en: "Station Area", kr: "역 주변" },
-          moods: ["quiet", "classic"],
-          durations: ["short"],
-          paces: ["easy"],
-          weathers: ["sunny", "any"],
-          hotels: ["stitch", "hiyori"],
-          scoreBase: 63,
-          reason: {
-            jp: "駅周辺で静けさを入れたい時の穴場調整に向いています。",
-            en: "A quieter station-area adjustment stop.",
-            kr: "교토역 근처에서 조용한 분위기를 넣고 싶을 때 틈새 조정용으로 좋습니다."
-          },
-          map: "https://www.google.com/maps/search/?api=1&query=Shosei-en+Kyoto"
-        },
-        {
-          id: "rohm",
-          name: { jp: "岡崎・ローム周辺", en: "Okazaki / ROHM Area", kr: "오카자키 · 로움 주변" },
-          area: { jp: "岡崎", en: "Okazaki", kr: "오카자키" },
-          moods: ["quiet", "family", "night"],
-          durations: ["short"],
-          paces: ["easy"],
-          weathers: ["any", "night"],
-          hotels: ["stitch", "bettei", "soraniwa"],
-          scoreBase: 62,
-          reason: {
-            jp: "有名どころを少し外して歩きたい時に使いやすいです。",
-            en: "Useful when the guest wants something slightly less obvious.",
-            kr: "너무 유명한 곳에서 조금 벗어나 걷고 싶을 때 좋습니다."
-          },
-          map: "https://www.google.com/maps/search/?api=1&query=Okazaki+Kyoto"
-        },
-        {
-          id: "higashi_honganji",
-          name: { jp: "東本願寺", en: "Higashi Hongan-ji", kr: "히가시 혼간지" },
-          area: { jp: "駅周辺", en: "Station Area", kr: "역 주변" },
-          moods: ["classic", "quiet"],
-          durations: ["short"],
-          paces: ["easy"],
-          weathers: ["any", "rainy"],
-          hotels: ["stitch", "hiyori"],
-          scoreBase: 61,
-          reason: {
-            jp: "駅周辺で京都らしさを少し入れたい時に便利です。",
-            en: "Useful for adding a touch of temple atmosphere near the station.",
-            kr: "교토역 근처에서 교토다운 사찰 분위기를 조금 넣고 싶을 때 편합니다."
-          },
-          map: "https://www.google.com/maps/search/?api=1&query=Higashi+Honganji+Kyoto"
-        },
-        {
-          id: "sanjusangendo",
-          name: { jp: "三十三間堂", en: "Sanjusangendo", kr: "산주산겐도" },
-          area: { jp: "東山南", en: "South Higashiyama", kr: "남히가시야마" },
-          moods: ["classic", "quiet"],
-          durations: ["short", "half"],
-          paces: ["easy", "balanced"],
-          weathers: ["any", "rainy"],
-          hotels: ["stitch", "hiyori", "bettei"],
-          scoreBase: 72,
-          reason: {
-            jp: "屋内要素もあり、少し落ち着いた文化系ルートに向いています。",
-            en: "Good for a more cultural, slightly quieter route.",
-            kr: "실내 요소도 있어 조금 더 차분한 문화형 동선에 어울립니다."
-          },
-          map: "https://www.google.com/maps/search/?api=1&query=Sanjusangendo+Kyoto"
-        },
-        {
-          id: "kyoto_museum",
-          name: { jp: "京都国立博物館周辺", en: "Kyoto National Museum Area", kr: "교토국립박물관 주변" },
-          area: { jp: "東山南", en: "South Higashiyama", kr: "남히가시야마" },
-          moods: ["classic", "rainy", "quiet"],
-          durations: ["short", "half"],
-          paces: ["easy"],
-          weathers: ["rainy", "any"],
-          hotels: ["stitch", "hiyori", "bettei"],
-          scoreBase: 64,
-          reason: {
-            jp: "雨の日や文化寄りの流れに調整しやすいエリアです。",
-            en: "Useful when shifting toward a cultural rainy-day route.",
-            kr: "비 오는 날이나 문화형 흐름으로 조정할 때 편한 지역입니다."
-          },
-          map: "https://www.google.com/maps/search/?api=1&query=Kyoto+National+Museum"
-        },
-        {
-          id: "aeon_side",
-          name: { jp: "駅南ショッピング導線", en: "South Station Shopping Flow", kr: "역 남쪽 쇼핑 동선" },
-          area: { jp: "駅南", en: "South Station", kr: "역 남쪽" },
-          moods: ["family", "food"],
-          durations: ["short"],
-          paces: ["easy"],
-          weathers: ["rainy", "any"],
-          hotels: ["stitch", "hiyori"],
-          scoreBase: 57,
-          reason: {
-            jp: "完全観光よりも実用性重視で動きたい時の補助候補です。",
-            en: "A practical add-on when convenience matters more than sightseeing depth.",
-            kr: "완전 관광보다는 실용성을 우선하고 싶을 때 보조 후보로 좋습니다."
-          },
-          map: "https://www.google.com/maps/search/?api=1&query=Kyoto+Station+South"
-        },
-        {
-          id: "shirakawa_night",
-          name: { jp: "白川夜散歩", en: "Shirakawa Night Walk", kr: "시라카와 밤 산책" },
-          area: { jp: "祇園", en: "Gion", kr: "기온" },
-          moods: ["night", "quiet"],
-          durations: ["short"],
-          paces: ["easy"],
-          weathers: ["night", "any"],
-          hotels: ["stitch", "soraniwa", "bettei"],
-          scoreBase: 70,
-          reason: {
-            jp: "夜に歩く雰囲気を重視したい時の満足度が高いです。",
-            en: "High satisfaction for guests who mainly want evening atmosphere.",
-            kr: "밤에 걷는 감성을 중시할 때 만족도가 높습니다."
-          },
-          map: "https://www.google.com/maps/search/?api=1&query=Shirakawa+Kyoto"
-        },
-        {
-          id: "fushimi_evening",
-          name: { jp: "伏見夕方散歩", en: "Fushimi Evening Walk", kr: "후시미 저녁 산책" },
-          area: { jp: "伏見", en: "Fushimi", kr: "후시미" },
-          moods: ["quiet", "night"],
-          durations: ["short", "half"],
-          paces: ["easy", "balanced"],
-          weathers: ["night", "any"],
-          hotels: ["stitch", "hiyori"],
-          scoreBase: 59,
-          reason: {
-            jp: "中心地とは少し違う夕方の空気感を入れたい時に使えます。",
-            en: "Useful for a softer evening feel away from the busiest center.",
-            kr: "중심지와는 조금 다른 저녁 공기를 넣고 싶을 때 쓸 수 있습니다."
-          },
-          map: "https://www.google.com/maps/search/?api=1&query=Fushimi+Kyoto"
         }
       ];
 
@@ -1628,6 +1358,42 @@
         };
       }
 
+      function getSpotTags(spot, lang) {
+        const tags = [];
+
+        if (spot.moods && spot.moods.includes("sakura")) tags.push(t(lang, "tagMoodSakura"));
+        else if (spot.moods && spot.moods.includes("classic")) tags.push(t(lang, "tagMoodClassic"));
+        else if (spot.moods && spot.moods.includes("quiet")) tags.push(t(lang, "tagMoodQuiet"));
+        else if (spot.moods && spot.moods.includes("food")) tags.push(t(lang, "tagMoodFood"));
+        else if (spot.moods && spot.moods.includes("night")) tags.push(t(lang, "tagMoodNight"));
+        else if (spot.moods && spot.moods.includes("family")) tags.push(t(lang, "tagMoodFamily"));
+
+        if (spot.paces && spot.paces.includes("easy")) tags.push(t(lang, "tagPaceEasy"));
+        else if (spot.paces && spot.paces.includes("balanced")) tags.push(t(lang, "tagPaceBalanced"));
+        else if (spot.paces && spot.paces.includes("active")) tags.push(t(lang, "tagPaceActive"));
+
+        if (spot.weathers && spot.weathers.includes("night")) tags.push(t(lang, "tagWeatherNight"));
+        else if (spot.weathers && spot.weathers.includes("rainy")) tags.push(t(lang, "tagWeatherRainy"));
+        else if (spot.weathers && spot.weathers.includes("sunny")) tags.push(t(lang, "tagWeatherSunny"));
+        else tags.push(t(lang, "tagWeatherAny"));
+
+        return tags.slice(0, 3);
+      }
+
+      function getSpotSubcopy(spot, lang) {
+        const area = pickText(spot.area, lang);
+
+        if (lang === "kr") {
+          return `${area} 흐름 안에서 자연스럽게 연결하기 좋고, 현재 선택한 조건과도 잘 맞는 스팟입니다.`;
+        }
+
+        if (lang === "en") {
+          return `This stop fits naturally into the ${area} flow and matches the selected conditions well.`;
+        }
+
+        return `${area}の流れの中で組み込みやすく、今回の条件にも合わせやすいスポットです。`;
+      }
+
       function renderRoute(route) {
         const lang = getLang();
         const summaryTitle = document.querySelector("[data-ai-summary-title]");
@@ -1652,34 +1418,44 @@
         resultList.hidden = false;
 
         resultList.innerHTML = route.map((spot, index) => {
+          const tags = getSpotTags(spot, lang)
+            .map((tag) => `<span class="ai-route-tag">${tag}</span>`)
+            .join("");
+
+          const title = pickText(spot.name, lang);
+          const area = pickText(spot.area, lang);
+          const reason = pickText(spot.reason, lang);
+          const subcopy = getSpotSubcopy(spot, lang);
+
           return `
             <article class="ai-route-card">
               <div class="ai-route-head">
                 <div>
                   <span class="ai-stop-badge">${t(lang, "stopLabel")} ${index + 1}</span>
-                  <h3 class="ai-route-title">${pickText(spot.name, lang)}</h3>
+                  <h3 class="ai-route-title">${title}</h3>
                 </div>
-                <div class="ai-route-area">${t(lang, "areaLabel")} · ${pickText(spot.area, lang)}</div>
-              </div>
 
-              <div class="ai-route-meta">
-                <div class="ai-meta-box">
-                  <span>${t(lang, "scoreLabel")}</span>
-                  <strong>${spot.totalScore}</strong>
-                </div>
-                <div class="ai-meta-box">
-                  <span>${t(lang, "reasonLabel")}</span>
-                  <strong>${pickText(spot.reason, lang)}</strong>
+                <div class="ai-route-area">
+                  ${t(lang, "areaLabel")} · ${area}
                 </div>
               </div>
 
-              <p class="ai-route-reason">${pickText(spot.reason, lang)}</p>
+              <div class="ai-route-tags">
+                ${tags}
+              </div>
+
+              <div class="ai-route-highlight">
+                <span class="ai-route-highlight-label">${t(lang, "reasonLabel")}</span>
+                <p class="ai-route-highlight-text">${reason}</p>
+              </div>
+
+              <p class="ai-route-subcopy">${subcopy}</p>
 
               <div class="ai-route-actions">
                 <a class="ai-link-btn primary" href="${spot.map}" target="_blank" rel="noopener noreferrer">
                   ${t(lang, "mapButton")}
                 </a>
-                <a class="ai-link-btn secondary" href="./crowd-live.html" rel="noopener noreferrer">
+                <a class="ai-link-btn secondary" href="./crowd-live.html">
                   ${t(lang, "moreButton")}
                 </a>
               </div>
@@ -1689,33 +1465,47 @@
       }
 
       function generateRoute() {
-        const route = buildRoute();
-        renderRoute(route);
+        renderRoute(buildRoute());
       }
 
-      function initAiGuide() {
-        renderAiTexts();
-        bindFilterGroups();
-
-        const generateBtn = document.querySelector("[data-ai-generate]");
-        if (generateBtn) {
-          generateBtn.addEventListener("click", generateRoute);
-        }
-
+      function syncLangButtons() {
+        const lang = getLang();
         document.querySelectorAll(".lang-btn").forEach((btn) => {
-          btn.addEventListener("click", function () {
-            setTimeout(() => {
-              renderAiTexts();
-              const existing = document.querySelector("[data-ai-result-list]");
-              if (existing && !existing.hidden) {
-                generateRoute();
-              }
-            }, 30);
-          });
+          btn.classList.toggle("is-active", btn.getAttribute("data-lang") === lang);
         });
       }
 
-      document.addEventListener("DOMContentLoaded", initAiGuide);
+      function bindGenerate() {
+        const btn = document.querySelector("[data-ai-generate]");
+        if (!btn) return;
+        btn.addEventListener("click", generateRoute);
+      }
+
+      function bindLanguageRefresh() {
+        document.querySelectorAll(".lang-btn").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            setTimeout(() => {
+              renderAiTexts();
+              syncLangButtons();
+              renderRoute(buildRoute());
+            }, 30);
+          });
+        });
+
+        window.addEventListener("storage", function (e) {
+          if (e.key === "preferredLang") {
+            renderAiTexts();
+            syncLangButtons();
+            renderRoute(buildRoute());
+          }
+        });
+      }
+
+      renderAiTexts();
+      syncLangButtons();
+      bindFilterGroups();
+      bindGenerate();
+      bindLanguageRefresh();
     })();
   </script>
 </body>
