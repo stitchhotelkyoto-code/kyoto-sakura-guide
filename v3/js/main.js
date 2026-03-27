@@ -299,15 +299,24 @@ function renderPhotoCards(cards, lang) {
       const text = escapeHtml(resolveText(card.text, lang));
       const image = escapeHtml(card.image || "");
 
-      return `
-        <article class="hotel-photo-card">
-          <div class="hotel-photo-thumb">
+     return `
+  <article class="hotel-photo-card">
+    <div class="hotel-photo-thumb">
+      ${
+        card.isComingSoon
+          ? `
+            <div class="coming-soon-card">
+              <div class="coming-soon-inner">
+                <div class="coming-soon-label">BAR</div>
+                <div class="coming-soon-title">Coming Soon</div>
+              </div>
+            </div>
+          `
+          : `
             <img src="${image}" alt="${title}" loading="lazy">
-          </div>
-          <div class="hotel-photo-body">
-            <h3 class="hotel-photo-title">${title}</h3>
-            <p class="hotel-photo-text">${text}</p>
-          </div>
+          `
+      }
+    </div>
         </article>
       `;
     })
