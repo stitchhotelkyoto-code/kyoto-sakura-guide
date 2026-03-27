@@ -4,104 +4,196 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AI Guide | Kyoto Sakura Guide</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&family=Noto+Sans+KR:wght@400;500;700;800&display=swap"
-    rel="stylesheet"
-  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css" />
 
   <style>
     :root {
-      --ai-pink-1: #fff7fb;
-      --ai-pink-2: #ffe6f0;
-      --ai-pink-3: #f8cadc;
-      --ai-pink-4: #de8baa;
-      --ai-rose: #b85f82;
-      --ai-text: #3f3140;
-      --ai-sub: #786674;
-      --ai-line: rgba(184, 95, 130, 0.16);
-      --ai-card-shadow: 0 18px 40px rgba(161, 109, 136, 0.12);
+      --ai-bg: #fffafc;
+      --ai-panel: rgba(255,255,255,0.88);
+      --ai-panel-2: #fffdfd;
+      --ai-line: rgba(214, 166, 188, 0.5);
+      --ai-line-strong: rgba(196, 132, 161, 0.65);
+      --ai-pink: #c97b9d;
+      --ai-pink-deep: #b56588;
+      --ai-pink-soft: #f6e9f0;
+      --ai-text: #4e4450;
+      --ai-sub: #8a7683;
+      --ai-shadow: 0 16px 38px rgba(188, 145, 165, 0.12);
       --ai-radius-xl: 28px;
       --ai-radius-lg: 22px;
       --ai-radius-md: 16px;
+      --ai-radius-pill: 999px;
+      --container: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     body {
-      background:
-        radial-gradient(circle at top left, rgba(255, 228, 239, 0.7), transparent 28%),
-        linear-gradient(180deg, #fffafc 0%, #fff8fb 100%);
-      color: var(--ai-text);
+      margin: 0;
       font-family: "Noto Sans JP", "Noto Sans KR", sans-serif;
+      color: var(--ai-text);
+      background:
+        radial-gradient(circle at top left, rgba(255, 226, 239, 0.55), transparent 26%),
+        linear-gradient(180deg, #fffdfd 0%, #fff8fb 100%);
     }
 
-    .ai-page {
-      padding: 0 0 80px;
+    .container {
+      width: min(var(--container), calc(100% - 32px));
+      margin: 0 auto;
     }
 
-    .page-hero-ai {
-      padding: 38px 0 24px;
+    .page-shell {
+      min-height: 100vh;
     }
 
-    .page-hero-ai .page-hero-box {
-      background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,240,247,0.92));
-      border: 1px solid var(--ai-line);
-      border-radius: 30px;
-      box-shadow: var(--ai-card-shadow);
-      padding: 34px 32px;
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 250, 252, 0.82);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(214, 166, 188, 0.24);
     }
 
-    .page-hero-ai .page-hero-label {
+    .site-header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      min-height: 72px;
+    }
+
+    .site-logo {
+      text-decoration: none;
+      color: var(--ai-text);
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      min-width: 0;
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .site-nav a {
+      text-decoration: none;
+      color: var(--ai-sub);
+      font-size: 14px;
+      font-weight: 700;
+      transition: 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .site-nav a:hover {
+      color: var(--ai-pink-deep);
+    }
+
+    .lang-switcher {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
+      padding: 4px;
+      border: 1px solid var(--ai-line);
+      border-radius: var(--ai-radius-pill);
+      background: rgba(255,255,255,0.85);
+      flex-shrink: 0;
+    }
+
+    .lang-btn {
+      border: none;
+      background: transparent;
+      color: var(--ai-sub);
+      height: 34px;
+      min-width: 42px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .lang-btn.is-active {
+      background: linear-gradient(135deg, #f4d9e6, #fff);
+      color: var(--ai-pink-deep);
+      box-shadow: 0 8px 18px rgba(181, 101, 136, 0.16);
+    }
+
+    .ai-main {
+      padding: 30px 0 70px;
+    }
+
+    .ai-hero {
+      margin-bottom: 24px;
+    }
+
+    .ai-hero-box {
+      background: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(255, 241, 247, 0.92));
+      border: 1px solid var(--ai-line);
+      box-shadow: var(--ai-shadow);
+      border-radius: 30px;
+      padding: 32px 32px 28px;
+    }
+
+    .ai-hero-label {
+      margin: 0 0 10px;
+      color: var(--ai-pink-deep);
       font-size: 12px;
       font-weight: 800;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--ai-rose);
-      margin: 0 0 14px;
     }
 
-    .page-hero-ai h1 {
-      font-size: clamp(28px, 5vw, 48px);
-      line-height: 1.12;
-      margin: 0 0 12px;
-      color: var(--ai-text);
+    .ai-hero-title {
+      margin: 0 0 10px;
+      font-size: clamp(30px, 5vw, 52px);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: #2f415f;
     }
 
-    .page-hero-ai p {
+    .ai-hero-desc {
       margin: 0;
+      max-width: 820px;
       color: var(--ai-sub);
-      line-height: 1.75;
-      max-width: 760px;
       font-size: 15px;
+      line-height: 1.8;
     }
 
     .ai-layout {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 24px;
+      grid-template-columns: 420px minmax(0, 1fr);
+      gap: 22px;
       align-items: start;
     }
 
     .ai-panel {
-      background: rgba(255,255,255,0.9);
+      background: var(--ai-panel);
       border: 1px solid var(--ai-line);
       border-radius: var(--ai-radius-xl);
-      box-shadow: var(--ai-card-shadow);
-      padding: 24px;
-      backdrop-filter: blur(10px);
-    }
-
-    .ai-panel + .ai-panel {
-      margin-top: 18px;
+      box-shadow: var(--ai-shadow);
+      padding: 22px;
     }
 
     .ai-panel-title {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: space-between;
       gap: 12px;
       margin-bottom: 16px;
@@ -111,11 +203,12 @@
     .ai-panel-title h3 {
       margin: 0;
       font-size: 20px;
+      line-height: 1.3;
       color: var(--ai-text);
     }
 
     .ai-panel-title p {
-      margin: 4px 0 0;
+      margin: 6px 0 0;
       color: var(--ai-sub);
       font-size: 13px;
       line-height: 1.7;
@@ -126,14 +219,28 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-width: 36px;
-      height: 36px;
+      min-width: 42px;
+      height: 42px;
       border-radius: 999px;
-      background: linear-gradient(135deg, var(--ai-pink-3), #fff);
-      color: var(--ai-rose);
+      background: linear-gradient(135deg, #f8dbe8, #fff);
+      color: var(--ai-pink-deep);
+      border: 1px solid rgba(196, 132, 161, 0.25);
+      font-size: 12px;
       font-weight: 800;
-      font-size: 13px;
-      border: 1px solid rgba(184, 95, 130, 0.2);
+      letter-spacing: 0.04em;
+    }
+
+    .ai-block + .ai-block {
+      margin-top: 16px;
+    }
+
+    .ai-block-title {
+      margin: 0 0 10px;
+      color: var(--ai-sub);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
     .ai-chip-grid {
@@ -144,33 +251,34 @@
 
     .ai-chip {
       appearance: none;
-      border: 1px solid rgba(184, 95, 130, 0.18);
+      border: 1px solid rgba(196, 132, 161, 0.2);
       background: #fff;
+      color: var(--ai-text);
       border-radius: 999px;
       padding: 11px 16px;
       font-size: 14px;
       font-weight: 700;
-      color: var(--ai-text);
+      line-height: 1;
       cursor: pointer;
-      transition: 0.22s ease;
+      transition: 0.18s ease;
     }
 
     .ai-chip:hover {
       transform: translateY(-1px);
-      border-color: rgba(184, 95, 130, 0.34);
-      background: #fff8fb;
+      background: #fff7fb;
+      border-color: rgba(196, 132, 161, 0.38);
     }
 
     .ai-chip.is-active {
-      background: linear-gradient(135deg, #ffd9e8, #fff3f8);
-      border-color: rgba(184, 95, 130, 0.4);
-      color: var(--ai-rose);
-      box-shadow: 0 10px 24px rgba(184, 95, 130, 0.12);
+      background: linear-gradient(135deg, #f7dbe7, #fff);
+      border-color: rgba(181, 101, 136, 0.42);
+      color: var(--ai-pink-deep);
+      box-shadow: 0 10px 24px rgba(181, 101, 136, 0.1);
     }
 
-    .ai-select-grid {
+    .ai-form-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: 1fr 1fr;
       gap: 12px;
     }
 
@@ -181,76 +289,73 @@
     }
 
     .ai-field label {
+      color: var(--ai-sub);
       font-size: 12px;
       font-weight: 800;
-      color: var(--ai-sub);
-      letter-spacing: 0.04em;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
     }
 
-    .ai-field select,
-    .ai-field button {
+    .ai-field select {
+      width: 100%;
       min-height: 48px;
       border-radius: 14px;
-      border: 1px solid rgba(184, 95, 130, 0.18);
+      border: 1px solid rgba(196, 132, 161, 0.2);
       background: #fff;
-      padding: 0 14px;
-      font-size: 14px;
       color: var(--ai-text);
+      font-size: 14px;
       font-weight: 700;
-    }
-
-    .ai-field button {
-      cursor: pointer;
-      background: linear-gradient(135deg, #fff4f8, #ffffff);
+      padding: 0 14px;
+      outline: none;
     }
 
     .ai-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 16px;
+      margin-top: 18px;
     }
 
     .ai-btn {
       appearance: none;
       border: none;
       border-radius: 999px;
+      min-height: 46px;
+      padding: 0 18px;
       cursor: pointer;
-      font-weight: 800;
       font-size: 14px;
-      padding: 13px 18px;
-      transition: 0.22s ease;
+      font-weight: 800;
+      transition: 0.18s ease;
     }
 
-    .ai-btn-primary {
-      background: linear-gradient(135deg, #d9789d, #b85f82);
-      color: #fff;
-      box-shadow: 0 14px 30px rgba(184, 95, 130, 0.24);
-    }
-
-    .ai-btn-primary:hover {
+    .ai-btn:hover {
       transform: translateY(-1px);
     }
 
     .ai-btn-secondary {
       background: #fff;
-      border: 1px solid rgba(184, 95, 130, 0.16);
       color: var(--ai-text);
+      border: 1px solid rgba(196, 132, 161, 0.2);
+    }
+
+    .ai-btn-primary {
+      background: linear-gradient(135deg, #cf7d9f, #b56588);
+      color: #fff;
+      box-shadow: 0 14px 28px rgba(181, 101, 136, 0.22);
     }
 
     .ai-summary {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 12px;
       margin-top: 18px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
     }
 
     .ai-summary-card {
+      border: 1px solid rgba(196, 132, 161, 0.14);
+      border-radius: 16px;
       background: linear-gradient(180deg, #fffdfd, #fff7fa);
-      border: 1px solid rgba(184, 95, 130, 0.12);
-      border-radius: 18px;
-      padding: 14px 14px 13px;
+      padding: 12px 13px;
     }
 
     .ai-summary-card small {
@@ -258,192 +363,201 @@
       color: var(--ai-sub);
       font-size: 11px;
       font-weight: 800;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 7px;
+      margin-bottom: 6px;
     }
 
     .ai-summary-card strong {
       display: block;
       color: var(--ai-text);
-      font-size: 15px;
-      line-height: 1.45;
+      font-size: 14px;
+      line-height: 1.5;
     }
 
-    .ai-result-header {
+    .ai-result-top {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-      margin-bottom: 14px;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: flex-start;
+      margin-bottom: 16px;
     }
 
-    .ai-result-badge {
+    .ai-result-heading h2 {
+      margin: 0 0 6px;
+      font-size: 24px;
+      line-height: 1.25;
+    }
+
+    .ai-result-heading p {
+      margin: 0;
+      color: var(--ai-sub);
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    .ai-badge-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .ai-badge {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 8px 12px;
+      gap: 7px;
+      min-height: 34px;
+      padding: 0 12px;
       border-radius: 999px;
-      background: #fff4f8;
-      color: var(--ai-rose);
-      border: 1px solid rgba(184, 95, 130, 0.14);
+      background: #fff7fb;
+      color: var(--ai-pink-deep);
+      border: 1px solid rgba(196, 132, 161, 0.16);
       font-size: 12px;
       font-weight: 800;
     }
 
-    .ai-result-title {
-      font-size: 28px;
-      line-height: 1.2;
-      margin: 0 0 8px;
-      color: var(--ai-text);
-    }
-
-    .ai-result-desc {
-      color: var(--ai-sub);
-      line-height: 1.75;
-      margin: 0 0 18px;
-      font-size: 14px;
-    }
-
-    .ai-route-list {
+    .ai-route-grid {
       display: grid;
       gap: 14px;
     }
 
-    .ai-route-item {
+    .ai-route-card {
       position: relative;
-      padding: 18px 18px 18px 56px;
-      border-radius: 20px;
-      background: linear-gradient(180deg, #ffffff, #fff8fb);
-      border: 1px solid rgba(184, 95, 130, 0.12);
+      border-radius: 22px;
+      border: 1px solid rgba(196, 132, 161, 0.18);
+      background: linear-gradient(180deg, #fffefe, #fff7fa);
+      padding: 18px 18px 16px 18px;
+    }
+
+    .ai-route-card-head {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin-bottom: 12px;
     }
 
     .ai-route-index {
-      position: absolute;
-      left: 16px;
-      top: 18px;
-      width: 28px;
-      height: 28px;
+      flex-shrink: 0;
+      width: 30px;
+      height: 30px;
       border-radius: 999px;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, #ffd7e7, #f6b9d0);
-      color: var(--ai-rose);
-      font-weight: 800;
       font-size: 13px;
+      font-weight: 800;
+      color: var(--ai-pink-deep);
+      background: linear-gradient(135deg, #f8dce8, #fff);
+      border: 1px solid rgba(196, 132, 161, 0.18);
+      margin-top: 1px;
     }
 
-    .ai-route-item h4 {
-      margin: 0 0 8px;
-      font-size: 18px;
+    .ai-route-name {
+      margin: 0;
+      font-size: 17px;
+      line-height: 1.4;
       color: var(--ai-text);
     }
 
-    .ai-tags {
+    .ai-route-mini {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
       margin-bottom: 10px;
     }
 
-    .ai-tag {
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 0.04em;
-      padding: 7px 10px;
+    .ai-mini-tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 0 12px;
       border-radius: 999px;
       background: #fff;
-      border: 1px solid rgba(184, 95, 130, 0.12);
+      border: 1px solid rgba(196, 132, 161, 0.16);
       color: var(--ai-sub);
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1;
     }
 
-    .ai-route-item p {
+    .ai-route-note {
       margin: 0;
       color: var(--ai-sub);
-      line-height: 1.75;
-      font-size: 14px;
+      font-size: 13px;
+      line-height: 1.8;
     }
 
     .ai-empty {
-      padding: 22px;
       border-radius: 20px;
-      background: linear-gradient(180deg, #fffafc, #fff4f8);
-      border: 1px dashed rgba(184, 95, 130, 0.24);
-      color: var(--ai-sub);
-      line-height: 1.75;
-      font-size: 14px;
-    }
-
-    .ai-tips {
-      display: grid;
-      gap: 12px;
-      margin-top: 18px;
-    }
-
-    .ai-tip {
-      border-radius: 18px;
-      background: #fff;
-      border: 1px solid rgba(184, 95, 130, 0.12);
-      padding: 15px 16px;
-    }
-
-    .ai-tip strong {
-      display: block;
-      margin-bottom: 6px;
-      color: var(--ai-text);
-      font-size: 14px;
-    }
-
-    .ai-tip span {
-      color: var(--ai-sub);
-      line-height: 1.7;
-      font-size: 13px;
-    }
-
-    .ai-footer-note {
-      margin-top: 18px;
-      color: var(--ai-sub);
-      font-size: 12px;
-      line-height: 1.7;
-    }
-
-    .ai-side-intro {
-      margin-bottom: 14px;
+      border: 1px dashed rgba(196, 132, 161, 0.28);
+      background: linear-gradient(180deg, #fffefe, #fff7fa);
+      padding: 22px;
       color: var(--ai-sub);
       font-size: 14px;
-      line-height: 1.75;
+      line-height: 1.8;
     }
 
-    @media (max-width: 1080px) {
+    @media (max-width: 1100px) {
       .ai-layout {
         grid-template-columns: 1fr;
       }
     }
 
-    @media (max-width: 760px) {
-      .ai-panel {
-        padding: 18px;
-        border-radius: 22px;
+    @media (max-width: 860px) {
+      .site-header-inner {
+        min-height: auto;
+        padding: 12px 0;
+        flex-direction: column;
+        align-items: stretch;
       }
 
-      .ai-select-grid,
+      .header-right {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .site-nav {
+        justify-content: center;
+      }
+
+      .lang-switcher {
+        align-self: center;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(var(--container), calc(100% - 20px));
+      }
+
+      .ai-main {
+        padding: 18px 0 52px;
+      }
+
+      .ai-hero-box,
+      .ai-panel {
+        border-radius: 22px;
+        padding: 18px;
+      }
+
+      .ai-form-grid,
       .ai-summary {
         grid-template-columns: 1fr;
       }
 
-      .page-hero-ai .page-hero-box {
-        padding: 28px 20px;
+      .ai-hero-title {
+        font-size: 34px;
       }
 
-      .ai-result-title {
-        font-size: 23px;
+      .ai-result-heading h2 {
+        font-size: 21px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="page-shell ai-page">
+  <div class="page-shell">
     <header class="site-header">
       <div class="container site-header-inner">
         <a href="./index.html" class="site-logo">Kyoto Sakura Guide</a>
@@ -452,28 +566,28 @@
           <nav class="site-nav">
             <a href="./index.html" data-i18n="nav_home">Home</a>
             <a href="./hotels/soraniwa.html" data-i18n="nav_soraniwa">Soraniwa</a>
-            <a href="./hotels/bettel.html" data-i18n="nav_bettei">Bettei</a>
+            <a href="./hotels/bettei.html" data-i18n="nav_bettei">Bettei</a>
             <a href="./hotels/hiyori.html" data-i18n="nav_hiyori">Hiyori</a>
             <a href="./hotels/stitch.html" data-i18n="nav_stitch">STITCH</a>
           </nav>
 
           <div class="lang-switcher">
-            <button class="lang-btn" data-lang="jp" type="button">JP</button>
-            <button class="lang-btn" data-lang="en" type="button">EN</button>
-            <button class="lang-btn" data-lang="kr" type="button">KR</button>
+            <button class="lang-btn is-active" type="button" data-lang="jp">JP</button>
+            <button class="lang-btn" type="button" data-lang="en">EN</button>
+            <button class="lang-btn" type="button" data-lang="kr">KR</button>
           </div>
         </div>
       </div>
     </header>
 
-    <main>
-      <section class="page-hero page-hero-ai">
+    <main class="ai-main">
+      <section class="ai-hero">
         <div class="container">
-          <div class="page-hero-box">
-            <p class="page-hero-label">✦ AI Guide</p>
-            <h1 id="heroTitle">今の状況に合わせて、京都の過ごし方を提案します。</h1>
-            <p id="heroDesc">
-              時間・気分・天気・同行スタイルに合わせて、今この瞬間にちょうどいい京都ルートをすばやく組み立てます。
+          <div class="ai-hero-box">
+            <p class="ai-hero-label" id="heroLabel">AI GUIDE</p>
+            <h1 class="ai-hero-title" id="heroTitle">今の状況に合う京都ルートをすばやく提案します。</h1>
+            <p class="ai-hero-desc" id="heroDesc">
+              時間・気分・天気・同行スタイルを選ぶだけで、今この瞬間に使いやすい京都の流れを組み立てます。
             </p>
           </div>
         </div>
@@ -481,155 +595,114 @@
 
       <section class="container">
         <div class="ai-layout">
-          <div>
-            <div class="ai-panel">
-              <div class="ai-panel-title">
-                <div>
-                  <h2 id="stepTitle1">ルート条件を選ぶ</h2>
-                  <p id="stepDesc1">条件をいくつか選ぶと、近い雰囲気のスポットを組み合わせておすすめを作ります。</p>
-                </div>
-                <div class="ai-step-badge">STEP 1</div>
+          <aside class="ai-panel">
+            <div class="ai-panel-title">
+              <div>
+                <h2 id="filterTitle">Route Conditions</h2>
+                <p id="filterDesc">必要な条件だけ選んで、すぐにルートを作れます。</p>
               </div>
+              <div class="ai-step-badge">STEP 1</div>
+            </div>
 
-              <div class="ai-panel">
-                <div class="ai-panel-title">
-                  <div>
-                    <h3 id="moodTitle">Mood</h3>
-                    <p id="moodDesc">今の気分や目的を選択してください。</p>
-                  </div>
-                </div>
-                <div class="ai-chip-grid" id="moodChips"></div>
-              </div>
+            <div class="ai-block">
+              <p class="ai-block-title" id="moodTitle">Mood</p>
+              <div class="ai-chip-grid" id="moodChips"></div>
+            </div>
 
-              <div class="ai-panel">
-                <div class="ai-panel-title">
-                  <div>
-                    <h3 id="travelTitle">Travel Style</h3>
-                    <p id="travelDesc">誰と過ごすかによって歩きやすいルートが変わります。</p>
-                  </div>
-                </div>
-                <div class="ai-chip-grid" id="travelChips"></div>
-              </div>
+            <div class="ai-block">
+              <p class="ai-block-title" id="travelTitle">Travel Style</p>
+              <div class="ai-chip-grid" id="travelChips"></div>
+            </div>
 
-              <div class="ai-panel">
-                <div class="ai-panel-title">
-                  <div>
-                    <h3 id="detailTitle">Detail</h3>
-                    <p id="detailDesc">時間帯・天気・滞在時間をざっくり選んでください。</p>
-                  </div>
+            <div class="ai-block">
+              <p class="ai-block-title" id="detailTitle">Detail</p>
+              <div class="ai-form-grid">
+                <div class="ai-field">
+                  <label for="timeOfDay" id="timeLabel">Time</label>
+                  <select id="timeOfDay">
+                    <option value="day">Day</option>
+                    <option value="night">Night</option>
+                  </select>
                 </div>
 
-                <div class="ai-select-grid">
-                  <div class="ai-field">
-                    <label for="timeOfDay" id="timeLabel">Time</label>
-                    <select id="timeOfDay">
-                      <option value="day">Day</option>
-                      <option value="night">Night</option>
-                    </select>
-                  </div>
-
-                  <div class="ai-field">
-                    <label for="weather" id="weatherLabel">Weather</label>
-                    <select id="weather">
-                      <option value="sunny">Sunny</option>
-                      <option value="rainy">Rainy</option>
-                    </select>
-                  </div>
-
-                  <div class="ai-field">
-                    <label for="duration" id="durationLabel">Duration</label>
-                    <select id="duration">
-                      <option value="60">About 1 hour</option>
-                      <option value="120">About 2 hours</option>
-                      <option value="180">About 3 hours</option>
-                    </select>
-                  </div>
-
-                  <div class="ai-field">
-                    <label for="baseArea" id="baseLabel">Base</label>
-                    <select id="baseArea">
-                      <option value="auto">Auto / Flexible</option>
-                      <option value="gion-higashiyama">Gion / Higashiyama</option>
-                      <option value="okazaki">Okazaki / East Kyoto</option>
-                      <option value="kawaramachi">Kawaramachi / Central</option>
-                      <option value="north">North Kyoto</option>
-                      <option value="arashiyama">Arashiyama</option>
-                      <option value="south">Fushimi / South</option>
-                    </select>
-                  </div>
+                <div class="ai-field">
+                  <label for="weather" id="weatherLabel">Weather</label>
+                  <select id="weather">
+                    <option value="sunny">Sunny</option>
+                    <option value="rainy">Rainy</option>
+                  </select>
                 </div>
 
-                <div class="ai-actions">
-                  <button class="ai-btn ai-btn-secondary" type="button" id="locationBtn">📍 Use current location</button>
-                  <button class="ai-btn ai-btn-primary" type="button" id="generateBtn">Generate Route</button>
+                <div class="ai-field">
+                  <label for="duration" id="durationLabel">Duration</label>
+                  <select id="duration">
+                    <option value="60">About 1 hour</option>
+                    <option value="120">About 2 hours</option>
+                    <option value="180">About 3 hours</option>
+                    <option value="240">Half day</option>
+                  </select>
                 </div>
 
-                <div class="ai-summary">
-                  <div class="ai-summary-card">
-                    <small id="summaryMoodLabel">Selected Mood</small>
-                    <strong id="summaryMoodValue">—</strong>
-                  </div>
-                  <div class="ai-summary-card">
-                    <small id="summaryTravelLabel">Travel Style</small>
-                    <strong id="summaryTravelValue">—</strong>
-                  </div>
-                  <div class="ai-summary-card">
-                    <small id="summaryTimeLabel">Time / Weather</small>
-                    <strong id="summaryTimeValue">Day / Sunny</strong>
-                  </div>
-                  <div class="ai-summary-card">
-                    <small id="summaryAreaLabel">Base Area</small>
-                    <strong id="summaryAreaValue">Auto / Flexible</strong>
-                  </div>
+                <div class="ai-field">
+                  <label for="baseArea" id="baseLabel">Base</label>
+                  <select id="baseArea">
+                    <option value="auto">Auto / Flexible</option>
+                    <option value="gion-higashiyama">Gion / Higashiyama</option>
+                    <option value="okazaki">Okazaki / East</option>
+                    <option value="kawaramachi">Kawaramachi / Central</option>
+                    <option value="north">North Kyoto</option>
+                    <option value="arashiyama">Arashiyama</option>
+                    <option value="south">South Kyoto</option>
+                  </select>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div>
-            <div class="ai-panel">
-              <div class="ai-panel-title">
-                <div>
-                  <h2 id="resultPanelTitle">Your Kyoto Route</h2>
-                  <p id="resultPanelDesc">선택한 조건에 맞춰, 가까운 분위기의 스팟을 조합해 추천합니다.</p>
-                </div>
-                <div class="ai-step-badge">STEP 2</div>
-              </div>
-
-              <div class="ai-result-header">
-                <span class="ai-result-badge" id="resultBadge1">Flexible Route</span>
-                <span class="ai-result-badge" id="resultBadge2">Kyoto Sakura Guide</span>
-              </div>
-
-              <h3 class="ai-result-title" id="resultTitle">Choose your mood and generate a route.</h3>
-              <p class="ai-result-desc" id="resultDesc">
-                분위기, 시간, 날씨, 동행 스타일을 선택하면 이 페이지 안에서 바로 쓸 수 있는 교토 코스를 보여줍니다.
-              </p>
-
-              <div id="resultArea" class="ai-empty">
-                아직 생성된 루트가 없습니다. 왼쪽에서 조건을 고른 뒤 Generate Route를 눌러주세요.
-              </div>
-
-              <div class="ai-tips" id="tipsArea">
-                <div class="ai-tip">
-                  <strong id="tip1Title">How it works</strong>
-                  <span id="tip1Text">같은 지역 안에서 분위기가 맞는 스팟을 우선 묶고, 머무는 시간을 기준으로 2~4개 정도 추천합니다.</span>
-                </div>
-                <div class="ai-tip">
-                  <strong id="tip2Title">Good to know</strong>
-                  <span id="tip2Text">비 오는 날에는 실내나 시장, 상점가, 이동 부담이 적은 곳을 우선합니다.</span>
-                </div>
-                <div class="ai-tip">
-                  <strong id="tip3Title">Next step</strong>
-                  <span id="tip3Text">나중에 crowd-live와 연결하면 혼잡도가 높은 지역을 피해 대체 루트도 보여줄 수 있습니다.</span>
-                </div>
-              </div>
-
-              <p class="ai-footer-note" id="footerNote">
-                ※ 이 페이지는 빠르게 방향을 잡기 위한 가이드입니다. 실제 이동 시간과 혼잡도는 방문 시점에 따라 달라질 수 있습니다.
-              </p>
+            <div class="ai-actions">
+              <button class="ai-btn ai-btn-secondary" type="button" id="locationBtn">📍 Use current location</button>
+              <button class="ai-btn ai-btn-primary" type="button" id="generateBtn">Generate Route</button>
             </div>
-          </div>
+
+            <div class="ai-summary">
+              <div class="ai-summary-card">
+                <small id="summaryMoodLabel">Mood</small>
+                <strong id="summaryMoodValue">Photo</strong>
+              </div>
+
+              <div class="ai-summary-card">
+                <small id="summaryTravelLabel">Travel</small>
+                <strong id="summaryTravelValue">Solo</strong>
+              </div>
+
+              <div class="ai-summary-card">
+                <small id="summaryTimeLabel">Time / Weather</small>
+                <strong id="summaryTimeValue">Day / Sunny</strong>
+              </div>
+
+              <div class="ai-summary-card">
+                <small id="summaryAreaLabel">Base Area</small>
+                <strong id="summaryAreaValue">Auto / Flexible</strong>
+              </div>
+            </div>
+          </aside>
+
+          <section class="ai-panel">
+            <div class="ai-result-top">
+              <div class="ai-result-heading">
+                <h2 id="resultTitle">Your Kyoto Route</h2>
+                <p id="resultDesc">条件に合うスポットを組み合わせて、すぐ使える流れを作ります。</p>
+              </div>
+
+              <div class="ai-badge-group">
+                <span class="ai-badge" id="badge1">Flexible Route</span>
+                <span class="ai-badge" id="badge2">Kyoto Sakura Guide</span>
+              </div>
+            </div>
+
+            <div id="resultArea" class="ai-empty">
+              条件を選んで「Generate Route」を押すと、ここにおすすめルートが表示されます。
+            </div>
+          </section>
         </div>
       </section>
     </main>
@@ -638,661 +711,670 @@
   <script>
     const UI_TEXT = {
       jp: {
-        heroTitle: "今の状況に合わせて、京都の過ごし方を提案します。",
-        heroDesc: "時間・気分・天気・同行スタイルに合わせて、今この瞬間にちょうどいい京都ルートをすばやく組み立てます。",
-        stepTitle1: "ルート条件を選ぶ",
-        stepDesc1: "条件をいくつか選ぶと、近い雰囲気のスポットを組み合わせておすすめを作ります。",
+        nav_home: "Home",
+        nav_soraniwa: "Soraniwa",
+        nav_bettei: "Bettei",
+        nav_hiyori: "Hiyori",
+        nav_stitch: "STITCH",
+        heroLabel: "AI GUIDE",
+        heroTitle: "今の状況に合う京都ルートをすばやく提案します。",
+        heroDesc: "時間・気分・天気・同行スタイルを選ぶだけで、今この瞬間に使いやすい京都の流れを組み立てます。",
+        filterTitle: "Route Conditions",
+        filterDesc: "必要な条件だけ選んで、すぐにルートを作れます。",
         moodTitle: "Mood",
-        moodDesc: "今の気分や目的を選択してください。",
         travelTitle: "Travel Style",
-        travelDesc: "誰と過ごすかによって歩きやすいルートが変わります。",
         detailTitle: "Detail",
-        detailDesc: "時間帯・天気・滞在時間をざっくり選んでください。",
         timeLabel: "Time",
         weatherLabel: "Weather",
         durationLabel: "Duration",
         baseLabel: "Base",
         locationBtn: "📍 現在地を使う",
         generateBtn: "ルートを生成する",
-        summaryMoodLabel: "Selected Mood",
-        summaryTravelLabel: "Travel Style",
+        summaryMoodLabel: "Mood",
+        summaryTravelLabel: "Travel",
         summaryTimeLabel: "Time / Weather",
         summaryAreaLabel: "Base Area",
-        resultPanelTitle: "Your Kyoto Route",
-        resultPanelDesc: "選んだ条件に近いスポットを組み合わせて、今使いやすい流れで提案します。",
-        resultTitle: "条件を選んでルートを作ってみましょう。",
-        resultDesc: "気分・時間・天気・同行スタイルに合わせて、このページ内ですぐ使える京都ルートを表示します。",
-        empty: "まだ生成されたルートがありません。左側で条件を選んでから「ルートを生成する」を押してください。",
-        tip1Title: "How it works",
-        tip1Text: "同じエリアで雰囲気が合うスポットを優先し、滞在時間に応じて2〜4件ほどの流れを提案します。",
-        tip2Title: "Good to know",
-        tip2Text: "雨の日は市場・商店街・屋内に寄りやすい場所を優先します。",
-        tip3Title: "Next step",
-        tip3Text: "将来的に crowd-live と連携すれば、混雑が高いエリアを避けた代替ルートも出せます。",
-        footerNote: "※ このページは流れを素早く決めるためのガイドです。実際の移動時間や混雑は訪問時期によって異なります。",
-        badges: {
-          flexible: "Flexible Route",
-          guide: "Kyoto Sakura Guide",
-          location: "Current Location",
-          generated: "Generated Now"
-        },
+        resultTitle: "Your Kyoto Route",
+        resultDesc: "条件に合うスポットを組み合わせて、すぐ使える流れを作ります。",
+        badge1: "Flexible Route",
+        badge2: "Generated Now",
+        empty: "条件を選んで「ルートを生成する」を押すと、ここにおすすめルートが表示されます。",
         selectors: {
           day: "Day",
           night: "Night",
           sunny: "Sunny",
           rainy: "Rainy",
-          auto: "Auto / Flexible",
           hour1: "About 1 hour",
           hour2: "About 2 hours",
-          hour3: "About 3 hours"
+          hour3: "About 3 hours",
+          halfDay: "Half day"
         },
-        labels: {
+        areaLabels: {
+          auto: "自動 / 柔軟に",
+          "gion-higashiyama": "祇園 / 東山",
+          okazaki: "岡崎 / 東側",
+          kawaramachi: "河原町 / 中心部",
+          north: "北側",
+          arashiyama: "嵐山",
+          south: "南側"
+        },
+        moods: {
+          photo: "写真",
+          walk: "散歩",
+          food: "食",
+          night: "夜景",
+          shopping: "買い物",
+          quiet: "落ち着き",
+          view: "景色"
+        },
+        travels: {
+          solo: "ひとり",
+          couple: "カップル",
+          family: "家族"
+        },
+        routeHeader: "おすすめルート",
+        routeIntro: "今の条件に近い流れをまとめました。",
+        tags: {
           area: "Area",
           stay: "Stay",
-          goodFor: "Good for",
-          crowd: "Crowd",
-          weather: "Weather",
-          routePoint: "Route point",
-          routeTitle: "おすすめルート",
-          introPrefix: "今の条件に合わせた",
-          durationSuffix: "minutes",
-          crowdLow: "Low",
-          crowdMedium: "Medium",
-          crowdHigh: "High",
-          rainOk: "Rain friendly",
-          dayOk: "Day",
-          nightOk: "Night",
-          family: "Family",
-          couple: "Couple",
-          solo: "Solo",
+          min: "minutes",
           photo: "Photo",
           walk: "Walk",
           food: "Food",
+          night: "Night",
           shopping: "Shopping",
-          view: "View",
-          temple: "Temple",
-          river: "River",
-          market: "Market",
-          foodStop: "Nearby food stop",
-          supportLine1: "비슷한 지역의 스팟끼리 묶었습니다.",
-          supportLine2: "실제 이동 전에 지도와 운영시간을 한 번 더 확인해주세요."
-        }
+          quiet: "Quiet",
+          view: "View"
+        },
+        locationSuccess: "現在地に近いエリアを反映しました。",
+        locationFail: "現在地を取得できませんでした。"
       },
       kr: {
-        heroTitle: "지금 상황에 맞는 교토 루트를 제안합니다.",
-        heroDesc: "시간, 기분, 날씨, 여행 스타일에 맞춰 지금 이 순간에 가장 쓰기 좋은 교토 동선을 빠르게 조합합니다.",
-        stepTitle1: "루트 조건 선택",
-        stepDesc1: "몇 가지 조건만 고르면 분위기가 맞는 스팟을 조합해 추천을 만듭니다.",
+        nav_home: "Home",
+        nav_soraniwa: "Soraniwa",
+        nav_bettei: "Bettei",
+        nav_hiyori: "Hiyori",
+        nav_stitch: "STITCH",
+        heroLabel: "AI GUIDE",
+        heroTitle: "지금 상황에 맞는 교토 루트를 빠르게 제안합니다.",
+        heroDesc: "시간, 기분, 날씨, 여행 스타일만 고르면 지금 이 순간 쓰기 좋은 교토 동선을 바로 조합합니다.",
+        filterTitle: "Route Conditions",
+        filterDesc: "필요한 조건만 골라서 바로 루트를 만들 수 있습니다.",
         moodTitle: "Mood",
-        moodDesc: "지금 원하는 분위기나 목적을 골라주세요.",
         travelTitle: "Travel Style",
-        travelDesc: "누구와 가는지에 따라 걷기 좋은 루트가 달라집니다.",
         detailTitle: "Detail",
-        detailDesc: "시간대, 날씨, 체류 시간을 대략적으로 선택해 주세요.",
         timeLabel: "시간대",
         weatherLabel: "날씨",
         durationLabel: "체류 시간",
         baseLabel: "기준 지역",
         locationBtn: "📍 현재 위치 사용",
         generateBtn: "루트 생성하기",
-        summaryMoodLabel: "선택한 분위기",
+        summaryMoodLabel: "분위기",
         summaryTravelLabel: "여행 스타일",
         summaryTimeLabel: "시간 / 날씨",
         summaryAreaLabel: "기준 지역",
-        resultPanelTitle: "Your Kyoto Route",
-        resultPanelDesc: "선택한 조건과 가까운 스팟을 조합해 지금 쓰기 좋은 흐름으로 추천합니다.",
-        resultTitle: "조건을 선택하고 루트를 만들어보세요.",
-        resultDesc: "기분, 시간, 날씨, 동행 스타일에 맞춰 이 페이지 안에서 바로 쓸 수 있는 교토 코스를 보여줍니다.",
-        empty: "아직 생성된 루트가 없습니다. 왼쪽에서 조건을 선택한 뒤 ‘루트 생성하기’를 눌러주세요.",
-        tip1Title: "How it works",
-        tip1Text: "같은 지역 안에서 분위기가 맞는 스팟을 우선 묶고, 체류 시간을 기준으로 2~4개 정도 추천합니다.",
-        tip2Title: "Good to know",
-        tip2Text: "비 오는 날에는 시장, 상점가, 실내에 들르기 쉬운 장소를 먼저 추천합니다.",
-        tip3Title: "Next step",
-        tip3Text: "나중에 crowd-live와 연결하면 혼잡도가 높은 지역을 피해 대체 루트도 보여줄 수 있습니다.",
-        footerNote: "※ 이 페이지는 빠르게 방향을 잡기 위한 가이드입니다. 실제 이동 시간과 혼잡도는 방문 시점에 따라 달라질 수 있습니다.",
-        badges: {
-          flexible: "Flexible Route",
-          guide: "Kyoto Sakura Guide",
-          location: "Current Location",
-          generated: "Generated Now"
-        },
+        resultTitle: "Your Kyoto Route",
+        resultDesc: "조건에 맞는 스팟을 조합해서 바로 쓸 수 있는 흐름을 만듭니다.",
+        badge1: "Flexible Route",
+        badge2: "Generated Now",
+        empty: "조건을 선택한 뒤 ‘루트 생성하기’를 누르면 여기 추천 루트가 표시됩니다.",
         selectors: {
           day: "낮",
           night: "밤",
           sunny: "맑음",
           rainy: "비",
-          auto: "자동 / 유연하게",
           hour1: "약 1시간",
           hour2: "약 2시간",
-          hour3: "약 3시간"
+          hour3: "약 3시간",
+          halfDay: "반나절"
         },
-        labels: {
-          area: "지역",
-          stay: "체류",
-          goodFor: "추천 대상",
-          crowd: "혼잡도",
-          weather: "날씨",
-          routePoint: "루트 포인트",
-          routeTitle: "추천 루트",
-          introPrefix: "지금 조건에 맞는",
-          durationSuffix: "분",
-          crowdLow: "낮음",
-          crowdMedium: "보통",
-          crowdHigh: "높음",
-          rainOk: "비 오는 날 가능",
-          dayOk: "낮 추천",
-          nightOk: "밤 추천",
-          family: "가족",
-          couple: "커플",
-          solo: "혼자",
+        areaLabels: {
+          auto: "자동 / 유연하게",
+          "gion-higashiyama": "기온 / 히가시야마",
+          okazaki: "오카자키 / 동쪽",
+          kawaramachi: "카와라마치 / 중심부",
+          north: "북쪽",
+          arashiyama: "아라시야마",
+          south: "남쪽"
+        },
+        moods: {
           photo: "사진",
           walk: "산책",
-          food: "식사",
+          food: "먹거리",
+          night: "야경",
           shopping: "쇼핑",
-          view: "풍경",
-          temple: "사찰",
-          river: "강변",
-          market: "시장",
-          foodStop: "근처 식사 연결",
-          supportLine1: "비슷한 지역 스팟끼리 묶어 구성했습니다.",
-          supportLine2: "이동 전 지도와 운영시간을 한 번 더 확인해 주세요."
-        }
+          quiet: "조용함",
+          view: "풍경"
+        },
+        travels: {
+          solo: "혼자",
+          couple: "커플",
+          family: "가족"
+        },
+        routeHeader: "추천 루트",
+        routeIntro: "지금 조건에 맞는 흐름으로 정리했습니다.",
+        tags: {
+          area: "Area",
+          stay: "Stay",
+          min: "분",
+          photo: "Photo",
+          walk: "Walk",
+          food: "Food",
+          night: "Night",
+          shopping: "Shopping",
+          quiet: "Quiet",
+          view: "View"
+        },
+        locationSuccess: "현재 위치에 가까운 지역을 반영했습니다.",
+        locationFail: "현재 위치를 가져오지 못했습니다."
       },
       en: {
-        heroTitle: "Find a Kyoto route that fits your moment.",
-        heroDesc: "Based on your time, mood, weather, and travel style, this guide quickly builds a Kyoto route that feels right right now.",
-        stepTitle1: "Choose your route conditions",
-        stepDesc1: "Pick a few conditions and this page will combine nearby spots with a matching atmosphere.",
+        nav_home: "Home",
+        nav_soraniwa: "Soraniwa",
+        nav_bettei: "Bettei",
+        nav_hiyori: "Hiyori",
+        nav_stitch: "STITCH",
+        heroLabel: "AI GUIDE",
+        heroTitle: "Find a Kyoto route that matches your moment.",
+        heroDesc: "Choose your time, mood, weather, and travel style, and this page will quickly build a practical Kyoto flow.",
+        filterTitle: "Route Conditions",
+        filterDesc: "Choose only what you need and generate a route quickly.",
         moodTitle: "Mood",
-        moodDesc: "Choose the mood or purpose that fits your moment.",
         travelTitle: "Travel Style",
-        travelDesc: "The best route can change depending on who you are traveling with.",
         detailTitle: "Detail",
-        detailDesc: "Choose the time of day, weather, and how long you want to spend.",
         timeLabel: "Time",
         weatherLabel: "Weather",
         durationLabel: "Duration",
         baseLabel: "Base",
         locationBtn: "📍 Use current location",
         generateBtn: "Generate Route",
-        summaryMoodLabel: "Selected Mood",
-        summaryTravelLabel: "Travel Style",
+        summaryMoodLabel: "Mood",
+        summaryTravelLabel: "Travel",
         summaryTimeLabel: "Time / Weather",
         summaryAreaLabel: "Base Area",
-        resultPanelTitle: "Your Kyoto Route",
-        resultPanelDesc: "This guide combines spots that match your conditions and turns them into a practical Kyoto flow.",
-        resultTitle: "Choose your conditions and generate a route.",
-        resultDesc: "Based on your mood, time, weather, and travel style, this page builds a route you can use right away.",
-        empty: "No route has been generated yet. Choose your conditions on the left and click Generate Route.",
-        tip1Title: "How it works",
-        tip1Text: "It prioritizes spots with a similar atmosphere in the same area and suggests 2–4 stops depending on your available time.",
-        tip2Title: "Good to know",
-        tip2Text: "On rainy days, it prioritizes markets, shopping streets, and easier indoor-friendly flows.",
-        tip3Title: "Next step",
-        tip3Text: "Later, this can connect with crowd-live to suggest alternate routes when some areas are too busy.",
-        footerNote: "※ This page is designed to help you choose a direction quickly. Actual travel time and crowd levels may change depending on the day.",
-        badges: {
-          flexible: "Flexible Route",
-          guide: "Kyoto Sakura Guide",
-          location: "Current Location",
-          generated: "Generated Now"
-        },
+        resultTitle: "Your Kyoto Route",
+        resultDesc: "This guide combines matching spots into a route you can use right away.",
+        badge1: "Flexible Route",
+        badge2: "Generated Now",
+        empty: "Choose your conditions and press Generate Route to see recommendations here.",
         selectors: {
           day: "Day",
           night: "Night",
           sunny: "Sunny",
           rainy: "Rainy",
-          auto: "Auto / Flexible",
           hour1: "About 1 hour",
           hour2: "About 2 hours",
-          hour3: "About 3 hours"
+          hour3: "About 3 hours",
+          halfDay: "Half day"
         },
-        labels: {
-          area: "Area",
-          stay: "Stay",
-          goodFor: "Good for",
-          crowd: "Crowd",
-          weather: "Weather",
-          routePoint: "Route point",
-          routeTitle: "Recommended Route",
-          introPrefix: "A route for",
-          durationSuffix: "minutes",
-          crowdLow: "Low",
-          crowdMedium: "Medium",
-          crowdHigh: "High",
-          rainOk: "Rain friendly",
-          dayOk: "Day",
-          nightOk: "Night",
-          family: "Family",
-          couple: "Couple",
-          solo: "Solo",
+        areaLabels: {
+          auto: "Auto / Flexible",
+          "gion-higashiyama": "Gion / Higashiyama",
+          okazaki: "Okazaki / East",
+          kawaramachi: "Kawaramachi / Central",
+          north: "North Kyoto",
+          arashiyama: "Arashiyama",
+          south: "South Kyoto"
+        },
+        moods: {
           photo: "Photo",
           walk: "Walk",
           food: "Food",
+          night: "Night",
           shopping: "Shopping",
-          view: "View",
-          temple: "Temple",
-          river: "River",
-          market: "Market",
-          foodStop: "Nearby food stop",
-          supportLine1: "These stops are grouped by area and atmosphere.",
-          supportLine2: "Please double-check maps and opening hours before you go."
-        }
+          quiet: "Quiet",
+          view: "View"
+        },
+        travels: {
+          solo: "Solo",
+          couple: "Couple",
+          family: "Family"
+        },
+        routeHeader: "Recommended Route",
+        routeIntro: "Here is a flow that fits your current conditions.",
+        tags: {
+          area: "Area",
+          stay: "Stay",
+          min: "minutes",
+          photo: "Photo",
+          walk: "Walk",
+          food: "Food",
+          night: "Night",
+          shopping: "Shopping",
+          quiet: "Quiet",
+          view: "View"
+        },
+        locationSuccess: "A nearby area has been selected from your current location.",
+        locationFail: "Could not access your current location."
       }
     };
 
     const MOODS = [
-      { key: "photo", emoji: "📸", label: { jp: "写真", kr: "사진", en: "Photo" } },
-      { key: "walk", emoji: "🚶", label: { jp: "散歩", kr: "산책", en: "Walk" } },
-      { key: "food", emoji: "🍜", label: { jp: "食", kr: "먹거리", en: "Food" } },
-      { key: "night", emoji: "🌙", label: { jp: "夜", kr: "야경", en: "Night" } },
-      { key: "shopping", emoji: "🛍", label: { jp: "買い物", kr: "쇼핑", en: "Shopping" } },
-      { key: "quiet", emoji: "🌿", label: { jp: "落ち着き", kr: "조용한 곳", en: "Quiet" } }
+      { key: "photo", emoji: "📸" },
+      { key: "walk", emoji: "🚶" },
+      { key: "food", emoji: "🍜" },
+      { key: "night", emoji: "🌙" },
+      { key: "shopping", emoji: "🛍" },
+      { key: "quiet", emoji: "🌿" },
+      { key: "view", emoji: "✨" }
     ];
 
-    const TRAVEL_STYLES = [
-      { key: "solo", emoji: "🧍", label: { jp: "ひとり", kr: "혼자", en: "Solo" } },
-      { key: "couple", emoji: "💑", label: { jp: "カップル", kr: "커플", en: "Couple" } },
-      { key: "family", emoji: "👨‍👩‍👧", label: { jp: "家族", kr: "가족", en: "Family" } }
+    const TRAVELS = [
+      { key: "solo", emoji: "🧍" },
+      { key: "couple", emoji: "💑" },
+      { key: "family", emoji: "👨‍👩‍👧" }
     ];
 
     const SPOTS = [
-      { name: "Gion Shirakawa", area: "gion-higashiyama", stay: 20, day: true, night: true, rainOk: true, crowd: "high", suitable: ["solo","couple","family"], purpose: ["photo","walk","night"], tags: ["river","traditional"], foodStop: "Pontocho / Gion cafés" },
-      { name: "Hanamikoji Street", area: "gion-higashiyama", stay: 25, day: true, night: true, rainOk: true, crowd: "high", suitable: ["solo","couple"], purpose: ["photo","walk","shopping"], tags: ["traditional","street"], foodStop: "Gion dinner area" },
-      { name: "Yasaka Shrine", area: "gion-higashiyama", stay: 25, day: true, night: true, rainOk: true, crowd: "high", suitable: ["solo","couple","family"], purpose: ["walk","night","temple"], tags: ["shrine","iconic"], foodStop: "Shijo / Gion" },
-      { name: "Maruyama Park", area: "gion-higashiyama", stay: 30, day: true, night: true, rainOk: false, crowd: "high", suitable: ["solo","couple","family"], purpose: ["photo","walk","night"], tags: ["park","sakura"], foodStop: "Gion food area" },
-      { name: "Ninenzaka", area: "gion-higashiyama", stay: 25, day: true, night: false, rainOk: true, crowd: "high", suitable: ["couple","family"], purpose: ["photo","walk","shopping"], tags: ["slope","traditional"], foodStop: "Tea / sweets nearby" },
-      { name: "Sannenzaka", area: "gion-higashiyama", stay: 25, day: true, night: false, rainOk: true, crowd: "high", suitable: ["couple","family"], purpose: ["photo","walk","shopping"], tags: ["traditional","street"], foodStop: "Tea / sweets nearby" },
-      { name: "Kiyomizudera", area: "gion-higashiyama", stay: 45, day: true, night: false, rainOk: true, crowd: "high", suitable: ["solo","couple","family"], purpose: ["photo","walk","temple"], tags: ["temple","view"], foodStop: "Higashiyama cafés" },
-      { name: "Kodaiji", area: "gion-higashiyama", stay: 35, day: true, night: true, rainOk: true, crowd: "medium", suitable: ["solo","couple"], purpose: ["photo","walk","temple","night"], tags: ["garden","temple"], foodStop: "Gion dining" },
-      { name: "Chionin", area: "gion-higashiyama", stay: 30, day: true, night: false, rainOk: true, crowd: "medium", suitable: ["solo","family"], purpose: ["walk","temple","quiet"], tags: ["temple","stairs"], foodStop: "Sanjo / Gion" },
-      { name: "Shorenin", area: "gion-higashiyama", stay: 30, day: true, night: false, rainOk: true, crowd: "medium", suitable: ["solo","couple"], purpose: ["quiet","temple","walk"], tags: ["garden","calm"], foodStop: "Okazaki cafés" },
+      { name: "Gion Shirakawa", area: "gion-higashiyama", stay: 20, day: true, night: true, rainOk: true, suitable: ["solo","couple","family"], purpose: ["photo","walk","night"], desc: "Nearby food stop: Pontocho / Gion cafés." },
+      { name: "Hanamikoji Street", area: "gion-higashiyama", stay: 25, day: true, night: true, rainOk: true, suitable: ["solo","couple"], purpose: ["photo","walk","shopping"], desc: "Nearby food stop: Gion dinner area." },
+      { name: "Yasaka Shrine", area: "gion-higashiyama", stay: 25, day: true, night: true, rainOk: true, suitable: ["solo","couple","family"], purpose: ["walk","night","view"], desc: "Nearby food stop: Gion / Shijo area." },
+      { name: "Maruyama Park", area: "gion-higashiyama", stay: 30, day: true, night: true, rainOk: false, suitable: ["solo","couple","family"], purpose: ["photo","walk","night"], desc: "Open-air sakura walking area." },
+      { name: "Ninenzaka", area: "gion-higashiyama", stay: 25, day: true, night: false, rainOk: true, suitable: ["couple","family"], purpose: ["photo","walk","shopping"], desc: "Traditional slope with cafés and sweets." },
+      { name: "Sannenzaka", area: "gion-higashiyama", stay: 25, day: true, night: false, rainOk: true, suitable: ["couple","family"], purpose: ["photo","walk","shopping"], desc: "Classic Kyoto atmosphere and snack stops." },
+      { name: "Kiyomizudera", area: "gion-higashiyama", stay: 45, day: true, night: false, rainOk: true, suitable: ["solo","couple","family"], purpose: ["photo","walk","view"], desc: "Good for a landmark-focused route." },
+      { name: "Kodaiji", area: "gion-higashiyama", stay: 35, day: true, night: true, rainOk: true, suitable: ["solo","couple"], purpose: ["photo","walk","night"], desc: "Quiet temple atmosphere near Gion." },
+      { name: "Chionin", area: "gion-higashiyama", stay: 30, day: true, night: false, rainOk: true, suitable: ["solo","family"], purpose: ["walk","quiet","view"], desc: "A calmer stop near the Gion area." },
+      { name: "Shorenin", area: "gion-higashiyama", stay: 30, day: true, night: false, rainOk: true, suitable: ["solo","couple"], purpose: ["quiet","walk","view"], desc: "A softer, quieter temple route." },
+      { name: "Kenninji", area: "gion-higashiyama", stay: 30, day: true, night: false, rainOk: true, suitable: ["solo","couple"], purpose: ["quiet","walk","view"], desc: "Easy to connect with Gion streets." },
+      { name: "Ishibei-koji", area: "gion-higashiyama", stay: 15, day: true, night: true, rainOk: true, suitable: ["solo","couple"], purpose: ["photo","walk","night"], desc: "Short atmospheric street stop." },
 
-      { name: "Philosopher’s Path", area: "okazaki", stay: 45, day: true, night: false, rainOk: false, crowd: "medium", suitable: ["solo","couple","family"], purpose: ["walk","photo","quiet"], tags: ["canal","sakura"], foodStop: "Okazaki café stop" },
-      { name: "Nanzenji", area: "okazaki", stay: 40, day: true, night: false, rainOk: true, crowd: "medium", suitable: ["solo","couple","family"], purpose: ["walk","temple","quiet"], tags: ["temple","historic"], foodStop: "Okazaki / Keage area" },
-      { name: "Heian Shrine", area: "okazaki", stay: 30, day: true, night: false, rainOk: true, crowd: "medium", suitable: ["solo","couple","family"], purpose: ["photo","walk","temple"], tags: ["shrine","open space"], foodStop: "Okazaki eateries" },
-      { name: "Okazaki Park", area: "okazaki", stay: 30, day: true, night: false, rainOk: true, crowd: "medium", suitable: ["family","couple"], purpose: ["walk","photo","family"], tags: ["park","museum area"], foodStop: "Nearby cafés" },
-      { name: "Kyoto City Zoo", area: "okazaki", stay: 60, day: true, night: false, rainOk: true, crowd: "medium", suitable: ["family"], purpose: ["family","walk"], tags: ["zoo","kids"], foodStop: "Okazaki lunch spots" },
-      { name: "Eikando", area: "okazaki", stay: 35, day: true, night: false, rainOk: true, crowd: "medium", suitable: ["solo","couple"], purpose: ["quiet","temple","walk"], tags: ["temple","garden"], foodStop: "Keage / Nanzenji cafés" },
+      { name: "Philosopher’s Path", area: "okazaki", stay: 45, day: true, night: false, rainOk: false, suitable: ["solo","couple","family"], purpose: ["walk","photo","quiet"], desc: "Longer walking route with seasonal scenery." },
+      { name: "Nanzenji", area: "okazaki", stay: 40, day: true, night: false, rainOk: true, suitable: ["solo","couple","family"], purpose: ["walk","quiet","view"], desc: "Spacious temple grounds for slower routes." },
+      { name: "Heian Shrine", area: "okazaki", stay: 30, day: true, night: false, rainOk: true, suitable: ["solo","couple","family"], purpose: ["photo","walk","view"], desc: "Works well in daytime city routes." },
+      { name: "Okazaki Park", area: "okazaki", stay: 30, day: true, night: false, rainOk: true, suitable: ["family","couple"], purpose: ["walk","photo","view"], desc: "Open area near cultural facilities." },
+      { name: "Kyoto City Zoo", area: "okazaki", stay: 60, day: true, night: false, rainOk: true, suitable: ["family"], purpose: ["walk","view"], desc: "Best for family-friendly daytime plans." },
+      { name: "Eikando", area: "okazaki", stay: 35, day: true, night: false, rainOk: true, suitable: ["solo","couple"], purpose: ["quiet","walk","view"], desc: "Peaceful temple stop in the east." },
+      { name: "Keage Incline", area: "okazaki", stay: 25, day: true, night: false, rainOk: false, suitable: ["solo","couple","family"], purpose: ["photo","walk","view"], desc: "Good seasonal walking spot." },
+      { name: "Murinan", area: "okazaki", stay: 30, day: true, night: false, rainOk: true, suitable: ["solo","couple"], purpose: ["quiet","view","walk"], desc: "A refined stop for quieter plans." },
 
-      { name: "Kamogawa", area: "kawaramachi", stay: 35, day: true, night: true, rainOk: false, crowd: "medium", suitable: ["solo","couple","family"], purpose: ["walk","photo","night"], tags: ["river","open"], foodStop: "Pontocho / Kawaramachi" },
-      { name: "Pontocho", area: "kawaramachi", stay: 25, day: false, night: true, rainOk: true, crowd: "high", suitable: ["couple","solo"], purpose: ["food","night","photo"], tags: ["dining","alley"], foodStop: "Pontocho dinner" },
-      { name: "Nishiki Market", area: "kawaramachi", stay: 45, day: true, night: false, rainOk: true, crowd: "high", suitable: ["solo","couple","family"], purpose: ["food","shopping"], tags: ["market","indoor"], foodStop: "Inside market" },
-      { name: "Teramachi Shopping Arcade", area: "kawaramachi", stay: 35, day: true, night: true, rainOk: true, crowd: "medium", suitable: ["solo","couple","family"], purpose: ["shopping","rain","food"], tags: ["arcade","covered"], foodStop: "Cafés nearby" },
-      { name: "Shinkyogoku Shopping Street", area: "kawaramachi", stay: 35, day: true, night: true, rainOk: true, crowd: "medium", suitable: ["solo","family"], purpose: ["shopping","food","rain"], tags: ["street","covered"], foodStop: "Street food nearby" },
-      { name: "Shijo Bridge", area: "kawaramachi", stay: 15, day: true, night: true, rainOk: true, crowd: "medium", suitable: ["solo","couple"], purpose: ["photo","walk","night"], tags: ["river view","bridge"], foodStop: "Pontocho / Gion" },
-      { name: "Kawaramachi Street", area: "kawaramachi", stay: 30, day: true, night: true, rainOk: true, crowd: "high", suitable: ["solo","family"], purpose: ["shopping","food"], tags: ["city","shopping"], foodStop: "Department cafés" },
+      { name: "Kamogawa", area: "kawaramachi", stay: 35, day: true, night: true, rainOk: false, suitable: ["solo","couple","family"], purpose: ["walk","photo","night"], desc: "Flexible river walk route." },
+      { name: "Pontocho", area: "kawaramachi", stay: 25, day: false, night: true, rainOk: true, suitable: ["solo","couple"], purpose: ["food","night","photo"], desc: "Night dining atmosphere." },
+      { name: "Nishiki Market", area: "kawaramachi", stay: 45, day: true, night: false, rainOk: true, suitable: ["solo","couple","family"], purpose: ["food","shopping","walk"], desc: "Best for food-first daytime routes." },
+      { name: "Teramachi Shopping Arcade", area: "kawaramachi", stay: 35, day: true, night: true, rainOk: true, suitable: ["solo","couple","family"], purpose: ["shopping","food","walk"], desc: "Good rainy-day fallback route." },
+      { name: "Shinkyogoku Shopping Street", area: "kawaramachi", stay: 35, day: true, night: true, rainOk: true, suitable: ["solo","family"], purpose: ["shopping","food","walk"], desc: "Easy covered route in central Kyoto." },
+      { name: "Shijo Bridge", area: "kawaramachi", stay: 15, day: true, night: true, rainOk: true, suitable: ["solo","couple"], purpose: ["photo","walk","night"], desc: "Short view stop over the river." },
+      { name: "Sanjo Bridge", area: "kawaramachi", stay: 15, day: true, night: true, rainOk: true, suitable: ["solo","couple"], purpose: ["photo","walk","night"], desc: "Useful as a linking point." },
+      { name: "Kawaramachi Street", area: "kawaramachi", stay: 30, day: true, night: true, rainOk: true, suitable: ["solo","family","couple"], purpose: ["shopping","food","walk"], desc: "Flexible city-center route." },
+      { name: "Kyoto BAL", area: "kawaramachi", stay: 30, day: true, night: true, rainOk: true, suitable: ["solo","couple"], purpose: ["shopping","food"], desc: "Indoor-friendly central stop." },
+      { name: "Rokkaku-do", area: "kawaramachi", stay: 20, day: true, night: false, rainOk: true, suitable: ["solo","couple"], purpose: ["quiet","walk","view"], desc: "Small central temple stop." },
+      { name: "Nijo Castle", area: "kawaramachi", stay: 45, day: true, night: false, rainOk: true, suitable: ["solo","family","couple"], purpose: ["photo","walk","view"], desc: "Historic stop for broader city routes." },
 
-      { name: "Kyoto Gyoen", area: "north", stay: 45, day: true, night: false, rainOk: false, crowd: "low", suitable: ["solo","family","couple"], purpose: ["walk","quiet","photo"], tags: ["garden","wide"], foodStop: "Marutamachi cafés" },
-      { name: "Ginkakuji", area: "north", stay: 35, day: true, night: false, rainOk: true, crowd: "medium", suitable: ["solo","couple","family"], purpose: ["temple","walk","photo"], tags: ["temple","classic"], foodStop: "Approach street snacks" },
-      { name: "Ryoanji", area: "north", stay: 35, day: true, night: false, rainOk: true, crowd: "medium", suitable: ["solo","couple"], purpose: ["quiet","temple"], tags: ["zen","garden"], foodStop: "Northwest cafés" },
-      { name: "Kinkakuji", area: "north", stay: 35, day: true, night: false, rainOk: true, crowd: "high", suitable: ["solo","family","couple"], purpose: ["photo","temple"], tags: ["iconic","gold"], foodStop: "North Kyoto eateries" },
-      { name: "Daitokuji", area: "north", stay: 40, day: true, night: false, rainOk: true, crowd: "low", suitable: ["solo","couple"], purpose: ["quiet","temple","walk"], tags: ["zen","calm"], foodStop: "Local cafés nearby" },
+      { name: "Kyoto Gyoen", area: "north", stay: 45, day: true, night: false, rainOk: false, suitable: ["solo","couple","family"], purpose: ["walk","quiet","photo"], desc: "Wide-open green space in the city." },
+      { name: "Ginkakuji", area: "north", stay: 35, day: true, night: false, rainOk: true, suitable: ["solo","couple","family"], purpose: ["walk","photo","view"], desc: "Classic eastern-north stop." },
+      { name: "Ryoanji", area: "north", stay: 35, day: true, night: false, rainOk: true, suitable: ["solo","couple"], purpose: ["quiet","view","walk"], desc: "Good for slower zen-focused plans." },
+      { name: "Kinkakuji", area: "north", stay: 35, day: true, night: false, rainOk: true, suitable: ["solo","couple","family"], purpose: ["photo","view","walk"], desc: "Landmark-focused sightseeing stop." },
+      { name: "Daitokuji", area: "north", stay: 40, day: true, night: false, rainOk: true, suitable: ["solo","couple"], purpose: ["quiet","walk","view"], desc: "Quieter alternative route in the north." },
+      { name: "Shimogamo Shrine", area: "north", stay: 35, day: true, night: false, rainOk: true, suitable: ["solo","couple","family"], purpose: ["walk","quiet","view"], desc: "Forest-like shrine approach." },
+      { name: "Kamo Delta", area: "north", stay: 25, day: true, night: false, rainOk: false, suitable: ["solo","couple","family"], purpose: ["walk","photo","view"], desc: "Casual open-air riverside stop." },
+      { name: "Kitano Tenmangu", area: "north", stay: 30, day: true, night: false, rainOk: true, suitable: ["solo","family","couple"], purpose: ["walk","view","photo"], desc: "Pairs well with northwest routes." },
 
-      { name: "Arashiyama Bamboo Grove", area: "arashiyama", stay: 25, day: true, night: false, rainOk: true, crowd: "high", suitable: ["solo","couple","family"], purpose: ["photo","walk"], tags: ["bamboo","iconic"], foodStop: "Arashiyama café area" },
-      { name: "Togetsukyo Bridge", area: "arashiyama", stay: 20, day: true, night: false, rainOk: true, crowd: "high", suitable: ["solo","couple","family"], purpose: ["photo","walk","view"], tags: ["bridge","river"], foodStop: "Riverside lunch" },
-      { name: "Arashiyama Park", area: "arashiyama", stay: 35, day: true, night: false, rainOk: false, crowd: "medium", suitable: ["family","couple"], purpose: ["walk","view","photo"], tags: ["park","river"], foodStop: "Arashiyama cafés" },
-      { name: "Tenryuji", area: "arashiyama", stay: 40, day: true, night: false, rainOk: true, crowd: "medium", suitable: ["solo","couple","family"], purpose: ["temple","walk","photo"], tags: ["garden","temple"], foodStop: "Sagano food stop" },
-      { name: "Nonomiya Shrine", area: "arashiyama", stay: 20, day: true, night: false, rainOk: true, crowd: "medium", suitable: ["solo","couple"], purpose: ["walk","temple"], tags: ["small shrine","forest"], foodStop: "Arashiyama sweets" },
-      { name: "Saga Toriimoto Street", area: "arashiyama", stay: 30, day: true, night: false, rainOk: true, crowd: "low", suitable: ["solo","couple"], purpose: ["quiet","walk","photo"], tags: ["traditional","quiet"], foodStop: "Local cafés nearby" },
+      { name: "Arashiyama Bamboo Grove", area: "arashiyama", stay: 25, day: true, night: false, rainOk: true, suitable: ["solo","couple","family"], purpose: ["photo","walk","view"], desc: "Iconic route starter in Arashiyama." },
+      { name: "Togetsukyo Bridge", area: "arashiyama", stay: 20, day: true, night: false, rainOk: true, suitable: ["solo","couple","family"], purpose: ["photo","walk","view"], desc: "River and mountain view stop." },
+      { name: "Arashiyama Park", area: "arashiyama", stay: 35, day: true, night: false, rainOk: false, suitable: ["family","couple"], purpose: ["walk","view","photo"], desc: "Works for slower scenic plans." },
+      { name: "Tenryuji", area: "arashiyama", stay: 40, day: true, night: false, rainOk: true, suitable: ["solo","couple","family"], purpose: ["walk","photo","view"], desc: "Connects well with bamboo grove routes." },
+      { name: "Nonomiya Shrine", area: "arashiyama", stay: 20, day: true, night: false, rainOk: true, suitable: ["solo","couple"], purpose: ["walk","quiet","view"], desc: "Short shrine stop in the bamboo area." },
+      { name: "Saga Toriimoto Street", area: "arashiyama", stay: 30, day: true, night: false, rainOk: true, suitable: ["solo","couple"], purpose: ["photo","walk","quiet"], desc: "Traditional street with a calmer feel." },
+      { name: "Kimono Forest", area: "arashiyama", stay: 15, day: true, night: true, rainOk: true, suitable: ["solo","couple","family"], purpose: ["photo","night","walk"], desc: "Easy short stop near the station." },
+      { name: "Daikakuji", area: "arashiyama", stay: 40, day: true, night: false, rainOk: true, suitable: ["solo","couple"], purpose: ["quiet","view","walk"], desc: "Good for wider Arashiyama routes." },
 
-      { name: "Fushimi Inari", area: "south", stay: 50, day: true, night: true, rainOk: true, crowd: "high", suitable: ["solo","couple","family"], purpose: ["walk","photo","night"], tags: ["torii","iconic"], foodStop: "Inari station area" },
-      { name: "Tofukuji", area: "south", stay: 35, day: true, night: false, rainOk: true, crowd: "medium", suitable: ["solo","couple"], purpose: ["temple","walk","quiet"], tags: ["temple","garden"], foodStop: "South Kyoto cafés" },
-      { name: "Toji", area: "south", stay: 35, day: true, night: false, rainOk: true, crowd: "medium", suitable: ["solo","family","couple"], purpose: ["temple","photo"], tags: ["pagoda","historic"], foodStop: "Kyoto station side" },
-
-      { name: "Nijo Castle", area: "kawaramachi", stay: 45, day: true, night: false, rainOk: true, crowd: "medium", suitable: ["solo","family","couple"], purpose: ["walk","photo","history"], tags: ["castle","historic"], foodStop: "Central Kyoto lunch" },
-      { name: "Kyoto Tower", area: "south", stay: 25, day: true, night: true, rainOk: true, crowd: "medium", suitable: ["solo","family","couple"], purpose: ["view","night","photo"], tags: ["tower","city view"], foodStop: "Kyoto station dining" },
-      { name: "Kyoto Station", area: "south", stay: 40, day: true, night: true, rainOk: true, crowd: "high", suitable: ["solo","family","couple"], purpose: ["food","shopping","rain"], tags: ["station","indoor"], foodStop: "Ramen / station dining" },
-      { name: "Sanjo Bridge", area: "kawaramachi", stay: 15, day: true, night: true, rainOk: true, crowd: "medium", suitable: ["solo","couple"], purpose: ["photo","walk","night"], tags: ["bridge","river"], foodStop: "Sanjo cafés" }
+      { name: "Fushimi Inari", area: "south", stay: 50, day: true, night: true, rainOk: true, suitable: ["solo","couple","family"], purpose: ["walk","photo","night"], desc: "Strong landmark route in the south." },
+      { name: "Tofukuji", area: "south", stay: 35, day: true, night: false, rainOk: true, suitable: ["solo","couple"], purpose: ["walk","quiet","view"], desc: "Temple route with a calmer mood." },
+      { name: "Toji", area: "south", stay: 35, day: true, night: false, rainOk: true, suitable: ["solo","couple","family"], purpose: ["photo","walk","view"], desc: "Historic pagoda-focused stop." },
+      { name: "Kyoto Tower", area: "south", stay: 25, day: true, night: true, rainOk: true, suitable: ["solo","couple","family"], purpose: ["view","night","photo"], desc: "Useful city-view stop near the station." },
+      { name: "Kyoto Station", area: "south", stay: 40, day: true, night: true, rainOk: true, suitable: ["solo","couple","family"], purpose: ["food","shopping","walk"], desc: "Best for rainy-day or food routes." },
+      { name: "Umekoji Park", area: "south", stay: 35, day: true, night: false, rainOk: false, suitable: ["family","couple"], purpose: ["walk","view","photo"], desc: "Family-friendly open space." },
+      { name: "Sanjusangendo", area: "south", stay: 35, day: true, night: false, rainOk: true, suitable: ["solo","couple","family"], purpose: ["view","walk","quiet"], desc: "Indoor-friendly cultural stop." },
+      { name: "Fushimi Sake District", area: "south", stay: 45, day: true, night: false, rainOk: true, suitable: ["solo","couple"], purpose: ["food","walk","quiet"], desc: "Good for adult-focused south routes." }
     ];
-
-    const AREA_LABELS = {
-      "auto": { jp: "自動 / 柔軟に", kr: "자동 / 유연하게", en: "Auto / Flexible" },
-      "gion-higashiyama": { jp: "祇園 / 東山", kr: "기온 / 히가시야마", en: "Gion / Higashiyama" },
-      "okazaki": { jp: "岡崎 / 東山東部", kr: "오카자키 / 동쪽", en: "Okazaki / East Kyoto" },
-      "kawaramachi": { jp: "河原町 / 中心部", kr: "카와라마치 / 중심부", en: "Kawaramachi / Central" },
-      "north": { jp: "北部", kr: "북쪽", en: "North Kyoto" },
-      "arashiyama": { jp: "嵐山", kr: "아라시야마", en: "Arashiyama" },
-      "south": { jp: "南部 / 伏見方面", kr: "남쪽 / 후시미", en: "South / Fushimi" }
-    };
 
     let currentLang = "jp";
     let selectedMood = "photo";
     let selectedTravel = "solo";
     let detectedArea = "";
-    let usingCurrentLocation = false;
+    let useLocationArea = false;
 
-    const moodChips = document.getElementById("moodChips");
-    const travelChips = document.getElementById("travelChips");
-
-    function getText(obj) {
-      return obj?.[currentLang] || obj?.jp || "";
+    function $(id) {
+      return document.getElementById(id);
     }
 
-    function renderChips() {
-      moodChips.innerHTML = MOODS.map(item => {
-        const active = item.key === selectedMood ? "is-active" : "";
-        return `<button type="button" class="ai-chip ${active}" data-type="mood" data-key="${item.key}">${item.emoji} ${getText(item.label)}</button>`;
-      }).join("");
-
-      travelChips.innerHTML = TRAVEL_STYLES.map(item => {
-        const active = item.key === selectedTravel ? "is-active" : "";
-        return `<button type="button" class="ai-chip ${active}" data-type="travel" data-key="${item.key}">${item.emoji} ${getText(item.label)}</button>`;
-      }).join("");
+    function t(path) {
+      const keys = path.split(".");
+      let value = UI_TEXT[currentLang];
+      for (const key of keys) {
+        value = value?.[key];
+      }
+      return value ?? "";
     }
 
-    function applyUIText() {
-      const t = UI_TEXT[currentLang];
-
-      document.getElementById("heroTitle").textContent = t.heroTitle;
-      document.getElementById("heroDesc").textContent = t.heroDesc;
-      document.getElementById("stepTitle1").textContent = t.stepTitle1;
-      document.getElementById("stepDesc1").textContent = t.stepDesc1;
-      document.getElementById("moodTitle").textContent = t.moodTitle;
-      document.getElementById("moodDesc").textContent = t.moodDesc;
-      document.getElementById("travelTitle").textContent = t.travelTitle;
-      document.getElementById("travelDesc").textContent = t.travelDesc;
-      document.getElementById("detailTitle").textContent = t.detailTitle;
-      document.getElementById("detailDesc").textContent = t.detailDesc;
-      document.getElementById("timeLabel").textContent = t.timeLabel;
-      document.getElementById("weatherLabel").textContent = t.weatherLabel;
-      document.getElementById("durationLabel").textContent = t.durationLabel;
-      document.getElementById("baseLabel").textContent = t.baseLabel;
-      document.getElementById("locationBtn").textContent = t.locationBtn;
-      document.getElementById("generateBtn").textContent = t.generateBtn;
-      document.getElementById("summaryMoodLabel").textContent = t.summaryMoodLabel;
-      document.getElementById("summaryTravelLabel").textContent = t.summaryTravelLabel;
-      document.getElementById("summaryTimeLabel").textContent = t.summaryTimeLabel;
-      document.getElementById("summaryAreaLabel").textContent = t.summaryAreaLabel;
-      document.getElementById("resultPanelTitle").textContent = t.resultPanelTitle;
-      document.getElementById("resultPanelDesc").textContent = t.resultPanelDesc;
-      document.getElementById("resultBadge1").textContent = t.badges.flexible;
-      document.getElementById("resultBadge2").textContent = t.badges.guide;
-      document.getElementById("resultTitle").textContent = t.resultTitle;
-      document.getElementById("resultDesc").textContent = t.resultDesc;
-      document.getElementById("tip1Title").textContent = t.tip1Title;
-      document.getElementById("tip1Text").textContent = t.tip1Text;
-      document.getElementById("tip2Title").textContent = t.tip2Title;
-      document.getElementById("tip2Text").textContent = t.tip2Text;
-      document.getElementById("tip3Title").textContent = t.tip3Title;
-      document.getElementById("tip3Text").textContent = t.tip3Text;
-      document.getElementById("footerNote").textContent = t.footerNote;
-
-      document.querySelector('#timeOfDay option[value="day"]').textContent = t.selectors.day;
-      document.querySelector('#timeOfDay option[value="night"]').textContent = t.selectors.night;
-      document.querySelector('#weather option[value="sunny"]').textContent = t.selectors.sunny;
-      document.querySelector('#weather option[value="rainy"]').textContent = t.selectors.rainy;
-      document.querySelector('#duration option[value="60"]').textContent = t.selectors.hour1;
-      document.querySelector('#duration option[value="120"]').textContent = t.selectors.hour2;
-      document.querySelector('#duration option[value="180"]').textContent = t.selectors.hour3;
-
-      document.querySelector('#baseArea option[value="auto"]').textContent = getAreaLabel("auto");
-      document.querySelector('#baseArea option[value="gion-higashiyama"]').textContent = getAreaLabel("gion-higashiyama");
-      document.querySelector('#baseArea option[value="okazaki"]').textContent = getAreaLabel("okazaki");
-      document.querySelector('#baseArea option[value="kawaramachi"]').textContent = getAreaLabel("kawaramachi");
-      document.querySelector('#baseArea option[value="north"]').textContent = getAreaLabel("north");
-      document.querySelector('#baseArea option[value="arashiyama"]').textContent = getAreaLabel("arashiyama");
-      document.querySelector('#baseArea option[value="south"]').textContent = getAreaLabel("south");
-
-      renderChips();
-      updateSummary();
-    }
-
-    function getAreaLabel(areaKey) {
-      return AREA_LABELS[areaKey]?.[currentLang] || AREA_LABELS[areaKey]?.jp || areaKey;
+    function getAreaLabel(area) {
+      return t(`areaLabels.${area}`) || area;
     }
 
     function getMoodLabel(key) {
-      return getText(MOODS.find(m => m.key === key)?.label);
+      return t(`moods.${key}`) || key;
     }
 
     function getTravelLabel(key) {
-      return getText(TRAVEL_STYLES.find(t => t.key === key)?.label);
+      return t(`travels.${key}`) || key;
+    }
+
+    function renderNavTexts() {
+      document.querySelectorAll("[data-i18n]").forEach((el) => {
+        const key = el.dataset.i18n;
+        const value = t(key);
+        if (value) el.textContent = value;
+      });
+    }
+
+    function renderStaticTexts() {
+      $("heroLabel").textContent = t("heroLabel");
+      $("heroTitle").textContent = t("heroTitle");
+      $("heroDesc").textContent = t("heroDesc");
+      $("filterTitle").textContent = t("filterTitle");
+      $("filterDesc").textContent = t("filterDesc");
+      $("moodTitle").textContent = t("moodTitle");
+      $("travelTitle").textContent = t("travelTitle");
+      $("detailTitle").textContent = t("detailTitle");
+      $("timeLabel").textContent = t("timeLabel");
+      $("weatherLabel").textContent = t("weatherLabel");
+      $("durationLabel").textContent = t("durationLabel");
+      $("baseLabel").textContent = t("baseLabel");
+      $("locationBtn").textContent = t("locationBtn");
+      $("generateBtn").textContent = t("generateBtn");
+      $("summaryMoodLabel").textContent = t("summaryMoodLabel");
+      $("summaryTravelLabel").textContent = t("summaryTravelLabel");
+      $("summaryTimeLabel").textContent = t("summaryTimeLabel");
+      $("summaryAreaLabel").textContent = t("summaryAreaLabel");
+      $("resultTitle").textContent = t("resultTitle");
+      $("resultDesc").textContent = t("resultDesc");
+      $("badge1").textContent = t("badge1");
+      $("badge2").textContent = t("badge2");
+
+      const timeOfDay = $("timeOfDay");
+      const weather = $("weather");
+      const duration = $("duration");
+      const baseArea = $("baseArea");
+
+      timeOfDay.options[0].text = t("selectors.day");
+      timeOfDay.options[1].text = t("selectors.night");
+
+      weather.options[0].text = t("selectors.sunny");
+      weather.options[1].text = t("selectors.rainy");
+
+      duration.options[0].text = t("selectors.hour1");
+      duration.options[1].text = t("selectors.hour2");
+      duration.options[2].text = t("selectors.hour3");
+      duration.options[3].text = t("selectors.halfDay");
+
+      baseArea.options[0].text = getAreaLabel("auto");
+      baseArea.options[1].text = getAreaLabel("gion-higashiyama");
+      baseArea.options[2].text = getAreaLabel("okazaki");
+      baseArea.options[3].text = getAreaLabel("kawaramachi");
+      baseArea.options[4].text = getAreaLabel("north");
+      baseArea.options[5].text = getAreaLabel("arashiyama");
+      baseArea.options[6].text = getAreaLabel("south");
+    }
+
+    function renderMoodChips() {
+      const wrap = $("moodChips");
+      wrap.innerHTML = MOODS.map((item) => {
+        const active = item.key === selectedMood ? "is-active" : "";
+        return `
+          <button type="button" class="ai-chip ${active}" data-chip-type="mood" data-key="${item.key}">
+            ${item.emoji} ${getMoodLabel(item.key)}
+          </button>
+        `;
+      }).join("");
+    }
+
+    function renderTravelChips() {
+      const wrap = $("travelChips");
+      wrap.innerHTML = TRAVELS.map((item) => {
+        const active = item.key === selectedTravel ? "is-active" : "";
+        return `
+          <button type="button" class="ai-chip ${active}" data-chip-type="travel" data-key="${item.key}">
+            ${item.emoji} ${getTravelLabel(item.key)}
+          </button>
+        `;
+      }).join("");
     }
 
     function updateSummary() {
-      const t = UI_TEXT[currentLang];
-      const timeOfDay = document.getElementById("timeOfDay").value;
-      const weather = document.getElementById("weather").value;
-      const baseArea = document.getElementById("baseArea").value;
+      const time = $("timeOfDay").value;
+      const weather = $("weather").value;
+      const area = useLocationArea && detectedArea ? detectedArea : $("baseArea").value;
 
-      document.getElementById("summaryMoodValue").textContent = getMoodLabel(selectedMood) || "—";
-      document.getElementById("summaryTravelValue").textContent = getTravelLabel(selectedTravel) || "—";
-      document.getElementById("summaryTimeValue").textContent = `${t.selectors[timeOfDay]} / ${t.selectors[weather]}`;
-      document.getElementById("summaryAreaValue").textContent = usingCurrentLocation && detectedArea
-        ? `${getAreaLabel(detectedArea)}`
-        : getAreaLabel(baseArea);
+      $("summaryMoodValue").textContent = getMoodLabel(selectedMood);
+      $("summaryTravelValue").textContent = getTravelLabel(selectedTravel);
+      $("summaryTimeValue").textContent = `${t(`selectors.${time}`)} / ${t(`selectors.${weather}`)}`;
+      $("summaryAreaValue").textContent = getAreaLabel(area);
+    }
+
+    function topPurposes(spot) {
+      const arr = Array.isArray(spot.purpose) ? spot.purpose : [];
+      if (!arr.length) return [];
+      return arr.slice(0, 2);
     }
 
     function scoreSpot(spot, filters) {
       let score = 0;
 
-      if (filters.baseArea !== "auto" && spot.area === filters.baseArea) score += 30;
-      if (filters.baseArea === "auto") score += 8;
+      if (filters.baseArea === "auto") score += 5;
+      if (spot.area === filters.baseArea) score += 35;
 
-      if (spot.purpose.includes(filters.mood)) score += 24;
-      if (filters.mood === "night" && spot.night) score += 12;
-      if (filters.mood === "quiet" && (spot.purpose.includes("quiet") || spot.crowd === "low")) score += 18;
+      if (spot.suitable.includes(filters.travel)) score += 20;
+      if (spot.purpose.includes(filters.mood)) score += 28;
 
-      if (spot.suitable.includes(filters.travel)) score += 18;
-      if (filters.timeOfDay === "day" && spot.day) score += 12;
-      if (filters.timeOfDay === "night" && spot.night) score += 16;
+      if (filters.time === "day" && spot.day) score += 12;
+      if (filters.time === "night" && spot.night) score += 16;
 
-      if (filters.weather === "rainy" && spot.rainOk) score += 16;
-      if (filters.weather === "rainy" && !spot.rainOk) score -= 16;
+      if (filters.weather === "rainy" && spot.rainOk) score += 14;
+      if (filters.weather === "rainy" && !spot.rainOk) score -= 18;
 
       if (filters.duration <= 60 && spot.stay <= 30) score += 10;
-      if (filters.duration >= 120 && spot.stay >= 30) score += 8;
-      if (spot.crowd === "low" && filters.mood === "quiet") score += 10;
-      if (spot.crowd === "high" && filters.mood === "shopping") score += 8;
+      if (filters.duration > 60 && filters.duration <= 120 && spot.stay <= 45) score += 8;
+      if (filters.duration > 120 && spot.stay >= 30) score += 6;
+
+      if (filters.mood === "quiet" && spot.purpose.includes("quiet")) score += 16;
+      if (filters.mood === "night" && spot.night) score += 12;
+      if (filters.mood === "food" && spot.purpose.includes("food")) score += 12;
+      if (filters.mood === "shopping" && spot.purpose.includes("shopping")) score += 12;
+      if (filters.mood === "view" && spot.purpose.includes("view")) score += 12;
 
       return score;
     }
 
     function buildRoute() {
-      const timeOfDay = document.getElementById("timeOfDay").value;
-      const weather = document.getElementById("weather").value;
-      const duration = Number(document.getElementById("duration").value);
-      const baseAreaSelect = document.getElementById("baseArea").value;
-      const baseArea = usingCurrentLocation && detectedArea ? detectedArea : baseAreaSelect;
+      const time = $("timeOfDay").value;
+      const weather = $("weather").value;
+      const duration = Number($("duration").value);
+      const baseArea = useLocationArea && detectedArea ? detectedArea : $("baseArea").value;
 
       const filters = {
         mood: selectedMood,
         travel: selectedTravel,
-        timeOfDay,
+        time,
         weather,
         duration,
         baseArea
       };
 
-      let candidates = [...SPOTS].filter(spot => {
-        if (timeOfDay === "day" && !spot.day) return false;
-        if (timeOfDay === "night" && !spot.night) return false;
-        if (weather === "rainy" && !spot.rainOk && duration <= 120) return false;
-        if (!spot.suitable.includes(selectedTravel)) return false;
+      let candidates = SPOTS.filter((spot) => {
+        if (!spot.suitable.includes(filters.travel)) return false;
+        if (filters.time === "day" && !spot.day) return false;
+        if (filters.time === "night" && !spot.night) return false;
+        if (filters.weather === "rainy" && !spot.rainOk && duration <= 120) return false;
         return true;
       });
 
       if (baseArea !== "auto") {
-        const sameArea = candidates.filter(spot => spot.area === baseArea);
-        if (sameArea.length >= 2) candidates = sameArea;
+        const sameArea = candidates.filter((spot) => spot.area === baseArea);
+        if (sameArea.length >= 3) {
+          candidates = sameArea;
+        }
       }
 
       const ranked = candidates
-        .map(spot => ({ ...spot, score: scoreSpot(spot, filters) }))
-        .sort((a, b) => b.score - a.score);
+        .map((spot) => ({ ...spot, _score: scoreSpot(spot, filters) }))
+        .sort((a, b) => b._score - a._score);
+
+      const targetStops = duration <= 60 ? 2 : duration <= 120 ? 3 : duration <= 180 ? 4 : 5;
 
       const route = [];
-      let totalStay = 0;
-      const targetStops = duration <= 60 ? 2 : duration <= 120 ? 3 : 4;
+      let total = 0;
 
       for (const spot of ranked) {
-        const wouldExceed = totalStay + spot.stay > duration + 20;
-        if (route.length < targetStops && !wouldExceed) {
+        if (route.length >= targetStops) break;
+        if (route.some((s) => s.name === spot.name)) continue;
+
+        const softLimit = duration + 25;
+        if (total + spot.stay <= softLimit || route.length < 2) {
           route.push(spot);
-          totalStay += spot.stay;
+          total += spot.stay;
         }
       }
 
-      if (route.length === 0) {
-        route.push(...ranked.slice(0, 2));
-        totalStay = route.reduce((sum, item) => sum + item.stay, 0);
+      if (!route.length) {
+        renderEmpty();
+        return;
       }
 
-      renderRoute(route, {
-        timeOfDay,
-        weather,
-        duration,
-        baseArea
-      });
+      renderRoute(route, filters, total);
     }
 
-    function crowdLabel(crowd) {
-      const labels = UI_TEXT[currentLang].labels;
-      if (crowd === "low") return labels.crowdLow;
-      if (crowd === "medium") return labels.crowdMedium;
-      return labels.crowdHigh;
-    }
-
-    function purposeLabel(key) {
-      const labels = UI_TEXT[currentLang].labels;
-      return labels[key] || key;
-    }
-
-    function suitableLabel(key) {
-      const labels = UI_TEXT[currentLang].labels;
-      return labels[key] || key;
-    }
-
-    function renderRoute(route, meta) {
-      const t = UI_TEXT[currentLang];
-      const totalStay = route.reduce((sum, item) => sum + item.stay, 0);
-      const area = route[0]?.area || meta.baseArea || "auto";
-      const moodName = getMoodLabel(selectedMood);
-      const travelName = getTravelLabel(selectedTravel);
-
-      document.getElementById("resultBadge1").textContent = usingCurrentLocation ? t.badges.location : t.badges.flexible;
-      document.getElementById("resultBadge2").textContent = t.badges.generated;
-      document.getElementById("resultTitle").textContent =
-        `${t.labels.routeTitle} · ${moodName} / ${travelName}`;
-      document.getElementById("resultDesc").textContent =
-        `${t.labels.introPrefix} ${moodName.toLowerCase ? moodName.toLowerCase() : moodName} flow in ${getAreaLabel(area)}. ${t.labels.supportLine1}`;
+    function renderRoute(route, filters, totalStay) {
+      const resultArea = $("resultArea");
+      const headerTitle = t("routeHeader");
+      const intro = t("routeIntro");
 
       const html = `
-        <div class="ai-route-list">
-          ${route.map((spot, index) => `
-            <article class="ai-route-item">
-              <div class="ai-route-index">${index + 1}</div>
-              <h4>${spot.name}</h4>
-              <div class="ai-tags">
-                <span class="ai-tag">${t.labels.area}: ${getAreaLabel(spot.area)}</span>
-                <span class="ai-tag">${t.labels.stay}: ${spot.stay}${currentLang === "en" ? " " : ""}${t.labels.durationSuffix}</span>
-                <span class="ai-tag">${t.labels.crowd}: ${crowdLabel(spot.crowd)}</span>
-                ${spot.rainOk ? `<span class="ai-tag">${t.labels.rainOk}</span>` : ""}
-              </div>
-              <div class="ai-tags">
-                ${spot.purpose.slice(0, 3).map(item => `<span class="ai-tag">${purposeLabel(item)}</span>`).join("")}
-                ${spot.suitable.slice(0, 3).map(item => `<span class="ai-tag">${suitableLabel(item)}</span>`).join("")}
-              </div>
-              <p>
-                ${t.labels.routePoint} ${index + 1}. ${spot.name} ·
-                ${t.labels.foodStop}: ${spot.foodStop}. 
-                ${spot.tags.join(" / ")}
-              </p>
-            </article>
-          `).join("")}
+        <div class="ai-route-grid">
+          <div class="ai-empty" style="padding:16px 18px;">
+            <strong style="display:block; color:var(--ai-text); font-size:16px; margin-bottom:6px;">${headerTitle}</strong>
+            <span style="color:var(--ai-sub); font-size:14px; line-height:1.8;">
+              ${intro} · ${getAreaLabel(filters.baseArea)} · ${totalStay}${currentLang === "en" ? " " : ""}${t("tags.min")}
+            </span>
+          </div>
+
+          ${route.map((spot, index) => {
+            const purposes = topPurposes(spot).map((key) => `<span class="ai-mini-tag">${t(`tags.${key}`)}</span>`).join("");
+            return `
+              <article class="ai-route-card">
+                <div class="ai-route-card-head">
+                  <div class="ai-route-index">${index + 1}</div>
+                  <h3 class="ai-route-name">${spot.name}</h3>
+                </div>
+
+                <div class="ai-route-mini">
+                  <span class="ai-mini-tag">${t("tags.area")}: ${getAreaLabel(spot.area)}</span>
+                  <span class="ai-mini-tag">${t("tags.stay")}: ${spot.stay}${currentLang === "en" ? " " : ""}${t("tags.min")}</span>
+                  ${purposes}
+                </div>
+
+                <p class="ai-route-note">
+                  ${spot.desc}
+                </p>
+              </article>
+            `;
+          }).join("")}
         </div>
       `;
 
-      document.getElementById("resultArea").innerHTML = html;
-
-      document.getElementById("summaryAreaValue").textContent = getAreaLabel(area);
-      document.getElementById("summaryTimeValue").textContent =
-        `${t.selectors[meta.timeOfDay]} / ${t.selectors[meta.weather]} · ${meta.duration}${currentLang === "en" ? " " : ""}${t.labels.durationSuffix}`;
-
-      const tipText = `${route.length} spots · ${totalStay}${currentLang === "en" ? " " : ""}${t.labels.durationSuffix} · ${getAreaLabel(area)}`;
-      document.getElementById("tip1Text").textContent = tipText;
-      document.getElementById("tip2Text").textContent = t.labels.supportLine1;
-      document.getElementById("tip3Text").textContent = t.labels.supportLine2;
+      resultArea.innerHTML = html;
+      $("badge1").textContent = getMoodLabel(filters.mood);
+      $("badge2").textContent = `${route.length} SPOTS`;
     }
 
-    function bindEvents() {
-      document.addEventListener("click", (e) => {
-        const chip = e.target.closest(".ai-chip");
-        if (chip) {
-          const type = chip.dataset.type;
-          const key = chip.dataset.key;
+    function renderEmpty() {
+      $("resultArea").innerHTML = t("empty");
+      $("badge1").textContent = t("badge1");
+      $("badge2").textContent = t("badge2");
+    }
 
-          if (type === "mood") selectedMood = key;
-          if (type === "travel") selectedTravel = key;
+    function applyLanguage() {
+      renderNavTexts();
+      renderStaticTexts();
+      renderMoodChips();
+      renderTravelChips();
+      updateSummary();
 
-          renderChips();
+      const currentEmpty = $("resultArea");
+      if (currentEmpty && currentEmpty.classList.contains("ai-empty")) {
+        renderEmpty();
+      }
+    }
+
+    function detectAreaFromCoords(lat, lng) {
+      if (lat > 35.000 && lat < 35.020 && lng > 135.770 && lng < 135.790) return "gion-higashiyama";
+      if (lat > 35.010 && lat < 35.040 && lng > 135.790 && lng < 135.815) return "okazaki";
+      if (lat > 35.000 && lat < 35.030 && lng > 135.750 && lng < 135.775) return "kawaramachi";
+      if (lat > 35.020 && lat < 35.070 && lng > 135.730 && lng < 135.780) return "north";
+      if (lat > 35.000 && lat < 35.030 && lng > 135.650 && lng < 135.700) return "arashiyama";
+      if (lat > 34.950 && lat < 35.000 && lng > 135.730 && lng < 135.790) return "south";
+      return "kawaramachi";
+    }
+
+    document.addEventListener("click", (e) => {
+      const chip = e.target.closest(".ai-chip");
+      if (chip) {
+        const type = chip.dataset.chipType;
+        const key = chip.dataset.key;
+
+        if (type === "mood") {
+          selectedMood = key;
+          renderMoodChips();
           updateSummary();
         }
 
-        const langBtn = e.target.closest(".lang-btn");
-        if (langBtn) {
-          currentLang = langBtn.dataset.lang || "jp";
-          document.querySelectorAll(".lang-btn").forEach(btn => btn.classList.remove("is-active"));
-          langBtn.classList.add("is-active");
-          applyUIText();
+        if (type === "travel") {
+          selectedTravel = key;
+          renderTravelChips();
+          updateSummary();
         }
-      });
+      }
 
-      document.getElementById("timeOfDay").addEventListener("change", updateSummary);
-      document.getElementById("weather").addEventListener("change", updateSummary);
-      document.getElementById("duration").addEventListener("change", updateSummary);
-      document.getElementById("baseArea").addEventListener("change", () => {
-        usingCurrentLocation = false;
-        updateSummary();
-      });
+      const langBtn = e.target.closest(".lang-btn");
+      if (langBtn) {
+        currentLang = langBtn.dataset.lang || "jp";
+        document.querySelectorAll(".lang-btn").forEach((btn) => btn.classList.remove("is-active"));
+        langBtn.classList.add("is-active");
+        applyLanguage();
+      }
+    });
 
-      document.getElementById("generateBtn").addEventListener("click", buildRoute);
+    $("timeOfDay").addEventListener("change", updateSummary);
+    $("weather").addEventListener("change", updateSummary);
+    $("duration").addEventListener("change", updateSummary);
+    $("baseArea").addEventListener("change", () => {
+      useLocationArea = false;
+      updateSummary();
+    });
 
-      document.getElementById("locationBtn").addEventListener("click", () => {
-        if (!navigator.geolocation) {
-          alert("Geolocation is not supported on this device.");
-          return;
+    $("generateBtn").addEventListener("click", buildRoute);
+
+    $("locationBtn").addEventListener("click", () => {
+      if (!navigator.geolocation) {
+        alert(t("locationFail"));
+        return;
+      }
+
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const lat = position.coords.latitude;
+          const lng = position.coords.longitude;
+          detectedArea = detectAreaFromCoords(lat, lng);
+          useLocationArea = true;
+          updateSummary();
+          alert(t("locationSuccess"));
+        },
+        () => {
+          alert(t("locationFail"));
         }
+      );
+    });
 
-        navigator.geolocation.getCurrentPosition(
-          (position) => {
-            const { latitude, longitude } = position.coords;
-
-            if (latitude > 35.02 && latitude < 35.04 && longitude > 135.76 && longitude < 135.79) {
-              detectedArea = "kawaramachi";
-            } else if (latitude > 35.00 && latitude < 35.02 && longitude > 135.77 && longitude < 135.79) {
-              detectedArea = "gion-higashiyama";
-            } else if (latitude > 35.01 && latitude < 35.04 && longitude > 135.79 && longitude < 135.81) {
-              detectedArea = "okazaki";
-            } else if (latitude > 35.01 && latitude < 35.03 && longitude > 135.66 && longitude < 135.69) {
-              detectedArea = "arashiyama";
-            } else if (latitude > 34.95 && latitude < 35.00 && longitude > 135.75 && longitude < 135.78) {
-              detectedArea = "south";
-            } else {
-              detectedArea = "kawaramachi";
-            }
-
-            usingCurrentLocation = true;
-            updateSummary();
-          },
-          () => {
-            alert("Could not access current location.");
-          }
-        );
-      });
-    }
-
-    function init() {
-      document.querySelector('.lang-btn[data-lang="jp"]')?.classList.add("is-active");
-      renderChips();
-      applyUIText();
-      bindEvents();
-      document.getElementById("resultArea").textContent = UI_TEXT[currentLang].empty;
-    }
-
-    init();
+    applyLanguage();
   </script>
 </body>
 </html>
