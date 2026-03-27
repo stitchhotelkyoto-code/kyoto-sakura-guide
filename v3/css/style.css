@@ -1133,3 +1133,28 @@ main {
   font-weight: 600;
   color: #7a4e5d;
 }
+
+.coming-soon-card {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #f8e8ee, #f3d9e3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.coming-soon-inner {
+  text-align: center;
+}
+
+.coming-soon-label {
+  font-size: 28px;
+  font-weight: 700;
+  color: #b78496;
+  letter-spacing: 0.1em;
+}
+
+.coming-soon-title {
+  font-size: 16px;
+  color: #7a4e5d;
+}
