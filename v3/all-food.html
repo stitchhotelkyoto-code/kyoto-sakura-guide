@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="jp">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Food Guide - Kyoto Sakura Guide</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="./css/style.css" />
 </head>
 <body>
   <div class="page-shell">
@@ -16,259 +16,300 @@
           <nav class="site-nav">
             <a href="./index.html" data-i18n="nav_home">Home</a>
             <a href="./hotels/soraniwa.html" data-i18n="nav_soraniwa">Soraniwa</a>
-            <a href="./hotels/bettel.html" data-i18n="nav_bettei">Bettei</a>
+            <a href="./hotels/bettei.html" data-i18n="nav_bettei">Bettei</a>
             <a href="./hotels/hiyori.html" data-i18n="nav_hiyori">Hiyori</a>
             <a href="./hotels/stitch.html" data-i18n="nav_stitch">STITCH</a>
           </nav>
 
           <div class="lang-switcher">
-            <button class="lang-btn" data-lang="jp" type="button">JP</button>
-            <button class="lang-btn" data-lang="en" type="button">EN</button>
-            <button class="lang-btn" data-lang="kr" type="button">KR</button>
+            <button class="lang-btn" type="button" data-lang="jp">JP</button>
+            <button class="lang-btn" type="button" data-lang="en">EN</button>
+            <button class="lang-btn" type="button" data-lang="kr">KR</button>
           </div>
         </div>
       </div>
     </header>
 
-    <section class="page-link-widget">
+    <section class="subpage-widget-nav">
       <div class="container">
-        <div class="page-link-grid">
-          <a href="./all-sakura.html" class="page-link-chip" data-i18n="widget_sakura">Sakura Spots</a>
-          <a href="./all-course.html" class="page-link-chip" data-i18n="widget_courses">Travel Courses</a>
-          <a href="./all-food.html" class="page-link-chip is-active" data-i18n="widget_food">Food Guide</a>
-          <a href="./all-events.html" class="page-link-chip" data-i18n="widget_events">Events</a>
-          <a href="./ai-guide.html" class="page-link-chip" data-i18n="widget_ai">AI Guide</a>
-          <a href="./crowd-live.html" class="page-link-chip" data-i18n="widget_crowd">Live Crowd</a>
+        <div class="subpage-widget-grid">
+          <a href="./all-sakura.html" class="subpage-widget-card">
+            <span class="subpage-widget-icon">🌸</span>
+            <span class="subpage-widget-text" data-i18n="widget_sakura">Sakura Spots</span>
+          </a>
+          <a href="./all-course.html" class="subpage-widget-card">
+            <span class="subpage-widget-icon">🗺️</span>
+            <span class="subpage-widget-text" data-i18n="widget_courses">Travel Courses</span>
+          </a>
+          <a href="./all-food.html" class="subpage-widget-card is-active">
+            <span class="subpage-widget-icon">🍜</span>
+            <span class="subpage-widget-text" data-i18n="widget_food">Food Guide</span>
+          </a>
+          <a href="./all-events.html" class="subpage-widget-card">
+            <span class="subpage-widget-icon">🎎</span>
+            <span class="subpage-widget-text" data-i18n="widget_events">Events</span>
+          </a>
+          <a href="./ai-guide.html" class="subpage-widget-card">
+            <span class="subpage-widget-icon">✨</span>
+            <span class="subpage-widget-text" data-i18n="widget_ai">AI Guide</span>
+          </a>
+          <a href="./crowd-live.html" class="subpage-widget-card">
+            <span class="subpage-widget-icon">📍</span>
+            <span class="subpage-widget-text" data-i18n="widget_crowd">Live Crowd</span>
+          </a>
         </div>
       </div>
     </section>
 
     <main>
-      <section class="page-heading food-page-heading">
+      <section class="page-heading food-heading">
         <div class="container">
           <p class="eyebrow">FOOD GUIDE</p>
-          <h1 id="foodPageTitle">Kyoto Food by Area</h1>
-          <p id="foodPageDesc">Choose an area and open the local food picks.</p>
+          <h1>Kyoto Food by Area</h1>
+          <p class="page-heading-desc">Choose an area and open the local food picks.</p>
         </div>
       </section>
 
       <section class="food-page-section">
         <div class="container">
-          <div id="foodAreaGrid" class="food-area-grid"></div>
+          <div class="food-area-grid">
+            <button type="button" class="food-area-card" data-food-target="arashiyama">
+              <div class="food-area-thumb">
+                <img src="./img/arashiyama-food.jpg" alt="Arashiyama">
+              </div>
+              <div class="food-area-body">
+                <span class="food-area-num">01</span>
+                <span class="food-area-eyebrow">WEST KYOTO</span>
+                <h3>Arashiyama</h3>
+                <p>Classic food stops that pair well with an Arashiyama visit.</p>
+              </div>
+            </button>
+
+            <button type="button" class="food-area-card" data-food-target="gion">
+              <div class="food-area-thumb">
+                <img src="./img/gion-food.jpg" alt="Gion">
+              </div>
+              <div class="food-area-body">
+                <span class="food-area-num">02</span>
+                <span class="food-area-eyebrow">EAST KYOTO</span>
+                <h3>Gion</h3>
+                <p>Useful picks that fit Gion’s Kyoto mood.</p>
+              </div>
+            </button>
+
+            <button type="button" class="food-area-card" data-food-target="fushimi">
+              <div class="food-area-thumb">
+                <img src="./img/fushimi-food.jpg" alt="Fushimi">
+              </div>
+              <div class="food-area-body">
+                <span class="food-area-num">03</span>
+                <span class="food-area-eyebrow">SOUTH KYOTO</span>
+                <h3>Fushimi</h3>
+                <p>Relaxed local food picks for a Fushimi walk.</p>
+              </div>
+            </button>
+
+            <button type="button" class="food-area-card" data-food-target="kawaramachi">
+              <div class="food-area-thumb">
+                <img src="./img/kawaramachi-food.jpg" alt="Kawaramachi">
+              </div>
+              <div class="food-area-body">
+                <span class="food-area-num">04</span>
+                <span class="food-area-eyebrow">CENTRAL KYOTO</span>
+                <h3>Kawaramachi</h3>
+                <p>A practical area for market food, ramen, and gyukatsu.</p>
+              </div>
+            </button>
+
+            <button type="button" class="food-area-card" data-food-target="kiyomizu">
+              <div class="food-area-thumb">
+                <img src="./img/kiyomizu-food.jpg" alt="Kiyomizu">
+              </div>
+              <div class="food-area-body">
+                <span class="food-area-num">05</span>
+                <span class="food-area-eyebrow">HIGASHIYAMA</span>
+                <h3>Kiyomizu</h3>
+                <p>A good Kiyomizu mix of tofu classics and sweets.</p>
+              </div>
+            </button>
+
+            <button type="button" class="food-area-card" data-food-target="kyoto-station">
+              <div class="food-area-thumb">
+                <img src="./img/kyoto-food.jpg" alt="Kyoto Station">
+              </div>
+              <div class="food-area-body">
+                <span class="food-area-num">06</span>
+                <span class="food-area-eyebrow">KYOTO STATION</span>
+                <h3>Kyoto Station</h3>
+                <p>Easy meal options before check-in, after shopping, or before departure.</p>
+              </div>
+            </button>
+          </div>
         </div>
       </section>
     </main>
 
-    <div id="foodOverlay" class="food-overlay" aria-hidden="true"></div>
+    <div class="food-modal" id="foodModal" aria-hidden="true">
+      <div class="food-modal-backdrop" data-food-close></div>
+
+      <div class="food-modal-dialog">
+        <button class="food-modal-close" type="button" data-food-close>×</button>
+
+        <div class="food-modal-inner">
+          <div class="food-modal-panel" data-food-panel="arashiyama">
+            <p class="food-modal-eyebrow">WEST KYOTO</p>
+            <h2>Arashiyama</h2>
+            <p class="food-modal-desc">Classic food stops that pair well with an Arashiyama visit.</p>
+
+            <div class="food-spot-grid">
+              <article class="food-spot-card">
+                <div class="food-spot-body">
+                  <div class="food-spot-top">
+                    <span class="food-spot-type">Soba</span>
+                    <a href="#" class="food-spot-link">Directions</a>
+                  </div>
+                  <h4>Arashiyama Yoshimura</h4>
+                  <p>A classic soba restaurant near Togetsukyo.</p>
+                  <p><strong>Hours</strong> 11:00 - 17:00</p>
+                  <p><strong>Menu</strong> Handmade soba</p>
+                </div>
+              </article>
+
+              <article class="food-spot-card">
+                <div class="food-spot-body">
+                  <div class="food-spot-top">
+                    <span class="food-spot-type">Cafe</span>
+                    <a href="#" class="food-spot-link">Directions</a>
+                  </div>
+                  <h4>% Arabica Kyoto Arashiyama</h4>
+                  <p>A stylish coffee stop for a short break.</p>
+                  <p><strong>Hours</strong> 08:00 - 18:00</p>
+                  <p><strong>Menu</strong> Cafe latte</p>
+                </div>
+              </article>
+
+              <article class="food-spot-card">
+                <div class="food-spot-body">
+                  <div class="food-spot-top">
+                    <span class="food-spot-type">Unagi</span>
+                    <a href="#" class="food-spot-link">Directions</a>
+                  </div>
+                  <h4>Unagi Hirokawa</h4>
+                  <p>A good option for a more substantial meal.</p>
+                  <p><strong>Hours</strong> 11:00 - 14:30 / 17:00 - 20:00</p>
+                  <p><strong>Menu</strong> Unagi rice bowl</p>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="food-modal-panel" data-food-panel="gion">
+            <p class="food-modal-eyebrow">EAST KYOTO</p>
+            <h2>Gion</h2>
+            <p class="food-modal-desc">Useful picks that fit Gion’s Kyoto mood.</p>
+
+            <div class="food-spot-grid">
+              <article class="food-spot-card"><div class="food-spot-body"><div class="food-spot-top"><span class="food-spot-type">Kaiseki</span><a href="#" class="food-spot-link">Directions</a></div><h4>Gion Karyo</h4><p>Elegant Kyoto-style dining in Gion.</p><p><strong>Hours</strong> 11:30 - 15:00 / 17:30 - 22:00</p><p><strong>Menu</strong> Kaiseki course</p></div></article>
+              <article class="food-spot-card"><div class="food-spot-body"><div class="food-spot-top"><span class="food-spot-type">Cafe</span><a href="#" class="food-spot-link">Directions</a></div><h4>eXcafe Gion</h4><p>Good for a Kyoto-style sweet break.</p><p><strong>Hours</strong> 10:00 - 18:00</p><p><strong>Menu</strong> Dango set</p></div></article>
+              <article class="food-spot-card"><div class="food-spot-body"><div class="food-spot-top"><span class="food-spot-type">Tempura</span><a href="#" class="food-spot-link">Directions</a></div><h4>Gion Tenshu</h4><p>Tempura in a refined Gion setting.</p><p><strong>Hours</strong> 12:00 - 15:00 / 17:30 - 21:30</p><p><strong>Menu</strong> Tempura course</p></div></article>
+            </div>
+          </div>
+
+          <div class="food-modal-panel" data-food-panel="fushimi">
+            <p class="food-modal-eyebrow">SOUTH KYOTO</p>
+            <h2>Fushimi</h2>
+            <p class="food-modal-desc">Relaxed local food picks for a Fushimi walk.</p>
+
+            <div class="food-spot-grid">
+              <article class="food-spot-card"><div class="food-spot-body"><div class="food-spot-top"><span class="food-spot-type">Udon</span><a href="#" class="food-spot-link">Directions</a></div><h4>Kendonya</h4><p>A solid noodle option after shrine walking.</p><p><strong>Hours</strong> 11:00 - 15:00</p><p><strong>Menu</strong> Curry udon</p></div></article>
+              <article class="food-spot-card"><div class="food-spot-body"><div class="food-spot-top"><span class="food-spot-type">Cafe</span><a href="#" class="food-spot-link">Directions</a></div><h4>Vermillion Cafe</h4><p>A relaxed coffee stop near Fushimi Inari.</p><p><strong>Hours</strong> 09:30 - 17:00</p><p><strong>Menu</strong> Sandwich set</p></div></article>
+              <article class="food-spot-card"><div class="food-spot-body"><div class="food-spot-top"><span class="food-spot-type">Sake / Local</span><a href="#" class="food-spot-link">Directions</a></div><h4>Fushimi Yumehyakushu</h4><p>Good for a local Fushimi atmosphere.</p><p><strong>Hours</strong> 10:30 - 17:00</p><p><strong>Menu</strong> Sake tasting set</p></div></article>
+            </div>
+          </div>
+
+          <div class="food-modal-panel" data-food-panel="kawaramachi">
+            <p class="food-modal-eyebrow">CENTRAL KYOTO</p>
+            <h2>Kawaramachi</h2>
+            <p class="food-modal-desc">A practical area for market food, ramen, and gyukatsu.</p>
+
+            <div class="food-spot-grid">
+              <article class="food-spot-card"><div class="food-spot-body"><div class="food-spot-top"><span class="food-spot-type">Market Food</span><a href="#" class="food-spot-link">Directions</a></div><h4>Nishiki Market</h4><p>Easy and flexible for quick food hopping.</p><p><strong>Hours</strong> Varies by shop</p><p><strong>Menu</strong> Skewers / tamagoyaki / snacks</p></div></article>
+              <article class="food-spot-card"><div class="food-spot-body"><div class="food-spot-top"><span class="food-spot-type">Gyukatsu</span><a href="#" class="food-spot-link">Directions</a></div><h4>Katsugyu Kyoto</h4><p>A popular beef cutlet option in central Kyoto.</p><p><strong>Hours</strong> 11:00 - 22:00</p><p><strong>Menu</strong> Gyukatsu set</p></div></article>
+              <article class="food-spot-card"><div class="food-spot-body"><div class="food-spot-top"><span class="food-spot-type">Ramen</span><a href="#" class="food-spot-link">Directions</a></div><h4>Men-ya Inoichi</h4><p>A well-known ramen stop with clean flavors.</p><p><strong>Hours</strong> 11:00 - 21:00</p><p><strong>Menu</strong> Dashi ramen</p></div></article>
+            </div>
+          </div>
+
+          <div class="food-modal-panel" data-food-panel="kiyomizu">
+            <p class="food-modal-eyebrow">HIGASHIYAMA</p>
+            <h2>Kiyomizu</h2>
+            <p class="food-modal-desc">A good Kiyomizu mix of tofu classics and sweets.</p>
+
+            <div class="food-spot-grid">
+              <article class="food-spot-card"><div class="food-spot-body"><div class="food-spot-top"><span class="food-spot-type">Tofu</span><a href="#" class="food-spot-link">Directions</a></div><h4>Okutan Kiyomizu</h4><p>A classic tofu experience in the Higashiyama area.</p><p><strong>Hours</strong> 11:00 - 16:30</p><p><strong>Menu</strong> Yudofu set</p></div></article>
+              <article class="food-spot-card"><div class="food-spot-body"><div class="food-spot-top"><span class="food-spot-type">Sweets</span><a href="#" class="food-spot-link">Directions</a></div><h4>Kasagiya</h4><p>A traditional sweet stop near Sannenzaka.</p><p><strong>Hours</strong> 11:00 - 17:30</p><p><strong>Menu</strong> Oshiruko</p></div></article>
+              <article class="food-spot-card"><div class="food-spot-body"><div class="food-spot-top"><span class="food-spot-type">Cafe</span><a href="#" class="food-spot-link">Directions</a></div><h4>Starbucks Ninenzaka Yasaka Chaya</h4><p>A convenient break spot in a Kyoto-style building.</p><p><strong>Hours</strong> 08:00 - 20:00</p><p><strong>Menu</strong> Coffee / pastry</p></div></article>
+            </div>
+          </div>
+
+          <div class="food-modal-panel" data-food-panel="kyoto-station">
+            <p class="food-modal-eyebrow">KYOTO STATION</p>
+            <h2>Kyoto Station</h2>
+            <p class="food-modal-desc">Easy meal options before check-in, after shopping, or before departure.</p>
+
+            <div class="food-spot-grid">
+              <article class="food-spot-card"><div class="food-spot-body"><div class="food-spot-top"><span class="food-spot-type">Ramen</span><a href="#" class="food-spot-link">Directions</a></div><h4>Kyoto Ramen Koji</h4><p>A practical station-area ramen choice.</p><p><strong>Hours</strong> 11:00 - 22:00</p><p><strong>Menu</strong> Regional ramen</p></div></article>
+              <article class="food-spot-card"><div class="food-spot-body"><div class="food-spot-top"><span class="food-spot-type">Cafe</span><a href="#" class="food-spot-link">Directions</a></div><h4>Inoda Coffee Porta</h4><p>Easy and reliable for a short break.</p><p><strong>Hours</strong> 07:30 - 20:00</p><p><strong>Menu</strong> Coffee / sandwich</p></div></article>
+              <article class="food-spot-card"><div class="food-spot-body"><div class="food-spot-top"><span class="food-spot-type">Donburi</span><a href="#" class="food-spot-link">Directions</a></div><h4>Sakae Zushi</h4><p>Simple station-area meal before departure.</p><p><strong>Hours</strong> 11:00 - 21:30</p><p><strong>Menu</strong> Sushi set</p></div></article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <footer class="site-footer">
       <div class="container">Kyoto Sakura Guide © Spring Stay Project</div>
     </footer>
   </div>
 
-  <script src="js/hotel-data.js"></script>
-  <script src="js/main.js"></script>
+  <script src="./js/hotel-data.js"></script>
+  <script src="./js/main.js"></script>
   <script>
     (function () {
-      const FALLBACK_AREA_IMAGES = [
-        "./img/arashiyama-food.jpg",
-        "./img/gion-food.jpg",
-        "./img/fushimi-food.jpg",
-        "./img/kawaramachi-food.jpg"
-      ];
+      const modal = document.getElementById("foodModal");
+      const openButtons = document.querySelectorAll("[data-food-target]");
+      const panels = document.querySelectorAll("[data-food-panel]");
 
-      const FOOD_PAGE_COPY = {
-        jp: {
-          title: "Kyoto Food by Area",
-          desc: "エリアごとに、立ち寄りやすい京都の食のスポットをまとめています。気になるエリアを選ぶと、おすすめの店一覧を開けます。",
-          open: "View Spots",
-          direction: "Directions",
-          hours: "Hours",
-          menu: "Menu"
-        },
-        en: {
-          title: "Kyoto Food by Area",
-          desc: "Browse Kyoto food picks by area. Tap a card to open the local restaurant list.",
-          open: "View Spots",
-          direction: "Directions",
-          hours: "Hours",
-          menu: "Menu"
-        },
-        kr: {
-          title: "Kyoto Food by Area",
-          desc: "지역별로 교토에서 들르기 좋은 맛집을 정리했습니다. 카드를 누르면 해당 지역 맛집 리스트가 열립니다.",
-          open: "View Spots",
-          direction: "Directions",
-          hours: "Hours",
-          menu: "Menu"
-        }
-      };
-
-      function getLang() {
-        const saved = localStorage.getItem("siteLanguage") || "jp";
-        if (saved === "jp" || saved === "en" || saved === "kr") return saved;
-        return "jp";
-      }
-
-      function resolveText(value, lang) {
-        if (value == null) return "";
-        if (typeof value === "string") return value;
-        return value[lang] || value.jp || value.en || value.kr || "";
-      }
-
-      function escapeHtml(value) {
-        return String(value)
-          .replaceAll("&", "&amp;")
-          .replaceAll("<", "&lt;")
-          .replaceAll(">", "&gt;")
-          .replaceAll('"', "&quot;")
-          .replaceAll("'", "&#39;");
-      }
-
-      function getFoodItems() {
-        const items = window.HOTEL_DATA?.allFood?.items || [];
-        return items.slice(0, 4);
-      }
-
-      function renderFoodPage() {
-        const lang = getLang();
-        const copy = FOOD_PAGE_COPY[lang];
-        const data = window.HOTEL_DATA?.allFood || {};
-        const items = getFoodItems();
-
-        const titleEl = document.getElementById("foodPageTitle");
-        const descEl = document.getElementById("foodPageDesc");
-        const gridEl = document.getElementById("foodAreaGrid");
-
-        if (titleEl) {
-          titleEl.textContent = resolveText(data.title, lang) || copy.title;
-        }
-
-        if (descEl) {
-          descEl.textContent = resolveText(data.description, lang) || copy.desc;
-        }
-
-        if (!gridEl) return;
-
-        gridEl.innerHTML = items.map((item, index) => {
-          const eyebrow = escapeHtml(resolveText(item.eyebrow, lang));
-          const title = escapeHtml(resolveText(item.title, lang));
-          const summary = escapeHtml(resolveText(item.summary, lang));
-          const image = escapeHtml(item.image || FALLBACK_AREA_IMAGES[index] || "");
-          const no = escapeHtml(item.no || String(index + 1).padStart(2, "0"));
-          const key = escapeHtml(item.key || `food-${index}`);
-
-          return `
-            <article class="food-area-card" data-food-area="${key}">
-              <div class="food-area-photo">
-                <img src="${image}" alt="${title}" loading="lazy">
-              </div>
-
-              <div class="food-area-body">
-                <div class="food-area-meta">
-                  <span class="food-area-no">${no}</span>
-                  <span class="food-area-eyebrow">${eyebrow}</span>
-                </div>
-
-                <h3 class="food-area-title">${title}</h3>
-                <p class="food-area-summary">${summary}</p>
-
-                <button type="button" class="food-area-open-btn">${copy.open}</button>
-              </div>
-            </article>
-          `;
-        }).join("");
-
-        bindFoodOverlay(items, lang);
-      }
-
-      function bindFoodOverlay(items, lang) {
-        const copy = FOOD_PAGE_COPY[lang];
-        const overlay = document.getElementById("foodOverlay");
-        if (!overlay) return;
-
-        document.querySelectorAll("[data-food-area]").forEach((card) => {
-          card.addEventListener("click", () => {
-            const key = card.dataset.foodArea;
-            const area = items.find((item, index) => (item.key || `food-${index}`) === key);
-            if (!area) return;
-
-            const eyebrow = escapeHtml(resolveText(area.eyebrow, lang));
-            const title = escapeHtml(resolveText(area.title, lang));
-            const summary = escapeHtml(resolveText(area.summary, lang));
-
-            overlay.innerHTML = `
-              <div class="food-overlay-backdrop" data-food-close></div>
-              <div class="food-overlay-card">
-                <button type="button" class="food-overlay-close" data-food-close aria-label="Close">×</button>
-
-                <div class="food-overlay-head">
-                  <p class="food-overlay-eyebrow">${eyebrow}</p>
-                  <h3 class="food-overlay-title">${title}</h3>
-                  <p class="food-overlay-summary">${summary}</p>
-                </div>
-
-                <div class="food-spot-grid">
-                  ${(area.spots || []).map((spot) => {
-                    const name = escapeHtml(resolveText(spot.name, lang));
-                    const type = escapeHtml(resolveText(spot.type, lang));
-                    const desc = escapeHtml(resolveText(spot.desc, lang));
-                    const hours = escapeHtml(resolveText(spot.hours, lang));
-                    const menu = escapeHtml(resolveText(spot.menu, lang));
-                    const direction = escapeHtml(spot.direction || "#");
-                    const image = spot.image ? escapeHtml(spot.image) : "";
-
-                    return `
-                      <article class="food-spot-card">
-                        ${image ? `
-                          <div class="food-spot-photo">
-                            <img src="${image}" alt="${name}" loading="lazy">
-                          </div>
-                        ` : ""}
-
-                        <div class="food-spot-body">
-                          <div class="food-spot-top">
-                            <span class="food-spot-type">${type}</span>
-                            <a href="${direction}" target="_blank" rel="noopener noreferrer" class="food-spot-link">${copy.direction}</a>
-                          </div>
-
-                          <h4 class="food-spot-title">${name}</h4>
-                          <p class="food-spot-desc">${desc}</p>
-
-                          ${hours ? `<p class="food-spot-info"><strong>${copy.hours}</strong> ${hours}</p>` : ""}
-                          ${menu ? `<p class="food-spot-info"><strong>${copy.menu}</strong> ${menu}</p>` : ""}
-                        </div>
-                      </article>
-                    `;
-                  }).join("")}
-                </div>
-              </div>
-            `;
-
-            overlay.classList.add("is-open");
-            overlay.setAttribute("aria-hidden", "false");
-          });
+      function openPanel(key) {
+        panels.forEach((panel) => {
+          panel.style.display = panel.dataset.foodPanel === key ? "block" : "none";
         });
-
-        overlay.addEventListener("click", (event) => {
-          if (event.target.closest("[data-food-close]")) {
-            overlay.classList.remove("is-open");
-            overlay.setAttribute("aria-hidden", "true");
-            overlay.innerHTML = "";
-          }
-        });
+        modal.classList.add("is-open");
+        modal.setAttribute("aria-hidden", "false");
+        document.body.classList.add("modal-open");
       }
 
-      document.addEventListener("DOMContentLoaded", () => {
-        renderFoodPage();
+      function closePanel() {
+        modal.classList.remove("is-open");
+        modal.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("modal-open");
+      }
 
-        document.querySelectorAll(".lang-btn").forEach((btn) => {
-          btn.addEventListener("click", () => {
-            setTimeout(() => {
-              renderFoodPage();
-            }, 0);
-          });
+      openButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          openPanel(btn.dataset.foodTarget);
         });
+      });
+
+      modal.addEventListener("click", (e) => {
+        if (e.target.closest("[data-food-close]")) {
+          closePanel();
+        }
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modal.classList.contains("is-open")) {
+          closePanel();
+        }
       });
     })();
   </script>
