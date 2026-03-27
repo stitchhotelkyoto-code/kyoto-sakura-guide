@@ -4,117 +4,229 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Live Crowd | Kyoto Sakura Guide</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="./css/style.css" />
+
+  <style>
+    /* 🔥 Crowd Live UI */
+
+    .crowd-live-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .crowd-card {
+      background: #fff;
+      border: 1px solid #f2d6db;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+    }
+
+    .crowd-card h3 {
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+
+    .crowd-status {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .crowd-status .label {
+      font-size: 12px;
+      color: #888;
+    }
+
+    .status {
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .status.busy {
+      background: #ffe0e0;
+      color: #d33;
+    }
+
+    .status.medium {
+      background: #fff4d6;
+      color: #b98b00;
+    }
+
+    .status.calm {
+      background: #e6f7ec;
+      color: #2a9d5b;
+    }
+
+    .crowd-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+
+    .crowd-tip {
+      margin-top: 12px;
+      font-size: 12px;
+      color: #666;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 768px) {
+      .crowd-live-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
+
 <body>
   <div class="page-shell">
+
+    <!-- Header -->
     <header class="site-header">
       <div class="container site-header-inner">
         <a href="./index.html" class="site-logo">Kyoto Sakura Guide</a>
+
         <div class="header-right">
-           <nav class="site-nav">
-          <a href="./index.html" data-i18n="nav_home">Home</a>
-          <a href="./hotels/soraniwa.html" data-i18n="nav_soraniwa">Soraniwa</a>
-          <a href="./hotels/bettel.html" data-i18n="nav_bettei">Bettei</a>
-          <a href="./hotels/hiyori.html" data-i18n="nav_hiyori">Hiyori</a>
-          <a href="./hotels/stitch.html" data-i18n="nav_stitch">STITCH</a>
-        </nav>
-          
+          <nav class="site-nav">
+            <a href="./index.html" data-i18n="nav_home">Home</a>
+            <a href="./hotels/soraniwa.html" data-i18n="nav_soraniwa">Soraniwa</a>
+            <a href="./hotels/bettel.html" data-i18n="nav_bettei">Bettei</a>
+            <a href="./hotels/hiyori.html" data-i18n="nav_hiyori">Hiyori</a>
+            <a href="./hotels/stitch.html" data-i18n="nav_stitch">STITCH</a>
+          </nav>
+
           <div class="lang-switcher">
             <button class="lang-btn is-active" data-lang="jp">JP</button>
-            <button class="lang-btn" data-lang="en" type="button">EN</button>
-            <button class="lang-btn" data-lang="kr" type="button">KR</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="kr">KR</button>
           </div>
         </div>
       </div>
     </header>
 
+    <!-- Main -->
     <main>
+
+      <!-- Hero -->
       <section class="page-hero page-hero-crowd">
         <div class="container">
           <div class="page-hero-box">
             <p class="page-hero-label">Live Crowd</p>
+
             <h1 data-i18n="crowd_title">Live Crowd Guide</h1>
-            <p data-i18n="crowd_desc">실시간 혼잡도와 이동 전 확인하면 좋은 링크를 모아둔 페이지입니다.</p>
+
+            <p data-i18n="crowd_desc">
+              移動前に確認しやすい混雑情報ガイドです。
+            </p>
           </div>
         </div>
       </section>
 
+      <!-- Crowd Section -->
       <section class="section section-tight">
         <div class="container">
-        <div class="feature-grid">
 
-  <!-- Card 1 -->
-  <article class="feature-card">
-    <div class="feature-image"></div>
+          <div class="crowd-live-grid">
 
-    <div class="feature-body">
-      <span class="feature-tag" data-i18n="crowd_tag_1">Official</span>
+            <!-- Nishiki -->
+            <div class="crowd-card">
+              <h3>Nishiki Market</h3>
 
-      <h3 data-i18n="crowd_card_1_title">Kyoto Crowd Forecast</h3>
+              <div class="crowd-status">
+                <span class="label">Now</span>
+                <span class="status busy">Busy</span>
+              </div>
 
-      <p data-i18n="crowd_card_1_desc">
-        Check expected crowd levels across Kyoto based on official tourism data.
-      </p>
+              <div class="crowd-row">
+                <span>Best</span>
+                <span>Before 10:00</span>
+              </div>
 
-      <a href="https://ja.kyoto.travel/comfort/" target="_blank" class="feature-link">
-        Check Forecast →
-      </a>
-    </div>
-  </article>
+              <div class="crowd-row">
+                <span>Avoid</span>
+                <span>12:00 – 14:00</span>
+              </div>
 
-  <!-- Card 2 -->
-  <article class="feature-card">
-    <div class="feature-image"></div>
+              <p class="crowd-tip">
+                Gets crowded quickly around lunch. Go early for a smoother walk.
+              </p>
+            </div>
 
-    <div class="feature-body">
-      <span class="feature-tag" data-i18n="crowd_tag_2">Live</span>
+            <!-- Gion -->
+            <div class="crowd-card">
+              <h3>Gion / Shirakawa</h3>
 
-      <h3 data-i18n="crowd_card_2_title">Live Crowd Radar</h3>
+              <div class="crowd-status">
+                <span class="label">Now</span>
+                <span class="status medium">Moderate</span>
+              </div>
 
-      <p data-i18n="crowd_card_2_desc">
-        See real-time congestion levels across the city.
-      </p>
+              <div class="crowd-row">
+                <span>Best</span>
+                <span>Morning / Before sunset</span>
+              </div>
 
-      <a href="https://map.yahoo.co.jp/maps?layer=congestion" target="_blank" class="feature-link">
-        View Live →
-      </a>
-    </div>
-  </article>
+              <div class="crowd-row">
+                <span>Avoid</span>
+                <span>18:00 – 21:00</span>
+              </div>
 
-  <!-- Card 3 -->
-  <article class="feature-card">
-    <div class="feature-image"></div>
+              <p class="crowd-tip">
+                Evenings get very busy during sakura season and light-up events.
+              </p>
+            </div>
 
-    <div class="feature-body">
-      <span class="feature-tag" data-i18n="crowd_tag_3">Map</span>
+            <!-- Kamo -->
+            <div class="crowd-card">
+              <h3>Kamo River</h3>
 
-      <h3 data-i18n="crowd_card_3_title">Check Specific Area</h3>
+              <div class="crowd-status">
+                <span class="label">Now</span>
+                <span class="status calm">Calm</span>
+              </div>
 
-      <p data-i18n="crowd_card_3_desc">
-        Search any location and check live busy levels directly.
-      </p>
+              <div class="crowd-row">
+                <span>Best</span>
+                <span>Early morning</span>
+              </div>
 
-      <a href="https://www.google.com/maps" target="_blank" class="feature-link">
-        Open Map →
-      </a>
-    </div>
-  </article>
+              <div class="crowd-row">
+                <span>Avoid</span>
+                <span>Sunset peak time</span>
+              </div>
 
-</div>
+              <p class="crowd-tip">
+                Great for a relaxed walk. Gets busier near sunset.
+              </p>
+            </div>
+
+          </div>
+
         </div>
       </section>
+
     </main>
 
+    <!-- Footer -->
     <footer class="site-footer">
       <div class="container">Kyoto Sakura Guide © Spring Stay Project</div>
     </footer>
+
   </div>
 
   <script src="./js/hotel-data.js"></script>
   <script src="./js/main.js"></script>
+
 </body>
 </html>
