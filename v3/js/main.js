@@ -557,8 +557,8 @@ function renderCoursesPage(lang) {
   if (!el) return;
 
   el.innerHTML = `
-    <section class="courses-grid">
-      ${data.items.map((item) => {
+    ${data.items
+      .map((item) => {
         const tag = escapeHtml(resolveText(item.tag, lang));
         const title = escapeHtml(resolveText(item.title, lang));
         const text = escapeHtml(resolveText(item.text, lang));
@@ -566,26 +566,27 @@ function renderCoursesPage(lang) {
         const direction = escapeHtml(item.direction || "#");
 
         return `
-          <article class="courses-card">
-            <div class="courses-card-media">
-              ${
-                image
-                  ? `<img src="${image}" alt="${title}" loading="lazy">`
-                  : `<div class="courses-card-placeholder"></div>`
-              }
-            </div>
-            <div class="courses-card-body">
-              <span class="courses-tag">${tag}</span>
-              <h3 class="courses-card-title">${title}</h3>
-              <p class="courses-card-text">${text}</p>
-              <a class="soft-pill" href="${direction}" target="_blank" rel="noopener noreferrer">
-                Directions
-              </a>
+          <article class="all-course-card">
+            ${
+              image
+                ? `
+                  <div class="all-course-card-image-wrap">
+                    <img class="all-course-card-image" src="${image}" alt="${title}">
+                  </div>
+                `
+                : ""
+            }
+
+            <div class="all-course-card-body">
+              <div class="all-course-card-tag">${tag}</div>
+              <h3 class="all-course-card-title">${title}</h3>
+              <p class="all-course-card-text">${text}</p>
+              <a class="chip-btn" href="${direction}" target="_blank" rel="noopener noreferrer">Directions</a>
             </div>
           </article>
         `;
-      }).join("")}
-    </section>
+      })
+      .join("")}
   `;
 }
 
@@ -600,29 +601,36 @@ function renderFoodPage(lang) {
   if (!el) return;
 
   el.innerHTML = `
-    <section class="food-shell">
-      <div class="food-grid">
-        ${data.items
-          .map((item) => {
-            const no = escapeHtml(item.no || "");
-            const eyebrow = escapeHtml(resolveText(item.eyebrow, lang));
-            const title = escapeHtml(resolveText(item.title, lang));
-            const summary = escapeHtml(resolveText(item.summary, lang));
+    ${data.items
+      .map((item) => {
+        const no = escapeHtml(item.no || "");
+        const eyebrow = escapeHtml(resolveText(item.eyebrow, lang));
+        const title = escapeHtml(resolveText(item.title, lang));
+        const summary = escapeHtml(resolveText(item.summary, lang));
+        const image = escapeHtml(item.image || "");
 
-            return `
-              <article class="food-area-card" data-food-area="${escapeHtml(item.key || "")}">
-                <p class="item-no">${no}</p>
-                <p class="eyebrow">${eyebrow}</p>
-                <h3 class="item-title">${title}</h3>
-                <p class="item-sub">${summary}</p>
-              </article>
-            `;
-          })
-          .join("")}
-      </div>
+        return `
+          <article class="food-area-card" data-food-area="${escapeHtml(item.key || "")}">
+            ${
+              image
+                ? `
+                  <div class="food-area-card-image-wrap">
+                    <img class="food-area-card-image" src="${image}" alt="${title}">
+                  </div>
+                `
+                : ""
+            }
 
-      <div class="food-overlay" data-food-overlay></div>
-    </section>
+            <div class="food-area-card-body">
+              <div class="food-area-card-no">${no}</div>
+              <div class="food-area-card-eyebrow">${eyebrow}</div>
+              <h3 class="food-area-card-title">${title}</h3>
+              <p class="food-area-card-summary">${summary}</p>
+            </div>
+          </article>
+        `;
+      })
+      .join("")}
   `;
 
   bindFoodOverlay(data, lang);
