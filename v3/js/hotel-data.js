@@ -691,44 +691,44 @@ window.HOTEL_DATA = {
       kr: "가와라마치, 기온, 야간 산책, 카페, 식사를 하나의 흐름으로 즐기고 싶은 분께 맞는 구성입니다.",
       en: "Built for guests who want shopping, food, cafes, and night walks together."
     },
-    cards: [
-      {
-        image: "../img/stitch/stitch-room.jpg",
-        title: { jp: "City Room", kr: "City Room", en: "City Room" },
-        text: {
-          jp: "都心型ステイの客室イメージ。",
-          kr: "도심형 스테이의 객실 이미지.",
-          en: "A city-stay room concept."
-        }
-      },
-      {
-        image: "../img/stitch/stitch-bf.jpg",
-        title: { jp: "Bar Mood", kr: "Bar Mood", en: "Bar Mood" },
-        text: {
-          jp: "夜の時間に合うバーの空気感。",
-          kr: "밤 시간과 잘 어울리는 바의 분위기.",
-          en: "A bar mood that fits the evening."
-        }
-      },
-      {
-        image: "../img/stitch/stitch-bf.jpg",
-        title: { jp: "Breakfast Table", kr: "Breakfast Table", en: "Breakfast Table" },
-        text: {
-          jp: "軽やかで都会的な朝食の印象。",
-          kr: "가볍고 도시적인 아침 식사 분위기.",
-          en: "A light, urban breakfast mood."
-        }
-      },
-      {
-        image: "../img/stitch/stitch-room.jpg",
-        title: { jp: "Front Scene", kr: "Front Scene", en: "Front Scene" },
-        text: {
-          jp: "チェックインとフロント空間の印象。",
-          kr: "체크인과 프런트 공간의 인상.",
-          en: "The impression of the front and check-in space."
-        }
-      }
-    ],
+   cards: [
+  {
+    image: "../img/stitch/stitch-room.jpg",
+    title: { jp: "City Room", kr: "City Room", en: "City Room" },
+    text: {
+      jp: "都会的な滞在を感じられる客室コンセプト。",
+      kr: "도시형 스테이를 느낄 수 있는 객실 컨셉.",
+      en: "A city-stay room concept."
+    }
+  },
+  {
+    image: "../img/common/comingsoon.jpg",
+    title: { jp: "Bar Mood（準備中）", kr: "Bar Mood (준비중)", en: "Bar Mood (Coming Soon)" },
+    text: {
+      jp: "現在準備中です。もうしばらくお待ちください。",
+      kr: "현재 준비 중입니다. 조금만 기다려 주세요.",
+      en: "Currently under preparation. Coming soon."
+    }
+  },
+  {
+    image: "../img/stitch/stitch-breakfast.jpg",
+    title: { jp: "Breakfast Table", kr: "Breakfast Table", en: "Breakfast Table" },
+    text: {
+      jp: "軽やかに一日を始める朝食スタイル。",
+      kr: "가볍게 하루를 시작하는 아침 식사 스타일.",
+      en: "A light, urban breakfast mood."
+    }
+  },
+  {
+    image: "../img/stitch/stitch-front.jpg", // 👉 여기 나중에 네가 사진 넣으면 됨
+    title: { jp: "Front Scene", kr: "Front Scene", en: "Front Scene" },
+    text: {
+      jp: "チェックイン空間の第一印象。",
+      kr: "체크인 공간의 첫인상.",
+      en: "The impression of the front and check-in space."
+    }
+  }
+],
     courses: [
       {
         no: "01",
