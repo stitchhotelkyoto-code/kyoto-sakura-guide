@@ -702,16 +702,17 @@ window.HOTEL_DATA = {
     }
   },
   {
-    image: "../img/common/comingsoon.jpg",
-    title: { jp: "Bar Mood（準備中）", kr: "Bar Mood (준비중)", en: "Bar Mood (Coming Soon)" },
+    image: "",
+    isComingSoon: true,
+    title: { jp: "Bar Mood", kr: "Bar Mood", en: "Bar Mood" },
     text: {
-      jp: "現在準備中です。もうしばらくお待ちください。",
-      kr: "현재 준비 중입니다. 조금만 기다려 주세요.",
-      en: "Currently under preparation. Coming soon."
+      jp: "現在準備中です。",
+      kr: "현재 준비중입니다.",
+      en: "Coming Soon."
     }
   },
   {
-    image: "../img/stitch/stitch-breakfast.jpg",
+    image: "../img/stitch/stitch-bf.jpg",
     title: { jp: "Breakfast Table", kr: "Breakfast Table", en: "Breakfast Table" },
     text: {
       jp: "軽やかに一日を始める朝食スタイル。",
