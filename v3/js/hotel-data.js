@@ -701,16 +701,15 @@ window.HOTEL_DATA = {
       en: "A city-stay room concept."
     }
   },
-  {
-    image: "",
-    isComingSoon: true,
-    title: { jp: "Bar Mood", kr: "Bar Mood", en: "Bar Mood" },
-    text: {
-      jp: "現在準備中です。",
-      kr: "현재 준비중입니다.",
-      en: "Coming Soon."
-    }
-  },
+ {
+  isComingSoon: true,
+  title: { jp: "Bar Mood", kr: "Bar Mood", en: "Bar Mood" },
+  text: {
+    jp: "現在準備中です。",
+    kr: "현재 준비중입니다.",
+    en: "Coming Soon."
+  }
+},
   {
     image: "../img/stitch/stitch-bf.jpg",
     title: { jp: "Breakfast Table", kr: "Breakfast Table", en: "Breakfast Table" },
