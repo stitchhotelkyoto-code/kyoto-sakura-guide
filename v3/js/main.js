@@ -215,7 +215,7 @@ function getHotelDataForCurrentPage(key) {
   const pathname = window.location.pathname.toLowerCase();
 
   if (key === "bettei") {
-    const base = window.HOTEL_DATA?.soraniwa;
+    const base = window.HOTEL_DATA?.bettei;
     if (!base) return null;
 
     return {
