@@ -3,25 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Crowd Guide | Kyoto Sakura Guide</title>
+  <title>AI Guide | Kyoto Sakura Guide</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/crowd-guide.css" />
 </head>
 <body data-page="crowd-guide">
   <div class="page-shell">
     <header class="site-header">
       <div class="container site-header-inner">
         <a href="./index.html" class="site-logo">Kyoto Sakura Guide</a>
+
         <div class="header-right">
           <nav class="site-nav">
-            <a href="./index.html" data-i18n="nav_home">Home</a>
-            <a href="./all-course.html" data-i18n="nav_courses">Courses</a>
-            <a href="./food-guide.html" data-i18n="nav_food">Food</a>
-            <a href="./events.html" data-i18n="nav_events">Events</a>
-            <a href="./crowd.html" data-i18n="nav_ai">AI Guide</a>
+            <a href="./index.html">Home</a>
+            <a href="./all-course.html">Courses</a>
+            <a href="./food-guide.html">Food</a>
+            <a href="./events.html">Events</a>
+            <a href="./crowd.html" class="is-active">AI Guide</a>
           </nav>
+
           <div class="lang-switch">
             <button type="button" data-lang="jp">JP</button>
             <button type="button" data-lang="en">EN</button>
@@ -32,12 +37,16 @@
     </header>
 
     <main>
-      <section class="page-hero crowd-hero">
+      <section class="crowd-hero">
         <div class="container">
-          <p class="page-eyebrow" data-i18n="crowd_eyebrow">Smart Kyoto Guide</p>
-          <h1 class="page-title" data-i18n="crowd_title">Find the best place to go right now</h1>
-          <p class="page-desc" data-i18n="crowd_desc">
-            Search a place you want to visit, or check the best recommendations for this moment.
+          <p class="crowd-eyebrow" data-crowd-text="eyebrow">
+            Smart Kyoto Guide
+          </p>
+          <h1 class="crowd-title" data-crowd-text="title">
+            Find the best place to go right now
+          </h1>
+          <p class="crowd-desc" data-crowd-text="desc">
+            Search the place you want to visit, or explore the best recommendations for this moment.
           </p>
         </div>
       </section>
@@ -45,9 +54,10 @@
       <section class="crowd-search-section">
         <div class="container">
           <div class="crowd-search-box">
-            <label class="crowd-search-label" for="crowdSearchInput" data-i18n="crowd_search_label">
+            <label class="crowd-search-label" for="crowdSearchInput" data-crowd-text="searchLabel">
               Where do you want to go?
             </label>
+
             <div class="crowd-search-input-wrap">
               <input
                 id="crowdSearchInput"
@@ -56,39 +66,42 @@
                 data-crowd-search
                 placeholder="Kiyomizu / 清水寺 / 기요미즈"
               />
-              <button type="button" class="crowd-search-clear" data-crowd-clear>×</button>
+              <button type="button" class="crowd-search-clear" data-crowd-clear aria-label="Clear">×</button>
             </div>
+
             <div class="crowd-search-suggestions" data-crowd-suggestions></div>
           </div>
 
           <div class="crowd-filter-row" data-crowd-filters>
-            <button type="button" class="crowd-filter-chip is-active" data-filter="all" data-i18n="crowd_filter_all">All</button>
-            <button type="button" class="crowd-filter-chip" data-filter="popular" data-i18n="crowd_filter_popular">Popular</button>
-            <button type="button" class="crowd-filter-chip" data-filter="quiet" data-i18n="crowd_filter_quiet">Quiet</button>
-            <button type="button" class="crowd-filter-chip" data-filter="night" data-i18n="crowd_filter_night">Night</button>
-            <button type="button" class="crowd-filter-chip" data-filter="walk" data-i18n="crowd_filter_walk">Walk</button>
+            <button type="button" class="crowd-filter-chip is-active" data-filter="all">All</button>
+            <button type="button" class="crowd-filter-chip" data-filter="popular">Popular</button>
+            <button type="button" class="crowd-filter-chip" data-filter="quiet">Quiet</button>
+            <button type="button" class="crowd-filter-chip" data-filter="night">Night</button>
+            <button type="button" class="crowd-filter-chip" data-filter="walk">Walk</button>
           </div>
         </div>
       </section>
 
       <section class="crowd-top-section">
         <div class="container">
-          <div class="section-heading">
-            <h2 data-i18n="crowd_top_title">Top Picks Right Now</h2>
-            <p data-i18n="crowd_top_desc">Best options based on time and crowd balance.</p>
+          <div class="crowd-section-head">
+            <h2 data-crowd-text="topTitle">Top Picks Right Now</h2>
+            <p data-crowd-text="topDesc">Best options based on crowd balance and timing.</p>
           </div>
+
           <div class="crowd-card-grid" data-crowd-top-list></div>
         </div>
       </section>
 
       <section class="crowd-result-section">
         <div class="container">
-          <div class="section-heading">
-            <h2 data-i18n="crowd_result_title">Search Result</h2>
-            <p data-i18n="crowd_result_desc">Detailed guide for the place you searched.</p>
+          <div class="crowd-section-head">
+            <h2 data-crowd-text="resultTitle">Search Result</h2>
+            <p data-crowd-text="resultDesc">Detailed guide for the place you searched.</p>
           </div>
+
           <div class="crowd-result-wrap" data-crowd-result>
-            <div class="crowd-empty" data-i18n="crowd_empty">
+            <div class="crowd-empty" data-crowd-text="empty">
               Search for a place to see the current guide.
             </div>
           </div>
@@ -97,7 +110,7 @@
     </main>
   </div>
 
-  <script src="./js/hotel-data.js"></script>
-  <script src="./js/main.js"></script>
+  <script src="./js/crowd-data.js"></script>
+  <script src="./js/crowd-guide.js"></script>
 </body>
 </html>
