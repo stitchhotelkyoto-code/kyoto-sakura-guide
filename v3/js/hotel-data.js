@@ -36,7 +36,7 @@ window.HOTEL_DATA = {
     },
     cards: [
       {
-        image: "../img/soraniwa-01.jpg",
+        image: "../img/soraniwa/soraniwa-room.jpg",
         title: { jp: "Room Hanami", kr: "Room Hanami", en: "Room Hanami" },
         text: {
           jp: "客室でひと息ついたあと、春の京都へ。",
@@ -45,7 +45,7 @@ window.HOTEL_DATA = {
         }
       },
       {
-        image: "../img/soraniwa-02.jpg",
+        image: "../img/soraniwa/soraniwa-bar.jpg",
         title: { jp: "Bar Time", kr: "Bar Time", en: "Bar Time" },
         text: {
           jp: "散策前後にゆっくり過ごせるバータイム。",
@@ -54,7 +54,7 @@ window.HOTEL_DATA = {
         }
       },
       {
-        image: "../img/soraniwa-03.jpg",
+        image: "../img/soraniwa/soraniwa-food.jpg",
         title: { jp: "Breakfast Start", kr: "Breakfast Start", en: "Breakfast Start" },
         text: {
           jp: "朝を軽やかに始める朝食の時間。",
@@ -63,7 +63,7 @@ window.HOTEL_DATA = {
         }
       },
       {
-        image: "../img/soraniwa-04.jpg",
+        image: "../img/soraniwa/soraniwa-terrace.jpg",
         title: { jp: "Dinner Course", kr: "Dinner Course", en: "Dinner Course" },
         text: {
           jp: "一日の締めくくりにふさわしい夕食。",
@@ -190,6 +190,113 @@ window.HOTEL_DATA = {
     ]
   },
 
+  bettei: {
+    heroButtons: [
+      { label: "Soraniwa", href: "soraniwa.html", active: false },
+      { label: "Bettei", href: "soraniwa.html#bettei", active: true }
+    ],
+    label: {
+      jp: "HOTEL GUIDE",
+      kr: "HOTEL GUIDE",
+      en: "HOTEL GUIDE"
+    },
+    name: {
+      jp: "Soraniwa Bettei",
+      kr: "Soraniwa Bettei",
+      en: "Soraniwa Bettei"
+    },
+    tagline: {
+      jp: "静けさと上質さを味わう別邸ステイ",
+      kr: "고요함과 고급스러움을 즐기는 벳테이 스테이",
+      en: "A quieter and more refined Kyoto stay"
+    },
+    description: {
+      jp: "落ち着いた空間の中で、より上質な京都時間を過ごしたいお客様に向けたホテルです。",
+      kr: "차분한 공간 속에서 더 고급스러운 교토 시간을 보내고 싶은 고객에게 어울리는 호텔입니다.",
+      en: "A hotel for guests who want a quieter and more refined Kyoto experience."
+    },
+    introTitle: {
+      jp: "Bettei で過ごす静かな京都の春",
+      kr: "Bettei에서 보내는 조용한 교토의 봄",
+      en: "A calm Kyoto spring starting from Bettei"
+    },
+    introText: {
+      jp: "華やかさよりも静けさや余白を大切にしながら、春の京都をゆっくり楽しみたい方におすすめです。",
+      kr: "화려함보다 고요함과 여유를 중시하며 봄의 교토를 천천히 즐기고 싶은 분께 추천합니다.",
+      en: "Ideal for guests who want a slower, quieter Kyoto spring."
+    },
+    cards: [
+      {
+        image: "../img/bettei/bettei-room.jpg",
+        title: { jp: "Private Room", kr: "Private Room", en: "Private Room" },
+        text: {
+          jp: "静かな時間を過ごせる落ち着いた客室。",
+          kr: "조용한 시간을 보낼 수 있는 차분한 객실.",
+          en: "A calm and private room for a slower stay."
+        }
+      },
+      {
+        image: "../img/bettei/bettei-onsen.jpg",
+        title: { jp: "Onsen Time", kr: "Onsen Time", en: "Onsen Time" },
+        text: {
+          jp: "旅の合間にゆっくり整える温泉時間。",
+          kr: "여행 중간에 천천히 쉬어갈 수 있는 온천 시간.",
+          en: "A relaxing onsen moment during your stay."
+        }
+      },
+      {
+        image: "../img/bettei/bettei-huro.jpg",
+        title: { jp: "Bath View", kr: "Bath View", en: "Bath View" },
+        text: {
+          jp: "余白を感じながら落ち着けるバスタイム。",
+          kr: "여유를 느끼며 차분하게 즐기는 배스 타임.",
+          en: "A bath experience with a calm, spacious mood."
+        }
+      },
+      {
+        image: "../img/bettei/bettei-dinner.jpg",
+        title: { jp: "Dinner Moment", kr: "Dinner Moment", en: "Dinner Moment" },
+        text: {
+          jp: "静かな滞在の締めくくりにふさわしい食事時間。",
+          kr: "조용한 스테이의 마무리에 어울리는 식사 시간.",
+          en: "A refined dinner to complete the stay."
+        }
+      }
+    ],
+    courses: [
+      {
+        no: "01",
+        title: { jp: "静かな春散策コース", kr: "조용한 봄 산책 코스", en: "Quiet spring walk course" },
+        sub: {
+          jp: "Bettei → 円山公園 → 高台寺 → ねねの道 → 八坂",
+          kr: "Bettei → 마루야마 공원 → 고다이지 → 네네노미치 → 야사카",
+          en: "Bettei → Maruyama Park → Kodai-ji → Nene-no-Michi → Yasaka"
+        },
+        route: {
+          jp: "にぎやかすぎない春の京都をゆっくり味わうコースです。",
+          kr: "너무 붐비지 않는 봄의 교토를 천천히 즐기는 코스입니다.",
+          en: "A slower route for a calmer Kyoto spring."
+        },
+        detail: {
+          jp: "写真を撮りながら、落ち着いた空気の中で散策しやすい構成です。",
+          kr: "사진을 찍으며 차분한 분위기 속에서 산책하기 좋은 구성입니다.",
+          en: "Easy to enjoy slowly with time for photos."
+        },
+        direction: "https://www.google.com/maps/search/?api=1&query=Maruyama+Park+Kyoto"
+      }
+    ],
+    foods: [
+      { no: "01", name: "モーリヤ祇園", type: "鉄板焼き", direction: "https://www.google.com/maps/search/?api=1&query=モーリヤ祇園" },
+      { no: "02", name: "のいち", type: "鉄板焼き", direction: "https://www.google.com/maps/search/?api=1&query=のいち+京都" },
+      { no: "03", name: "寿司よし乃", type: "寿司", direction: "https://www.google.com/maps/search/?api=1&query=寿司よし乃+京都" }
+    ],
+    events: [
+      { no: "01", name: "円山公園 桜ライトアップ", sub: "Maruyama Park", link: "https://ja.kyoto.travel/event/single.php?event_id=4081" },
+      { no: "02", name: "高台寺 春のライトアップ", sub: "Kodai-ji", link: "https://ja.kyoto.travel/event/single.php?event_id=4096" },
+      { no: "03", name: "平安神宮 桜音夜", sub: "Heian Shrine", link: "https://ja.kyoto.travel/event/single.php?event_id=4616" }
+    ]
+  },
+
   hiyori: {
     heroButtons: [],
     label: {
@@ -224,7 +331,7 @@ window.HOTEL_DATA = {
     },
     cards: [
       {
-        image: "../img/hiyori-01.jpg",
+        image: "../img/hiyori/hiyori-room.jpg",
         title: { jp: "Comfort Room", kr: "Comfort Room", en: "Comfort Room" },
         text: {
           jp: "やわらかく休める客室ステイ。",
@@ -233,7 +340,7 @@ window.HOTEL_DATA = {
         }
       },
       {
-        image: "../img/hiyori-02.jpg",
+        image: "../img/hiyori/hiyori-cafe.jpg",
         title: { jp: "Cafe Stop", kr: "Cafe Stop", en: "Cafe Stop" },
         text: {
           jp: "気軽に立ち寄れるカフェの雰囲気。",
@@ -242,7 +349,7 @@ window.HOTEL_DATA = {
         }
       },
       {
-        image: "../img/hiyori-03.jpg",
+        image: "../img/hiyori/hiyori-bf.jpg",
         title: { jp: "Breakfast Easy", kr: "Breakfast Easy", en: "Breakfast Easy" },
         text: {
           jp: "朝を軽やかに始める朝食。",
@@ -251,7 +358,7 @@ window.HOTEL_DATA = {
         }
       },
       {
-        image: "../img/hiyori-04.jpg",
+        image: "../img/hiyori/hiyori-front.jpg",
         title: { jp: "Front Welcome", kr: "Front Welcome", en: "Front Welcome" },
         text: {
           jp: "親しみやすいフロントの雰囲気。",
@@ -412,7 +519,7 @@ window.HOTEL_DATA = {
     },
     cards: [
       {
-        image: "../img/stitch-01.jpg",
+        image: "../img/stitch/stitch-room.jpg",
         title: { jp: "City Room", kr: "City Room", en: "City Room" },
         text: {
           jp: "都心型ステイの客室イメージ。",
@@ -421,7 +528,7 @@ window.HOTEL_DATA = {
         }
       },
       {
-        image: "../img/stitch-02.jpg",
+        image: "../img/stitch/stitch-bf.jpg",
         title: { jp: "Bar Mood", kr: "Bar Mood", en: "Bar Mood" },
         text: {
           jp: "夜の時間に合うバーの空気感。",
@@ -430,7 +537,7 @@ window.HOTEL_DATA = {
         }
       },
       {
-        image: "../img/stitch-03.jpg",
+        image: "../img/stitch/stitch-bf.jpg",
         title: { jp: "Breakfast Table", kr: "Breakfast Table", en: "Breakfast Table" },
         text: {
           jp: "軽やかで都会的な朝食の印象。",
@@ -439,7 +546,7 @@ window.HOTEL_DATA = {
         }
       },
       {
-        image: "../img/stitch-04.jpg",
+        image: "../img/stitch/stitch-room.jpg",
         title: { jp: "Front Scene", kr: "Front Scene", en: "Front Scene" },
         text: {
           jp: "チェックインとフロント空間の印象。",
@@ -575,7 +682,7 @@ window.HOTEL_DATA = {
     },
     items: [
       {
-        image: "img/sakura-arashiyama.jpg",
+        image: "img/sakura/arashi-spot.jpg",
         tag: { jp: "#Arashiyama #KyotoSakura", kr: "#Arashiyama #KyotoSakura", en: "#Arashiyama #KyotoSakura" },
         title: { jp: "Arashiyama", kr: "Arashiyama", en: "Arashiyama" },
         text: {
@@ -586,7 +693,7 @@ window.HOTEL_DATA = {
         direction: "https://www.google.com/maps/search/?api=1&query=Arashiyama+Kyoto"
       },
       {
-        image: "img/sakura-philosopher.jpg",
+        image: "img/sakura/tetsu-spot.jpg",
         tag: { jp: "#PhilosophersPath", kr: "#PhilosophersPath", en: "#PhilosophersPath" },
         title: { jp: "Philosopher’s Path", kr: "Philosopher’s Path", en: "Philosopher’s Path" },
         text: {
@@ -597,7 +704,7 @@ window.HOTEL_DATA = {
         direction: "https://www.google.com/maps/search/?api=1&query=Philosopher%27s+Path+Kyoto"
       },
       {
-        image: "img/sakura-kiyomizu.jpg",
+        image: "img/sakura/kiyomizu-spot.jpg",
         tag: { jp: "#KiyomizuDera", kr: "#KiyomizuDera", en: "#KiyomizuDera" },
         title: { jp: "Kiyomizu-dera", kr: "Kiyomizu-dera", en: "Kiyomizu-dera" },
         text: {
@@ -608,7 +715,7 @@ window.HOTEL_DATA = {
         direction: "https://www.google.com/maps/search/?api=1&query=Kiyomizu-dera+Kyoto"
       },
       {
-        image: "img/sakura-maruyama.jpg",
+        image: "img/sakura/maruyama-spot.jpg",
         tag: { jp: "#MaruyamaPark", kr: "#MaruyamaPark", en: "#MaruyamaPark" },
         title: { jp: "Maruyama Park", kr: "Maruyama Park", en: "Maruyama Park" },
         text: {
@@ -619,7 +726,7 @@ window.HOTEL_DATA = {
         direction: "https://www.google.com/maps/search/?api=1&query=Maruyama+Park+Kyoto"
       },
       {
-        image: "img/sakura-heian.jpg",
+        image: "img/sakura/heian-spot.jpg",
         tag: { jp: "#HeianShrine", kr: "#HeianShrine", en: "#HeianShrine" },
         title: { jp: "Heian Shrine", kr: "Heian Shrine", en: "Heian Shrine" },
         text: {
@@ -630,7 +737,7 @@ window.HOTEL_DATA = {
         direction: "https://www.google.com/maps/search/?api=1&query=Heian+Shrine+Kyoto"
       },
       {
-        image: "img/sakura-keage.jpg",
+        image: "img/sakura/keage-spot.jpg",
         tag: { jp: "#KeageIncline", kr: "#KeageIncline", en: "#KeageIncline" },
         title: { jp: "Keage Incline", kr: "Keage Incline", en: "Keage Incline" },
         text: {
@@ -948,7 +1055,7 @@ window.HOTEL_DATA = {
     ]
   },
 
-    allCourses: {
+  allCourses: {
     title: {
       jp: "TRAVEL COURSES",
       kr: "TRAVEL COURSES",
@@ -1049,7 +1156,7 @@ window.HOTEL_DATA = {
     items: [
       {
         no: "01",
-        image: "img/event-heian.jpg",
+        image: "img/events/heian-event.jpg",
         title: { jp: "平安神宮 桜音夜", kr: "헤이안 신궁 벚꽃 음악의 밤", en: "Heian Shrine Sakura Otoyo" },
         date: { jp: "春の特別夜間イベント", kr: "봄 특별 야간 이벤트", en: "Special spring night event" },
         location: { jp: "Heian Shrine", kr: "Heian Shrine", en: "Heian Shrine" },
@@ -1063,7 +1170,7 @@ window.HOTEL_DATA = {
       },
       {
         no: "02",
-        image: "img/event-hirano.jpg",
+        image: "img/events/hirano-event.jpg",
         title: { jp: "平野神社 桜祭り", kr: "히라노 신사 벚꽃 축제", en: "Hirano Shrine Sakura Festival" },
         date: { jp: "春の桜祭り", kr: "봄 벚꽃 축제", en: "Spring sakura festival" },
         location: { jp: "Hirano Shrine", kr: "Hirano Shrine", en: "Hirano Shrine" },
@@ -1077,7 +1184,7 @@ window.HOTEL_DATA = {
       },
       {
         no: "03",
-        image: "img/event-kameoka.jpg",
+        image: "img/events/kameoka-event.jpg",
         title: { jp: "亀岡さくらウィーク", kr: "가메오카 사쿠라 위크", en: "Kameoka Sakura Week" },
         date: { jp: "春の地域イベント", kr: "봄 지역 이벤트", en: "Regional spring event" },
         location: { jp: "Kameoka", kr: "Kameoka", en: "Kameoka" },
@@ -1091,98 +1198,98 @@ window.HOTEL_DATA = {
       },
       {
         no: "04",
-        image: "img/event-kiyomizu.jpg",
+        image: "img/events/kiyomizu-event.jpg",
         title: { jp: "清水寺 春の夜間特別拝観", kr: "기요미즈데라 봄 야간 특별관람", en: "Kiyomizu-dera Spring Night Viewing" },
-        date: { jp: "春の夜間特別拝観", kr: "봄 야간 특별관람", en: "Special spring night viewing" },
+        date: { jp: "春の夜間特別拝観", kr: "봄 야간 특별관람", en: "Spring night special viewing" },
         location: { jp: "Kiyomizu-dera", kr: "Kiyomizu-dera", en: "Kiyomizu-dera" },
         text: {
-          jp: "東山の夜景と春の景色を一緒に楽しめる人気イベントです。",
-          kr: "히가시야마의 야경과 봄 풍경을 함께 즐길 수 있는 인기 이벤트입니다.",
-          en: "A popular event combining spring scenery and Higashiyama night views."
+          jp: "東山の春夜景を代表する人気イベントです。",
+          kr: "히가시야마의 봄밤 분위기를 대표하는 인기 이벤트입니다.",
+          en: "One of Higashiyama’s best-known spring night events."
         },
         site: "https://www.kiyomizudera.or.jp/event/yakan.php",
         direction: "https://www.google.com/maps/search/?api=1&query=Kiyomizu-dera+Kyoto"
       },
       {
         no: "05",
-        image: "img/event-kodaiji.jpg",
+        image: "img/events/kodaiji-event.jpg",
         title: { jp: "高台寺 春のライトアップ", kr: "고다이지 봄 라이트업", en: "Kodai-ji Spring Light-up" },
-        date: { jp: "春の夜間ライトアップ", kr: "봄 야간 라이트업", en: "Spring night illumination" },
+        date: { jp: "春のライトアップ", kr: "봄 라이트업", en: "Spring light-up" },
         location: { jp: "Kodai-ji", kr: "Kodai-ji", en: "Kodai-ji" },
         text: {
-          jp: "落ち着いた庭園と夜の演出をゆっくり楽しみたい方におすすめです。",
-          kr: "차분한 정원과 밤 연출을 천천히 즐기고 싶은 분께 추천합니다.",
-          en: "Recommended for a calmer temple-garden night atmosphere."
+          jp: "夜の庭園と春の景色をゆっくり楽しめるイベントです。",
+          kr: "밤의 정원과 봄 풍경을 천천히 즐길 수 있는 이벤트입니다.",
+          en: "A calm evening event with illuminated spring scenery."
         },
         site: "https://ja.kyoto.travel/event/single.php?event_id=4096",
-        direction: "https://www.google.com/maps/search/?api=1&query=Kodai-ji+Temple+Kyoto"
+        direction: "https://www.google.com/maps/search/?api=1&query=Kodai-ji+Kyoto"
       },
       {
         no: "06",
-        image: "img/event-maruyama.jpg",
+        image: "img/events/maruyama-event.jpg",
         title: { jp: "円山公園 桜ライトアップ", kr: "마루야마 공원 벚꽃 라이트업", en: "Maruyama Park Sakura Light-up" },
-        date: { jp: "春の夜桜", kr: "봄 야간 벚꽃", en: "Spring night sakura" },
+        date: { jp: "春の夜桜イベント", kr: "봄 야간 벚꽃 이벤트", en: "Spring night sakura event" },
         location: { jp: "Maruyama Park", kr: "Maruyama Park", en: "Maruyama Park" },
         text: {
-          jp: "京都の定番夜桜スポットで、祇園散策と合わせやすいです。",
-          kr: "교토 대표 야간 벚꽃 스팟으로 기온 산책과 함께 묶기 좋습니다.",
-          en: "A classic night sakura spot that pairs well with Gion."
+          jp: "京都の定番花見スポットを夜まで楽しめます。",
+          kr: "교토의 대표 하나미 명소를 밤까지 즐길 수 있습니다.",
+          en: "A classic Kyoto hanami spot that stays beautiful into the evening."
         },
         site: "https://ja.kyoto.travel/event/single.php?event_id=4081",
         direction: "https://www.google.com/maps/search/?api=1&query=Maruyama+Park+Kyoto"
       },
       {
         no: "07",
-        image: "img/event-nijo.jpg",
+        image: "img/events/nijo-event.jpg",
         title: { jp: "二条城 桜まつり", kr: "니조성 벚꽃 축제", en: "Nijo Castle Sakura Festival" },
-        date: { jp: "春の桜まつり", kr: "봄 벚꽃 축제", en: "Spring sakura festival" },
+        date: { jp: "春の特別イベント", kr: "봄 특별 이벤트", en: "Special spring event" },
         location: { jp: "Nijo Castle", kr: "Nijo Castle", en: "Nijo Castle" },
         text: {
-          jp: "城内の景色と春のライトアップを一緒に楽しみたい方向けです。",
-          kr: "성 내부 풍경과 봄 라이트업을 함께 즐기고 싶은 분께 추천합니다.",
-          en: "A good option for castle scenery and spring illumination."
+          jp: "歴史的な景観と桜を一緒に楽しめる定番イベントです。",
+          kr: "역사적 풍경과 벚꽃을 함께 즐길 수 있는 대표 이벤트입니다.",
+          en: "A popular event combining historic scenery with sakura."
         },
         site: "https://ja.kyoto.travel/event/single.php?event_id=4676",
         direction: "https://www.google.com/maps/search/?api=1&query=Nijo+Castle+Kyoto"
       },
       {
         no: "08",
-        image: "img/event-okazaki.jpg",
+        image: "img/events/okazaki-event.jpg",
         title: { jp: "岡崎 桜まつり", kr: "오카자키 벚꽃 축제", en: "Okazaki Sakura Festival" },
-        date: { jp: "岡崎エリア春イベント", kr: "오카자키 지역 봄 이벤트", en: "Okazaki spring event" },
+        date: { jp: "春の地域イベント", kr: "봄 지역 이벤트", en: "Regional spring event" },
         location: { jp: "Okazaki", kr: "Okazaki", en: "Okazaki" },
         text: {
-          jp: "平安神宮や疏水エリアと合わせて回りやすい春イベントです。",
-          kr: "헤이안 신궁과 소스이 지역과 함께 돌아보기 좋은 봄 이벤트입니다.",
-          en: "Works well with a Heian Shrine and canal area walk."
+          jp: "岡崎エリアらしい春のにぎわいを感じられます。",
+          kr: "오카자키 지역다운 봄 분위기를 느낄 수 있습니다.",
+          en: "A lively spring event in the Okazaki area."
         },
         site: "https://okazaki-kanko.jp/feature/sakuramaturi/top",
         direction: "https://www.google.com/maps/search/?api=1&query=Okazaki+Kyoto"
       },
       {
         no: "09",
-        image: "img/event-gionshirakawa.jpg",
+        image: "img/events/shirakawa-event.jpg",
         title: { jp: "祇園白川 桜ライトアップ", kr: "기온 시라카와 벚꽃 라이트업", en: "Gion Shirakawa Sakura Light-up" },
-        date: { jp: "春の夜桜", kr: "봄 야간 벚꽃", en: "Spring night sakura" },
+        date: { jp: "春の夜桜イベント", kr: "봄 야간 벚꽃 이벤트", en: "Spring night sakura event" },
         location: { jp: "Gion Shirakawa", kr: "Gion Shirakawa", en: "Gion Shirakawa" },
         text: {
-          jp: "町家・白川・桜の組み合わせで京都らしい夜景を楽しめます。",
-          kr: "마치야, 시라카와, 벚꽃 조합으로 교토다운 야경을 즐길 수 있습니다.",
-          en: "A photogenic Kyoto night spot with machiya streets and sakura."
+          jp: "京都らしい夜景と春の雰囲気を楽しめる人気スポットです。",
+          kr: "교토다운 야경과 봄 분위기를 함께 즐길 수 있는 인기 명소입니다.",
+          en: "A popular spring evening spot with a very Kyoto atmosphere."
         },
         site: "https://ja.kyoto.travel/event/single.php?event_id=4544",
         direction: "https://www.google.com/maps/search/?api=1&query=Gion+Shirakawa+Kyoto"
       },
       {
         no: "10",
-        image: "img/event-toji.jpg",
-        title: { jp: "東寺 春イベント", kr: "도지 봄 이벤트", en: "Toji Spring Event" },
-        date: { jp: "春の寺院イベント", kr: "봄 사찰 이벤트", en: "Spring temple event" },
+        image: "img/events/toji-event.jpg",
+        title: { jp: "東寺 夜桜特別拝観", kr: "도지 야간 벚꽃 특별관람", en: "Toji Night Sakura Special Viewing" },
+        date: { jp: "春の夜間特別拝観", kr: "봄 야간 특별관람", en: "Spring night special viewing" },
         location: { jp: "Toji Temple", kr: "Toji Temple", en: "Toji Temple" },
         text: {
-          jp: "京都駅方面からも動きやすく、五重塔と春景色を楽しみたい方に向いています。",
-          kr: "교토역 방면에서도 움직이기 쉽고 오층탑과 봄 풍경을 보고 싶은 분께 어울립니다.",
-          en: "Good for guests who want pagoda scenery and easy station-side access."
+          jp: "五重塔と桜の組み合わせで人気の夜間イベントです。",
+          kr: "오층탑과 벚꽃 조합으로 유명한 야간 이벤트입니다.",
+          en: "A famous evening event with pagoda and sakura views."
         },
         site: "https://ja.kyoto.travel/event/single.php?event_id=9757",
         direction: "https://www.google.com/maps/search/?api=1&query=Toji+Temple+Kyoto"
