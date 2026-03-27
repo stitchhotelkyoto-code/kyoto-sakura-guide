@@ -233,6 +233,15 @@ window.HOTEL_DATA = {
   },
 
  cards: [
+    {
+    image: "../img/bettei/bettei-room.jpg",
+    title: { jp: "Private Room", kr: "Private Room", en: "Private Room" },
+    text: {
+      jp: "落ち着いた客室で景色とともにゆっくり過ごせる、上質で静かなプライベート空間。",
+      kr: "차분한 객실에서 전망과 함께 여유롭게 머물 수 있는 고급스럽고 조용한 프라이빗 공간.",
+      en: "A refined private room designed for a calm and comfortable Kyoto stay."
+    }
+  },
   {
     image: "../img/bettei/bettei-huro.jpg",
     title: { jp: "Bath View", kr: "Bath View", en: "Bath View" },
@@ -249,15 +258,6 @@ window.HOTEL_DATA = {
       jp: "開放感のある露天風呂で、空と街並みを感じながらゆったり過ごす春のひととき。",
       kr: "개방감 있는 노천탕에서 하늘과 거리 풍경을 느끼며 여유롭게 보내는 봄의 한때.",
       en: "An open-air onsen experience with spacious city views and a calm Kyoto mood."
-    }
-  },
-  {
-    image: "../img/bettei/bettei-room.jpg",
-    title: { jp: "Private Room", kr: "Private Room", en: "Private Room" },
-    text: {
-      jp: "落ち着いた客室で景色とともにゆっくり過ごせる、上質で静かなプライベート空間。",
-      kr: "차분한 객실에서 전망과 함께 여유롭게 머물 수 있는 고급스럽고 조용한 프라이빗 공간.",
-      en: "A refined private room designed for a calm and comfortable Kyoto stay."
     }
   },
   {
