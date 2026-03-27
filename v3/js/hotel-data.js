@@ -191,112 +191,291 @@ window.HOTEL_DATA = {
   },
 
   bettei: {
-    heroButtons: [
-      { label: "Soraniwa", href: "soraniwa.html", active: false },
-      { label: "Bettei", href: "soraniwa.html#bettei", active: true }
-    ],
-    label: {
-      jp: "HOTEL GUIDE",
-      kr: "HOTEL GUIDE",
-      en: "HOTEL GUIDE"
-    },
-    name: {
-      jp: "Soraniwa Bettei",
-      kr: "Soraniwa Bettei",
-      en: "Soraniwa Bettei"
-    },
-    tagline: {
-      jp: "静けさと上質さを味わう別邸ステイ",
-      kr: "고요함과 고급스러움을 즐기는 벳테이 스테이",
-      en: "A quieter and more refined Kyoto stay"
-    },
-    description: {
-      jp: "落ち着いた空間の中で、より上質な京都時間を過ごしたいお客様に向けたホテルです。",
-      kr: "차분한 공간 속에서 더 고급스러운 교토 시간을 보내고 싶은 고객에게 어울리는 호텔입니다.",
-      en: "A hotel for guests who want a quieter and more refined Kyoto experience."
-    },
-    introTitle: {
-      jp: "Bettei で過ごす静かな京都の春",
-      kr: "Bettei에서 보내는 조용한 교토의 봄",
-      en: "A calm Kyoto spring starting from Bettei"
-    },
-    introText: {
-      jp: "華やかさよりも静けさや余白を大切にしながら、春の京都をゆっくり楽しみたい方におすすめです。",
-      kr: "화려함보다 고요함과 여유를 중시하며 봄의 교토를 천천히 즐기고 싶은 분께 추천합니다.",
-      en: "Ideal for guests who want a slower, quieter Kyoto spring."
-    },
-    cards: [
-      {
-        image: "../img/bettei/bettei-room.jpg",
-        title: { jp: "Private Room", kr: "Private Room", en: "Private Room" },
-        text: {
-          jp: "静かな時間を過ごせる落ち着いた客室。",
-          kr: "조용한 시간을 보낼 수 있는 차분한 객실.",
-          en: "A calm and private room for a slower stay."
-        }
-      },
-      {
-        image: "../img/bettei/bettei-onsen.jpg",
-        title: { jp: "Onsen Time", kr: "Onsen Time", en: "Onsen Time" },
-        text: {
-          jp: "旅の合間にゆっくり整える温泉時間。",
-          kr: "여행 중간에 천천히 쉬어갈 수 있는 온천 시간.",
-          en: "A relaxing onsen moment during your stay."
-        }
-      },
-      {
-        image: "../img/bettei/bettei-huro.jpg",
-        title: { jp: "Bath View", kr: "Bath View", en: "Bath View" },
-        text: {
-          jp: "余白を感じながら落ち着けるバスタイム。",
-          kr: "여유를 느끼며 차분하게 즐기는 배스 타임.",
-          en: "A bath experience with a calm, spacious mood."
-        }
-      },
-      {
-        image: "../img/bettei/bettei-dinner.jpg",
-        title: { jp: "Dinner Moment", kr: "Dinner Moment", en: "Dinner Moment" },
-        text: {
-          jp: "静かな滞在の締めくくりにふさわしい食事時間。",
-          kr: "조용한 스테이의 마무리에 어울리는 식사 시간.",
-          en: "A refined dinner to complete the stay."
-        }
-      }
-    ],
-    courses: [
-      {
-        no: "01",
-        title: { jp: "静かな春散策コース", kr: "조용한 봄 산책 코스", en: "Quiet spring walk course" },
-        sub: {
-          jp: "Bettei → 円山公園 → 高台寺 → ねねの道 → 八坂",
-          kr: "Bettei → 마루야마 공원 → 고다이지 → 네네노미치 → 야사카",
-          en: "Bettei → Maruyama Park → Kodai-ji → Nene-no-Michi → Yasaka"
-        },
-        route: {
-          jp: "にぎやかすぎない春の京都をゆっくり味わうコースです。",
-          kr: "너무 붐비지 않는 봄의 교토를 천천히 즐기는 코스입니다.",
-          en: "A slower route for a calmer Kyoto spring."
-        },
-        detail: {
-          jp: "写真を撮りながら、落ち着いた空気の中で散策しやすい構成です。",
-          kr: "사진을 찍으며 차분한 분위기 속에서 산책하기 좋은 구성입니다.",
-          en: "Easy to enjoy slowly with time for photos."
-        },
-        direction: "https://www.google.com/maps/search/?api=1&query=Maruyama+Park+Kyoto"
-      }
-    ],
-    foods: [
-      { no: "01", name: "モーリヤ祇園", type: "鉄板焼き", direction: "https://www.google.com/maps/search/?api=1&query=モーリヤ祇園" },
-      { no: "02", name: "のいち", type: "鉄板焼き", direction: "https://www.google.com/maps/search/?api=1&query=のいち+京都" },
-      { no: "03", name: "寿司よし乃", type: "寿司", direction: "https://www.google.com/maps/search/?api=1&query=寿司よし乃+京都" }
-    ],
-    events: [
-      { no: "01", name: "円山公園 桜ライトアップ", sub: "Maruyama Park", link: "https://ja.kyoto.travel/event/single.php?event_id=4081" },
-      { no: "02", name: "高台寺 春のライトアップ", sub: "Kodai-ji", link: "https://ja.kyoto.travel/event/single.php?event_id=4096" },
-      { no: "03", name: "平安神宮 桜音夜", sub: "Heian Shrine", link: "https://ja.kyoto.travel/event/single.php?event_id=4616" }
-    ]
+  heroButtons: [
+    { label: "Soraniwa", href: "soraniwa.html", active: false },
+    { label: "Bettei", href: "soraniwa.html#bettei", active: true }
+  ],
+
+  label: {
+    jp: "HOTEL GUIDE",
+    kr: "HOTEL GUIDE",
+    en: "HOTEL GUIDE"
   },
 
+  name: {
+    jp: "Soraniwa Bettei",
+    kr: "Soraniwa Bettei",
+    en: "Soraniwa Bettei"
+  },
+
+  tagline: {
+    jp: "静けさと上質さを味わう別邸ステイ",
+    kr: "고요함과 고급스러움을 즐기는 벳테이 스테이",
+    en: "A quieter and more refined Kyoto stay"
+  },
+
+  description: {
+    jp: "落ち着いた空間の中で、より上質な京都時間を過ごしたいお客様に向けたホテルです。",
+    kr: "차분한 공간 속에서 더 고급스러운 교토 시간을 보내고 싶은 고객에게 어울리는 호텔입니다.",
+    en: "A hotel for guests who want a quieter and more refined Kyoto experience."
+  },
+
+  introTitle: {
+    jp: "Bettei で過ごす静かな京都の春",
+    kr: "Bettei에서 보내는 조용한 교토의 봄",
+    en: "A calm Kyoto spring starting from Bettei"
+  },
+
+  introText: {
+    jp: "華やかさよりも静けさや余白を大切にしながら、春の京都をゆっくり楽しみたい方におすすめです。",
+    kr: "화려함보다 고요함과 여유를 중시하며 봄의 교토를 천천히 즐기고 싶은 분께 추천합니다.",
+    en: "Ideal for guests who want a slower, quieter Kyoto spring."
+  },
+
+  cards: [
+    {
+      image: "../img/bettei/bettei-room.jpg",
+      title: { jp: "Private Room", kr: "Private Room", en: "Private Room" },
+      text: {
+        jp: "客室でひと息つきながら、静かな春の京都へ気持ちを整える時間。",
+        kr: "객실에서 한숨 돌리며 조용한 봄의 교토로 마음을 정돈하는 시간.",
+        en: "A calm room moment to ease into a quieter Kyoto spring."
+      }
+    },
+    {
+      image: "../img/bettei/bettei-teatime.jpg",
+      title: { jp: "Tea Moment", kr: "Tea Moment", en: "Tea Moment" },
+      text: {
+        jp: "散策の前後に、別邸らしい落ち着いた空気でひと息つける時間。",
+        kr: "산책 전후로 벳테이다운 차분한 분위기 속에서 쉬어갈 수 있는 시간.",
+        en: "A quiet tea break before or after your walk."
+      }
+    },
+    {
+      image: "../img/bettei/bettei-breakfast.jpg",
+      title: { jp: "Breakfast Start", kr: "Breakfast Start", en: "Breakfast Start" },
+      text: {
+        jp: "朝をゆっくり始めるための、やわらかな食の時間。",
+        kr: "아침을 천천히 시작하기 위한 부드러운 식사의 시간.",
+        en: "A gentle breakfast start for a slow Kyoto morning."
+      }
+    },
+    {
+      image: "../img/bettei/bettei-evening.jpg",
+      title: { jp: "Evening View", kr: "Evening View", en: "Evening View" },
+      text: {
+        jp: "一日の終わりを静かに締めくくる、別邸らしい夜の景色。",
+        kr: "하루의 끝을 조용히 마무리하는 벳테이다운 밤의 풍경.",
+        en: "A calm evening view to close the day."
+      }
+    }
+  ],
+
+  courses: [
+    {
+      no: "01",
+      image: "../img/bettei/bettei-course-chionin.jpg",
+      title: {
+        jp: "知恩院から青蓮院へ",
+        kr: "치온인에서 쇼렌인으로",
+        en: "Chion-in to Shoren-in"
+      },
+      sub: {
+        jp: "Bettei → 知恩院 → 青蓮院 → 円山公園",
+        kr: "Bettei → 치온인 → 쇼렌인 → 마루야마 공원",
+        en: "Bettei → Chion-in → Shoren-in → Maruyama Park"
+      },
+      route: {
+        jp: "寺院の静けさと春の空気を感じながら歩く、別邸らしい穏やかな散策コースです。",
+        kr: "사찰의 고요함과 봄의 공기를 느끼며 걷는, 벳테이다운 온화한 산책 코스입니다.",
+        en: "A calm temple-side route that matches the quieter Bettei mood."
+      },
+      detail: {
+        jp: "朝から昼にかけて歩きやすく、落ち着いた写真も残しやすい流れです。",
+        kr: "오전부터 낮까지 걷기 좋고 차분한 사진도 남기기 좋은 동선입니다.",
+        en: "Easy to enjoy from morning to midday, with peaceful photo spots."
+      },
+      direction: "https://www.google.com/maps/search/?api=1&query=Chion-in+Kyoto"
+    },
+    {
+      no: "02",
+      image: "../img/bettei/bettei-course-nanzenji.jpg",
+      title: {
+        jp: "南禅寺ゆったりコース",
+        kr: "난젠지 여유 코스",
+        en: "Nanzen-ji Slow Route"
+      },
+      sub: {
+        jp: "Bettei → 蹴上 → 南禅寺 → 哲学の道",
+        kr: "Bettei → 게아게 → 난젠지 → 철학의 길",
+        en: "Bettei → Keage → Nanzen-ji → Philosopher’s Path"
+      },
+      route: {
+        jp: "観光地らしさよりも空気感そのものを楽しみたい方に向く、静けさ重視のコースです。",
+        kr: "관광지 느낌보다 공간의 분위기 자체를 즐기고 싶은 분께 어울리는 정적 중심 코스입니다.",
+        en: "A route for guests who prefer atmosphere and calm scenery over crowds."
+      },
+      detail: {
+        jp: "春の柔らかい光の中で、ゆっくり歩くほど魅力が増す定番です。",
+        kr: "봄의 부드러운 빛 속에서 천천히 걸을수록 매력이 살아나는 정석 코스입니다.",
+        en: "A slower walk that becomes more beautiful the more gently you take it."
+      },
+      direction: "https://www.google.com/maps/search/?api=1&query=Nanzen-ji+Temple+Kyoto"
+    },
+    {
+      no: "03",
+      image: "../img/bettei/bettei-course-gionshirakawa.jpg",
+      title: {
+        jp: "祇園白川 夜散歩",
+        kr: "기온 시라카와 밤 산책",
+        en: "Gion Shirakawa Night Walk"
+      },
+      sub: {
+        jp: "Bettei → 八坂神社 → 祇園白川 → 鴨川",
+        kr: "Bettei → 야사카 신사 → 기온 시라카와 → 가모가와",
+        en: "Bettei → Yasaka Shrine → Gion Shirakawa → Kamo River"
+      },
+      route: {
+        jp: "昼のにぎわいが落ち着いた後に、京都らしい夜の余韻を味わえるコースです。",
+        kr: "낮의 붐빔이 잦아든 뒤 교토다운 밤의 여운을 즐길 수 있는 코스입니다.",
+        en: "A quieter evening route after the daytime crowds fade."
+      },
+      detail: {
+        jp: "しっとりした灯りや川沿いの雰囲気を楽しみたい方におすすめです。",
+        kr: "촉촉한 조명과 강변의 분위기를 즐기고 싶은 분께 추천합니다.",
+        en: "Best for guests who want soft lights and a refined Kyoto night mood."
+      },
+      direction: "https://www.google.com/maps/search/?api=1&query=Gion+Shirakawa+Kyoto"
+    },
+    {
+      no: "04",
+      image: "../img/bettei/bettei-course-okazaki.jpg",
+      title: {
+        jp: "岡崎アート散策",
+        kr: "오카자키 아트 산책",
+        en: "Okazaki Art Walk"
+      },
+      sub: {
+        jp: "Bettei → 岡崎疏水 → 平安神宮 → ロームシアター",
+        kr: "Bettei → 오카자키 소스이 → 헤이안진구 → 로움 시어터",
+        en: "Bettei → Okazaki Canal → Heian Shrine → ROHM Theatre"
+      },
+      route: {
+        jp: "自然と建築のバランスがよく、都会的で上品な春の流れを楽しめるコースです。",
+        kr: "자연과 건축의 균형이 좋아 도시적이면서도 품격 있는 봄의 흐름을 즐길 수 있는 코스입니다.",
+        en: "A balanced route of canal views, architecture, and open spring scenery."
+      },
+      detail: {
+        jp: "開放感があり、静かに写真を撮りながら歩きたい方にも向いています。",
+        kr: "개방감이 있어 조용히 사진을 찍으며 걷고 싶은 분께도 잘 맞습니다.",
+        en: "A good choice for guests who want open space and elegant photo spots."
+      },
+      direction: "https://www.google.com/maps/search/?api=1&query=Heian+Shrine+Kyoto"
+    },
+    {
+      no: "05",
+      image: "../img/bettei/bettei-course-kiyomizu.jpg",
+      title: {
+        jp: "高台寺・ねねの道コース",
+        kr: "고다이지·네네노미치 코스",
+        en: "Kodai-ji & Nene-no-Michi"
+      },
+      sub: {
+        jp: "Bettei → 高台寺 → ねねの道 → 二年坂 → 清水周辺",
+        kr: "Bettei → 고다이지 → 네네노미치 → 니넨자카 → 기요미즈 주변",
+        en: "Bettei → Kodai-ji → Nene-no-Michi → Ninenzaka → Kiyomizu area"
+      },
+      route: {
+        jp: "京都らしい街並みを感じながらも、別邸らしい落ち着いたテンポで楽しめるコースです。",
+        kr: "교토다운 거리 풍경을 느끼면서도 벳테이다운 차분한 템포로 즐길 수 있는 코스입니다.",
+        en: "A graceful Kyoto route that still keeps a calm Bettei pace."
+      },
+      detail: {
+        jp: "写真映えしながらも、にぎやかすぎない時間帯を選ぶとより心地よく歩けます。",
+        kr: "사진이 잘 나오면서도 너무 붐비지 않는 시간대를 고르면 더욱 쾌적하게 걸을 수 있습니다.",
+        en: "Photogenic and pleasant, especially if enjoyed at a quieter time."
+      },
+      direction: "https://www.google.com/maps/search/?api=1&query=Kodai-ji+Temple+Kyoto"
+    }
+  ],
+
+  foods: [
+    {
+      no: "01",
+      image: "../img/bettei/bettei-food-obanzai.jpg",
+      name: "祇園 末友",
+      type: "京料理",
+      direction: "https://www.google.com/maps/search/?api=1&query=祇園+末友"
+    },
+    {
+      no: "02",
+      image: "../img/bettei/bettei-food-tofu.jpg",
+      name: "順正 清水店",
+      type: "湯豆腐",
+      direction: "https://www.google.com/maps/search/?api=1&query=順正+清水店"
+    },
+    {
+      no: "03",
+      image: "../img/bettei/bettei-food-soba.jpg",
+      name: "総本家にしんそば 松葉",
+      type: "そば",
+      direction: "https://www.google.com/maps/search/?api=1&query=総本家にしんそば+松葉"
+    },
+    {
+      no: "04",
+      image: "../img/bettei/bettei-food-wagashi.jpg",
+      name: "ぎおん徳屋",
+      type: "甘味",
+      direction: "https://www.google.com/maps/search/?api=1&query=ぎおん徳屋"
+    },
+    {
+      no: "05",
+      image: "../img/bettei/bettei-food-cafe.jpg",
+      name: "イノダコーヒ 本店",
+      type: "Cafe",
+      direction: "https://www.google.com/maps/search/?api=1&query=イノダコーヒ+本店"
+    }
+  ],
+
+  events: [
+    {
+      no: "01",
+      image: "../img/bettei/bettei-event-chionin.jpg",
+      name: "知恩院 春の夜散策",
+      sub: "Chion-in",
+      link: "https://www.google.com/maps/search/?api=1&query=Chion-in+Temple+Kyoto"
+    },
+    {
+      no: "02",
+      image: "../img/bettei/bettei-event-okazaki.jpg",
+      name: "岡崎疏水 桜散歩",
+      sub: "Okazaki Canal",
+      link: "https://www.google.com/maps/search/?api=1&query=Okazaki+Canal+Kyoto"
+    },
+    {
+      no: "03",
+      image: "../img/bettei/bettei-event-heian.jpg",
+      name: "平安神宮 春景色",
+      sub: "Heian Shrine",
+      link: "https://www.google.com/maps/search/?api=1&query=Heian+Shrine+Kyoto"
+    },
+    {
+      no: "04",
+      image: "../img/bettei/bettei-event-kodaiji.jpg",
+      name: "高台寺 春のライトアップ",
+      sub: "Kodai-ji",
+      link: "https://www.google.com/maps/search/?api=1&query=Kodai-ji+Temple+Kyoto"
+    },
+    {
+      no: "05",
+      image: "../img/bettei/bettei-event-shorenin.jpg",
+      name: "青蓮院門跡の静かな春",
+      sub: "Shoren-in",
+      link: "https://www.google.com/maps/search/?api=1&query=Shoren-in+Temple+Kyoto"
+    }
+  ]
+},
+  
   hiyori: {
     heroButtons: [],
     label: {
