@@ -3,230 +3,101 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Live Crowd | Kyoto Sakura Guide</title>
-
+  <title>AI Crowd Guide | Kyoto Sakura Guide</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="./css/style.css" />
-
-  <style>
-    /* 🔥 Crowd Live UI */
-
-    .crowd-live-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .crowd-card {
-      background: #fff;
-      border: 1px solid #f2d6db;
-      border-radius: 16px;
-      padding: 20px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.03);
-    }
-
-    .crowd-card h3 {
-      font-size: 18px;
-      margin-bottom: 12px;
-    }
-
-    .crowd-status {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 16px;
-    }
-
-    .crowd-status .label {
-      font-size: 12px;
-      color: #888;
-    }
-
-    .status {
-      padding: 4px 10px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 600;
-    }
-
-    .status.busy {
-      background: #ffe0e0;
-      color: #d33;
-    }
-
-    .status.medium {
-      background: #fff4d6;
-      color: #b98b00;
-    }
-
-    .status.calm {
-      background: #e6f7ec;
-      color: #2a9d5b;
-    }
-
-    .crowd-row {
-      display: flex;
-      justify-content: space-between;
-      font-size: 13px;
-      margin-bottom: 6px;
-    }
-
-    .crowd-tip {
-      margin-top: 12px;
-      font-size: 12px;
-      color: #666;
-      line-height: 1.4;
-    }
-
-    @media (max-width: 768px) {
-      .crowd-live-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
 </head>
-
-<body>
+<body data-page="crowd-guide">
   <div class="page-shell">
-
-    <!-- Header -->
     <header class="site-header">
       <div class="container site-header-inner">
         <a href="./index.html" class="site-logo">Kyoto Sakura Guide</a>
-
         <div class="header-right">
           <nav class="site-nav">
             <a href="./index.html" data-i18n="nav_home">Home</a>
-            <a href="./hotels/soraniwa.html" data-i18n="nav_soraniwa">Soraniwa</a>
-            <a href="./hotels/bettel.html" data-i18n="nav_bettei">Bettei</a>
-            <a href="./hotels/hiyori.html" data-i18n="nav_hiyori">Hiyori</a>
-            <a href="./hotels/stitch.html" data-i18n="nav_stitch">STITCH</a>
+            <a href="./all-course.html" data-i18n="nav_courses">Courses</a>
+            <a href="./food-guide.html" data-i18n="nav_food">Food</a>
+            <a href="./events.html" data-i18n="nav_events">Events</a>
+            <a href="./crowd.html" data-i18n="nav_ai">AI Guide</a>
           </nav>
-
-          <div class="lang-switcher">
-            <button class="lang-btn is-active" data-lang="jp">JP</button>
-            <button class="lang-btn" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="kr">KR</button>
+          <div class="lang-switch">
+            <button type="button" data-lang="jp">JP</button>
+            <button type="button" data-lang="en">EN</button>
+            <button type="button" data-lang="kr">KR</button>
           </div>
         </div>
       </div>
     </header>
 
-    <!-- Main -->
     <main>
-
-      <!-- Hero -->
-      <section class="page-hero page-hero-crowd">
+      <section class="page-hero crowd-hero">
         <div class="container">
-          <div class="page-hero-box">
-            <p class="page-hero-label">Live Crowd</p>
+          <p class="page-eyebrow" data-i18n="crowd_eyebrow">Smart Kyoto Guide</p>
+          <h1 class="page-title" data-i18n="crowd_title">Find the best place to go right now</h1>
+          <p class="page-desc" data-i18n="crowd_desc">
+            Search a place you want to visit, or check the best recommendations for this moment.
+          </p>
+        </div>
+      </section>
 
-            <h1 data-i18n="crowd_title">Live Crowd Guide</h1>
+      <section class="crowd-search-section">
+        <div class="container">
+          <div class="crowd-search-box">
+            <label class="crowd-search-label" for="crowdSearchInput" data-i18n="crowd_search_label">
+              Where do you want to go?
+            </label>
+            <div class="crowd-search-input-wrap">
+              <input
+                id="crowdSearchInput"
+                type="text"
+                class="crowd-search-input"
+                data-crowd-search
+                placeholder="Kiyomizu / 清水寺 / 기요미즈"
+              />
+              <button type="button" class="crowd-search-clear" data-crowd-clear>×</button>
+            </div>
+            <div class="crowd-search-suggestions" data-crowd-suggestions></div>
+          </div>
 
-            <p data-i18n="crowd_desc">
-              移動前に確認しやすい混雑情報ガイドです。
-            </p>
+          <div class="crowd-filter-row" data-crowd-filters>
+            <button type="button" class="crowd-filter-chip is-active" data-filter="all" data-i18n="crowd_filter_all">All</button>
+            <button type="button" class="crowd-filter-chip" data-filter="popular" data-i18n="crowd_filter_popular">Popular</button>
+            <button type="button" class="crowd-filter-chip" data-filter="quiet" data-i18n="crowd_filter_quiet">Quiet</button>
+            <button type="button" class="crowd-filter-chip" data-filter="night" data-i18n="crowd_filter_night">Night</button>
+            <button type="button" class="crowd-filter-chip" data-filter="walk" data-i18n="crowd_filter_walk">Walk</button>
           </div>
         </div>
       </section>
 
-      <!-- Crowd Section -->
-      <section class="section section-tight">
+      <section class="crowd-top-section">
         <div class="container">
-
-          <div class="crowd-live-grid">
-
-            <!-- Nishiki -->
-            <div class="crowd-card">
-              <h3>Nishiki Market</h3>
-
-              <div class="crowd-status">
-                <span class="label">Now</span>
-                <span class="status busy">Busy</span>
-              </div>
-
-              <div class="crowd-row">
-                <span>Best</span>
-                <span>Before 10:00</span>
-              </div>
-
-              <div class="crowd-row">
-                <span>Avoid</span>
-                <span>12:00 – 14:00</span>
-              </div>
-
-              <p class="crowd-tip">
-                Gets crowded quickly around lunch. Go early for a smoother walk.
-              </p>
-            </div>
-
-            <!-- Gion -->
-            <div class="crowd-card">
-              <h3>Gion / Shirakawa</h3>
-
-              <div class="crowd-status">
-                <span class="label">Now</span>
-                <span class="status medium">Moderate</span>
-              </div>
-
-              <div class="crowd-row">
-                <span>Best</span>
-                <span>Morning / Before sunset</span>
-              </div>
-
-              <div class="crowd-row">
-                <span>Avoid</span>
-                <span>18:00 – 21:00</span>
-              </div>
-
-              <p class="crowd-tip">
-                Evenings get very busy during sakura season and light-up events.
-              </p>
-            </div>
-
-            <!-- Kamo -->
-            <div class="crowd-card">
-              <h3>Kamo River</h3>
-
-              <div class="crowd-status">
-                <span class="label">Now</span>
-                <span class="status calm">Calm</span>
-              </div>
-
-              <div class="crowd-row">
-                <span>Best</span>
-                <span>Early morning</span>
-              </div>
-
-              <div class="crowd-row">
-                <span>Avoid</span>
-                <span>Sunset peak time</span>
-              </div>
-
-              <p class="crowd-tip">
-                Great for a relaxed walk. Gets busier near sunset.
-              </p>
-            </div>
-
+          <div class="section-heading">
+            <h2 data-i18n="crowd_top_title">Top Picks Right Now</h2>
+            <p data-i18n="crowd_top_desc">Best options based on time and crowd balance.</p>
           </div>
-
+          <div class="crowd-card-grid" data-crowd-top-list></div>
         </div>
       </section>
 
+      <section class="crowd-result-section">
+        <div class="container">
+          <div class="section-heading">
+            <h2 data-i18n="crowd_result_title">Search Result</h2>
+            <p data-i18n="crowd_result_desc">Detailed guide for the place you searched.</p>
+          </div>
+          <div class="crowd-result-wrap" data-crowd-result>
+            <div class="crowd-empty" data-i18n="crowd_empty">
+              Search for a place to see the current guide.
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
-
-    <!-- Footer -->
-    <footer class="site-footer">
-      <div class="container">Kyoto Sakura Guide © Spring Stay Project</div>
-    </footer>
-
   </div>
 
   <script src="./js/hotel-data.js"></script>
   <script src="./js/main.js"></script>
-
 </body>
 </html>
