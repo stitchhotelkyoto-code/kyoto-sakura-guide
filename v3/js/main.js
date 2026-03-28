@@ -38,7 +38,7 @@ jp: {
   widget_sakura_desc: "京都の春らしい桜景色をエリア別にチェック。",
   widget_course_desc: "歩きやすい京都ルートを大切な人と一緒に。",
   widget_events_desc: "ライトアップや春のイベントをまとめて確認。",
-  widget_crowd_desc: "お出かけ前に現地の雰囲気をチェック。"
+  widget_crowd_desc: "お出かけ前に現地の雰囲気をチェック。",
   
   ai_title: "AI Guide",
   ai_desc: "ホテルを起点に、その時の気分・時間帯・同行者に合わせて京都の過ごし方を整理するガイドです。『今夜1時間だけ歩きたい』『雨の日でも動きやすい場所を知りたい』『チェックイン後に遅めの夕食を探したい』といった使い方を想定しています。",
@@ -95,7 +95,7 @@ en: {
   widget_sakura_desc: "Discover Kyoto’s seasonal cherry blossom views.",
   widget_course_desc: "Walkable Kyoto routes with smooth map guidance.",
   widget_events_desc: "Seasonal illuminations and spring happenings in Kyoto.",
-  widget_crowd_desc: "Check the atmosphere before heading out."
+  widget_crowd_desc: "Check the atmosphere before heading out.",
   
   ai_title: "AI Guide",
   ai_desc: "This guide helps guests shape their Kyoto plan based on where they stay, how much time they have, and what kind of mood they are in. It is meant for requests like “I only want a 1-hour evening walk,” “I need rainy-day ideas,” or “I want a late dinner after check-in.”",
