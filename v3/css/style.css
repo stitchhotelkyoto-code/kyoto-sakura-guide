@@ -1735,3 +1735,35 @@ main {
     font-size: 0.9rem;
   }
 }
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(250, 245, 247, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.site-nav a,
+.lang-btn,
+.btn,
+.hero-slider-btn,
+.widget-item,
+.widget-card,
+a {
+  transition: all 0.22s ease;
+}
+
+.site-nav a:hover {
+  color: #1f2f73;
+  opacity: 1;
+}
+
+.lang-btn:hover,
+.btn:hover,
+.hero-slider-btn:hover,
+.widget-item:hover,
+.widget-card:hover {
+  transform: translateY(-1px);
+}
