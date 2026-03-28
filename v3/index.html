@@ -13,25 +13,27 @@
   <style>
     /* ===== homepage widget cards only: keep header/hero layout intact ===== */
     .widget-grid.widget-grid-cards {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
-  align-items: stretch;
-}
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+      align-items: stretch;
+    }
 
-  .widget-grid.widget-grid-cards .widget-item.widget-card {
-  position: relative;
-  display: block;
-  padding: 0;
-  height: 240px;
-  border-radius: 24px;
-  overflow: hidden;
-  border: 1px solid #efd0dc;
-  background: #f4edf1;
-  box-shadow: 0 12px 28px rgba(34, 25, 48, 0.08);
-  text-decoration: none;
-  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
-}
+    .widget-grid.widget-grid-cards .widget-item.widget-card {
+      position: relative;
+      display: block;
+      padding: 0;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      min-height: 0;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid #efd0dc;
+      background: #f4edf1;
+      box-shadow: 0 12px 28px rgba(34, 25, 48, 0.08);
+      text-decoration: none;
+      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+    }
 
     .widget-grid.widget-grid-cards .widget-item.widget-card:hover {
       transform: translateY(-4px);
@@ -45,33 +47,33 @@
       inset: 0;
     }
 
-   .widget-card-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center center;
-  display: block;
-  transform: scale(1.01);
-}
+    .widget-card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+      transform: scale(1.01);
+    }
 
-  .widget-card[href="./all-sakura.html"] .widget-card-media img {
-  object-position: center center;
-  filter: brightness(0.95) saturate(1.03);
-}
+    .widget-card[href="./all-sakura.html"] .widget-card-media img {
+      object-position: center center;
+      filter: brightness(0.95) saturate(1.03);
+    }
 
-.widget-card[href="./all-course.html"] .widget-card-media img {
-  object-position: center center;
-}
+    .widget-card[href="./all-course.html"] .widget-card-media img {
+      object-position: center center;
+    }
 
-.widget-card[href="./all-events.html"] .widget-card-media img {
-  object-position: center 42%;
-  filter: brightness(0.8) saturate(0.85);
-}
+    .widget-card[href="./all-events.html"] .widget-card-media img {
+      object-position: center 42%;
+      filter: brightness(0.8) saturate(0.85);
+    }
 
-.widget-card[href="./crowd-live.html"] .widget-card-media img {
-  object-position: center center;
-  filter: brightness(0.9) saturate(0.92);
-}
+    .widget-card[href="./crowd-live.html"] .widget-card-media img {
+      object-position: center center;
+      filter: brightness(0.9) saturate(0.92);
+    }
 
     .widget-card-overlay {
       background: linear-gradient(
@@ -125,38 +127,24 @@
     }
 
     @media (max-width: 1100px) {
-  .widget-grid.widget-grid-cards {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+      .widget-grid.widget-grid-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
 
-  .widget-grid.widget-grid-cards .widget-item.widget-card {
-    height: 230px;
-  }
-}
+      .widget-grid.widget-grid-cards .widget-item.widget-card {
+        aspect-ratio: 1.15 / 1;
+      }
+    }
 
-@media (max-width: 640px) {
-  .widget-grid.widget-grid-cards {
-    grid-template-columns: 1fr;
-  }
+    @media (max-width: 640px) {
+      .widget-grid.widget-grid-cards {
+        grid-template-columns: 1fr;
+      }
 
-  .widget-grid.widget-grid-cards .widget-item.widget-card {
-    height: 220px;
-  }
-
-  .widget-card-content {
-    left: 14px;
-    right: 14px;
-    bottom: 14px;
-  }
-
-  .widget-grid.widget-grid-cards .widget-card .widget-label {
-    font-size: 0.95rem;
-  }
-
-  .widget-sub {
-    font-size: 0.78rem;
-  }
-}
+      .widget-grid.widget-grid-cards .widget-item.widget-card {
+        aspect-ratio: 1.45 / 1;
+        border-radius: 22px;
+      }
 
       .widget-card-content {
         left: 14px;
