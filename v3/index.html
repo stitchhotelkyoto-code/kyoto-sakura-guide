@@ -9,6 +9,155 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css" />
   <link rel="stylesheet" href="./css/home.css" />
+
+  <style>
+    /* ===== homepage widget cards only: keep header/hero layout intact ===== */
+    .widget-grid.widget-grid-cards {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .widget-grid.widget-grid-cards .widget-item.widget-card {
+      position: relative;
+      display: block;
+      padding: 0;
+      min-height: 0;
+      aspect-ratio: 0.95 / 1.18;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid #efd0dc;
+      background: #f4edf1;
+      box-shadow: 0 12px 28px rgba(34, 25, 48, 0.08);
+      text-decoration: none;
+      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+    }
+
+    .widget-grid.widget-grid-cards .widget-item.widget-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 36px rgba(34, 25, 48, 0.12);
+      border-color: #e7becf;
+    }
+
+    .widget-card-media,
+    .widget-card-overlay {
+      position: absolute;
+      inset: 0;
+    }
+
+    .widget-card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transform: scale(1.01);
+    }
+
+    .widget-card[href="./all-sakura.html"] .widget-card-media img {
+      object-position: center center;
+      filter: brightness(0.95) saturate(1.03);
+    }
+
+    .widget-card[href="./all-course.html"] .widget-card-media img {
+      object-position: center center;
+    }
+
+    .widget-card[href="./all-events.html"] .widget-card-media img {
+      object-position: center center;
+      filter: brightness(0.8) saturate(0.85);
+    }
+
+    .widget-card[href="./crowd-live.html"] .widget-card-media img {
+      object-position: center center;
+      filter: brightness(0.9) saturate(0.92);
+    }
+
+    .widget-card-overlay {
+      background: linear-gradient(
+        180deg,
+        rgba(12, 16, 28, 0.05) 0%,
+        rgba(12, 16, 28, 0.16) 48%,
+        rgba(12, 16, 28, 0.56) 100%
+      );
+    }
+
+    .widget-card-content {
+      position: absolute;
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .widget-grid.widget-grid-cards .widget-card .widget-label {
+      display: block;
+      margin: 0;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 800;
+      line-height: 1.18;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    .widget-sub {
+      display: block;
+      color: rgba(255,255,255,0.94);
+      font-size: 0.8rem;
+      line-height: 1.42;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.16);
+    }
+
+    /* safer hero slider visibility control */
+    .hero-slider-track {
+      position: relative;
+    }
+
+    .hero-slider-track .hero-slide {
+      display: none;
+    }
+
+    .hero-slider-track .hero-slide.is-active {
+      display: block;
+    }
+
+    @media (max-width: 1100px) {
+      .widget-grid.widget-grid-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .widget-grid.widget-grid-cards .widget-item.widget-card {
+        aspect-ratio: 1.18 / 1;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .widget-grid.widget-grid-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .widget-grid.widget-grid-cards .widget-item.widget-card {
+        aspect-ratio: 1.55 / 1;
+      }
+
+      .widget-card-content {
+        left: 14px;
+        right: 14px;
+        bottom: 14px;
+      }
+
+      .widget-grid.widget-grid-cards .widget-card .widget-label {
+        font-size: 0.95rem;
+      }
+
+      .widget-sub {
+        font-size: 0.78rem;
+      }
+    }
+  </style>
 </head>
 <body data-page="home">
   <div class="page-shell">
@@ -38,22 +187,22 @@
       <section class="home-hero home-hero-slider">
         <div class="home-hero-left">
           <div class="hero-copy-wrap">
-            <p class="mega-label">Spring Stay in Kyoto</p>
+            <p class="mega-label" id="heroLabel">Spring Stay in Kyoto</p>
 
-            <h1 class="mega-title">
+            <h1 class="mega-title" id="heroTitle">
               Explore Kyoto,<br>
               Stay Your Way
             </h1>
 
-            <p class="mega-desc">
+            <p class="mega-desc" id="heroDesc">
               京都の春を、それぞれの滞在スタイルで。<br>
               4つのホテルから、あなたに合う京都ステイを見つけてください。
             </p>
 
-            <div class="mega-meta">2026 Spring Hotel Guide</div>
+            <div class="mega-meta" id="heroMeta">2026 Spring Hotel Guide</div>
 
             <div class="mega-actions">
-              <a href="./all-sakura.html" class="btn btn-secondary">Explore Sakura</a>
+              <a href="./all-sakura.html" class="btn btn-secondary" id="heroCta">Explore Sakura</a>
             </div>
           </div>
         </div>
@@ -66,8 +215,8 @@
                   <img src="./img/home/soraniwa-main.jpg" alt="Soraniwa Hotel">
                 </div>
                 <div class="hero-slide-body">
-                  <h3>Soraniwa</h3>
-                  <p>Sky onsen stay with open views and a relaxed Kyoto atmosphere.</p>
+                  <h3 id="slideTitle1">Soraniwa</h3>
+                  <p id="slideDesc1">Sky onsen stay with open views and a relaxed Kyoto atmosphere.</p>
                 </div>
               </a>
 
@@ -76,8 +225,8 @@
                   <img src="./img/home/bettei-main.jpg" alt="Soraniwa Bettei">
                 </div>
                 <div class="hero-slide-body">
-                  <h3>Bettei</h3>
-                  <p>Private luxury stay with a quieter and more refined Kyoto mood.</p>
+                  <h3 id="slideTitle2">Bettei</h3>
+                  <p id="slideDesc2">Private luxury stay with a quieter and more refined Kyoto mood.</p>
                 </div>
               </a>
 
@@ -86,8 +235,8 @@
                   <img src="./img/home/hiyori-main.jpg" alt="Hiyori Stay Kyoto Gojo">
                 </div>
                 <div class="hero-slide-body">
-                  <h3>Hiyori</h3>
-                  <p>Practical and comfortable base for exploring central Kyoto.</p>
+                  <h3 id="slideTitle3">Hiyori</h3>
+                  <p id="slideDesc3">Practical and comfortable base for exploring central Kyoto.</p>
                 </div>
               </a>
 
@@ -96,8 +245,8 @@
                   <img src="./img/home/stitch-main.jpg" alt="STITCH HOTEL Kyoto">
                 </div>
                 <div class="hero-slide-body">
-                  <h3>STITCH</h3>
-                  <p>Urban and stylish stay for guests who want a modern Kyoto trip.</p>
+                  <h3 id="slideTitle4">STITCH</h3>
+                  <p id="slideDesc4">Urban and stylish stay for guests who want a modern Kyoto trip.</p>
                 </div>
               </a>
             </div>
@@ -120,7 +269,7 @@
 
       <section class="section widgets-section">
         <div class="container widgets-inner">
-          <h2 class="section-title" data-i18n="widget_title">Explore Kyoto</h2>
+          <h2 class="section-title" id="widgetTitle">Explore Kyoto</h2>
 
           <div class="widget-grid widget-grid-cards">
             <a class="widget-item widget-card" href="./all-sakura.html">
@@ -129,23 +278,19 @@
               </span>
               <span class="widget-card-overlay"></span>
               <span class="widget-card-content">
-                <span class="widget-label" data-i18n="widget_sakura">Sakura Spots</span>
-                <span class="widget-sub" data-i18n="widget_sakura_desc">
-                  Discover Kyoto’s seasonal cherry blossom views.
-                </span>
+                <span class="widget-label" id="widgetLabel1">Sakura Spots</span>
+                <span class="widget-sub" id="widgetDesc1">Discover Kyoto’s seasonal cherry blossom views.</span>
               </span>
             </a>
 
             <a class="widget-item widget-card" href="./all-course.html">
               <span class="widget-card-media">
-                <img src="./img/home/narrow.jpg" alt="Google Maps Course" loading="lazy">
+                <img src="./img/home/narrow.jpg" alt="Travel Courses" loading="lazy">
               </span>
               <span class="widget-card-overlay"></span>
               <span class="widget-card-content">
-                <span class="widget-label" data-i18n="widget_course">Travel Courses</span>
-                <span class="widget-sub" data-i18n="widget_course_desc">
-                  Walkable Kyoto routes with smooth map guidance.
-                </span>
+                <span class="widget-label" id="widgetLabel2">Travel Courses</span>
+                <span class="widget-sub" id="widgetDesc2">Walkable Kyoto routes with smooth map guidance.</span>
               </span>
             </a>
 
@@ -155,10 +300,8 @@
               </span>
               <span class="widget-card-overlay"></span>
               <span class="widget-card-content">
-                <span class="widget-label" data-i18n="widget_events">Events</span>
-                <span class="widget-sub" data-i18n="widget_events_desc">
-                  Seasonal illuminations and spring happenings in Kyoto.
-                </span>
+                <span class="widget-label" id="widgetLabel3">Events</span>
+                <span class="widget-sub" id="widgetDesc3">Seasonal illuminations and spring happenings in Kyoto.</span>
               </span>
             </a>
 
@@ -168,10 +311,8 @@
               </span>
               <span class="widget-card-overlay"></span>
               <span class="widget-card-content">
-                <span class="widget-label" data-i18n="widget_crowd">Live Crowd</span>
-                <span class="widget-sub" data-i18n="widget_crowd_desc">
-                  Check the atmosphere before heading out.
-                </span>
+                <span class="widget-label" id="widgetLabel4">Live Crowd</span>
+                <span class="widget-sub" id="widgetDesc4">Check the atmosphere before heading out.</span>
               </span>
             </a>
           </div>
@@ -186,7 +327,246 @@
     </footer>
   </div>
 
-  <script src="./js/hotel-data.js"></script>
-  <script src="./js/main.js"></script>
+  <script>
+    (() => {
+      const translations = {
+        jp: {
+          nav_home: "Home",
+          nav_soraniwa: "Soraniwa",
+          nav_bettei: "Bettei",
+          nav_hiyori: "Hiyori",
+          nav_stitch: "STITCH",
+
+          heroLabel: "Spring Stay in Kyoto",
+          heroTitle: "Explore Kyoto,<br>Stay Your Way",
+          heroDesc: "京都の春を、それぞれの滞在スタイルで。<br>4つのホテルから、あなたに合う京都ステイを見つけてください。",
+          heroMeta: "2026 Spring Hotel Guide",
+          heroCta: "Explore Sakura",
+
+          widgetTitle: "Explore Kyoto",
+          widgetLabel1: "Sakura Spots",
+          widgetDesc1: "京都の春らしい桜景色をエリア別にチェック。",
+          widgetLabel2: "Travel Courses",
+          widgetDesc2: "歩きやすい京都ルートを Google Maps と一緒に。",
+          widgetLabel3: "Events",
+          widgetDesc3: "ライトアップや春のイベントをまとめて確認。",
+          widgetLabel4: "Live Crowd",
+          widgetDesc4: "お出かけ前に現地の雰囲気をチェック。",
+
+          slideTitle1: "Soraniwa",
+          slideDesc1: "Sky onsen stay with open views and a relaxed Kyoto atmosphere.",
+          slideTitle2: "Bettei",
+          slideDesc2: "Private luxury stay with a quieter and more refined Kyoto mood.",
+          slideTitle3: "Hiyori",
+          slideDesc3: "Practical and comfortable base for exploring central Kyoto.",
+          slideTitle4: "STITCH",
+          slideDesc4: "Urban and stylish stay for guests who want a modern Kyoto trip."
+        },
+        en: {
+          nav_home: "Home",
+          nav_soraniwa: "Soraniwa",
+          nav_bettei: "Bettei",
+          nav_hiyori: "Hiyori",
+          nav_stitch: "STITCH",
+
+          heroLabel: "Spring Stay in Kyoto",
+          heroTitle: "Explore Kyoto,<br>Stay Your Way",
+          heroDesc: "Find your ideal Kyoto spring stay through four different hotel styles.",
+          heroMeta: "2026 Spring Hotel Guide",
+          heroCta: "Explore Sakura",
+
+          widgetTitle: "Explore Kyoto",
+          widgetLabel1: "Sakura Spots",
+          widgetDesc1: "Discover Kyoto’s seasonal cherry blossom views.",
+          widgetLabel2: "Travel Courses",
+          widgetDesc2: "Walkable Kyoto routes with smooth map guidance.",
+          widgetLabel3: "Events",
+          widgetDesc3: "Seasonal illuminations and spring happenings in Kyoto.",
+          widgetLabel4: "Live Crowd",
+          widgetDesc4: "Check the atmosphere before heading out.",
+
+          slideTitle1: "Soraniwa",
+          slideDesc1: "Sky onsen stay with open views and a relaxed Kyoto atmosphere.",
+          slideTitle2: "Bettei",
+          slideDesc2: "Private luxury stay with a quieter and more refined Kyoto mood.",
+          slideTitle3: "Hiyori",
+          slideDesc3: "Practical and comfortable base for exploring central Kyoto.",
+          slideTitle4: "STITCH",
+          slideDesc4: "Urban and stylish stay for guests who want a modern Kyoto trip."
+        },
+        kr: {
+          nav_home: "Home",
+          nav_soraniwa: "Soraniwa",
+          nav_bettei: "Bettei",
+          nav_hiyori: "Hiyori",
+          nav_stitch: "STITCH",
+
+          heroLabel: "Spring Stay in Kyoto",
+          heroTitle: "Explore Kyoto,<br>Stay Your Way",
+          heroDesc: "교토의 봄을, 각각 다른 숙박 스타일로. 네 개의 호텔 중에서 당신에게 맞는 교토 스테이를 찾아보세요.",
+          heroMeta: "2026 Spring Hotel Guide",
+          heroCta: "Explore Sakura",
+
+          widgetTitle: "Explore Kyoto",
+          widgetLabel1: "Sakura Spots",
+          widgetDesc1: "교토의 봄 벚꽃 풍경을 지역별로 살펴보세요.",
+          widgetLabel2: "Travel Courses",
+          widgetDesc2: "걷기 좋은 교토 코스를 Google Maps와 함께 확인하세요.",
+          widgetLabel3: "Events",
+          widgetDesc3: "라이트업과 봄 시즌 이벤트를 한눈에 확인하세요.",
+          widgetLabel4: "Live Crowd",
+          widgetDesc4: "외출 전에 현지 분위기를 먼저 확인해보세요.",
+
+          slideTitle1: "Soraniwa",
+          slideDesc1: "탁 트인 전망과 함께 여유로운 교토 분위기를 즐길 수 있는 스카이 온천 스테이.",
+          slideTitle2: "Bettei",
+          slideDesc2: "조용하고 세련된 교토 무드를 느낄 수 있는 프라이빗 럭셔리 스테이.",
+          slideTitle3: "Hiyori",
+          slideDesc3: "교토 중심을 둘러보기 좋은 실용적이고 편안한 스테이.",
+          slideTitle4: "STITCH",
+          slideDesc4: "모던한 교토 여행을 원하는 분들을 위한 도심형 스타일리시 스테이."
+        }
+      };
+
+      const navMap = {
+        nav_home: '.site-nav a:nth-child(1)',
+        nav_soraniwa: '.site-nav a:nth-child(2)',
+        nav_bettei: '.site-nav a:nth-child(3)',
+        nav_hiyori: '.site-nav a:nth-child(4)',
+        nav_stitch: '.site-nav a:nth-child(5)'
+      };
+
+      const textMap = {
+        heroLabel: 'heroLabel',
+        heroTitle: 'heroTitle',
+        heroDesc: 'heroDesc',
+        heroMeta: 'heroMeta',
+        heroCta: 'heroCta',
+        widgetTitle: 'widgetTitle',
+        widgetLabel1: 'widgetLabel1',
+        widgetDesc1: 'widgetDesc1',
+        widgetLabel2: 'widgetLabel2',
+        widgetDesc2: 'widgetDesc2',
+        widgetLabel3: 'widgetLabel3',
+        widgetDesc3: 'widgetDesc3',
+        widgetLabel4: 'widgetLabel4',
+        widgetDesc4: 'widgetDesc4',
+        slideTitle1: 'slideTitle1',
+        slideDesc1: 'slideDesc1',
+        slideTitle2: 'slideTitle2',
+        slideDesc2: 'slideDesc2',
+        slideTitle3: 'slideTitle3',
+        slideDesc3: 'slideDesc3',
+        slideTitle4: 'slideTitle4',
+        slideDesc4: 'slideDesc4'
+      };
+
+      function applyLanguage(lang) {
+        const dict = translations[lang] || translations.jp;
+
+        Object.entries(navMap).forEach(([key, selector]) => {
+          const el = document.querySelector(selector);
+          if (el && dict[key]) el.textContent = dict[key];
+        });
+
+        Object.entries(textMap).forEach(([key, id]) => {
+          const el = document.getElementById(id);
+          if (!el || !dict[key]) return;
+
+          if (key === 'heroTitle' || key === 'heroDesc') {
+            el.innerHTML = dict[key];
+          } else {
+            el.textContent = dict[key];
+          }
+        });
+
+        document.querySelectorAll('.lang-btn').forEach((btn) => {
+          btn.classList.toggle('is-active', btn.dataset.lang === lang);
+        });
+
+        document.documentElement.lang = lang === 'jp' ? 'ja' : lang === 'kr' ? 'ko' : 'en';
+      }
+
+      const slides = Array.from(document.querySelectorAll('#heroSliderTrack .hero-slide'));
+      const prevBtn = document.getElementById('heroPrevBtn');
+      const nextBtn = document.getElementById('heroNextBtn');
+      const currentEl = document.getElementById('heroCurrent');
+      const totalEl = document.getElementById('heroTotal');
+      let currentIndex = 0;
+      let autoTimer = null;
+
+      function renderSlide(index) {
+        slides.forEach((slide, i) => {
+          slide.classList.toggle('is-active', i === index);
+          slide.setAttribute('aria-hidden', i === index ? 'false' : 'true');
+        });
+
+        if (currentEl) currentEl.textContent = String(index + 1);
+      }
+
+      function goToSlide(index) {
+        if (!slides.length) return;
+        currentIndex = (index + slides.length) % slides.length;
+        renderSlide(currentIndex);
+      }
+
+      function nextSlide() {
+        goToSlide(currentIndex + 1);
+      }
+
+      function prevSlide() {
+        goToSlide(currentIndex - 1);
+      }
+
+      function startAuto() {
+        stopAuto();
+        autoTimer = setInterval(nextSlide, 5000);
+      }
+
+      function stopAuto() {
+        if (autoTimer) {
+          clearInterval(autoTimer);
+          autoTimer = null;
+        }
+      }
+
+      if (slides.length) {
+        if (totalEl) totalEl.textContent = String(slides.length);
+        renderSlide(currentIndex);
+
+        if (prevBtn) {
+          prevBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            prevSlide();
+            startAuto();
+          });
+        }
+
+        if (nextBtn) {
+          nextBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            nextSlide();
+            startAuto();
+          });
+        }
+
+        const sliderShell = document.querySelector('.hero-slider-shell');
+        if (sliderShell) {
+          sliderShell.addEventListener('mouseenter', stopAuto);
+          sliderShell.addEventListener('mouseleave', startAuto);
+        }
+
+        startAuto();
+      }
+
+      document.querySelectorAll('.lang-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          applyLanguage(btn.dataset.lang || 'jp');
+        });
+      });
+
+      applyLanguage('jp');
+    })();
+  </script>
 </body>
 </html>
