@@ -10,157 +10,155 @@
   <link rel="stylesheet" href="./css/style.css" />
   <link rel="stylesheet" href="./css/home.css" />
 
-  <style>
-    /* ===== homepage widget cards only: keep header/hero layout intact ===== */
+ <style>
+  /* ===== homepage widget cards only: keep header/hero layout intact ===== */
+  .widget-grid.widget-grid-cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    align-items: stretch;
+  }
+
+  .widget-grid.widget-grid-cards .widget-item.widget-card {
+    position: relative;
+    display: block;
+    padding: 0;
+    width: 100%;
+    aspect-ratio: 1.18 / 1;
+    min-height: 0;
+    border-radius: 28px;
+    overflow: hidden;
+    border: 1px solid #efd0dc;
+    background: #f4edf1;
+    box-shadow: 0 12px 28px rgba(34, 25, 48, 0.08);
+    text-decoration: none;
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+  }
+
+  .widget-grid.widget-grid-cards .widget-item.widget-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 36px rgba(34, 25, 48, 0.12);
+    border-color: #e7becf;
+  }
+
+  .widget-card-media,
+  .widget-card-overlay {
+    position: absolute;
+    inset: 0;
+  }
+
+  .widget-card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+    transform: scale(1.02);
+  }
+
+  .widget-card[href="./all-sakura.html"] .widget-card-media img {
+    object-position: center center;
+    filter: brightness(0.95) saturate(1.03);
+  }
+
+  .widget-card[href="./all-course.html"] .widget-card-media img {
+    object-position: center center;
+  }
+
+  .widget-card[href="./all-events.html"] .widget-card-media img {
+    object-position: center 42%;
+    filter: brightness(0.82) saturate(0.9);
+  }
+
+  .widget-card[href="./crowd-live.html"] .widget-card-media img {
+    object-position: center center;
+    filter: brightness(0.9) saturate(0.92);
+  }
+
+  .widget-card-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(12, 16, 28, 0.05) 0%,
+      rgba(12, 16, 28, 0.16) 48%,
+      rgba(12, 16, 28, 0.60) 100%
+    );
+  }
+
+  .widget-card-content {
+    position: absolute;
+    left: 18px;
+    right: 18px;
+    bottom: 18px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .widget-grid.widget-grid-cards .widget-card .widget-label {
+    display: block;
+    margin: 0;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 800;
+    line-height: 1.18;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.22);
+  }
+
+  .widget-sub {
+    display: block;
+    color: rgba(255,255,255,0.95);
+    font-size: 0.84rem;
+    line-height: 1.42;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.18);
+  }
+
+  /* safer hero slider visibility control */
+  .hero-slider-track {
+    position: relative;
+  }
+
+  .hero-slider-track .hero-slide {
+    display: none;
+  }
+
+  .hero-slider-track .hero-slide.is-active {
+    display: block;
+  }
+
+  @media (max-width: 900px) {
     .widget-grid.widget-grid-cards {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 18px;
-      align-items: stretch;
+      grid-template-columns: 1fr;
+      gap: 16px;
     }
 
     .widget-grid.widget-grid-cards .widget-item.widget-card {
-      position: relative;
-      display: block;
-      padding: 0;
-      width: 100%;
-      aspect-ratio: 4 / 5;
-      min-height: 0;
+      aspect-ratio: 1.45 / 1;
       border-radius: 24px;
-      overflow: hidden;
-      border: 1px solid #efd0dc;
-      background: #f4edf1;
-      box-shadow: 0 12px 28px rgba(34, 25, 48, 0.08);
-      text-decoration: none;
-      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
     }
+  }
 
-    .widget-grid.widget-grid-cards .widget-item.widget-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 18px 36px rgba(34, 25, 48, 0.12);
-      border-color: #e7becf;
-    }
-
-    .widget-card-media,
-    .widget-card-overlay {
-      position: absolute;
-      inset: 0;
-    }
-
-    .widget-card-media img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center center;
-      display: block;
-      transform: scale(1.01);
-    }
-
-    .widget-card[href="./all-sakura.html"] .widget-card-media img {
-      object-position: center center;
-      filter: brightness(0.95) saturate(1.03);
-    }
-
-    .widget-card[href="./all-course.html"] .widget-card-media img {
-      object-position: center center;
-    }
-
-    .widget-card[href="./all-events.html"] .widget-card-media img {
-      object-position: center 42%;
-      filter: brightness(0.8) saturate(0.85);
-    }
-
-    .widget-card[href="./crowd-live.html"] .widget-card-media img {
-      object-position: center center;
-      filter: brightness(0.9) saturate(0.92);
-    }
-
-    .widget-card-overlay {
-      background: linear-gradient(
-        180deg,
-        rgba(12, 16, 28, 0.05) 0%,
-        rgba(12, 16, 28, 0.16) 48%,
-        rgba(12, 16, 28, 0.56) 100%
-      );
+  @media (max-width: 640px) {
+    .widget-grid.widget-grid-cards .widget-item.widget-card {
+      aspect-ratio: 1.28 / 1;
+      border-radius: 22px;
     }
 
     .widget-card-content {
-      position: absolute;
-      left: 16px;
-      right: 16px;
-      bottom: 16px;
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
+      left: 14px;
+      right: 14px;
+      bottom: 14px;
     }
 
     .widget-grid.widget-grid-cards .widget-card .widget-label {
-      display: block;
-      margin: 0;
-      color: #fff;
-      font-size: 1rem;
-      font-weight: 800;
-      line-height: 1.18;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      font-size: 0.96rem;
     }
 
     .widget-sub {
-      display: block;
-      color: rgba(255,255,255,0.94);
-      font-size: 0.8rem;
-      line-height: 1.42;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.16);
+      font-size: 0.78rem;
     }
-
-    /* safer hero slider visibility control */
-    .hero-slider-track {
-      position: relative;
-    }
-
-    .hero-slider-track .hero-slide {
-      display: none;
-    }
-
-    .hero-slider-track .hero-slide.is-active {
-      display: block;
-    }
-
-    @media (max-width: 1100px) {
-      .widget-grid.widget-grid-cards {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .widget-grid.widget-grid-cards .widget-item.widget-card {
-        aspect-ratio: 1.15 / 1;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .widget-grid.widget-grid-cards {
-        grid-template-columns: 1fr;
-      }
-
-      .widget-grid.widget-grid-cards .widget-item.widget-card {
-        aspect-ratio: 1.45 / 1;
-        border-radius: 22px;
-      }
-
-      .widget-card-content {
-        left: 14px;
-        right: 14px;
-        bottom: 14px;
-      }
-
-      .widget-grid.widget-grid-cards .widget-card .widget-label {
-        font-size: 0.95rem;
-      }
-
-      .widget-sub {
-        font-size: 0.78rem;
-      }
-    }
-  </style>
+  }
+</style>
 </head>
 <body data-page="home">
   <div class="page-shell">
