@@ -40,12 +40,18 @@
     transform: translateY(-1px);
   }
 
+  /* ===== widget section width control ===== */
+  body[data-page="home"] .widgets-inner {
+    max-width: 980px;
+    margin: 0 auto;
+  }
+
   /* ===== widget cards: MUST beat home.css ===== */
   body[data-page="home"] .widget-grid.widget-grid-cards {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 18px;
+    gap: 16px;
     align-items: stretch;
   }
 
@@ -55,7 +61,7 @@
     width: 100%;
     min-height: 0;
     padding: 0;
-    aspect-ratio: 1.28 / 1;
+    aspect-ratio: 1.5 / 1;
     border-radius: 24px;
     overflow: hidden;
     border: 1px solid #efd0dc;
@@ -158,12 +164,16 @@
   }
 
   @media (max-width: 900px) {
+    body[data-page="home"] .widgets-inner {
+      max-width: 100%;
+    }
+
     body[data-page="home"] .widget-grid.widget-grid-cards {
       grid-template-columns: 1fr;
     }
 
     body[data-page="home"] .widget-grid.widget-grid-cards .widget-item.widget-card {
-      aspect-ratio: 1.40 / 1;
+      aspect-ratio: 1.4 / 1;
     }
   }
 
