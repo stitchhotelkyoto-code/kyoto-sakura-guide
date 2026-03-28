@@ -525,3 +525,115 @@ body[data-page="home"] .hero-slider-btn {
   z-index: 11;
   pointer-events: auto;
 }
+
+.widget-grid.widget-grid-image {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.widget-card-image {
+  position: relative;
+  display: block;
+  min-height: 240px;
+  border-radius: 22px;
+  overflow: hidden;
+  text-decoration: none;
+  background: #f6eef2;
+  border: 1px solid #efd0dc;
+  box-shadow: 0 14px 28px rgba(41, 30, 57, 0.07);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.widget-card-image:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 36px rgba(41, 30, 57, 0.12);
+  border-color: #e7becf;
+}
+
+.widget-card-media {
+  position: absolute;
+  inset: 0;
+}
+
+.widget-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 이벤트만 톤 살짝 죽이기 */
+.widget-card-image[href="./all-events.html"] .widget-card-media img {
+  filter: brightness(0.8) saturate(0.85);
+}
+
+/* 크라우드 사진은 약간만 정리 */
+.widget-card-image[href="./crowd-live.html"] .widget-card-media img {
+  filter: brightness(0.88) saturate(0.92);
+}
+
+.widget-card-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(14, 17, 31, 0.08) 0%, rgba(14, 17, 31, 0.45) 100%);
+}
+
+.widget-card-body {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.widget-card-body .widget-label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.16);
+}
+
+.widget-desc {
+  display: block;
+  font-size: 0.83rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.14);
+}
+
+@media (max-width: 1100px) {
+  .widget-grid.widget-grid-image {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .widget-grid.widget-grid-image {
+    grid-template-columns: 1fr;
+  }
+
+  .widget-card-image {
+    min-height: 210px;
+  }
+
+  .widget-card-body {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+  }
+
+  .widget-card-body .widget-label {
+    font-size: 0.96rem;
+  }
+
+  .widget-desc {
+    font-size: 0.8rem;
+  }
+}
