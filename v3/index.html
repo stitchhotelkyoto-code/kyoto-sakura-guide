@@ -1,59 +1,192 @@
-<section class="section widgets-section">
-  <div class="container widgets-inner">
-    <h2 class="section-title" data-i18n="widget_title">Explore Kyoto</h2>
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kyoto Sakura Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/home.css" />
+</head>
+<body data-page="home">
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="container site-header-inner">
+        <a href="./index.html" class="site-logo">Kyoto Sakura Guide</a>
 
-    <div class="widget-grid widget-grid-image">
-      <a class="widget-item widget-card-image" href="./all-sakura.html">
-        <div class="widget-card-media">
-          <img src="./img/home/sakura.jpg" alt="Sakura Spots" loading="lazy">
-        </div>
-        <div class="widget-card-overlay"></div>
-        <div class="widget-card-body">
-          <span class="widget-label" data-i18n="widget_sakura">Sakura Spots</span>
-          <span class="widget-desc" data-i18n="widget_sakura_desc">
-            Discover Kyoto’s seasonal cherry blossom views.
-          </span>
-        </div>
-      </a>
+        <div class="header-right">
+          <nav class="site-nav">
+            <a href="./index.html" class="is-active" data-i18n="nav_home">Home</a>
+            <a href="./hotels/soraniwa.html" data-i18n="nav_soraniwa">Soraniwa</a>
+            <a href="./hotels/bettel.html" data-i18n="nav_bettei">Bettei</a>
+            <a href="./hotels/hiyori.html" data-i18n="nav_hiyori">Hiyori</a>
+            <a href="./hotels/stitch.html" data-i18n="nav_stitch">STITCH</a>
+          </nav>
 
-      <a class="widget-item widget-card-image" href="./all-course.html">
-        <div class="widget-card-media">
-          <img src="./img/home/narrow.jpg" alt="Google Maps Course" loading="lazy">
+          <div class="lang-switcher">
+            <button class="lang-btn is-active" data-lang="jp" type="button">JP</button>
+            <button class="lang-btn" data-lang="en" type="button">EN</button>
+            <button class="lang-btn" data-lang="kr" type="button">KR</button>
+          </div>
         </div>
-        <div class="widget-card-overlay"></div>
-        <div class="widget-card-body">
-          <span class="widget-label" data-i18n="widget_course">Google Maps Course</span>
-          <span class="widget-desc" data-i18n="widget_course_desc">
-            Walkable Kyoto routes with smooth map guidance.
-          </span>
-        </div>
-      </a>
+      </div>
+    </header>
 
-      <a class="widget-item widget-card-image" href="./all-events.html">
-        <div class="widget-card-media">
-          <img src="./img/home/event.jpg" alt="Events" loading="lazy">
-        </div>
-        <div class="widget-card-overlay"></div>
-        <div class="widget-card-body">
-          <span class="widget-label" data-i18n="widget_events">Events</span>
-          <span class="widget-desc" data-i18n="widget_events_desc">
-            Seasonal illuminations and spring happenings in Kyoto.
-          </span>
-        </div>
-      </a>
+    <main>
+      <section class="home-hero home-hero-slider">
+        <div class="home-hero-left">
+          <div class="hero-copy-wrap">
+            <p class="mega-label">Spring Stay in Kyoto</p>
 
-      <a class="widget-item widget-card-image" href="./crowd-live.html">
-        <div class="widget-card-media">
-          <img src="./img/home/crowd.jpg" alt="Live Crowd" loading="lazy">
+            <h1 class="mega-title">
+              Explore Kyoto,<br>
+              Stay Your Way
+            </h1>
+
+            <p class="mega-desc">
+              京都の春を、それぞれの滞在スタイルで。<br>
+              4つのホテルから、あなたに合う京都ステイを見つけてください。
+            </p>
+
+            <div class="mega-meta">2026 Spring Hotel Guide</div>
+
+            <div class="mega-actions">
+              <a href="./all-sakura.html" class="btn btn-secondary">Explore Sakura</a>
+            </div>
+          </div>
         </div>
-        <div class="widget-card-overlay"></div>
-        <div class="widget-card-body">
-          <span class="widget-label" data-i18n="widget_crowd">Live Crowd</span>
-          <span class="widget-desc" data-i18n="widget_crowd_desc">
-            Check the atmosphere before heading out.
-          </span>
+
+        <div class="home-hero-right">
+          <div class="hero-slider-shell">
+            <div class="hero-slider-track" id="heroSliderTrack">
+              <a class="hero-slide is-active" href="./hotels/soraniwa.html">
+                <div class="hero-slide-image">
+                  <img src="./img/home/soraniwa-main.jpg" alt="Soraniwa Hotel">
+                </div>
+                <div class="hero-slide-body">
+                  <h3>Soraniwa</h3>
+                  <p>Sky onsen stay with open views and a relaxed Kyoto atmosphere.</p>
+                </div>
+              </a>
+
+              <a class="hero-slide" href="./hotels/bettel.html">
+                <div class="hero-slide-image">
+                  <img src="./img/home/bettei-main.jpg" alt="Soraniwa Bettei">
+                </div>
+                <div class="hero-slide-body">
+                  <h3>Bettei</h3>
+                  <p>Private luxury stay with a quieter and more refined Kyoto mood.</p>
+                </div>
+              </a>
+
+              <a class="hero-slide" href="./hotels/hiyori.html">
+                <div class="hero-slide-image">
+                  <img src="./img/home/hiyori-main.jpg" alt="Hiyori Stay Kyoto Gojo">
+                </div>
+                <div class="hero-slide-body">
+                  <h3>Hiyori</h3>
+                  <p>Practical and comfortable base for exploring central Kyoto.</p>
+                </div>
+              </a>
+
+              <a class="hero-slide" href="./hotels/stitch.html">
+                <div class="hero-slide-image">
+                  <img src="./img/home/stitch-main.jpg" alt="STITCH HOTEL Kyoto">
+                </div>
+                <div class="hero-slide-body">
+                  <h3>STITCH</h3>
+                  <p>Urban and stylish stay for guests who want a modern Kyoto trip.</p>
+                </div>
+              </a>
+            </div>
+
+            <div class="hero-slider-ui">
+              <div class="hero-slider-nav">
+                <button class="hero-slider-btn" id="heroPrevBtn" type="button" aria-label="Previous slide">‹</button>
+                <button class="hero-slider-btn" id="heroNextBtn" type="button" aria-label="Next slide">›</button>
+              </div>
+
+              <div class="hero-slider-status">
+                <span id="heroCurrent">1</span>
+                <span>/</span>
+                <span id="heroTotal">4</span>
+              </div>
+            </div>
+          </div>
         </div>
-      </a>
-    </div>
+      </section>
+
+      <section class="section widgets-section">
+        <div class="container widgets-inner">
+          <h2 class="section-title" data-i18n="widget_title">Explore Kyoto</h2>
+
+          <div class="widget-grid widget-grid-cards">
+            <a class="widget-item widget-card" href="./all-sakura.html">
+              <span class="widget-card-media">
+                <img src="./img/home/sakura.jpg" alt="Sakura Spots" loading="lazy">
+              </span>
+              <span class="widget-card-overlay"></span>
+              <span class="widget-card-content">
+                <span class="widget-label" data-i18n="widget_sakura">Sakura Spots</span>
+                <span class="widget-sub" data-i18n="widget_sakura_desc">
+                  Discover Kyoto’s seasonal cherry blossom views.
+                </span>
+              </span>
+            </a>
+
+            <a class="widget-item widget-card" href="./all-course.html">
+              <span class="widget-card-media">
+                <img src="./img/home/narrow.jpg" alt="Google Maps Course" loading="lazy">
+              </span>
+              <span class="widget-card-overlay"></span>
+              <span class="widget-card-content">
+                <span class="widget-label" data-i18n="widget_course">Travel Courses</span>
+                <span class="widget-sub" data-i18n="widget_course_desc">
+                  Walkable Kyoto routes with smooth map guidance.
+                </span>
+              </span>
+            </a>
+
+            <a class="widget-item widget-card" href="./all-events.html">
+              <span class="widget-card-media">
+                <img src="./img/home/event.jpg" alt="Events" loading="lazy">
+              </span>
+              <span class="widget-card-overlay"></span>
+              <span class="widget-card-content">
+                <span class="widget-label" data-i18n="widget_events">Events</span>
+                <span class="widget-sub" data-i18n="widget_events_desc">
+                  Seasonal illuminations and spring happenings in Kyoto.
+                </span>
+              </span>
+            </a>
+
+            <a class="widget-item widget-card" href="./crowd-live.html">
+              <span class="widget-card-media">
+                <img src="./img/home/crowd.jpg" alt="Live Crowd" loading="lazy">
+              </span>
+              <span class="widget-card-overlay"></span>
+              <span class="widget-card-content">
+                <span class="widget-label" data-i18n="widget_crowd">Live Crowd</span>
+                <span class="widget-sub" data-i18n="widget_crowd_desc">
+                  Check the atmosphere before heading out.
+                </span>
+              </span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        Kyoto Sakura Guide © Spring Stay Project
+      </div>
+    </footer>
   </div>
-</section>
+
+  <script src="./js/hotel-data.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+</html>
