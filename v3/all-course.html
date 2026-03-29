@@ -599,7 +599,7 @@
   <div class="page-shell">
    <header class="site-header">
   <div class="container site-header-inner">
-    <a href="./index.html" class="site-logo site-brand">Kyoto Sakura Guide</a>
+   <a href="./index.html" class="site-logo">Kyoto Sakura Guide</a>
 
     <div class="header-right">
       <nav class="site-nav">
@@ -1040,10 +1040,12 @@
       }
     ];
 
-    const state = {
-      lang: "jp",
-      activeArea: null
-    };
+   const savedLang = localStorage.getItem("kyotoSakuraGuideLang") || "jp";
+
+const state = {
+  lang: savedLang,
+  activeArea: null
+};
 
     const areaGrid = document.getElementById("areaGrid");
     const modal = document.getElementById("courseModal");
@@ -1195,7 +1197,23 @@
 
     function updateLanguage(nextLang) {
   state.lang = nextLang;
+  localStorage.setItem("kyotoSakuraGuideLang", nextLang);
+  document.documentElement.lang = nextLang;
 
+  document.querySelectorAll(".lang-btn").forEach((btn) => {
+    const btnLang = btn.dataset.lang || btn.dataset.langBtn;
+    const isCurrent = btnLang === nextLang;
+    btn.classList.toggle("is-active", isCurrent);
+    btn.classList.toggle("active", isCurrent);
+  });
+
+  renderStaticText();
+  renderAreas();
+
+  if (state.activeArea) {
+    openModal(state.activeArea.id);
+  }
+}
   document.querySelectorAll(".lang-btn").forEach((btn) => {
     const btnLang = btn.dataset.lang || btn.dataset.langBtn;
     const isCurrent = btnLang === nextLang;
