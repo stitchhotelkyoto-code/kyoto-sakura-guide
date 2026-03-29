@@ -1194,20 +1194,22 @@
     }
 
     function updateLanguage(nextLang) {
-      state.lang = nextLang;
+  state.lang = nextLang;
 
-      document.querySelectorAll(".lang-btn").forEach((btn) => {
-        const btnLang = btn.dataset.lang || btn.dataset.langBtn;
-        btn.classList.toggle("active", btnLang === nextLang);
-      });
+  document.querySelectorAll(".lang-btn").forEach((btn) => {
+    const btnLang = btn.dataset.lang || btn.dataset.langBtn;
+    const isCurrent = btnLang === nextLang;
+    btn.classList.toggle("is-active", isCurrent);
+    btn.classList.toggle("active", isCurrent);
+  });
 
-      renderStaticText();
-      renderAreas();
+  renderStaticText();
+  renderAreas();
 
-      if (state.activeArea) {
-        openModal(state.activeArea.id);
-      }
-    }
+  if (state.activeArea) {
+    openModal(state.activeArea.id);
+  }
+}
 
     document.querySelectorAll(".lang-btn").forEach((btn) => {
       btn.addEventListener("click", () => {
@@ -1226,18 +1228,7 @@
       }
     });
 
-    document.querySelectorAll('.lang-btn').forEach((btn) => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.lang-btn').forEach((b) => {
-      b.classList.remove('is-active');
-      b.classList.remove('active');
-    });
-
-    btn.classList.add('is-active');
-    btn.classList.add('active');
-  });
-});
-
+  
     renderStaticText();
     renderAreas();
   </script>
