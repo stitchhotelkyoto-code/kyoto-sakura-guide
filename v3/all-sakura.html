@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="./css/style.css" />
 
   <style>
-
+    /* only subpage widget nav tuning */
     .subpage-widget-nav {
       margin-top: 10px;
       margin-bottom: 18px;
@@ -27,27 +27,89 @@
       border-radius: 999px;
       background: rgba(255, 255, 255, 0.72);
       backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
     }
 
     .subpage-widget-card {
+      min-width: 0;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
       min-height: 54px;
       padding: 0 18px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.92);
       border: 1px solid #efd0dc;
-      font-weight: 800;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.92);
+      text-decoration: none;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 8px 18px rgba(35, 26, 47, 0.04);
+    }
+
+    .subpage-widget-card:hover {
+      transform: translateY(-1px);
+      border-color: #e7becf;
+      background: #fff7fa;
+      box-shadow: 0 12px 22px rgba(35, 26, 47, 0.08);
     }
 
     .subpage-widget-card.is-active {
       background: #f4dbe5;
+      border-color: #e7becf;
     }
 
+    .subpage-widget-icon {
+      flex: 0 0 auto;
+      font-size: 0.95rem;
+      line-height: 1;
+    }
 
+    .subpage-widget-text {
+      min-width: 0;
+      font-size: 0.95rem;
+      font-weight: 800;
+      line-height: 1;
+      white-space: nowrap;
+    }
 
+    @media (max-width: 900px) {
+      .subpage-widget-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        border-radius: 28px;
+      }
+
+      .subpage-widget-card {
+        min-height: 52px;
+        padding: 0 14px;
+      }
+
+      .subpage-widget-text {
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .subpage-widget-grid {
+        gap: 10px;
+        padding: 10px;
+      }
+
+      .subpage-widget-card {
+        min-height: 50px;
+        padding: 0 12px;
+        gap: 8px;
+      }
+
+      .subpage-widget-icon {
+        font-size: 0.9rem;
+      }
+
+      .subpage-widget-text {
+        font-size: 0.84rem;
+      }
+    }
+
+    /* page heading only */
     .page-heading {
       margin-top: 10px;
       margin-bottom: 28px;
@@ -58,22 +120,21 @@
       border: 1px solid #efd0dc;
       border-radius: 24px;
       background: linear-gradient(180deg, #fff 0%, #fff9fb 100%);
-      box-shadow: 0 10px 30px rgba(40,20,30,0.04);
+      box-shadow: 0 10px 30px rgba(40, 20, 30, 0.04);
     }
 
-    /* eyebrow = pill */
     .eyebrow {
       display: inline-block;
-      margin-bottom: 12px;
+      margin: 0 0 12px;
       padding: 6px 12px;
       border-radius: 999px;
-      background: rgba(216,140,169,0.12);
+      background: rgba(216, 140, 169, 0.12);
       color: #c26c8c;
       font-size: 12px;
       font-weight: 700;
       letter-spacing: 0.08em;
+      line-height: 1.2;
     }
-
 
     .page-heading h1 {
       margin: 0;
@@ -84,73 +145,80 @@
     }
 
     .page-desc {
-      margin-top: 12px;
+      margin: 12px 0 0;
+      max-width: 720px;
       font-size: 15px;
       line-height: 1.7;
       color: #6b5a60;
-      max-width: 720px;
     }
   </style>
 </head>
-
 <body data-all-page="sakura">
   <div class="page-shell">
-
-
     <header class="site-header">
       <div class="container site-header-inner">
         <a href="./index.html" class="site-logo">Kyoto Sakura Guide</a>
 
         <div class="header-right">
           <nav class="site-nav">
-            <a href="./index.html">Home</a>
-            <a href="./hotels/soraniwa.html">Soraniwa</a>
-            <a href="./hotels/bettei.html">Bettei</a>
-            <a href="./hotels/hiyori.html">Hiyori</a>
-            <a href="./hotels/stitch.html">STITCH</a>
+            <a href="./index.html" data-i18n="nav_home">Home</a>
+            <a href="./hotels/soraniwa.html" data-i18n="nav_soraniwa">Soraniwa</a>
+            <a href="./hotels/bettei.html" data-i18n="nav_bettei">Bettei</a>
+            <a href="./hotels/hiyori.html" data-i18n="nav_hiyori">Hiyori</a>
+            <a href="./hotels/stitch.html" data-i18n="nav_stitch">STITCH</a>
           </nav>
 
           <div class="lang-switcher">
-            <button class="lang-btn">JP</button>
-            <button class="lang-btn">EN</button>
-            <button class="lang-btn">KR</button>
+            <button class="lang-btn" type="button" data-lang="jp">JP</button>
+            <button class="lang-btn" type="button" data-lang="en">EN</button>
+            <button class="lang-btn" type="button" data-lang="kr">KR</button>
           </div>
         </div>
       </div>
     </header>
 
-
     <section class="subpage-widget-nav">
       <div class="container">
         <div class="subpage-widget-grid">
-          <a href="./all-sakura.html" class="subpage-widget-card is-active">🌸 Sakura</a>
-          <a href="./all-course.html" class="subpage-widget-card">🗺 Course</a>
-          <a href="./all-events.html" class="subpage-widget-card">🎎 Events</a>
-          <a href="./crowd-live.html" class="subpage-widget-card">📍 Crowd</a>
+          <a href="./all-sakura.html" class="subpage-widget-card is-active">
+            <span class="subpage-widget-icon">🌸</span>
+            <span class="subpage-widget-text" data-i18n="widget_sakura">Sakura Spots</span>
+          </a>
+
+          <a href="./all-course.html" class="subpage-widget-card">
+            <span class="subpage-widget-icon">🗺️</span>
+            <span class="subpage-widget-text" data-i18n="widget_courses">Travel Courses</span>
+          </a>
+
+          <a href="./all-events.html" class="subpage-widget-card">
+            <span class="subpage-widget-icon">🎎</span>
+            <span class="subpage-widget-text" data-i18n="widget_events">Events</span>
+          </a>
+
+          <a href="./crowd-live.html" class="subpage-widget-card">
+            <span class="subpage-widget-icon">📍</span>
+            <span class="subpage-widget-text" data-i18n="widget_crowd">Live Crowd</span>
+          </a>
         </div>
       </div>
     </section>
 
     <main>
-
-
       <section class="page-heading">
         <div class="container">
           <p class="eyebrow">SAKURA GUIDE</p>
-          <h1>Sakura Spots</h1>
+          <h1 data-i18n="widget_sakura">Sakura Spots</h1>
           <p class="page-desc">
             Discover the most beautiful cherry blossom locations across Kyoto.
           </p>
         </div>
       </section>
 
-
       <section class="all-page-content">
         <div class="container">
           <div data-all-content></div>
         </div>
       </section>
-
     </main>
 
     <footer class="site-footer">
@@ -158,5 +226,7 @@
     </footer>
   </div>
 
+  <script src="./js/hotel-data.js"></script>
+  <script src="./js/main.js"></script>
 </body>
 </html>
