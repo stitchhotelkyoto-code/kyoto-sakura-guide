@@ -599,7 +599,7 @@
   <div class="page-shell">
    <header class="site-header">
   <div class="container site-header-inner">
-    <a href="./index.html" class="site-logo">Kyoto Sakura Guide</a>
+    <a href="./index.html" class="site-logo site-brand">Kyoto Sakura Guide</a>
 
     <div class="header-right">
       <nav class="site-nav">
@@ -1225,6 +1225,18 @@
         closeModal();
       }
     });
+
+    document.querySelectorAll('.lang-btn').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.lang-btn').forEach((b) => {
+      b.classList.remove('is-active');
+      b.classList.remove('active');
+    });
+
+    btn.classList.add('is-active');
+    btn.classList.add('active');
+  });
+});
 
     renderStaticText();
     renderAreas();
