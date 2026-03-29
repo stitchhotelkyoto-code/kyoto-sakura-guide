@@ -57,7 +57,6 @@
       font: inherit;
     }
 
-
     .subpage-widget-nav {
       margin-top: 10px;
       margin-bottom: 18px;
@@ -286,7 +285,7 @@
       align-items: center;
       justify-content: center;
       padding: 28px;
-      z-index: 100;
+      z-index: 3000;
     }
 
     .modal.is-open {
@@ -499,6 +498,11 @@
       overflow: hidden;
     }
 
+    body.modal-open .site-header,
+    body.modal-open .subpage-widget-nav {
+      display: none !important;
+    }
+
     @media (max-width: 980px) {
       .site-header {
         position: static;
@@ -590,24 +594,15 @@
       .subpage-widget-text {
         font-size: 0.84rem;
       }
-      /* ===== modal 위에 헤더 가리기 ===== */
-.modal {
-  z-index: 3000;
-}
+    }
 
-body.modal-open .site-header,
-body.modal-open .subpage-widget-nav {
- display: none !important;
-}
-
-/* ===== 헤더 로고 크기 통일 ===== */
-.site-logo {
-  font-size: 1rem !important;
-  font-weight: 800 !important;
-  letter-spacing: 0.02em !important;
-  line-height: 1 !important;
-  white-space: nowrap;
-}
+    .site-logo {
+      font-size: 1rem !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.02em !important;
+      line-height: 1 !important;
+      white-space: nowrap;
+    }
   </style>
 </head>
 <body data-all-page="courses">
@@ -1056,22 +1051,22 @@ body.modal-open .subpage-widget-nav {
     ];
 
     function normalizeLang(raw) {
-  if (raw === "ja" || raw === "jp") return "jp";
-  if (raw === "en") return "en";
-  if (raw === "ko" || raw === "kr") return "kr";
-  return "jp";
-}
+      if (raw === "ja" || raw === "jp") return "jp";
+      if (raw === "en") return "en";
+      if (raw === "ko" || raw === "kr") return "kr";
+      return "jp";
+    }
 
-const savedLang = normalizeLang(
-  localStorage.getItem("siteLanguage") ||
-  localStorage.getItem("kyotoSakuraGuideLang") ||
-  "jp"
-);
+    const savedLang = normalizeLang(
+      localStorage.getItem("siteLanguage") ||
+      localStorage.getItem("kyotoSakuraGuideLang") ||
+      "jp"
+    );
 
-const state = {
-  lang: savedLang,
-  activeArea: null
-};
+    const state = {
+      lang: savedLang,
+      activeArea: null
+    };
 
     const areaGrid = document.getElementById("areaGrid");
     const modal = document.getElementById("courseModal");
@@ -1221,34 +1216,33 @@ const state = {
     }
 
     function updateLanguage(nextLang) {
-  const normalized = normalizeLang(nextLang);
-  state.lang = normalized;
+      const normalized = normalizeLang(nextLang);
+      state.lang = normalized;
 
-  localStorage.setItem("kyotoSakuraGuideLang", normalized);
-  localStorage.setItem(
-    "siteLanguage",
-    normalized === "jp" ? "ja" :
-    normalized === "en" ? "en" :
-    "ko"
-  );
+      localStorage.setItem("kyotoSakuraGuideLang", normalized);
+      localStorage.setItem(
+        "siteLanguage",
+        normalized === "jp" ? "ja" :
+        normalized === "en" ? "en" :
+        "ko"
+      );
 
-  document.documentElement.lang = normalized === "jp" ? "ja" : normalized;
+      document.documentElement.lang = normalized === "jp" ? "ja" : normalized;
 
-  document.querySelectorAll(".lang-btn").forEach((btn) => {
-    const btnLang = normalizeLang(btn.dataset.lang || btn.dataset.langBtn);
-    const isCurrent = btnLang === normalized;
-    btn.classList.toggle("is-active", isCurrent);
-    btn.classList.toggle("active", isCurrent);
-  });
+      document.querySelectorAll(".lang-btn").forEach((btn) => {
+        const btnLang = normalizeLang(btn.dataset.lang || btn.dataset.langBtn);
+        const isCurrent = btnLang === normalized;
+        btn.classList.toggle("is-active", isCurrent);
+        btn.classList.toggle("active", isCurrent);
+      });
 
-  renderStaticText();
-  renderAreas();
+      renderStaticText();
+      renderAreas();
 
-  if (state.activeArea) {
-    openModal(state.activeArea.id);
-  }
+      if (state.activeArea) {
+        openModal(state.activeArea.id);
       }
-
+    }
 
     document.querySelectorAll(".lang-btn").forEach((btn) => {
       btn.addEventListener("click", () => {
