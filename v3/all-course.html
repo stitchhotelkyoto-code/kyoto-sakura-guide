@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="jp">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -123,6 +123,8 @@
       color: var(--text);
     }
 
+    /* 사쿠라 상단바 구조 맞춤 */
+    .lang-switcher,
     .lang-switch {
       display: flex;
       align-items: center;
@@ -147,67 +149,72 @@
       color: var(--text);
     }
 
-    .quick-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      padding: 10px;
+    /* 사쿠라 페이지와 동일한 subpage widget 구조 */
+    .subpage-widget-nav {
+      margin-top: 10px;
       margin-bottom: 18px;
-      background: rgba(255, 255, 255, 0.78);
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      box-shadow: 0 14px 30px rgba(56, 37, 66, 0.05);
-      backdrop-filter: blur(10px);
     }
 
-.subpage-widget-nav {
-  margin-bottom: 18px;
-}
+    .subpage-widget-nav .container {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
 
-.subpage-widget-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: 10px;
-  background: rgba(255, 255, 255, 0.78);
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  box-shadow: 0 14px 30px rgba(56, 37, 66, 0.05);
-  backdrop-filter: blur(10px);
-}
+    .subpage-widget-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      padding: 12px;
+      border: 1px solid #efd0dc;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 14px 30px rgba(56, 37, 66, 0.05);
+    }
 
-.subpage-widget-card {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  min-height: 44px;
-  padding: 0 18px;
-  border-radius: 999px;
-  border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.9);
-  color: var(--text);
-  font-size: 0.88rem;
-  font-weight: 800;
-  transition: all 0.2s ease;
-  white-space: nowrap;
-}
+    .subpage-widget-card {
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 54px;
+      padding: 0 18px;
+      border: 1px solid #efd0dc;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.92);
+      text-decoration: none;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 8px 18px rgba(35, 26, 47, 0.04);
+    }
 
-.subpage-widget-card:hover,
-.subpage-widget-card.is-active {
-  background: var(--pink);
-  border-color: var(--line-strong);
-}
+    .subpage-widget-card:hover {
+      transform: translateY(-1px);
+      border-color: #e7becf;
+      background: #fff7fa;
+      box-shadow: 0 12px 22px rgba(35, 26, 47, 0.08);
+    }
 
-.subpage-widget-icon {
-  font-size: 1rem;
-  line-height: 1;
-}
+    .subpage-widget-card.is-active {
+      background: #f4dbe5;
+      border-color: #e7becf;
+    }
 
-.subpage-widget-text {
-  line-height: 1;
-}
-    
+    .subpage-widget-icon {
+      flex: 0 0 auto;
+      font-size: 0.95rem;
+      line-height: 1;
+    }
+
+    .subpage-widget-text {
+      min-width: 0;
+      font-size: 0.95rem;
+      font-weight: 800;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
     .hero-card {
       padding: 34px 32px;
       margin-bottom: 22px;
@@ -610,6 +617,22 @@
       }
     }
 
+    @media (max-width: 900px) {
+      .subpage-widget-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        border-radius: 28px;
+      }
+
+      .subpage-widget-card {
+        min-height: 52px;
+        padding: 0 14px;
+      }
+
+      .subpage-widget-text {
+        font-size: 0.9rem;
+      }
+    }
+
     @media (max-width: 720px) {
       .page-shell {
         padding: 16px 14px 42px;
@@ -623,17 +646,6 @@
         padding: 16px 18px;
         border-radius: 20px;
       }
-
-     .subpage-widget-grid {
-  border-radius: 24px;
-  padding: 10px;
-}
-
-.subpage-widget-card {
-  flex: 1 1 calc(50% - 10px);
-  min-width: 0;
-  padding: 12px 10px;
-}
 
       .hero-card {
         padding: 24px 20px;
@@ -667,9 +679,30 @@
         width: 100%;
       }
     }
+
+    @media (max-width: 640px) {
+      .subpage-widget-grid {
+        gap: 10px;
+        padding: 10px;
+      }
+
+      .subpage-widget-card {
+        min-height: 50px;
+        padding: 0 12px;
+        gap: 8px;
+      }
+
+      .subpage-widget-icon {
+        font-size: 0.9rem;
+      }
+
+      .subpage-widget-text {
+        font-size: 0.84rem;
+      }
+    }
   </style>
 </head>
-<body>
+<body data-all-page="courses">
   <div class="page-shell">
     <header class="site-header">
       <div class="container site-header-inner">
@@ -684,55 +717,42 @@
             <a href="./hotels/stitch.html" data-i18n="nav_stitch">STITCH</a>
           </nav>
 
-          <div class="lang-switch" aria-label="Language Switch">
-            <button class="lang-btn active" type="button" data-lang-btn="jp">JP</button>
-            <button class="lang-btn" type="button" data-lang-btn="en">EN</button>
-            <button class="lang-btn" type="button" data-lang-btn="kr">KR</button>
+          <div class="lang-switcher" aria-label="Language Switch">
+            <button class="lang-btn active" type="button" data-lang="jp" data-lang-btn="jp">JP</button>
+            <button class="lang-btn" type="button" data-lang="en" data-lang-btn="en">EN</button>
+            <button class="lang-btn" type="button" data-lang="kr" data-lang-btn="kr">KR</button>
           </div>
         </div>
       </div>
     </header>
 
-<div class="container">
-  <section class="subpage-widget-nav">
-    <div class="subpage-widget-grid">
-      <a href="./all-sakura.html" class="subpage-widget-card">
-        <span class="subpage-widget-icon">🌸</span>
-        <span class="subpage-widget-text">Sakura Spots</span>
-      </a>
+    <section class="subpage-widget-nav">
+      <div class="container">
+        <div class="subpage-widget-grid">
+          <a href="./all-sakura.html" class="subpage-widget-card">
+            <span class="subpage-widget-icon">🌸</span>
+            <span class="subpage-widget-text" data-i18n="widget_sakura">Sakura Spots</span>
+          </a>
 
-      <a href="./all-course.html" class="subpage-widget-card is-active">
-        <span class="subpage-widget-icon">🗺️</span>
-        <span class="subpage-widget-text">Travel Courses</span>
-      </a>
+          <a href="./all-course.html" class="subpage-widget-card is-active">
+            <span class="subpage-widget-icon">🗺️</span>
+            <span class="subpage-widget-text" data-i18n="widget_courses">Travel Courses</span>
+          </a>
 
-      <a href="./all-events.html" class="subpage-widget-card">
-        <span class="subpage-widget-icon">🎎</span>
-        <span class="subpage-widget-text">Events</span>
-      </a>
+          <a href="./all-events.html" class="subpage-widget-card">
+            <span class="subpage-widget-icon">🎎</span>
+            <span class="subpage-widget-text" data-i18n="widget_events">Events</span>
+          </a>
 
-      <a href="./crowd-live.html" class="subpage-widget-card">
-        <span class="subpage-widget-icon">📍</span>
-        <span class="subpage-widget-text">Live Crowd</span>
-      </a>
-    </div>
-  </section>
+          <a href="./crowd-live.html" class="subpage-widget-card">
+            <span class="subpage-widget-icon">📍</span>
+            <span class="subpage-widget-text" data-i18n="widget_crowd">Live Crowd</span>
+          </a>
+        </div>
+      </div>
+    </section>
 
-  <section class="hero-card">
-    <div class="hero-kicker" data-i18n="hero_kicker">Kyoto Route Guide</div>
-    <h1 class="hero-title" data-i18n="hero_title">Google Maps Course</h1>
-    <p class="hero-desc" data-i18n="hero_desc">
-      Choose an area and open three easy route ideas. Each course includes a direct Google Maps course link for a smooth walk.
-    </p>
-  </section>
-
-  <section class="course-grid" id="areaGrid"></section>
-
-  <footer class="site-footer">
-    Kyoto Sakura Guide © Spring Stay Project
-  </footer>
-</div>
-
+    <div class="container">
       <section class="hero-card">
         <div class="hero-kicker" data-i18n="hero_kicker">Kyoto Route Guide</div>
         <h1 class="hero-title" data-i18n="hero_title">Google Maps Course</h1>
@@ -774,10 +794,10 @@
         nav_bettei: "Bettei",
         nav_hiyori: "Hiyori",
         nav_stitch: "STITCH",
-        quick_spots: "Sakura Spots",
-        quick_courses: "Google Maps Course",
-        quick_events: "Events",
-        quick_crowd: "Live Crowd",
+        widget_sakura: "Sakura Spots",
+        widget_courses: "Travel Courses",
+        widget_events: "Events",
+        widget_crowd: "Live Crowd",
         hero_kicker: "Kyoto Route Guide",
         hero_title: "Google Maps Course",
         hero_desc: "エリアを選ぶと、すぐ使いやすい3つの散策コースを開けます。各コースには Google Maps のルートリンクを付けています。",
@@ -797,10 +817,10 @@
         nav_bettei: "Bettei",
         nav_hiyori: "Hiyori",
         nav_stitch: "STITCH",
-        quick_spots: "Sakura Spots",
-        quick_courses: "Google Maps Course",
-        quick_events: "Events",
-        quick_crowd: "Live Crowd",
+        widget_sakura: "Sakura Spots",
+        widget_courses: "Travel Courses",
+        widget_events: "Events",
+        widget_crowd: "Live Crowd",
         hero_kicker: "Kyoto Route Guide",
         hero_title: "Google Maps Course",
         hero_desc: "Choose an area and open three easy route ideas. Each course includes a direct Google Maps course link for a smooth walk.",
@@ -820,10 +840,10 @@
         nav_bettei: "Bettei",
         nav_hiyori: "Hiyori",
         nav_stitch: "STITCH",
-        quick_spots: "Sakura Spots",
-        quick_courses: "Google Maps Course",
-        quick_events: "Events",
-        quick_crowd: "Live Crowd",
+        widget_sakura: "Sakura Spots",
+        widget_courses: "Travel Courses",
+        widget_events: "Events",
+        widget_crowd: "Live Crowd",
         hero_kicker: "Kyoto Route Guide",
         hero_title: "Google Maps Course",
         hero_desc: "지역을 고르면 바로 쓰기 좋은 3개의 산책 코스를 열 수 있습니다. 각 코스에는 Google Maps 루트 링크를 넣어두었습니다.",
@@ -843,16 +863,8 @@
       {
         id: "arashiyama",
         index: "01",
-        region: {
-          jp: "West Kyoto",
-          en: "West Kyoto",
-          kr: "서쪽 교토"
-        },
-        title: {
-          jp: "Arashiyama",
-          en: "Arashiyama",
-          kr: "아라시야마"
-        },
+        region: { jp: "West Kyoto", en: "West Kyoto", kr: "서쪽 교토" },
+        title: { jp: "Arashiyama", en: "Arashiyama", kr: "아라시야마" },
         description: {
           jp: "自然・川辺・静かな休憩をつなげやすい、やわらかな西側ルートです。",
           en: "A soft west-side area for river views, greenery, and an easy relaxed flow.",
@@ -863,21 +875,13 @@
         routes: [
           {
             tag: { jp: "Morning", en: "Morning", kr: "Morning" },
-            title: {
-              jp: "Bamboo Morning Walk",
-              en: "Bamboo Morning Walk",
-              kr: "Bamboo Morning Walk"
-            },
+            title: { jp: "Bamboo Morning Walk", en: "Bamboo Morning Walk", kr: "Bamboo Morning Walk" },
             description: {
               jp: "朝の嵐山らしさを感じやすい定番の流れです。",
               en: "A classic early route for a fresh Arashiyama morning.",
               kr: "아침의 아라시야마 분위기를 가장 편하게 느끼기 좋은 정석 코스입니다."
             },
-            points: [
-              "Togetsukyo Bridge",
-              "Bamboo Grove",
-              "Tenryuji Temple"
-            ],
+            points: ["Togetsukyo Bridge", "Bamboo Grove", "Tenryuji Temple"],
             duration: { jp: "約2〜2.5時間", en: "About 2–2.5 hours", kr: "약 2~2.5시간" },
             bestFor: { jp: "朝散歩・初訪問", en: "First visit / morning walk", kr: "첫 방문 / 아침 산책" },
             style: { jp: "自然・定番", en: "Nature / classic", kr: "자연 / 정석" },
@@ -885,21 +889,13 @@
           },
           {
             tag: { jp: "River", en: "River", kr: "River" },
-            title: {
-              jp: "Riverside Chill Route",
-              en: "Riverside Chill Route",
-              kr: "Riverside Chill Route"
-            },
+            title: { jp: "Riverside Chill Route", en: "Riverside Chill Route", kr: "Riverside Chill Route" },
             description: {
               jp: "景色と休憩を中心に、ゆっくり回りたい日に向いた流れです。",
               en: "A slower route focused on scenery and a quiet pause.",
               kr: "풍경과 쉬는 시간을 중심으로 느긋하게 걷고 싶은 날에 잘 맞는 코스입니다."
             },
-            points: [
-              "Togetsukyo Bridge",
-              "Katsura River Walk",
-              "Arashiyama Park"
-            ],
+            points: ["Togetsukyo Bridge", "Katsura River Walk", "Arashiyama Park"],
             duration: { jp: "約1.5〜2時間", en: "About 1.5–2 hours", kr: "약 1.5~2시간" },
             bestFor: { jp: "ゆったり滞在", en: "Relaxed pace", kr: "여유로운 일정" },
             style: { jp: "景色・休憩", en: "Scenic / calm", kr: "풍경 / 휴식" },
@@ -907,21 +903,13 @@
           },
           {
             tag: { jp: "Photo", en: "Photo", kr: "Photo" },
-            title: {
-              jp: "Scenic Photo Route",
-              en: "Scenic Photo Route",
-              kr: "Scenic Photo Route"
-            },
+            title: { jp: "Scenic Photo Route", en: "Scenic Photo Route", kr: "Scenic Photo Route" },
             description: {
               jp: "写真と空気感を重視した、短めで使いやすい流れです。",
               en: "A photo-friendly route with a lighter pace.",
               kr: "사진 포인트와 분위기를 중심으로 짧게 돌기 좋은 코스입니다."
             },
-            points: [
-              "Kimono Forest",
-              "Bamboo Grove",
-              "Togetsukyo Bridge"
-            ],
+            points: ["Kimono Forest", "Bamboo Grove", "Togetsukyo Bridge"],
             duration: { jp: "約1.5時間", en: "About 1.5 hours", kr: "약 1.5시간" },
             bestFor: { jp: "写真・短時間", en: "Photos / short time", kr: "사진 / 짧은 시간" },
             style: { jp: "映え・軽め", en: "Photo / light", kr: "사진 / 가벼움" },
@@ -932,16 +920,8 @@
       {
         id: "gion",
         index: "02",
-        region: {
-          jp: "East Kyoto",
-          en: "East Kyoto",
-          kr: "동쪽 교토"
-        },
-        title: {
-          jp: "Gion",
-          en: "Gion",
-          kr: "기온"
-        },
+        region: { jp: "East Kyoto", en: "East Kyoto", kr: "동쪽 교토" },
+        title: { jp: "Gion", en: "Gion", kr: "기온" },
         description: {
           jp: "夜の雰囲気や京都らしい街並みを楽しみやすい東側エリアです。",
           en: "An east-side area made for atmosphere, lantern streets, and evening walks.",
@@ -952,21 +932,13 @@
         routes: [
           {
             tag: { jp: "Night", en: "Night", kr: "Night" },
-            title: {
-              jp: "Classic Night Walk",
-              en: "Classic Night Walk",
-              kr: "Classic Night Walk"
-            },
+            title: { jp: "Classic Night Walk", en: "Classic Night Walk", kr: "Classic Night Walk" },
             description: {
               jp: "初めてでも使いやすい、王道の夜散策コースです。",
               en: "The standard evening walk for a first Gion experience.",
               kr: "처음 가도 무리 없이 즐기기 좋은 대표적인 기온 야간 산책 코스입니다."
             },
-            points: [
-              "Hanamikoji Street",
-              "Yasaka Shrine",
-              "Maruyama Park"
-            ],
+            points: ["Hanamikoji Street", "Yasaka Shrine", "Maruyama Park"],
             duration: { jp: "約1.5〜2時間", en: "About 1.5–2 hours", kr: "약 1.5~2시간" },
             bestFor: { jp: "夜散歩・初訪問", en: "Night walk / first visit", kr: "야간 산책 / 첫 방문" },
             style: { jp: "王道・夜景", en: "Classic / atmospheric", kr: "정석 / 야경" },
@@ -974,21 +946,13 @@
           },
           {
             tag: { jp: "Quiet", en: "Quiet", kr: "Quiet" },
-            title: {
-              jp: "Hidden Alley Route",
-              en: "Hidden Alley Route",
-              kr: "Hidden Alley Route"
-            },
+            title: { jp: "Hidden Alley Route", en: "Hidden Alley Route", kr: "Hidden Alley Route" },
             description: {
               jp: "人混みを少し避けながら、静かな空気を味わう流れです。",
               en: "A softer route through quieter alleys and riverside corners.",
               kr: "조금 더 조용한 골목과 물가 분위기를 느끼고 싶을 때 좋은 코스입니다."
             },
-            points: [
-              "Shirakawa Lane",
-              "Tatsumi Bridge",
-              "Gion Side Streets"
-            ],
+            points: ["Shirakawa Lane", "Tatsumi Bridge", "Gion Side Streets"],
             duration: { jp: "約1時間", en: "About 1 hour", kr: "약 1시간" },
             bestFor: { jp: "静かな時間", en: "Quiet atmosphere", kr: "조용한 분위기" },
             style: { jp: "小道・落ち着き", en: "Alley / calm", kr: "골목 / 차분함" },
@@ -996,21 +960,13 @@
           },
           {
             tag: { jp: "Evening", en: "Evening", kr: "Evening" },
-            title: {
-              jp: "Evening Culture Route",
-              en: "Evening Culture Route",
-              kr: "Evening Culture Route"
-            },
+            title: { jp: "Evening Culture Route", en: "Evening Culture Route", kr: "Evening Culture Route" },
             description: {
               jp: "京都らしい街並みをゆったり感じやすい夕方寄りの流れです。",
               en: "An easy evening route with a traditional Kyoto mood.",
               kr: "교토다운 거리 풍경을 천천히 즐기기 좋은 저녁 코스입니다."
             },
-            points: [
-              "Kenninji Temple Area",
-              "Hanamikoji Street",
-              "Yasaka Shrine"
-            ],
+            points: ["Kenninji Temple Area", "Hanamikoji Street", "Yasaka Shrine"],
             duration: { jp: "約1.5時間", en: "About 1.5 hours", kr: "약 1.5시간" },
             bestFor: { jp: "夕方の散策", en: "Late afternoon", kr: "해질 무렵 산책" },
             style: { jp: "文化・街並み", en: "Traditional / easy", kr: "전통 / 거리감성" },
@@ -1021,16 +977,8 @@
       {
         id: "fushimi",
         index: "03",
-        region: {
-          jp: "South Kyoto",
-          en: "South Kyoto",
-          kr: "남쪽 교토"
-        },
-        title: {
-          jp: "Fushimi",
-          en: "Fushimi",
-          kr: "후시미"
-        },
+        region: { jp: "South Kyoto", en: "South Kyoto", kr: "남쪽 교토" },
+        title: { jp: "Fushimi", en: "Fushimi", kr: "후시미" },
         description: {
           jp: "鳥居・歩きやすい参道・少しローカルな空気感をつなげやすい南側コースです。",
           en: "A south-side flow for torii gates, walking routes, and a local Kyoto feel.",
@@ -1041,21 +989,13 @@
         routes: [
           {
             tag: { jp: "Classic", en: "Classic", kr: "Classic" },
-            title: {
-              jp: "Torii Gate Hike",
-              en: "Torii Gate Hike",
-              kr: "Torii Gate Hike"
-            },
+            title: { jp: "Torii Gate Hike", en: "Torii Gate Hike", kr: "Torii Gate Hike" },
             description: {
               jp: "伏見稲荷らしさをしっかり感じたい日に向く定番ルートです。",
               en: "The classic route for experiencing the iconic torii path.",
               kr: "후시미 이나리의 상징적인 분위기를 제대로 느끼고 싶을 때 좋은 코스입니다."
             },
-            points: [
-              "Fushimi Inari Taisha",
-              "Senbon Torii",
-              "Yotsutsuji Viewpoint"
-            ],
+            points: ["Fushimi Inari Taisha", "Senbon Torii", "Yotsutsuji Viewpoint"],
             duration: { jp: "約2〜3時間", en: "About 2–3 hours", kr: "약 2~3시간" },
             bestFor: { jp: "定番・しっかり歩く", en: "Classic / active walk", kr: "정석 / 조금 걷기" },
             style: { jp: "鳥居・坂道", en: "Iconic / active", kr: "토리이 / 활동적" },
@@ -1063,21 +1003,13 @@
           },
           {
             tag: { jp: "Easy", en: "Easy", kr: "Easy" },
-            title: {
-              jp: "Easy Walk + Street",
-              en: "Easy Walk + Street",
-              kr: "Easy Walk + Street"
-            },
+            title: { jp: "Easy Walk + Street", en: "Easy Walk + Street", kr: "Easy Walk + Street" },
             description: {
               jp: "山の上まで行かず、入口周辺を軽く楽しむ流れです。",
               en: "A lighter version focused on the lower route and nearby streets.",
               kr: "정상까지 가지 않고 입구 주변 분위기를 가볍게 즐기기 좋은 코스입니다."
             },
-            points: [
-              "Fushimi Inari Entrance",
-              "Senbon Torii",
-              "Omotesando Street"
-            ],
+            points: ["Fushimi Inari Entrance", "Senbon Torii", "Omotesando Street"],
             duration: { jp: "約1〜1.5時間", en: "About 1–1.5 hours", kr: "약 1~1.5시간" },
             bestFor: { jp: "短時間・軽め", en: "Short visit", kr: "짧은 시간 / 가볍게" },
             style: { jp: "軽め・歩きやすい", en: "Light / easy", kr: "가벼움 / 쉬운 동선" },
@@ -1085,21 +1017,13 @@
           },
           {
             tag: { jp: "Local", en: "Local", kr: "Local" },
-            title: {
-              jp: "Sake & Local Route",
-              en: "Sake & Local Route",
-              kr: "Sake & Local Route"
-            },
+            title: { jp: "Sake & Local Route", en: "Sake & Local Route", kr: "Sake & Local Route" },
             description: {
               jp: "少し足をのばして、伏見らしいローカル感を味わう流れです。",
               en: "A slower route with a more local Fushimi character.",
               kr: "조금 더 로컬한 후시미의 분위기를 느끼고 싶을 때 어울리는 코스입니다."
             },
-            points: [
-              "Fushimi Sake District",
-              "Teradaya Area",
-              "Canal Walk"
-            ],
+            points: ["Fushimi Sake District", "Teradaya Area", "Canal Walk"],
             duration: { jp: "約2時間", en: "About 2 hours", kr: "약 2시간" },
             bestFor: { jp: "再訪・ローカル感", en: "Repeat visit / local mood", kr: "재방문 / 로컬 무드" },
             style: { jp: "町歩き・酒蔵", en: "Local / canal", kr: "동네산책 / 사케거리" },
@@ -1110,16 +1034,8 @@
       {
         id: "kawaramachi",
         index: "04",
-        region: {
-          jp: "Central Kyoto",
-          en: "Central Kyoto",
-          kr: "중앙 교토"
-        },
-        title: {
-          jp: "Kawaramachi",
-          en: "Kawaramachi",
-          kr: "가와라마치"
-        },
+        region: { jp: "Central Kyoto", en: "Central Kyoto", kr: "중앙 교토" },
+        title: { jp: "Kawaramachi", en: "Kawaramachi", kr: "가와라마치" },
         description: {
           jp: "買い物・川沿い・動きやすさを一度にまとめやすい中心部ルートです。",
           en: "A central Kyoto area that blends markets, shopping, and river walks.",
@@ -1130,21 +1046,13 @@
         routes: [
           {
             tag: { jp: "Market", en: "Market", kr: "Market" },
-            title: {
-              jp: "Market & Food Walk",
-              en: "Market & Food Walk",
-              kr: "Market & Food Walk"
-            },
+            title: { jp: "Market & Food Walk", en: "Market & Food Walk", kr: "Market & Food Walk" },
             description: {
               jp: "にぎやかな京都中心部を気軽に楽しみやすい流れです。",
               en: "The easiest central route for market energy and city movement.",
               kr: "활기 있는 교토 중심가를 가장 쉽게 즐기기 좋은 코스입니다."
             },
-            points: [
-              "Nishiki Market",
-              "Teramachi Street",
-              "Shinkyogoku"
-            ],
+            points: ["Nishiki Market", "Teramachi Street", "Shinkyogoku"],
             duration: { jp: "約1.5〜2時間", en: "About 1.5–2 hours", kr: "약 1.5~2시간" },
             bestFor: { jp: "初日・街歩き", en: "City walk / first day", kr: "첫날 / 시내 산책" },
             style: { jp: "にぎやか・中心地", en: "Busy / central", kr: "활기 / 중심가" },
@@ -1152,21 +1060,13 @@
           },
           {
             tag: { jp: "River", en: "River", kr: "River" },
-            title: {
-              jp: "Kamogawa Chill Route",
-              en: "Kamogawa Chill Route",
-              kr: "Kamogawa Chill Route"
-            },
+            title: { jp: "Kamogawa Chill Route", en: "Kamogawa Chill Route", kr: "Kamogawa Chill Route" },
             description: {
               jp: "買い物の合間に景色と休憩を入れやすい流れです。",
               en: "A softer riverside route for a calmer city break.",
               kr: "쇼핑 사이에 풍경과 휴식을 넣기 좋은 강변 중심 코스입니다."
             },
-            points: [
-              "Pontocho Area",
-              "Kamogawa Riverside",
-              "Shijo Bridge"
-            ],
+            points: ["Pontocho Area", "Kamogawa Riverside", "Shijo Bridge"],
             duration: { jp: "約1時間", en: "About 1 hour", kr: "약 1시간" },
             bestFor: { jp: "休憩・夕方", en: "Break / sunset", kr: "휴식 / 저녁" },
             style: { jp: "川辺・やわらかい", en: "Riverside / calm", kr: "강변 / 여유" },
@@ -1174,21 +1074,13 @@
           },
           {
             tag: { jp: "Shop", en: "Shop", kr: "Shop" },
-            title: {
-              jp: "Shopping + Café Route",
-              en: "Shopping + Café Route",
-              kr: "Shopping + Café Route"
-            },
+            title: { jp: "Shopping + Café Route", en: "Shopping + Café Route", kr: "Shopping + Café Route" },
             description: {
               jp: "買い物を中心に、無理なく休憩を挟みやすい定番の流れです。",
               en: "A balanced route with easy shopping and café time.",
               kr: "쇼핑 중심으로 움직이면서 쉬는 타이밍도 넣기 좋은 기본 코스입니다."
             },
-            points: [
-              "Kawaramachi Shopping Area",
-              "BAL / Department Stores",
-              "Cafe Break Zone"
-            ],
+            points: ["Kawaramachi Shopping Area", "BAL / Department Stores", "Cafe Break Zone"],
             duration: { jp: "約2時間", en: "About 2 hours", kr: "약 2시간" },
             bestFor: { jp: "ショッピング", en: "Shopping day", kr: "쇼핑 일정" },
             style: { jp: "街中・気軽", en: "Urban / easy", kr: "도심 / 편안함" },
@@ -1199,16 +1091,8 @@
       {
         id: "kiyomizu",
         index: "05",
-        region: {
-          jp: "Higashiyama",
-          en: "Higashiyama",
-          kr: "히가시야마"
-        },
-        title: {
-          jp: "Kiyomizu",
-          en: "Kiyomizu",
-          kr: "기요미즈"
-        },
+        region: { jp: "Higashiyama", en: "Higashiyama", kr: "히가시야마" },
+        title: { jp: "Kiyomizu", en: "Kiyomizu", kr: "기요미즈" },
         description: {
           jp: "京都らしい坂道・寺社・写真映えをまとめやすい定番エリアです。",
           en: "A classic Kyoto area for temple views, slopes, and photogenic streets.",
@@ -1219,21 +1103,13 @@
         routes: [
           {
             tag: { jp: "Classic", en: "Classic", kr: "Classic" },
-            title: {
-              jp: "Classic Temple Route",
-              en: "Classic Temple Route",
-              kr: "Classic Temple Route"
-            },
+            title: { jp: "Classic Temple Route", en: "Classic Temple Route", kr: "Classic Temple Route" },
             description: {
               jp: "初めての東山で外しにくい王道コースです。",
               en: "The most classic Kiyomizu route for a first visit.",
               kr: "히가시야마를 처음 볼 때 가장 무난하고 만족도가 높은 정석 코스입니다."
             },
-            points: [
-              "Kiyomizu-dera",
-              "Sannenzaka",
-              "Ninenzaka"
-            ],
+            points: ["Kiyomizu-dera", "Sannenzaka", "Ninenzaka"],
             duration: { jp: "約2時間", en: "About 2 hours", kr: "약 2시간" },
             bestFor: { jp: "初訪問・定番", en: "First visit / classic", kr: "첫 방문 / 정석" },
             style: { jp: "寺社・京都感", en: "Temple / Kyoto mood", kr: "사찰 / 교토감성" },
@@ -1241,21 +1117,13 @@
           },
           {
             tag: { jp: "Morning", en: "Morning", kr: "Morning" },
-            title: {
-              jp: "Quiet Morning Walk",
-              en: "Quiet Morning Walk",
-              kr: "Quiet Morning Walk"
-            },
+            title: { jp: "Quiet Morning Walk", en: "Quiet Morning Walk", kr: "Quiet Morning Walk" },
             description: {
               jp: "混み合う前に、落ち着いた雰囲気で回りたい日に向きます。",
               en: "A quieter route before the area gets busier.",
               kr: "붐비기 전에 차분한 분위기로 걷고 싶을 때 좋은 아침 코스입니다."
             },
-            points: [
-              "Kiyomizu-dera",
-              "Yasaka Pagoda",
-              "Ninenzaka"
-            ],
+            points: ["Kiyomizu-dera", "Yasaka Pagoda", "Ninenzaka"],
             duration: { jp: "約1.5時間", en: "About 1.5 hours", kr: "약 1.5시간" },
             bestFor: { jp: "朝・静かめ", en: "Morning / quiet", kr: "아침 / 한적함" },
             style: { jp: "静けさ・写真", en: "Quiet / photogenic", kr: "조용함 / 사진" },
@@ -1263,264 +1131,163 @@
           },
           {
             tag: { jp: "Sunset", en: "Sunset", kr: "Sunset" },
-            title: {
-              jp: "Sunset Kyoto Route",
-              en: "Sunset Kyoto Route",
-              kr: "Sunset Kyoto Route"
-            },
+            title: { jp: "Sunset Kyoto Route", en: "Sunset Kyoto Route", kr: "Sunset Kyoto Route" },
             description: {
               jp: "夕方の光と街並みをやわらかく楽しみたい時におすすめです。",
               en: "A gentle route for late light and soft city views.",
               kr: "노을빛과 골목 분위기를 함께 즐기고 싶을 때 어울리는 코스입니다."
             },
-            points: [
-              "Yasaka Pagoda",
-              "Sannenzaka",
-              "Kiyomizu Area Viewpoints"
-            ],
+            points: ["Yasaka Pagoda", "Sannenzaka", "Kiyomizu Area Viewpoints"],
             duration: { jp: "約1〜1.5時間", en: "About 1–1.5 hours", kr: "약 1~1.5시간" },
             bestFor: { jp: "夕方・写真", en: "Sunset / photos", kr: "노을 / 사진" },
             style: { jp: "夕景・散策", en: "Sunset / easy", kr: "노을 / 산책" },
             mapUrl: "https://www.google.com/maps/dir/?api=1&destination=Kiyomizu-dera+Kyoto&waypoints=Hokan-ji+Temple+Kyoto|Sannenzaka+Kyoto&travelmode=walking"
           }
         ]
-      },
-      {
-        id: "north-kyoto",
-        index: "06",
-        region: {
-          jp: "North Kyoto",
-          en: "North Kyoto",
-          kr: "북쪽 교토"
-        },
-        title: {
-          jp: "Kinkakuji",
-          en: "Kinkakuji",
-          kr: "금각사"
-        },
-        description: {
-          jp: "静かな北側で、金閣寺や禅寺を中心に落ち着いて回りやすいルートです。",
-          en: "A quieter north-side area for Kinkakuji and a calmer temple rhythm.",
-          kr: "조금 더 조용한 북쪽 교토에서 금각사와 선종 사찰 분위기를 즐기기 좋은 코스입니다."
-        },
-        image: "./img/food/kinkakuji-food.jpg",
-        directionsUrl: "https://www.google.com/maps/search/?api=1&query=Kinkaku-ji",
-        routes: [
-          {
-            tag: { jp: "Gold", en: "Gold", kr: "Gold" },
-            title: {
-              jp: "Golden Pavilion Route",
-              en: "Golden Pavilion Route",
-              kr: "Golden Pavilion Route"
-            },
-            description: {
-              jp: "金閣寺を中心に短くまとまりやすい代表ルートです。",
-              en: "The essential route focused on Kinkakuji.",
-              kr: "금각사를 중심으로 가장 간단하게 즐기기 좋은 대표 코스입니다."
-            },
-            points: [
-              "Kinkakuji",
-              "Temple Garden",
-              "Nearby Approach Street"
-            ],
-            duration: { jp: "約1〜1.5時間", en: "About 1–1.5 hours", kr: "약 1~1.5시간" },
-            bestFor: { jp: "短時間・初訪問", en: "Short visit / first time", kr: "짧은 시간 / 첫 방문" },
-            style: { jp: "定番・静かめ", en: "Classic / calm", kr: "정석 / 차분함" },
-            mapUrl: "https://www.google.com/maps/dir/?api=1&destination=Kinkaku-ji+Kyoto&waypoints=Kinkakuji+Temple+Garden&travelmode=walking"
-          },
-          {
-            tag: { jp: "Zen", en: "Zen", kr: "Zen" },
-            title: {
-              jp: "Zen Temple Route",
-              en: "Zen Temple Route",
-              kr: "Zen Temple Route"
-            },
-            description: {
-              jp: "少し足をのばして、北側らしい落ち着きを感じやすい流れです。",
-              en: "A balanced northern route with a stronger Zen mood.",
-              kr: "북쪽 교토 특유의 고요한 분위기를 더 느끼고 싶을 때 좋은 코스입니다."
-            },
-            points: [
-              "Kinkakuji",
-              "Ryoanji",
-              "Ninnaji"
-            ],
-            duration: { jp: "約2.5〜3時間", en: "About 2.5–3 hours", kr: "약 2.5~3시간" },
-            bestFor: { jp: "寺院巡り", en: "Temple day", kr: "사찰 위주 일정" },
-            style: { jp: "禅・静けさ", en: "Zen / quiet", kr: "선종 / 고요함" },
-            mapUrl: "https://www.google.com/maps/dir/?api=1&destination=Ninna-ji+Kyoto&waypoints=Kinkaku-ji+Kyoto|Ryoan-ji+Kyoto&travelmode=walking"
-          },
-          {
-            tag: { jp: "Calm", en: "Calm", kr: "Calm" },
-            title: {
-              jp: "Nature + Temple Walk",
-              en: "Nature + Temple Walk",
-              kr: "Nature + Temple Walk"
-            },
-            description: {
-              jp: "にぎやかさよりも、北の空気感をゆったり楽しみたい日に向きます。",
-              en: "A softer north Kyoto route for a slower, quieter pace.",
-              kr: "붐비는 중심가보다 여유롭고 조용한 교토를 보고 싶을 때 어울리는 코스입니다."
-            },
-            points: [
-              "Kinkakuji Area",
-              "Ryoanji Path",
-              "Northern Temple Streets"
-            ],
-            duration: { jp: "約2時間", en: "About 2 hours", kr: "약 2시간" },
-            bestFor: { jp: "ゆったり散策", en: "Slow travel", kr: "느긋한 산책" },
-            style: { jp: "自然・静けさ", en: "Nature / calm", kr: "자연 / 차분함" },
-            mapUrl: "https://www.google.com/maps/dir/?api=1&destination=Ryoan-ji+Kyoto&waypoints=Kinkaku-ji+Kyoto|Kinkakuji+Area+Kyoto&travelmode=walking"
-          }
-        ]
       }
     ];
 
-    let currentLang = "jp";
+    const state = {
+      lang: "jp",
+      activeArea: null
+    };
 
     const areaGrid = document.getElementById("areaGrid");
     const modal = document.getElementById("courseModal");
-    const modalKicker = document.getElementById("modalKicker");
+    const routeGrid = document.getElementById("routeGrid");
     const modalTitle = document.getElementById("modalTitle");
     const modalDesc = document.getElementById("modalDesc");
-    const routeGrid = document.getElementById("routeGrid");
-    const langButtons = document.querySelectorAll("[data-lang-btn]");
+    const modalKicker = document.getElementById("modalKicker");
 
     function t(key) {
-      return I18N[currentLang][key] || key;
+      return I18N[state.lang]?.[key] || I18N.jp[key] || key;
     }
 
-    function tx(value) {
+    function textByLang(value) {
       if (!value) return "";
       if (typeof value === "string") return value;
-      return value[currentLang] || value.en || value.jp || value.kr || "";
+      return value[state.lang] || value.jp || value.en || value.kr || "";
     }
 
     function escapeHtml(str) {
       return String(str)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
     }
 
     function renderStaticText() {
       document.querySelectorAll("[data-i18n]").forEach((el) => {
-        const key = el.dataset.i18n;
+        const key = el.getAttribute("data-i18n");
         el.textContent = t(key);
-      });
-
-      document.documentElement.lang =
-        currentLang === "jp" ? "ja" : currentLang === "kr" ? "ko" : "en";
-
-      langButtons.forEach((btn) => {
-        btn.classList.toggle("active", btn.dataset.langBtn === currentLang);
       });
     }
 
-    function renderAreaCards() {
+    function renderAreas() {
       areaGrid.innerHTML = COURSE_DATA.map((area) => {
-        const title = escapeHtml(tx(area.title));
-        const region = escapeHtml(tx(area.region));
-        const desc = escapeHtml(tx(area.description));
-
-        const media = area.image
-          ? `
-            <div class="area-card-media">
-              <img src="${escapeHtml(area.image)}" alt="${title}" loading="lazy" />
-            </div>
-          `
-          : `
-            <div class="area-card-media placeholder">
-              <div class="placeholder-inner">
-                <div class="placeholder-badge">${escapeHtml(t("placeholder_badge"))}</div>
-                <h3 class="placeholder-title">${escapeHtml(t("placeholder_title"))}</h3>
-                <p class="placeholder-text">${escapeHtml(t("placeholder_text"))}</p>
-              </div>
-            </div>
-          `;
+        const region = escapeHtml(textByLang(area.region));
+        const title = escapeHtml(textByLang(area.title));
+        const description = escapeHtml(textByLang(area.description));
+        const image = area.image ? escapeHtml(area.image) : "";
 
         return `
-          <article class="area-card" data-area-id="${escapeHtml(area.id)}" tabindex="0" role="button" aria-label="${title}">
-            ${media}
+          <article class="area-card" data-area-id="${escapeHtml(area.id)}">
+            <div class="area-card-media${image ? "" : " placeholder"}">
+              ${
+                image
+                  ? `<img src="${image}" alt="${title}" loading="lazy">`
+                  : `
+                    <div class="placeholder-inner">
+                      <div class="placeholder-badge">${escapeHtml(t("placeholder_badge"))}</div>
+                      <h3 class="placeholder-title">${escapeHtml(t("placeholder_title"))}</h3>
+                      <p class="placeholder-text">${escapeHtml(t("placeholder_text"))}</p>
+                    </div>
+                  `
+              }
+            </div>
+
             <div class="area-card-body">
               <div class="area-meta">
                 <span class="area-number">${escapeHtml(area.index)}</span>
                 <span>${region}</span>
               </div>
               <h2 class="area-card-title">${title}</h2>
-              <p class="area-card-desc">${desc}</p>
+              <p class="area-card-desc">${description}</p>
             </div>
           </article>
         `;
       }).join("");
 
-      document.querySelectorAll("[data-area-id]").forEach((card) => {
-        card.addEventListener("click", () => openArea(card.dataset.areaId));
-        card.addEventListener("keydown", (event) => {
-          if (event.key === "Enter" || event.key === " ") {
-            event.preventDefault();
-            openArea(card.dataset.areaId);
-          }
+      document.querySelectorAll(".area-card").forEach((card) => {
+        card.addEventListener("click", () => {
+          const id = card.getAttribute("data-area-id");
+          openModal(id);
         });
       });
     }
 
-    function openArea(areaId) {
-      const area = COURSE_DATA.find((item) => item.id === areaId);
-      if (!area) return;
-
-      modalKicker.textContent = tx(area.region);
-      modalTitle.textContent = tx(area.title);
-      modalDesc.textContent = tx(area.description);
-
+    function renderRoutes(area) {
       routeGrid.innerHTML = area.routes.map((route) => {
-        const pointsHtml = route.points.map((point) => `<li>${escapeHtml(point)}</li>`).join("");
+        const tag = escapeHtml(textByLang(route.tag));
+        const title = escapeHtml(textByLang(route.title));
+        const description = escapeHtml(textByLang(route.description));
+        const duration = escapeHtml(textByLang(route.duration));
+        const bestFor = escapeHtml(textByLang(route.bestFor));
+        const style = escapeHtml(textByLang(route.style));
+        const points = route.points.map((point) => `<li>${escapeHtml(point)}</li>`).join("");
+        const mapUrl = escapeHtml(route.mapUrl);
 
         return `
           <article class="route-card">
             <div class="route-top">
-              <span class="route-tag">${escapeHtml(tx(route.tag))}</span>
+              <span class="route-tag">${tag}</span>
               <span class="route-mini">${escapeHtml(t("route_button"))}</span>
             </div>
 
-            <h3 class="route-title">${escapeHtml(tx(route.title))}</h3>
-            <p class="route-desc">${escapeHtml(tx(route.description))}</p>
+            <h3 class="route-title">${title}</h3>
+            <p class="route-desc">${description}</p>
 
             <div>
-              <span class="route-meta-label">${escapeHtml(t("route_points"))}</span>
-              <ul class="route-points">${pointsHtml}</ul>
+              <div class="route-meta-label">${escapeHtml(t("route_points"))}</div>
+              <ul class="route-points">${points}</ul>
             </div>
 
             <div class="route-meta">
               <div class="route-meta-item">
                 <span class="route-meta-label">${escapeHtml(t("route_duration"))}</span>
-                <span class="route-meta-value">${escapeHtml(tx(route.duration))}</span>
+                <span class="route-meta-value">${duration}</span>
               </div>
-
               <div class="route-meta-item">
                 <span class="route-meta-label">${escapeHtml(t("route_bestfor"))}</span>
-                <span class="route-meta-value">${escapeHtml(tx(route.bestFor))}</span>
+                <span class="route-meta-value">${bestFor}</span>
               </div>
-
-              <div class="route-meta-item" style="grid-column: 1 / -1;">
+              <div class="route-meta-item">
                 <span class="route-meta-label">${escapeHtml(t("route_style"))}</span>
-                <span class="route-meta-value">${escapeHtml(tx(route.style))}</span>
+                <span class="route-meta-value">${style}</span>
               </div>
             </div>
 
             <div class="route-actions">
-              <a class="route-button primary" href="${escapeHtml(route.mapUrl)}" target="_blank" rel="noopener noreferrer">
+              <a class="route-button primary" href="${mapUrl}" target="_blank" rel="noopener noreferrer">
                 ${escapeHtml(t("route_button"))}
-              </a>
-              <a class="route-button" href="${escapeHtml(area.directionsUrl)}" target="_blank" rel="noopener noreferrer">
-                ${escapeHtml(t("route_view"))}
               </a>
             </div>
           </article>
         `;
       }).join("");
+    }
+
+    function openModal(areaId) {
+      const area = COURSE_DATA.find((item) => item.id === areaId);
+      if (!area) return;
+
+      state.activeArea = area;
+      modalKicker.textContent = textByLang(area.region);
+      modalTitle.textContent = textByLang(area.title);
+      modalDesc.textContent = textByLang(area.description);
+      renderRoutes(area);
 
       modal.classList.add("is-open");
       modal.setAttribute("aria-hidden", "false");
@@ -1533,26 +1300,26 @@
       document.body.classList.remove("modal-open");
     }
 
-    function setLanguage(lang) {
-      currentLang = lang;
+    function updateLanguage(nextLang) {
+      state.lang = nextLang;
+
+      document.querySelectorAll(".lang-btn").forEach((btn) => {
+        const btnLang = btn.dataset.lang || btn.dataset.langBtn;
+        btn.classList.toggle("active", btnLang === nextLang);
+      });
+
       renderStaticText();
-      renderAreaCards();
+      renderAreas();
 
-      if (modal.classList.contains("is-open")) {
-        const openTitle = modalTitle.textContent;
-        const currentArea = COURSE_DATA.find((area) => {
-          return tx(area.title) === openTitle;
-        });
-
-        if (currentArea) {
-          openArea(currentArea.id);
-        }
+      if (state.activeArea) {
+        openModal(state.activeArea.id);
       }
     }
 
-    langButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        setLanguage(button.dataset.langBtn);
+    document.querySelectorAll(".lang-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const nextLang = btn.dataset.lang || btn.dataset.langBtn;
+        updateLanguage(nextLang);
       });
     });
 
@@ -1560,14 +1327,14 @@
       el.addEventListener("click", closeModal);
     });
 
-    window.addEventListener("keydown", (event) => {
-      if (event.key === "Escape" && modal.classList.contains("is-open")) {
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal.classList.contains("is-open")) {
         closeModal();
       }
     });
 
     renderStaticText();
-    renderAreaCards();
+    renderAreas();
   </script>
 </body>
 </html>
