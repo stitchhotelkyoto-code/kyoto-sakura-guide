@@ -590,7 +590,25 @@
       .subpage-widget-text {
         font-size: 0.84rem;
       }
-    }
+      /* ===== modal 위에 헤더 가리기 ===== */
+.modal {
+  z-index: 3000;
+}
+
+body.modal-open .site-header,
+body.modal-open .subpage-widget-nav {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* ===== 헤더 로고 크기 통일 ===== */
+.site-logo {
+  font-size: 1rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.02em !important;
+  line-height: 1 !important;
+  white-space: nowrap;
+}
   </style>
 </head>
 <body data-all-page="courses">
