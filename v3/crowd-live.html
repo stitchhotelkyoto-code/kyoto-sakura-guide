@@ -9,61 +9,61 @@
 </head>
 <body>
   <div class="page-shell">
-  <header class="site-header">
-  <div class="container site-header-inner">
-    <a href="./index.html" class="site-logo">Kyoto Sakura Guide</a>
+    <header class="site-header">
+      <div class="container site-header-inner">
+        <a href="./index.html" class="site-logo">Kyoto Sakura Guide</a>
 
-    <div class="header-right">
-      <nav class="site-nav">
-        <a href="./index.html" data-i18n="nav_home">Home</a>
-        <a href="./hotels/soraniwa.html" data-i18n="nav_soraniwa">Soraniwa</a>
-        <a href="./hotels/bettei.html" data-i18n="nav_bettei">Bettei</a>
-        <a href="./hotels/hiyori.html" data-i18n="nav_hiyori">Hiyori</a>
-        <a href="./hotels/stitch.html" data-i18n="nav_stitch">STITCH</a>
-      </nav>
+        <div class="header-right">
+          <nav class="site-nav">
+            <a href="./index.html" data-i18n="nav_home">Home</a>
+            <a href="./hotels/soraniwa.html" data-i18n="nav_soraniwa">Soraniwa</a>
+            <a href="./hotels/bettei.html" data-i18n="nav_bettei">Bettei</a>
+            <a href="./hotels/hiyori.html" data-i18n="nav_hiyori">Hiyori</a>
+            <a href="./hotels/stitch.html" data-i18n="nav_stitch">STITCH</a>
+          </nav>
 
-      <div class="lang-switcher">
-        <button class="lang-btn" type="button" data-lang="jp">JP</button>
-        <button class="lang-btn" type="button" data-lang="en">EN</button>
-        <button class="lang-btn" type="button" data-lang="kr">KR</button>
+          <div class="lang-switcher">
+            <button class="lang-btn" type="button" data-lang="jp">JP</button>
+            <button class="lang-btn" type="button" data-lang="en">EN</button>
+            <button class="lang-btn" type="button" data-lang="kr">KR</button>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</header>
+    </header>
 
-<section class="subpage-widget-nav">
-  <div class="container">
-    <div class="subpage-widget-grid">
-      <a href="./all-sakura.html" class="subpage-widget-card">
-        <span class="subpage-widget-icon">🌸</span>
-        <span class="subpage-widget-text" data-i18n="widget_sakura">Sakura Spots</span>
-      </a>
+    <section class="subpage-widget-nav">
+      <div class="container">
+        <div class="subpage-widget-grid">
+          <a href="./all-sakura.html" class="subpage-widget-card">
+            <span class="subpage-widget-icon">🌸</span>
+            <span class="subpage-widget-text" data-i18n="widget_sakura">Sakura Spots</span>
+          </a>
 
-      <a href="./all-course.html" class="subpage-widget-card">
-        <span class="subpage-widget-icon">🗺️</span>
-        <span class="subpage-widget-text" data-i18n="widget_courses">Travel Courses</span>
-      </a>
+          <a href="./all-course.html" class="subpage-widget-card">
+            <span class="subpage-widget-icon">🗺️</span>
+            <span class="subpage-widget-text" data-i18n="widget_courses">Travel Courses</span>
+          </a>
 
-      <a href="./all-events.html" class="subpage-widget-card">
-        <span class="subpage-widget-icon">🎎</span>
-        <span class="subpage-widget-text" data-i18n="widget_events">Events</span>
-      </a>
+          <a href="./all-events.html" class="subpage-widget-card">
+            <span class="subpage-widget-icon">🎎</span>
+            <span class="subpage-widget-text" data-i18n="widget_events">Events</span>
+          </a>
 
-      <a href="./crowd-live.html" class="subpage-widget-card is-active">
-        <span class="subpage-widget-icon">📍</span>
-        <span class="subpage-widget-text" data-i18n="widget_crowd">Live Crowd</span>
-      </a>
-    </div>
-  </div>
-</section>
+          <a href="./crowd-live.html" class="subpage-widget-card is-active">
+            <span class="subpage-widget-icon">📍</span>
+            <span class="subpage-widget-text" data-i18n="widget_crowd">Live Crowd</span>
+          </a>
+        </div>
+      </div>
+    </section>
 
     <main data-page="crowd-guide">
       <section class="crowd-hero">
         <div class="container">
-          <p class="crowd-eyebrow">LIVE CROWD</p>
-          <h1 class="crowd-title" data-crowd-text="heroTitle">혼잡도 검색 가이드</h1>
-          <p class="crowd-desc" data-crowd-text="heroDesc">
-            가고 싶은 장소를 검색하면, 혼잡도 경향과 추천 시간대, 대체 동선을 빠르게 확인할 수 있습니다.
+          <p class="crowd-eyebrow" data-crowd-ui="heroEyebrow">LIVE CROWD</p>
+          <h1 class="crowd-title" data-crowd-ui="heroTitle">Live Crowd Guide</h1>
+          <p class="crowd-desc" data-crowd-ui="heroDesc">
+            Search where you want to go and quickly check crowd trends, recommended time slots, and easier alternatives.
           </p>
         </div>
       </section>
@@ -71,8 +71,12 @@
       <section class="crowd-search-section">
         <div class="container">
           <div class="crowd-search-box">
-            <label class="crowd-search-label" for="crowd-search-input" data-crowd-text="searchLabel">
-              어디로 가고 싶으신가요?
+            <label
+              class="crowd-search-label"
+              for="crowd-search-input"
+              data-crowd-ui="searchLabel"
+            >
+              Where would you like to go?
             </label>
 
             <div class="crowd-search-input-wrap">
@@ -81,7 +85,8 @@
                 type="text"
                 class="crowd-search-input"
                 data-crowd-search
-                placeholder="清水寺 / Gion / 桜 / 기요미즈데라"
+                data-crowd-placeholder="searchPlaceholder"
+                placeholder="Kiyomizu / Gion / Sakura / 清水寺"
                 autocomplete="off"
               />
               <button
@@ -98,11 +103,11 @@
           </div>
 
           <div class="crowd-filter-row">
-            <button type="button" class="crowd-filter-chip is-active" data-filter="all">All</button>
-            <button type="button" class="crowd-filter-chip" data-filter="popular">Popular</button>
-            <button type="button" class="crowd-filter-chip" data-filter="quiet">Quiet</button>
-            <button type="button" class="crowd-filter-chip" data-filter="night">Night</button>
-            <button type="button" class="crowd-filter-chip" data-filter="walk">Walk</button>
+            <button type="button" class="crowd-filter-chip is-active" data-filter="all" data-crowd-ui="filterAll">All</button>
+            <button type="button" class="crowd-filter-chip" data-filter="popular" data-crowd-ui="filterPopular">Popular Spots</button>
+            <button type="button" class="crowd-filter-chip" data-filter="quiet" data-crowd-ui="filterQuiet">Less Busy</button>
+            <button type="button" class="crowd-filter-chip" data-filter="night" data-crowd-ui="filterNight">Night 추천</button>
+            <button type="button" class="crowd-filter-chip" data-filter="walk" data-crowd-ui="filterWalk">Walk-Friendly</button>
           </div>
         </div>
       </section>
@@ -110,9 +115,9 @@
       <section class="crowd-top-section">
         <div class="container">
           <div class="crowd-section-head">
-            <h2 data-crowd-text="topTitle">대표 스팟</h2>
-            <p data-crowd-text="topDesc">
-              현재 이동하기 좋은 장소를 먼저 확인하고 바로 검색 결과로 이어질 수 있습니다.
+            <h2 data-crowd-ui="topTitle">Top Picks Right Now</h2>
+            <p data-crowd-ui="topDesc">
+              Recommended spots based on the current time and crowd balance.
             </p>
           </div>
 
@@ -123,15 +128,15 @@
       <section class="crowd-result-section">
         <div class="container">
           <div class="crowd-section-head">
-            <h2 data-crowd-text="resultTitle">검색 결과</h2>
-            <p data-crowd-text="resultDesc">
-              혼잡도 상태, 추천 시간대, 카테고리와 이동 팁을 함께 확인할 수 있습니다.
+            <h2 data-crowd-ui="resultTitle">Search Result</h2>
+            <p data-crowd-ui="resultDesc">
+              Detailed guide for the place you searched.
             </p>
           </div>
 
           <div class="crowd-result-wrap" data-crowd-result>
-            <div class="crowd-empty" data-crowd-text="empty">
-              장소명, 지역명, 분위기로 검색해보세요.
+            <div class="crowd-empty" data-crowd-ui="empty">
+              Search by spot name, area, or vibe to see the current recommendation.
             </div>
           </div>
         </div>
@@ -147,5 +152,109 @@
   <script src="./js/main.js"></script>
   <script src="./js/crowd-data.js"></script>
   <script src="./js/crowd-guide.js"></script>
+
+  <script>
+    const CROWD_UI_TEXT = {
+      jp: {
+        heroEyebrow: "LIVE CROWD",
+        heroTitle: "混雑ガイド",
+        heroDesc: "行きたい場所を検索すると、混雑傾向・おすすめ時間帯・回りやすい代替候補をすばやく確認できます。",
+        searchLabel: "どこに行きたいですか？",
+        searchPlaceholder: "清水寺 / Gion / 桜 / 기요미즈데라",
+        filterAll: "すべて",
+        filterPopular: "人気スポット",
+        filterQuiet: "比較的ゆったり",
+        filterNight: "夜におすすめ",
+        filterWalk: "散策向き",
+        topTitle: "Top Picks Right Now",
+        topDesc: "現在の時間帯と混雑バランスをもとにしたおすすめです。",
+        resultTitle: "Search Result",
+        resultDesc: "検索したスポットの詳細ガイドです。",
+        empty: "スポット名を検索すると、現在のおすすめ状況が表示されます。"
+      },
+      en: {
+        heroEyebrow: "LIVE CROWD",
+        heroTitle: "Live Crowd Guide",
+        heroDesc: "Search where you want to go and quickly check crowd trends, recommended time slots, and easier alternatives.",
+        searchLabel: "Where would you like to go?",
+        searchPlaceholder: "Kiyomizu / Gion / Sakura / 清水寺",
+        filterAll: "All",
+        filterPopular: "Popular Spots",
+        filterQuiet: "Less Busy",
+        filterNight: "Good at Night",
+        filterWalk: "Walk-Friendly",
+        topTitle: "Top Picks Right Now",
+        topDesc: "Recommended spots based on the current time and crowd balance.",
+        resultTitle: "Search Result",
+        resultDesc: "Detailed guide for the place you searched.",
+        empty: "Search by spot name, area, or vibe to see the current recommendation."
+      },
+      kr: {
+        heroEyebrow: "LIVE CROWD",
+        heroTitle: "혼잡도 가이드",
+        heroDesc: "가고 싶은 장소를 검색하면 혼잡도 경향, 추천 시간대, 더 둘러보기 쉬운 대안을 빠르게 확인할 수 있습니다.",
+        searchLabel: "어디로 가고 싶으신가요?",
+        searchPlaceholder: "기요미즈 / 기온 / 벚꽃 / 清水寺",
+        filterAll: "전체",
+        filterPopular: "인기 스팟",
+        filterQuiet: "비교적 여유",
+        filterNight: "밤에 추천",
+        filterWalk: "산책용",
+        topTitle: "지금 추천 스팟",
+        topDesc: "현재 시간대와 혼잡도 균형을 기준으로 추천하는 장소입니다.",
+        resultTitle: "검색 결과",
+        resultDesc: "검색한 장소의 상세 가이드입니다.",
+        empty: "스팟 이름, 지역, 분위기로 검색하면 현재 추천 상황이 표시됩니다."
+      }
+    };
+
+    function detectCrowdLang() {
+      const activeBtn =
+        document.querySelector('.lang-btn.is-active') ||
+        document.querySelector('.lang-btn.active');
+
+      if (activeBtn && activeBtn.dataset.lang) return activeBtn.dataset.lang;
+
+      const htmlLang = document.documentElement.lang;
+      if (htmlLang === 'en') return 'en';
+      if (htmlLang === 'kr' || htmlLang === 'ko') return 'kr';
+      return 'jp';
+    }
+
+    function applyCrowdUIText(lang) {
+      const dict = CROWD_UI_TEXT[lang] || CROWD_UI_TEXT.jp;
+
+      document.querySelectorAll('[data-crowd-ui]').forEach((el) => {
+        const key = el.getAttribute('data-crowd-ui');
+        if (dict[key]) el.textContent = dict[key];
+      });
+
+      document.querySelectorAll('[data-crowd-placeholder]').forEach((el) => {
+        const key = el.getAttribute('data-crowd-placeholder');
+        if (dict[key]) el.setAttribute('placeholder', dict[key]);
+      });
+    }
+
+    function syncCrowdLangButtons(lang) {
+      document.querySelectorAll('.lang-btn').forEach((btn) => {
+        btn.classList.toggle('is-active', btn.dataset.lang === lang);
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const lang = detectCrowdLang();
+      syncCrowdLangButtons(lang);
+      applyCrowdUIText(lang);
+
+      document.querySelectorAll('.lang-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const nextLang = btn.dataset.lang || 'jp';
+          syncCrowdLangButtons(nextLang);
+          applyCrowdUIText(nextLang);
+        });
+      });
+    });
+  </script>
 </body>
 </html>
