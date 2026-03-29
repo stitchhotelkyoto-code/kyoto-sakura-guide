@@ -1042,12 +1042,23 @@
       }
     ];
 
-    const savedLang = localStorage.getItem("kyotoSakuraGuideLang") || "jp";
+    function normalizeLang(raw) {
+  if (raw === "ja" || raw === "jp") return "jp";
+  if (raw === "en") return "en";
+  if (raw === "ko" || raw === "kr") return "kr";
+  return "jp";
+}
 
-    const state = {
-      lang: savedLang,
-      activeArea: null
-    };
+const savedLang = normalizeLang(
+  localStorage.getItem("siteLanguage") ||
+  localStorage.getItem("kyotoSakuraGuideLang") ||
+  "jp"
+);
+
+const state = {
+  lang: savedLang,
+  activeArea: null
+};
 
     const areaGrid = document.getElementById("areaGrid");
     const modal = document.getElementById("courseModal");
@@ -1140,7 +1151,6 @@
           <article class="route-card">
             <div class="route-top">
               <span class="route-tag">${tag}</span>
-              <span class="route-mini">${escapeHtml(t("route_button"))}</span>
             </div>
 
             <h3 class="route-title">${title}</h3>
@@ -1198,16 +1208,33 @@
     }
 
     function updateLanguage(nextLang) {
-      state.lang = nextLang;
-      localStorage.setItem("kyotoSakuraGuideLang", nextLang);
-      document.documentElement.lang = nextLang;
+  const normalized = normalizeLang(nextLang);
+  state.lang = normalized;
 
-      document.querySelectorAll(".lang-btn").forEach((btn) => {
-        const btnLang = btn.dataset.lang || btn.dataset.langBtn;
-        const isCurrent = btnLang === nextLang;
-        btn.classList.toggle("is-active", isCurrent);
-        btn.classList.toggle("active", isCurrent);
-      });
+  localStorage.setItem("kyotoSakuraGuideLang", normalized);
+  localStorage.setItem(
+    "siteLanguage",
+    normalized === "jp" ? "ja" :
+    normalized === "en" ? "en" :
+    "ko"
+  );
+
+  document.documentElement.lang = normalized === "jp" ? "ja" : normalized;
+
+  document.querySelectorAll(".lang-btn").forEach((btn) => {
+    const btnLang = normalizeLang(btn.dataset.lang || btn.dataset.langBtn);
+    const isCurrent = btnLang === normalized;
+    btn.classList.toggle("is-active", isCurrent);
+    btn.classList.toggle("active", isCurrent);
+  });
+
+  renderStaticText();
+  renderAreas();
+
+  if (state.activeArea) {
+    openModal(state.activeArea.id);
+  }
+}
 
       renderStaticText();
       renderAreas();
