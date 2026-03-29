@@ -498,11 +498,6 @@
       overflow: hidden;
     }
 
-    body.modal-open .site-header,
-    body.modal-open .subpage-widget-nav {
-      display: none !important;
-    }
-
     @media (max-width: 980px) {
       .site-header {
         position: static;
@@ -878,8 +873,65 @@
         ]
       },
       {
-        id: "fushimi",
+        id: "kinkakuji",
         index: "03",
+        region: { jp: "North Kyoto", en: "North Kyoto", kr: "북쪽 교토" },
+        title: { jp: "Kinkakuji", en: "Kinkakuji", kr: "금각사" },
+        description: {
+          jp: "金閣寺周辺を中心に、北側らしい落ち着いた景色を楽しみやすいエリアです。",
+          en: "A calm north-side area centered around Kinkakuji and scenic temple surroundings.",
+          kr: "금각사 주변을 중심으로 북쪽 교토 특유의 차분한 풍경을 즐기기 좋은 지역입니다."
+        },
+        image: "./img/food/kinkakuji-food.jpg",
+        directionsUrl: "https://www.google.com/maps/search/?api=1&query=Kinkakuji+Kyoto",
+        routes: [
+          {
+            tag: { jp: "Classic", en: "Classic", kr: "Classic" },
+            title: { jp: "Golden Temple Walk", en: "Golden Temple Walk", kr: "Golden Temple Walk" },
+            description: {
+              jp: "金閣寺を中心に、初めてでも使いやすい北側の定番ルートです。",
+              en: "A classic first-visit route focused on Kinkakuji and nearby highlights.",
+              kr: "금각사를 중심으로 처음 가도 편하게 돌 수 있는 북쪽 교토 정석 코스입니다."
+            },
+            points: ["Kinkakuji", "Kyoto Prefectural Insho-Domoto Museum", "Hirano Shrine"],
+            duration: { jp: "約1.5〜2時間", en: "About 1.5–2 hours", kr: "약 1.5~2시간" },
+            bestFor: { jp: "初訪問・定番", en: "First visit / classic", kr: "첫 방문 / 정석" },
+            style: { jp: "寺社・落ち着き", en: "Temple / calm", kr: "사찰 / 차분함" },
+            mapUrl: "https://www.google.com/maps/dir/?api=1&destination=Hirano+Shrine+Kyoto&waypoints=Kinkakuji+Kyoto|Kyoto+Prefectural+Insho-Domoto+Museum&travelmode=walking"
+          },
+          {
+            tag: { jp: "Garden", en: "Garden", kr: "Garden" },
+            title: { jp: "Temple & Garden Route", en: "Temple & Garden Route", kr: "Temple & Garden Route" },
+            description: {
+              jp: "静かな空気と庭園感をゆっくり楽しみたい日に向く流れです。",
+              en: "A softer route for gardens, quiet streets, and slower pacing.",
+              kr: "정원과 조용한 분위기를 천천히 즐기고 싶은 날에 어울리는 코스입니다."
+            },
+            points: ["Kinkakuji", "Ryoanji", "Ninnaji"],
+            duration: { jp: "約2.5時間", en: "About 2.5 hours", kr: "약 2.5시간" },
+            bestFor: { jp: "여유로운 일정", en: "Relaxed pace", kr: "여유로운 일정" },
+            style: { jp: "庭園・静けさ", en: "Garden / quiet", kr: "정원 / 고요함" },
+            mapUrl: "https://www.google.com/maps/dir/?api=1&destination=Ninnaji+Kyoto&waypoints=Kinkakuji+Kyoto|Ryoanji+Kyoto&travelmode=walking"
+          },
+          {
+            tag: { jp: "Photo", en: "Photo", kr: "Photo" },
+            title: { jp: "North Kyoto Photo Route", en: "North Kyoto Photo Route", kr: "North Kyoto Photo Route" },
+            description: {
+              jp: "景色と 사진 포인트를 중심으로 가볍게 돌아보기 좋은 코스です。",
+              en: "A photo-friendly route for a lighter north Kyoto stroll.",
+              kr: "풍경과 사진 포인트 중심으로 가볍게 돌기 좋은 북쪽 교토 코스입니다."
+            },
+            points: ["Kinkakuji", "Ryoanji", "Kitano Tenmangu Area"],
+            duration: { jp: "約2時間", en: "About 2 hours", kr: "약 2시간" },
+            bestFor: { jp: "写真・半日", en: "Photos / half day", kr: "사진 / 반나절" },
+            style: { jp: "景色・映え", en: "Scenic / photogenic", kr: "풍경 / 사진" },
+            mapUrl: "https://www.google.com/maps/dir/?api=1&destination=Kitano+Tenmangu+Kyoto&waypoints=Kinkakuji+Kyoto|Ryoanji+Kyoto&travelmode=walking"
+          }
+        ]
+      },
+      {
+        id: "fushimi",
+        index: "04",
         region: { jp: "South Kyoto", en: "South Kyoto", kr: "남쪽 교토" },
         title: { jp: "Fushimi", en: "Fushimi", kr: "후시미" },
         description: {
@@ -936,7 +988,7 @@
       },
       {
         id: "kawaramachi",
-        index: "04",
+        index: "05",
         region: { jp: "Central Kyoto", en: "Central Kyoto", kr: "중앙 교토" },
         title: { jp: "Kawaramachi", en: "Kawaramachi", kr: "가와라마치" },
         description: {
@@ -993,7 +1045,7 @@
       },
       {
         id: "kiyomizu",
-        index: "05",
+        index: "06",
         region: { jp: "Higashiyama", en: "Higashiyama", kr: "히가시야마" },
         title: { jp: "Kiyomizu", en: "Kiyomizu", kr: "기요미즈" },
         description: {
@@ -1074,6 +1126,8 @@
     const modalTitle = document.getElementById("modalTitle");
     const modalDesc = document.getElementById("modalDesc");
     const modalKicker = document.getElementById("modalKicker");
+    const siteHeader = document.querySelector(".site-header");
+    const subpageWidgetNav = document.querySelector(".subpage-widget-nav");
 
     function t(key) {
       return I18N[state.lang]?.[key] || I18N.jp[key] || key;
@@ -1207,12 +1261,18 @@
       modal.classList.add("is-open");
       modal.setAttribute("aria-hidden", "false");
       document.body.classList.add("modal-open");
+
+      if (siteHeader) siteHeader.style.display = "none";
+      if (subpageWidgetNav) subpageWidgetNav.style.display = "none";
     }
 
     function closeModal() {
       modal.classList.remove("is-open");
       modal.setAttribute("aria-hidden", "true");
       document.body.classList.remove("modal-open");
+
+      if (siteHeader) siteHeader.style.display = "";
+      if (subpageWidgetNav) subpageWidgetNav.style.display = "";
     }
 
     function updateLanguage(nextLang) {
