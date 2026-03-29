@@ -40,13 +40,14 @@
       scroll-behavior: smooth;
     }
 
-   body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--text);
-  font-family: "Noto Sans JP", "Noto Sans KR", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  line-height: 1.6;
-}
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Noto Sans JP", "Noto Sans KR", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+
     a {
       color: inherit;
       text-decoration: none;
@@ -56,9 +57,11 @@
       font: inherit;
     }
 
-    
+    .site-logo {
+      font-size: 1.15rem;
+      font-weight: 800;
+    }
 
-    
     .subpage-widget-nav {
       margin-top: 10px;
       margin-bottom: 18px;
@@ -69,42 +72,42 @@
       padding-bottom: 0;
     }
 
-  .subpage-widget-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
-  padding: 12px;
-  border: 1px solid #efd0dc;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
+    .subpage-widget-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      padding: 12px;
+      border: 1px solid #efd0dc;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
 
-
-   .subpage-widget-card {
-  min-width: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  min-height: 54px;
-  padding: 0 18px;
-  border: 1px solid #efd0dc;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.92);
-  text-decoration: none;
-  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 8px 18px rgba(35, 26, 47, 0.04);
-}
+    .subpage-widget-card {
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 54px;
+      padding: 0 18px;
+      border: 1px solid #efd0dc;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.92);
+      text-decoration: none;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 8px 18px rgba(35, 26, 47, 0.04);
+    }
 
     .subpage-widget-card:hover {
-  background: #fff7fa;
-}
-   .subpage-widget-card.is-active {
-  background: #f4dbe5;
-  border-color: #e7becf;
-}
+      background: #fff7fa;
+    }
+
+    .subpage-widget-card.is-active {
+      background: #f4dbe5;
+      border-color: #e7becf;
+    }
 
     .subpage-widget-icon {
       flex: 0 0 auto;
@@ -539,7 +542,6 @@
     }
 
     @media (max-width: 720px) {
-     
       .hero-card {
         padding: 24px 20px;
         border-radius: 24px;
@@ -597,53 +599,53 @@
 </head>
 <body data-all-page="courses">
   <div class="page-shell">
-   <header class="site-header">
-  <div class="container site-header-inner">
-   <a href="./index.html" class="site-logo">Kyoto Sakura Guide</a>
+    <header class="site-header">
+      <div class="container site-header-inner">
+        <a href="./index.html" class="site-logo">Kyoto Sakura Guide</a>
 
-    <div class="header-right">
-      <nav class="site-nav">
-        <a href="./index.html" data-i18n="nav_home">Home</a>
-        <a href="./hotels/soraniwa.html" data-i18n="nav_soraniwa">Soraniwa</a>
-        <a href="./hotels/bettei.html" data-i18n="nav_bettei">Bettei</a>
-        <a href="./hotels/hiyori.html" data-i18n="nav_hiyori">Hiyori</a>
-        <a href="./hotels/stitch.html" data-i18n="nav_stitch">STITCH</a>
-      </nav>
+        <div class="header-right">
+          <nav class="site-nav">
+            <a href="./index.html" data-i18n="nav_home">Home</a>
+            <a href="./hotels/soraniwa.html" data-i18n="nav_soraniwa">Soraniwa</a>
+            <a href="./hotels/bettei.html" data-i18n="nav_bettei">Bettei</a>
+            <a href="./hotels/hiyori.html" data-i18n="nav_hiyori">Hiyori</a>
+            <a href="./hotels/stitch.html" data-i18n="nav_stitch">STITCH</a>
+          </nav>
 
-      <div class="lang-switcher">
-        <button class="lang-btn" type="button" data-lang="jp">JP</button>
-        <button class="lang-btn" type="button" data-lang="en">EN</button>
-        <button class="lang-btn" type="button" data-lang="kr">KR</button>
+          <div class="lang-switcher">
+            <button class="lang-btn" type="button" data-lang="jp">JP</button>
+            <button class="lang-btn" type="button" data-lang="en">EN</button>
+            <button class="lang-btn" type="button" data-lang="kr">KR</button>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</header>
+    </header>
 
-<section class="subpage-widget-nav">
-  <div class="container">
-    <div class="subpage-widget-grid">
-      <a href="./all-sakura.html" class="subpage-widget-card">
-        <span class="subpage-widget-icon">🌸</span>
-        <span class="subpage-widget-text" data-i18n="widget_sakura">Sakura Spots</span>
-      </a>
+    <section class="subpage-widget-nav">
+      <div class="container">
+        <div class="subpage-widget-grid">
+          <a href="./all-sakura.html" class="subpage-widget-card">
+            <span class="subpage-widget-icon">🌸</span>
+            <span class="subpage-widget-text" data-i18n="widget_sakura">Sakura Spots</span>
+          </a>
 
-      <a href="./all-course.html" class="subpage-widget-card is-active">
-        <span class="subpage-widget-icon">🗺️</span>
-        <span class="subpage-widget-text" data-i18n="widget_courses">Travel Courses</span>
-      </a>
+          <a href="./all-course.html" class="subpage-widget-card is-active">
+            <span class="subpage-widget-icon">🗺️</span>
+            <span class="subpage-widget-text" data-i18n="widget_courses">Travel Courses</span>
+          </a>
 
-      <a href="./all-events.html" class="subpage-widget-card">
-        <span class="subpage-widget-icon">🎎</span>
-        <span class="subpage-widget-text" data-i18n="widget_events">Events</span>
-      </a>
+          <a href="./all-events.html" class="subpage-widget-card">
+            <span class="subpage-widget-icon">🎎</span>
+            <span class="subpage-widget-text" data-i18n="widget_events">Events</span>
+          </a>
 
-      <a href="./crowd-live.html" class="subpage-widget-card">
-        <span class="subpage-widget-icon">📍</span>
-        <span class="subpage-widget-text" data-i18n="widget_crowd">Live Crowd</span>
-      </a>
-    </div>
-  </div>
-</section>
+          <a href="./crowd-live.html" class="subpage-widget-card">
+            <span class="subpage-widget-icon">📍</span>
+            <span class="subpage-widget-text" data-i18n="widget_crowd">Live Crowd</span>
+          </a>
+        </div>
+      </div>
+    </section>
 
     <div class="container">
       <section class="hero-card">
@@ -1040,12 +1042,12 @@
       }
     ];
 
-   const savedLang = localStorage.getItem("kyotoSakuraGuideLang") || "jp";
+    const savedLang = localStorage.getItem("kyotoSakuraGuideLang") || "jp";
 
-const state = {
-  lang: savedLang,
-  activeArea: null
-};
+    const state = {
+      lang: savedLang,
+      activeArea: null
+    };
 
     const areaGrid = document.getElementById("areaGrid");
     const modal = document.getElementById("courseModal");
@@ -1196,38 +1198,24 @@ const state = {
     }
 
     function updateLanguage(nextLang) {
-  state.lang = nextLang;
-  localStorage.setItem("kyotoSakuraGuideLang", nextLang);
-  document.documentElement.lang = nextLang;
+      state.lang = nextLang;
+      localStorage.setItem("kyotoSakuraGuideLang", nextLang);
+      document.documentElement.lang = nextLang;
 
-  document.querySelectorAll(".lang-btn").forEach((btn) => {
-    const btnLang = btn.dataset.lang || btn.dataset.langBtn;
-    const isCurrent = btnLang === nextLang;
-    btn.classList.toggle("is-active", isCurrent);
-    btn.classList.toggle("active", isCurrent);
-  });
+      document.querySelectorAll(".lang-btn").forEach((btn) => {
+        const btnLang = btn.dataset.lang || btn.dataset.langBtn;
+        const isCurrent = btnLang === nextLang;
+        btn.classList.toggle("is-active", isCurrent);
+        btn.classList.toggle("active", isCurrent);
+      });
 
-  renderStaticText();
-  renderAreas();
+      renderStaticText();
+      renderAreas();
 
-  if (state.activeArea) {
-    openModal(state.activeArea.id);
-  }
-}
-  document.querySelectorAll(".lang-btn").forEach((btn) => {
-    const btnLang = btn.dataset.lang || btn.dataset.langBtn;
-    const isCurrent = btnLang === nextLang;
-    btn.classList.toggle("is-active", isCurrent);
-    btn.classList.toggle("active", isCurrent);
-  });
-
-  renderStaticText();
-  renderAreas();
-
-  if (state.activeArea) {
-    openModal(state.activeArea.id);
-  }
-}
+      if (state.activeArea) {
+        openModal(state.activeArea.id);
+      }
+    }
 
     document.querySelectorAll(".lang-btn").forEach((btn) => {
       btn.addEventListener("click", () => {
@@ -1246,7 +1234,6 @@ const state = {
       }
     });
 
-  
     updateLanguage(state.lang);
   </script>
 </body>
