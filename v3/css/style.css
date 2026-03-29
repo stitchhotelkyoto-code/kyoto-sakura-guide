@@ -1600,7 +1600,7 @@ main {
    subpage widget pill nav
    ========================= */
 
-/*.subpage-widget-wrap {
+.subpage-widget-wrap {
   width: min(calc(100% - 32px), var(--content-width));
   margin: 10px auto 22px;
 }
@@ -1633,7 +1633,6 @@ main {
   white-space: nowrap;
   transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease, color 0.18s ease;
 }
-*/
 
 .subpage-widget-nav a:hover {
   transform: translateY(-1px);
