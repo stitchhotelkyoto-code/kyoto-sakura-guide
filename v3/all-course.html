@@ -57,10 +57,6 @@
       font: inherit;
     }
 
-    .site-logo {
-      font-size: 1.15rem;
-      font-weight: 800;
-    }
 
     .subpage-widget-nav {
       margin-top: 10px;
@@ -1234,15 +1230,7 @@ const state = {
   if (state.activeArea) {
     openModal(state.activeArea.id);
   }
-}
 
-      renderStaticText();
-      renderAreas();
-
-      if (state.activeArea) {
-        openModal(state.activeArea.id);
-      }
-    }
 
     document.querySelectorAll(".lang-btn").forEach((btn) => {
       btn.addEventListener("click", () => {
