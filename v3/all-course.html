@@ -118,45 +118,47 @@
       white-space: nowrap;
     }
 
-    .hero-card {
-      padding: 34px 32px;
-      margin-bottom: 22px;
-      background: rgba(255, 255, 255, 0.84);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-xl);
-      box-shadow: 0 16px 32px rgba(55, 38, 70, 0.06);
-    }
+   .page-heading {
+  margin-top: 10px;
+  margin-bottom: 28px;
+}
 
-    .hero-kicker {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: #fff4f8;
-      border: 1px solid var(--line);
-      font-size: 0.75rem;
-      font-weight: 800;
-      color: #b47691;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 14px;
-    }
+.page-heading .container {
+  padding: 36px 28px;
+  border: 1px solid #efd0dc;
+  border-radius: 24px;
+  background: linear-gradient(180deg, #fff 0%, #fff9fb 100%);
+  box-shadow: 0 10px 30px rgba(40, 20, 30, 0.04);
+}
 
-    .hero-title {
-      margin: 0 0 12px;
-      font-size: clamp(2rem, 4.8vw, 3.65rem);
-      line-height: 1.03;
-      letter-spacing: -0.045em;
-      font-weight: 900;
-    }
+.eyebrow {
+  display: inline-block;
+  margin: 0 0 12px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(216, 140, 169, 0.12);
+  color: #c26c8c;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+}
 
-    .hero-desc {
-      margin: 0;
-      max-width: 820px;
-      font-size: 1rem;
-      color: var(--text-soft);
-    }
+.page-heading h1 {
+  margin: 0;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 800;
+  line-height: 1.2;
+  color: #1f1f1f;
+}
+
+.page-desc {
+  margin: 12px 0 0;
+  max-width: 720px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #6b5a60;
+}
 
     .course-grid {
       display: grid;
@@ -536,12 +538,11 @@
       }
     }
 
-    @media (max-width: 720px) {
-      .hero-card {
-        padding: 24px 20px;
-        border-radius: 24px;
-      }
-
+  @media (max-width: 720px) {
+  .page-heading .container {
+    padding: 24px 20px;
+    border-radius: 24px;
+  }
       .area-card-title {
         font-size: 1.45rem;
       }
@@ -650,16 +651,18 @@
       </div>
     </section>
 
+  <div class="container">
+  <section class="page-heading">
     <div class="container">
-      <section class="hero-card">
-        <div class="hero-kicker" data-i18n="hero_kicker">Kyoto Route Guide</div>
-        <h1 class="hero-title" data-i18n="hero_title">Google Maps Course</h1>
-        <p class="hero-desc" data-i18n="hero_desc">
-          Choose an area and open three easy route ideas. Each course includes a direct Google Maps course link for a smooth walk.
-        </p>
-      </section>
+      <p class="eyebrow" data-i18n="hero_kicker">Kyoto Route Guide</p>
+      <h1 data-i18n="hero_title">Google Maps Course</h1>
+      <p class="page-desc" data-i18n="hero_desc">
+        Choose an area and open three easy route ideas. Each course includes a direct Google Maps course link for a smooth walk.
+      </p>
+    </div>
+  </section>
 
-      <section class="course-grid" id="areaGrid"></section>
+  <section class="course-grid" id="areaGrid"></section>
 
       <footer class="site-footer">
         Kyoto Sakura Guide © Spring Stay Project
