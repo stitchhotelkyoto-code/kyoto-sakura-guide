@@ -160,28 +160,54 @@
       backdrop-filter: blur(10px);
     }
 
-    .quick-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 44px;
-      padding: 0 18px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.9);
-      color: var(--text);
-      font-size: 0.88rem;
-      font-weight: 800;
-      transition: all 0.2s ease;
-      white-space: nowrap;
-    }
+.subpage-widget-nav {
+  margin-bottom: 18px;
+}
 
-    .quick-link:hover,
-    .quick-link.is-current {
-      background: var(--pink);
-      border-color: var(--line-strong);
-    }
+.subpage-widget-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  box-shadow: 0 14px 30px rgba(56, 37, 66, 0.05);
+  backdrop-filter: blur(10px);
+}
 
+.subpage-widget-card {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 18px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--text);
+  font-size: 0.88rem;
+  font-weight: 800;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.subpage-widget-card:hover,
+.subpage-widget-card.is-active {
+  background: var(--pink);
+  border-color: var(--line-strong);
+}
+
+.subpage-widget-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.subpage-widget-text {
+  line-height: 1;
+}
+    
     .hero-card {
       padding: 34px 32px;
       margin-bottom: 22px;
@@ -598,16 +624,16 @@
         border-radius: 20px;
       }
 
-      .quick-links {
-        border-radius: 24px;
-        padding: 10px;
-      }
+     .subpage-widget-grid {
+  border-radius: 24px;
+  padding: 10px;
+}
 
-      .quick-link {
-        flex: 1 1 calc(50% - 10px);
-        min-width: 0;
-        padding: 12px 10px;
-      }
+.subpage-widget-card {
+  flex: 1 1 calc(50% - 10px);
+  min-width: 0;
+  padding: 12px 10px;
+}
 
       .hero-card {
         padding: 24px 20px;
@@ -667,13 +693,45 @@
       </div>
     </header>
 
-    <div class="container">
-      <nav class="quick-links" aria-label="Page Navigation">
-        <a class="quick-link" href="./index.html#spots" data-i18n="quick_spots">Sakura Spots</a>
-        <a class="quick-link is-current" href="./ai-guide.html" data-i18n="quick_courses">Google Maps Course</a>
-        <a class="quick-link" href="./events.html" data-i18n="quick_events">Events</a>
-        <a class="quick-link" href="./live-crowd.html" data-i18n="quick_crowd">Live Crowd</a>
-      </nav>
+<div class="container">
+  <section class="subpage-widget-nav">
+    <div class="subpage-widget-grid">
+      <a href="./all-sakura.html" class="subpage-widget-card">
+        <span class="subpage-widget-icon">🌸</span>
+        <span class="subpage-widget-text">Sakura Spots</span>
+      </a>
+
+      <a href="./all-course.html" class="subpage-widget-card is-active">
+        <span class="subpage-widget-icon">🗺️</span>
+        <span class="subpage-widget-text">Travel Courses</span>
+      </a>
+
+      <a href="./all-events.html" class="subpage-widget-card">
+        <span class="subpage-widget-icon">🎎</span>
+        <span class="subpage-widget-text">Events</span>
+      </a>
+
+      <a href="./crowd-live.html" class="subpage-widget-card">
+        <span class="subpage-widget-icon">📍</span>
+        <span class="subpage-widget-text">Live Crowd</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="hero-card">
+    <div class="hero-kicker" data-i18n="hero_kicker">Kyoto Route Guide</div>
+    <h1 class="hero-title" data-i18n="hero_title">Google Maps Course</h1>
+    <p class="hero-desc" data-i18n="hero_desc">
+      Choose an area and open three easy route ideas. Each course includes a direct Google Maps course link for a smooth walk.
+    </p>
+  </section>
+
+  <section class="course-grid" id="areaGrid"></section>
+
+  <footer class="site-footer">
+    Kyoto Sakura Guide © Spring Stay Project
+  </footer>
+</div>
 
       <section class="hero-card">
         <div class="hero-kicker" data-i18n="hero_kicker">Kyoto Route Guide</div>
