@@ -2367,52 +2367,51 @@ a {
     font-size: 0.8rem;
   }
 }
+
 /* ========================================
-   MOBILE 4-WIDGET FIX
+   MOBILE 4-WIDGET FIX v2
 ======================================== */
 @media (max-width: 768px) {
   .subpage-widget-wrap {
     width: min(calc(100% - 20px), var(--content-width));
-    margin: 6px auto 14px;
+    margin: 8px auto 16px;
   }
 
   .subpage-widget-nav {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
-    padding: 12px;
-    border-radius: 36px;
-    background: rgba(255, 250, 252, 0.92);
+    padding: 14px;
+    border-radius: 32px;
   }
 
   .subpage-widget-nav a {
+    display: flex;
+    width: 100%;
     min-width: 0;
-    min-height: 54px;
-    padding: 0 14px;
-    border-radius: 999px;
+    min-height: 56px;
+    padding: 0 16px;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
     font-size: 0.84rem;
-    font-weight: 800;
-    justify-content: center;
-    gap: 8px;
-    text-align: center;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
   }
 }
 
 @media (max-width: 520px) {
-  .subpage-widget-wrap {
-    margin: 4px auto 12px;
-  }
-
   .subpage-widget-nav {
     gap: 8px;
-    padding: 10px;
-    border-radius: 30px;
+    padding: 12px;
+    border-radius: 28px;
   }
 
   .subpage-widget-nav a {
-    min-height: 50px;
-    padding: 0 12px;
-    font-size: 0.8rem;
-    gap: 6px;
+    min-height: 52px;
+    padding: 0 14px;
+    gap: 8px;
+    font-size: 0.78rem;
   }
 }
