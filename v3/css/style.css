@@ -2263,32 +2263,107 @@ a {
   }
 }
 
+/* ========================================
+   MOBILE HEADER FIX
+   기존 헤더 꼬인 거 정리
+   맨 아래에 넣기
+======================================== */
 @media (max-width: 768px) {
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 8px 0;
+  }
 
   .site-header-inner {
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "logo lang"
+      "nav nav";
     align-items: center;
-    justify-content: space-between;
+    column-gap: 10px;
+    row-gap: 8px;
+  }
+
+  .site-logo,
+  .site-brand {
+    grid-area: logo;
+    min-width: 0;
+    font-size: 0.92rem;
+    line-height: 1.15;
+    white-space: nowrap;
   }
 
   .header-right,
   .site-header-right {
-    flex-direction: row;
-    align-items: center;
-    gap: 6px;
+    display: contents;
   }
 
   .lang-switch,
   .lang-switcher {
-    order: 2;
+    grid-area: lang;
+    justify-self: end;
     align-self: center;
+    padding: 3px;
+  }
+
+  .lang-btn {
+    min-width: 36px;
+    height: 30px;
+    padding: 0 8px;
+    font-size: 0.75rem;
   }
 
   .site-nav,
   .site-nav-links {
-    width: 100%;
-    order: 3;
-    margin-top: 6px;
+    grid-area: nav;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    gap: 8px;
+    padding: 2px 0 2px;
+    scrollbar-width: none;
+    min-width: 0;
   }
 
+  .site-nav::-webkit-scrollbar,
+  .site-nav-links::-webkit-scrollbar {
+    display: none;
+  }
+
+  .site-nav a,
+  .site-nav-links a {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    padding: 7px 11px;
+    font-size: 0.84rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .site-header-inner {
+    column-gap: 8px;
+    row-gap: 7px;
+  }
+
+  .site-logo,
+  .site-brand {
+    font-size: 0.86rem;
+  }
+
+  .lang-btn {
+    min-width: 34px;
+    height: 28px;
+    font-size: 0.72rem;
+    padding: 0 7px;
+  }
+
+  .site-nav a,
+  .site-nav-links a {
+    padding: 6px 10px;
+    font-size: 0.8rem;
+  }
 }
