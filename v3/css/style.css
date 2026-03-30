@@ -2262,3 +2262,33 @@ a {
     gap: 6px;
   }
 }
+
+@media (max-width: 768px) {
+
+  .site-header-inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .header-right,
+  .site-header-right {
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .lang-switch,
+  .lang-switcher {
+    order: 2;
+    align-self: center;
+  }
+
+  .site-nav,
+  .site-nav-links {
+    width: 100%;
+    order: 3;
+    margin-top: 6px;
+  }
+
+}
