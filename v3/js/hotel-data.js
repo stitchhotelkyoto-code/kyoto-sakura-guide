@@ -702,12 +702,13 @@ window.HOTEL_DATA = {
     }
   },
  {
-  isComingSoon: true,
+ {
+  image: "../img/stitch/stitch-bar.jpg",
   title: { jp: "Bar Mood", kr: "Bar Mood", en: "Bar Mood" },
   text: {
-    jp: "現在準備中です。",
-    kr: "현재 준비중입니다.",
-    en: "Coming Soon."
+    jp: "バーの雰囲気を感じられる空間。",
+    kr: "바의 무드를 느낄 수 있는 공간.",
+    en: "A space with a bar-inspired mood."
   }
 },
   {
