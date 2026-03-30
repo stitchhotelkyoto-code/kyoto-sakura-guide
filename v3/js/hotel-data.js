@@ -25,8 +25,8 @@ window.HOTEL_DATA = {
       en: "A hotel for guests who want a calm Kyoto stay and a slower spring rhythm."
     },
     introTitle: {
-      jp: "Soraniwa から始まる京都の春",
-      kr: "Soraniwa에서 시작하는 교토의 봄",
+      jp: "空庭テラスから始まる京都の春",
+      kr: "소라니와에서 시작하는 교토의 봄",
       en: "Kyoto spring starting from Soraniwa"
     },
     introText: {
@@ -37,7 +37,7 @@ window.HOTEL_DATA = {
     cards: [
       {
         image: "../img/soraniwa/soraniwa-room.jpg",
-        title: { jp: "Room Hanami", kr: "Room Hanami", en: "Room Hanami" },
+        title: { jp: "Room", kr: "Room", en: "Room" },
         text: {
           jp: "客室でひと息ついたあと、春の京都へ。",
           kr: "객실에서 한숨 돌린 뒤, 봄의 교토로.",
@@ -221,8 +221,8 @@ window.HOTEL_DATA = {
   },
 
   introTitle: {
-    jp: "Bettei で過ごす静かな京都の春",
-    kr: "Bettei에서 보내는 조용한 교토의 봄",
+    jp: "空庭テラス別邸で過ごす静かな京都の春",
+    kr: "별저에서 보내는 조용한 교토의 봄",
     en: "A calm Kyoto spring starting from Bettei"
   },
 
@@ -494,8 +494,8 @@ window.HOTEL_DATA = {
       en: "A balanced stay for guests who want food, cafes, and easy access to eastern Kyoto."
     },
     introTitle: {
-      jp: "Hiyori から始まる気軽な京都",
-      kr: "Hiyori에서 시작하는 가벼운 교토",
+      jp: "日和ステイ京都鴨川から始まる気軽な京都",
+      kr: "히요리에서 시작하는 가벼운 교토",
       en: "Easy Kyoto starting from Hiyori"
     },
     introText: {
@@ -682,7 +682,7 @@ window.HOTEL_DATA = {
       en: "A city-style stay for guests who want central Kyoto in one smooth flow."
     },
     introTitle: {
-      jp: "STITCH から始まる感覚的な京都シティステイ",
+      jp: "STITCHから始まる感覚的な京都シティステイ",
       kr: "STITCH에서 시작하는 감각적인 교토 시티 스테이",
       en: "A stylish Kyoto city stay starting from STITCH"
     },
