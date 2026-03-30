@@ -1,6 +1,27 @@
 (function () {
+  const STORAGE_KEY = "siteLang";
+
+  function normalizeLang(lang) {
+    if (lang === "ko") return "kr";
+    if (lang === "en") return "en";
+    if (lang === "kr") return "kr";
+    return "jp";
+  }
+
+  function getInitialLang() {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) return normalizeLang(saved);
+    } catch (error) {}
+
+    const htmlLang = document.documentElement.getAttribute("lang");
+    if (htmlLang) return normalizeLang(htmlLang);
+
+    return "jp";
+  }
+
   const state = {
-    lang: "jp",
+    lang: getInitialLang(),
     activeFilter: "all",
     searchTerm: ""
   };
@@ -141,7 +162,10 @@
     });
 
     els.langButtons.forEach((btn) => {
-      btn.classList.toggle("is-active", btn.dataset.lang === state.lang);
+      const isActive = btn.dataset.lang === state.lang;
+      btn.classList.toggle("is-active", isActive);
+      btn.classList.toggle("active", isActive);
+      btn.setAttribute("aria-pressed", isActive ? "true" : "false");
     });
   }
 
@@ -268,6 +292,12 @@
     `;
   }
 
+  function findCurrentSpotFromSearchTerm() {
+    return SPOTS.find((spot) => {
+      return normalize(getSpotText(spot.name)) === normalize(state.searchTerm);
+    });
+  }
+
   function selectSpotById(id) {
     const spot = SPOTS.find((item) => item.id === id);
     if (!spot) return;
@@ -276,8 +306,27 @@
     if (els.searchInput) els.searchInput.value = state.searchTerm;
 
     renderSuggestions();
-    els.suggestions.classList.remove("is-visible");
+    if (els.suggestions) {
+      els.suggestions.classList.remove("is-visible");
+    }
     renderResult(spot);
+  }
+
+  function applyLanguage(lang) {
+    state.lang = normalizeLang(lang);
+
+    try {
+      localStorage.setItem(STORAGE_KEY, state.lang);
+    } catch (error) {}
+
+    document.documentElement.setAttribute("lang", state.lang);
+
+    renderStaticText();
+    renderTopList();
+    renderSuggestions();
+
+    const currentSpot = findCurrentSpotFromSearchTerm();
+    renderResult(currentSpot || null);
   }
 
   function bindEvents() {
@@ -286,7 +335,11 @@
         state.searchTerm = e.target.value || "";
         renderSuggestions();
 
-        const exact = SPOTS.find((spot) => matchesSearch(spot, state.searchTerm) && normalize(getSpotText(spot.name)) === normalize(state.searchTerm));
+        const exact = SPOTS.find((spot) => {
+          return matchesSearch(spot, state.searchTerm)
+            && normalize(getSpotText(spot.name)) === normalize(state.searchTerm);
+        });
+
         if (exact) renderResult(exact);
         else if (!state.searchTerm.trim()) renderResult(null);
       });
@@ -339,30 +392,26 @@
 
     els.langButtons.forEach((btn) => {
       btn.addEventListener("click", () => {
-        state.lang = btn.dataset.lang || "jp";
-        renderStaticText();
-        renderTopList();
-        renderSuggestions();
-
-        const currentSpot = SPOTS.find(
-          (spot) => normalize(getSpotText(spot.name)) === normalize(state.searchTerm)
-        );
-        renderResult(currentSpot || null);
+        applyLanguage(btn.dataset.lang || "jp");
       });
     });
 
+    window.addEventListener("app:languagechange", (e) => {
+      const lang = e.detail?.lang || getInitialLang();
+      applyLanguage(lang);
+    });
+
     document.addEventListener("click", (e) => {
-      if (
-        !e.target.closest(".crowd-search-box")
-      ) {
-        els.suggestions.classList.remove("is-visible");
+      if (!e.target.closest(".crowd-search-box")) {
+        if (els.suggestions) {
+          els.suggestions.classList.remove("is-visible");
+        }
       }
     });
   }
 
   function init() {
-    renderStaticText();
-    renderTopList();
+    applyLanguage(state.lang);
     renderResult(null);
     bindEvents();
   }
