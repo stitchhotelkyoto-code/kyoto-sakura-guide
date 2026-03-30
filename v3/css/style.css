@@ -1599,53 +1599,6 @@ main {
 /* =========================
    subpage widget pill nav
    ========================= */
-
-.subpage-widget-wrap {
-  width: min(calc(100% - 32px), var(--content-width));
-  margin: 10px auto 22px;
-}
-
-.subpage-widget-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: 14px;
-  background: rgba(255, 250, 252, 0.92);
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  box-shadow: var(--shadow);
-}
-
-.subpage-widget-nav a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 42px;
-  padding: 0 18px;
-  border-radius: 999px;
-  border: 1px solid #ead2dc;
-  background: #fff;
-  color: var(--text);
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 0.95rem;
-  line-height: 1;
-  white-space: nowrap;
-  transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease, color 0.18s ease;
-}
-
-.subpage-widget-nav a:hover {
-  transform: translateY(-1px);
-  border-color: #ddb7c8;
-  background: #fff7fa;
-}
-
-.subpage-widget-nav a.is-active {
-  background: var(--pill-active);
-  color: var(--pill-active-text);
-  border-color: #e7bfd0;
-}
-
 .site-header {
   position: sticky;
   top: 0;
@@ -1922,26 +1875,6 @@ a {
     gap: 8px;
   }
 
-  /* ===== 서브페이지 위젯 ===== */
-  .subpage-widget-wrap {
-    margin: 8px auto 14px;
-  }
-
-  .subpage-widget-nav {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    gap: 8px;
-    padding: 10px;
-    border-radius: 999px;
-  }
-
-  .subpage-widget-nav a {
-    flex: 0 0 auto;
-    min-height: 38px;
-    padding: 0 14px;
-    font-size: 0.84rem;
-  }
 
   /* ===== feature / sakura / courses 공통 ===== */
   .feature-grid,
@@ -2182,14 +2115,6 @@ a {
     font-size: 0.92rem;
   }
 
-  .site-nav a,
-  .site-nav-links a,
-  .subpage-widget-nav a {
-    min-height: 36px;
-    padding: 0 12px;
-    font-size: 0.82rem;
-  }
-
   .feature-body,
   .sakura-card-body,
   .courses-card-body,
@@ -2343,4 +2268,107 @@ a {
   }
 }
 
+/* =========================
+   subpage widget grid nav
+   ========================= */
 
+.subpage-widget-nav {
+  margin: 10px auto 22px;
+}
+
+.subpage-widget-nav .container {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.subpage-widget-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 250, 252, 0.92);
+  box-shadow: var(--shadow);
+}
+
+.subpage-widget-card {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 54px;
+  padding: 0 18px;
+  border: 1px solid #ead2dc;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1;
+  transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease, color 0.18s ease;
+}
+
+.subpage-widget-card:hover {
+  transform: translateY(-1px);
+  border-color: #ddb7c8;
+  background: #fff7fa;
+}
+
+.subpage-widget-card.is-active {
+  background: var(--pill-active);
+  color: var(--pill-active-text);
+  border-color: #e7bfd0;
+}
+
+.subpage-widget-icon {
+  flex: 0 0 auto;
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.subpage-widget-text {
+  min-width: 0;
+  font-size: 0.95rem;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .subpage-widget-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-radius: 28px;
+  }
+
+  .subpage-widget-card {
+    min-height: 52px;
+    padding: 0 14px;
+  }
+
+  .subpage-widget-text {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .subpage-widget-grid {
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .subpage-widget-card {
+    min-height: 50px;
+    padding: 0 12px;
+    gap: 8px;
+  }
+
+  .subpage-widget-icon {
+    font-size: 0.9rem;
+  }
+
+  .subpage-widget-text {
+    font-size: 0.84rem;
+  }
+}
