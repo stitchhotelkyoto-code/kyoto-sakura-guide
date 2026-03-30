@@ -691,9 +691,9 @@ window.HOTEL_DATA = {
       kr: "가와라마치, 기온, 야간 산책, 카페, 식사를 하나의 흐름으로 즐기고 싶은 분께 맞는 구성입니다.",
       en: "Built for guests who want shopping, food, cafes, and night walks together."
     },
-   cards: [
+  cards: [
   {
-    image: "../img/stitch/stitch-room.jpg"-,
+    image: "../img/stitch/stitch-room.jpg",
     title: { jp: "City Room", kr: "City Room", en: "City Room" },
     text: {
       jp: "都会的な滞在を感じられる客室コンセプト。",
@@ -701,27 +701,26 @@ window.HOTEL_DATA = {
       en: "A city-stay room concept."
     }
   },
- {
- {
-  image: "../img/stitch/stitch-bar.jpg",
-  title: { jp: "Bar Mood", kr: "Bar Mood", en: "Bar Mood" },
-  text: {
-    jp: "バーの雰囲気を感じられる空間。",
-    kr: "바의 무드를 느낄 수 있는 공간.",
-    en: "A space with a bar-inspired mood.",
-  }
-},
+  {
+    image: "../img/stitch/stitch-bar.jpg",
+    title: { jp: "Bar Mood", kr: "Bar Mood", en: "Bar Mood" },
+    text: {
+      jp: "バーの雰囲気を感じられる空間。",
+      kr: "바의 무드를 느낄 수 있는 공간.",
+      en: "A space with a bar-inspired mood."
+    }
+  },
   {
     image: "../img/stitch/stitch-bf.jpg",
     title: { jp: "Breakfast Table", kr: "Breakfast Table", en: "Breakfast Table" },
     text: {
       jp: "軽やかに一日を始める朝食スタイル。",
       kr: "가볍게 하루를 시작하는 아침 식사 스타일.",
-      en: "A light, urban breakfast mood.",
+      en: "A light, urban breakfast mood."
     }
   },
   {
-    image: "../img/stitch/stitch-front.jpg", // 👉 여기 나중에 네가 사진 넣으면 됨
+    image: "../img/stitch/stitch-front.jpg",
     title: { jp: "Front Scene", kr: "Front Scene", en: "Front Scene" },
     text: {
       jp: "チェックイン空間の第一印象。",
