@@ -1646,31 +1646,6 @@ main {
   border-color: #e7bfd0;
 }
 
-@media (max-width: 768px) {
-  .subpage-widget-wrap {
-    width: min(calc(100% - 20px), var(--content-width));
-    margin: 8px auto 18px;
-  }
-
-  .subpage-widget-nav {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    padding: 12px;
-  }
-
-  .subpage-widget-nav::-webkit-scrollbar {
-    display: none;
-  }
-
-  .subpage-widget-nav a {
-    flex: 0 0 auto;
-    min-height: 40px;
-    padding: 0 16px;
-    font-size: 0.9rem;
-  }
-}
-
 .site-header {
   position: sticky;
   top: 0;
@@ -2368,3 +2343,22 @@ a {
   }
 }
 
+@media (max-width: 768px) {
+  .subpage-widget-nav {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 12px;
+    overflow: visible;
+  }
+
+  .subpage-widget-nav a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 48px;
+    padding: 0 10px;
+    font-size: 0.78rem;
+    white-space: nowrap;
+  }
+}
