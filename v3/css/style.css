@@ -2416,3 +2416,49 @@ a {
     font-size: 0.78rem;
   }
 }
+/* ===== subpage widget restore ===== */
+@media (max-width: 768px) {
+  .subpage-widget-wrap {
+    width: min(calc(100% - 20px), var(--content-width));
+    margin: 8px auto 16px;
+  }
+
+  .subpage-widget-nav {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    gap: 10px;
+    padding: 12px;
+    border-radius: 999px;
+  }
+
+  .subpage-widget-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .subpage-widget-nav a {
+    display: inline-flex !important;
+    flex: 0 0 auto !important;
+    width: auto !important;
+    min-width: unset !important;
+    min-height: 42px !important;
+    padding: 0 16px !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-direction: row !important;
+    gap: 8px !important;
+    font-size: 0.84rem !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+    overflow: visible !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .subpage-widget-nav a {
+    min-height: 40px !important;
+    padding: 0 14px !important;
+    font-size: 0.8rem !important;
+  }
+}
