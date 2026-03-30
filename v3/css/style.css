@@ -2421,3 +2421,30 @@ a {
     font-size: 0.76rem;
   }
 }
+
+/* ===== FINAL WIDGET FIX ===== */
+@media (max-width: 768px) {
+  .subpage-widget-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+
+  .subpage-widget-card {
+    width: 100% !important;
+    min-height: 48px !important;
+    padding: 0 10px !important;
+
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    font-size: 0.8rem;
+  }
+
+  .subpage-widget-text {
+    white-space: nowrap;
+    font-size: 0.78rem;
+  }
+}
