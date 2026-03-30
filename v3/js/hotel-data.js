@@ -693,7 +693,7 @@ window.HOTEL_DATA = {
     },
    cards: [
   {
-    image: "../img/stitch/stitch-room.jpg",
+    image: "../img/stitch/stitch-room.jpg"-,
     title: { jp: "City Room", kr: "City Room", en: "City Room" },
     text: {
       jp: "都会的な滞在を感じられる客室コンセプト。",
@@ -708,7 +708,7 @@ window.HOTEL_DATA = {
   text: {
     jp: "バーの雰囲気を感じられる空間。",
     kr: "바의 무드를 느낄 수 있는 공간.",
-    en: "A space with a bar-inspired mood."
+    en: "A space with a bar-inspired mood.",
   }
 },
   {
@@ -717,7 +717,7 @@ window.HOTEL_DATA = {
     text: {
       jp: "軽やかに一日を始める朝食スタイル。",
       kr: "가볍게 하루를 시작하는 아침 식사 스타일.",
-      en: "A light, urban breakfast mood."
+      en: "A light, urban breakfast mood.",
     }
   },
   {
