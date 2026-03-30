@@ -1,5 +1,5 @@
 (function () {
-  const STORAGE_KEY = "siteLang";
+  const STORAGE_KEY = "siteLanguage";
 
   function normalizeLang(lang) {
     if (lang === "ko") return "kr";
@@ -8,17 +8,21 @@
     return "jp";
   }
 
-  function getInitialLang() {
-    try {
-      const saved = localStorage.getItem(STORAGE_KEY);
-      if (saved) return normalizeLang(saved);
-    } catch (error) {}
+ function getInitialLang() {
+  try {
+    const saved =
+      localStorage.getItem("siteLanguage") ||
+      localStorage.getItem("kyotoSakuraGuideLang") ||
+      localStorage.getItem(STORAGE_KEY);
 
-    const htmlLang = document.documentElement.getAttribute("lang");
-    if (htmlLang) return normalizeLang(htmlLang);
+    if (saved) return normalizeLang(saved);
+  } catch (error) {}
 
-    return "jp";
-  }
+  const htmlLang = document.documentElement.getAttribute("lang");
+  if (htmlLang) return normalizeLang(htmlLang);
+
+  return "jp";
+}
 
   const state = {
     lang: getInitialLang(),
@@ -313,21 +317,23 @@
   }
 
   function applyLanguage(lang) {
-    state.lang = normalizeLang(lang);
+  state.lang = normalizeLang(lang);
 
-    try {
-      localStorage.setItem(STORAGE_KEY, state.lang);
-    } catch (error) {}
+  try {
+    localStorage.setItem(STORAGE_KEY, state.lang);
+    localStorage.setItem("siteLanguage", state.lang === "jp" ? "ja" : state.lang === "kr" ? "ko" : "en");
+    localStorage.setItem("kyotoSakuraGuideLang", state.lang);
+  } catch (error) {}
 
-    document.documentElement.setAttribute("lang", state.lang);
+  document.documentElement.setAttribute("lang", state.lang === "jp" ? "ja" : state.lang);
 
-    renderStaticText();
-    renderTopList();
-    renderSuggestions();
+  renderStaticText();
+  renderTopList();
+  renderSuggestions();
 
-    const currentSpot = findCurrentSpotFromSearchTerm();
-    renderResult(currentSpot || null);
-  }
+  const currentSpot = findCurrentSpotFromSearchTerm();
+  renderResult(currentSpot || null);
+}
 
   function bindEvents() {
     if (els.searchInput) {
