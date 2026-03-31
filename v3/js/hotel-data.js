@@ -10,9 +10,9 @@ window.HOTEL_DATA = {
       en: "HOTEL GUIDE"
     },
     name: {
-      jp: "Soraniwa Hotel",
-      kr: "Soraniwa Hotel",
-      en: "Soraniwa Hotel"
+      jp: "四条河原町温泉 空庭テラス京都",
+      kr: "소라니와 테라스 교토",
+      en: "Sora Niwa Terrace Kyoto"
     },
     tagline: {
       jp: "空と京都の春をゆったり楽しむステイ",
@@ -203,9 +203,9 @@ window.HOTEL_DATA = {
   },
 
   name: {
-    jp: "Soraniwa Bettei",
-    kr: "Soraniwa Bettei",
-    en: "Soraniwa Bettei"
+    jp: "四条河原町温泉　空庭テラス京都 別邸",
+    kr: "소라니와 테라스 교토 별저",
+    en: "Sora Niwa Terrace Kyoto  Bettei"
   },
 
   tagline: {
@@ -479,9 +479,9 @@ window.HOTEL_DATA = {
       en: "HOTEL GUIDE"
     },
     name: {
-      jp: "Hiyori Stay Kyoto Gojo",
-      kr: "Hiyori Stay Kyoto Gojo",
-      en: "Hiyori Stay Kyoto Gojo"
+      jp: "日和ステイ京都鴨川",
+      kr: "히요리 스테이 교토 카모가와",
+      en: "HIYORI Stay Kyoto Kamogawa"
     },
     tagline: {
       jp: "五条を起点に動きやすい実用型ステイ",
