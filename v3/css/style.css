@@ -2408,14 +2408,10 @@ a {
 }
 
 .site-header .site-logo,
-.site-header .site-brand {
-  font-size: 1rem !important;
+.site-header .site-logo * {
+  font-size: 16px !important;
   font-weight: 800 !important;
   letter-spacing: 0.02em !important;
   line-height: 1 !important;
   white-space: nowrap !important;
-}
-.site-header .site-logo,
-.site-header .site-brand {
-  font-size: 16px !important;
 }
