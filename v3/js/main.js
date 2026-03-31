@@ -286,7 +286,7 @@ function getHotelDataForCurrentPage(key) {
       },
       heroButtons: [
         { label: "Soraniwa", href: "soraniwa.html", active: false },
-        { label: "Bettei", href: "bettel.html", active: true }
+        { label: "Bettei", href: "bettei.html", active: true }
       ]
     };
   }
@@ -298,8 +298,8 @@ function getHotelDataForCurrentPage(key) {
     return {
       ...base,
       heroButtons: [
-        { label: "Soraniwa", href: "soraniwa.html", active: !pathname.endsWith("bettel.html") },
-        { label: "Bettei", href: "bettel.html", active: pathname.endsWith("bettel.html") }
+        { label: "Soraniwa", href: "soraniwa.html", active: !pathname.endsWith("bettei.html") },
+        { label: "Bettei", href: "bettei.html", active: pathname.endsWith("bettei.html") }
       ]
     };
   }
