@@ -88,13 +88,6 @@ button {
   gap: 20px;
 }
 
-.site-logo,
-.site-brand {
-  font-size: 1.1rem;
-  font-weight: 800;
-  letter-spacing: 0.02em;
-  white-space: nowrap;
-}
 
 .header-right,
 .site-header-right {
@@ -1792,11 +1785,6 @@ a {
     gap: 10px;
   }
 
-  .site-logo,
-  .site-brand {
-    font-size: 0.96rem;
-    line-height: 1.2;
-  }
 
   .header-right,
   .site-header-right {
@@ -2132,10 +2120,6 @@ a {
     border-radius: 20px;
   }
 
-  .site-logo,
-  .site-brand {
-    font-size: 0.92rem;
-  }
 
   .feature-body,
   .sakura-card-body,
@@ -2209,15 +2193,6 @@ a {
     row-gap: 8px;
   }
 
-  .site-logo,
-  .site-brand {
-    grid-area: logo;
-    min-width: 0;
-    font-size: 0.92rem;
-    line-height: 1.15;
-    white-space: nowrap;
-  }
-
   .header-right,
   .site-header-right {
     display: contents;
@@ -2269,11 +2244,6 @@ a {
   .site-header-inner {
     column-gap: 8px;
     row-gap: 7px;
-  }
-
-  .site-logo,
-  .site-brand {
-    font-size: 0.86rem;
   }
 
   .lang-btn {
