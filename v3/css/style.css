@@ -75,9 +75,27 @@ button {
   position: sticky;
   top: 0;
   z-index: 100;
-  padding: 20px 0;
+  padding: 26px 0 0;
   background: rgba(251, 247, 250, 0.82);
   backdrop-filter: blur(16px);
+}
+
+.site-logo {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+}
+
+.site-nav a,
+.site-nav-links a {
+  min-height: 34px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.lang-switch,
+.lang-switcher {
+  min-height: 42px;
 }
 
 .site-header-inner {
@@ -85,9 +103,9 @@ button {
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-
+  min-height: 64px;
   border-bottom: 1px solid rgba(240, 217, 227, 0.72);
-  padding-bottom: 16px;
+  padding-bottom: 20px;
 }
 
 .header-right,
@@ -899,7 +917,7 @@ main {
   .site-header-inner,
   .header-right,
   .site-header-right {
-    align-items: flex-start;
+    align-items: center;
   }
 
   .feature-grid,
