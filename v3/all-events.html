@@ -1,12 +1,80 @@
 <!DOCTYPE html>
-<html lang="jp">
+<html lang="ja">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Events Guide - Kyoto Sakura Guide</title>
   <link rel="stylesheet" href="./css/style.css" />
 
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&family=Noto+Sans+KR:wght@400;500;700;800&display=swap"
+    rel="stylesheet"
+  />
 
+  <style>
+    .page-heading {
+      margin-top: 10px;
+      margin-bottom: 28px;
+    }
+
+    .page-heading .container {
+      padding: 36px 28px;
+      min-height: 150px;
+      border: 1px solid #efd0dc;
+      border-radius: 24px;
+      background: linear-gradient(180deg, #fff 0%, #fff9fb 100%);
+      box-shadow: 0 10px 30px rgba(40, 20, 30, 0.04);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin: 0 0 12px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(216, 140, 169, 0.12);
+      color: #c26c8c;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      line-height: 1.2;
+    }
+
+    .page-heading h1 {
+      margin: 0;
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 800;
+      line-height: 1.2;
+      color: #1f1f1f;
+    }
+
+    .page-desc {
+      margin: 12px 0 0;
+      max-width: none;
+      font-size: 15px;
+      line-height: 1.7;
+      color: #6b5a60;
+      white-space: normal;
+      overflow: visible;
+      text-overflow: unset;
+    }
+
+    .site-logo {
+      font-size: 1rem !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.02em !important;
+      line-height: 1 !important;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 720px) {
+      .page-heading .container {
+        padding: 24px 20px;
+        border-radius: 24px;
+        min-height: unset;
+      }
+    }
   </style>
 </head>
 <body data-all-page="events">
