@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="jp">
+<html lang="ja">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -57,53 +57,52 @@
       font: inherit;
     }
 
-  
-   .page-heading {
-  margin-top: 10px;
-  margin-bottom: 28px;
-}
+    .page-heading {
+      margin-top: 10px;
+      margin-bottom: 28px;
+    }
 
-.page-heading .container {
-  padding: 36px 28px;
-  height: 150px;       
-  overflow: hidden;   
-  border: 1px solid #efd0dc;
-  border-radius: 24px;
-  background: linear-gradient(180deg, #fff 0%, #fff9fb 100%);
-  box-shadow: 0 10px 30px rgba(40, 20, 30, 0.04);
-}
+    .page-heading .container {
+      padding: 36px 28px;
+      min-height: 150px;
+      border: 1px solid #efd0dc;
+      border-radius: 24px;
+      background: linear-gradient(180deg, #fff 0%, #fff9fb 100%);
+      box-shadow: 0 10px 30px rgba(40, 20, 30, 0.04);
+    }
 
-.eyebrow {
-  display: inline-block;
-  margin: 0 0 12px;
-  padding: 6px 12px;
-  border-radius: 999px;
-  background: rgba(216, 140, 169, 0.12);
-  color: #c26c8c;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  line-height: 1.2;
-}
+    .eyebrow {
+      display: inline-block;
+      margin: 0 0 12px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(216, 140, 169, 0.12);
+      color: #c26c8c;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      line-height: 1.2;
+    }
 
-.page-heading h1 {
-  margin: 0;
-  font-size: clamp(32px, 4vw, 48px);
-  font-weight: 800;
-  line-height: 1.2;
-  color: #1f1f1f;
-}
+    .page-heading h1 {
+      margin: 0;
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 800;
+      line-height: 1.2;
+      color: #1f1f1f;
+    }
 
-.page-desc {
-  margin: 12px 0 0;
-  max-width: none;
-  font-size: 15px;
-  line-height: 1.7;
-  color: #6b5a60;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
+    .page-desc {
+      margin: 12px 0 0;
+      max-width: none;
+      font-size: 15px;
+      line-height: 1.7;
+      color: #6b5a60;
+      white-space: normal;
+      overflow: visible;
+      text-overflow: unset;
+    }
+
     .course-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -466,11 +465,13 @@
       }
     }
 
-  @media (max-width: 720px) {
-  .page-heading .container {
-    padding: 24px 20px;
-    border-radius: 24px;
-  }
+    @media (max-width: 720px) {
+      .page-heading .container {
+        padding: 24px 20px;
+        border-radius: 24px;
+        min-height: unset;
+      }
+
       .area-card-title {
         font-size: 1.45rem;
       }
@@ -558,22 +559,23 @@
       </div>
     </section>
 
-<section class="page-heading">
-  <div class="container">
-    <p class="eyebrow" data-i18n="hero_kicker">Kyoto Route Guide</p>
-    <h1 data-i18n="hero_title">Google Maps Course</h1>
-    <p class="page-desc" data-i18n="hero_desc">
-      Choose an area and open three easy route ideas. Each course includes a direct Google Maps course link for a smooth walk.
-    </p>
-  </div>
-</section>
+    <section class="page-heading">
+      <div class="container">
+        <p class="eyebrow" data-i18n="hero_kicker">Kyoto Route Guide</p>
+        <h1 data-i18n="hero_title">Travel Courses</h1>
+        <p class="page-desc" data-i18n="hero_desc">
+          Choose an area and open easy route ideas. Each course includes a direct Google Maps course link for a smooth walk.
+        </p>
+      </div>
+    </section>
 
-<div class="container">
-  <section class="course-grid" id="areaGrid"></section>
+    <div class="container">
+      <section class="course-grid" id="areaGrid"></section>
 
-  <footer class="site-footer">
-    Kyoto Sakura Guide © Spring Stay Project
-  </footer>
+      <footer class="site-footer">
+        Kyoto Sakura Guide © Spring Stay Project
+      </footer>
+    </div>
   </div>
 
   <div class="modal" id="courseModal" aria-hidden="true">
@@ -606,13 +608,13 @@
         widget_events: "Events",
         widget_crowd: "Live Crowd",
         hero_kicker: "Kyoto Route Guide",
-        hero_title: "Google Maps Course",
-        hero_desc: "エリアを選ぶと、すぐ使いやすい3つの散策コースを開けます。各コースには Google Maps のルートリンクを付けています。",
+        hero_title: "Travel Courses",
+        hero_desc: "エリアを選ぶと、すぐ使いやすい散策コースを開けます。各コースには Google Maps のルートリンクを付けています。",
         route_points: "Main Spots",
         route_duration: "Duration",
         route_bestfor: "Best For",
         route_style: "Style",
-        route_button: "Google Maps Course",
+        route_button: "Google Maps",
         route_view: "Area Directions",
         placeholder_badge: "North Kyoto",
         placeholder_title: "Kinkakuji Route",
@@ -629,13 +631,13 @@
         widget_events: "Events",
         widget_crowd: "Live Crowd",
         hero_kicker: "Kyoto Route Guide",
-        hero_title: "Google Maps Course",
-        hero_desc: "Choose an area and open three easy route ideas. Each course includes a direct Google Maps course link for a smooth walk.",
+        hero_title: "Travel Courses",
+        hero_desc: "Choose an area and open easy route ideas. Each course includes a direct Google Maps course link for a smooth walk.",
         route_points: "Main Spots",
         route_duration: "Duration",
         route_bestfor: "Best For",
         route_style: "Style",
-        route_button: "Google Maps Course",
+        route_button: "Google Maps",
         route_view: "Area Directions",
         placeholder_badge: "North Kyoto",
         placeholder_title: "Kinkakuji Route",
@@ -652,13 +654,13 @@
         widget_events: "Events",
         widget_crowd: "Live Crowd",
         hero_kicker: "Kyoto Route Guide",
-        hero_title: "Google Maps Course",
-        hero_desc: "지역을 고르면 바로 쓰기 좋은 3개의 산책 코스를 열 수 있습니다. 각 코스에는 Google Maps 루트 링크를 넣어두었습니다.",
+        hero_title: "Travel Courses",
+        hero_desc: "지역을 고르면 바로 쓰기 좋은 산책 코스를 열 수 있습니다. 각 코스에는 Google Maps 루트 링크를 넣어두었습니다.",
         route_points: "주요 스팟",
         route_duration: "소요 시간",
         route_bestfor: "추천 상황",
         route_style: "무드",
-        route_button: "Google Maps Course",
+        route_button: "Google Maps",
         route_view: "Area Directions",
         placeholder_badge: "North Kyoto",
         placeholder_title: "Kinkakuji Route",
@@ -826,7 +828,7 @@
             tag: { jp: "Photo", en: "Photo", kr: "Photo" },
             title: { jp: "North Kyoto Photo Route", en: "North Kyoto Photo Route", kr: "North Kyoto Photo Route" },
             description: {
-              jp: "景色と 사진 포인트를 중심으로 가볍게 돌아보기 좋은 코스です。",
+              jp: "景色と写真スポットを中心に、気軽に回れるコースです。",
               en: "A photo-friendly route for a lighter north Kyoto stroll.",
               kr: "풍경과 사진 포인트 중심으로 가볍게 돌기 좋은 북쪽 교토 코스입니다."
             },
