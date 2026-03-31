@@ -78,7 +78,6 @@ button {
   padding: 14px 0;
   background: rgba(251, 247, 250, 0.82);
   backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(240, 217, 227, 0.72);
 }
 
 .site-header-inner {
@@ -86,8 +85,10 @@ button {
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-}
 
+  border-bottom: 1px solid rgba(240, 217, 227, 0.72);
+  padding-bottom: 10px;
+}
 
 .header-right,
 .site-header-right {
