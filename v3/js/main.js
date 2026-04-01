@@ -265,23 +265,23 @@ function getHotelDataForCurrentPage(key) {
         en: "Soraniwa Bettei"
       },
       tagline: {
-        jp: "別邸でゆったり楽しむ京都の春",
-        kr: "벳테이에서 여유롭게 즐기는 교토의 봄",
+        jp: "四条河原町温泉　空庭テラス京都 別邸でゆったり楽しむ京都の春",
+        kr: "소라니와 테라스 별저에서 여유롭게 즐기는 교토의 봄",
         en: "A quieter Kyoto spring from Bettei"
       },
       description: {
-        jp: "落ち着いた別邸ステイの流れで、京都の春をゆっくり味わいたいお客様向けのページです。",
-        kr: "차분한 벳테이 스테이의 흐름으로 교토의 봄을 천천히 즐기고 싶은 고객을 위한 페이지입니다.",
+        jp: "落ち着いた四条河原町温泉　空庭テラス京都 別邸ステイの流れで、京都の春をゆっくり味わいたいお客様向けのページです。",
+        kr: "차분한 소라니와 테라스 별저의 스테이의 흐름으로 교토의 봄을 천천히 즐기고 싶은 고객을 위한 페이지입니다.",
         en: "A guide for guests who want a quieter Bettei stay and a slower Kyoto spring rhythm."
       },
       introTitle: {
-        jp: "Bettei から始まる静かな春時間",
-        kr: "Bettei에서 시작하는 고요한 봄 시간",
+        jp: "四条河原町温泉　空庭テラス京都 別邸から始まる静かな春時間",
+        kr: "소라니와 테라스 별저에서 시작하는 고요한 봄 시간",
         en: "A calmer spring flow from Bettei"
       },
       introText: {
-        jp: "ソラニワの華やかさとは少し違う、ゆるやかなペースで春を楽しみたい方におすすめです。",
-        kr: "소라니와의 화사함과는 조금 다른, 더 느린 템포로 봄을 즐기고 싶은 분께 추천합니다.",
+        jp: "空庭テラス京都の華やかさとは少し異なる、ゆるやかなペースで春を楽しみたい方におすすめです。",
+        kr: "소라니와 테라스의 화사함과는 조금 다른, 더 느린 템포로 봄을 즐기고 싶은 분께 추천합니다.",
         en: "Recommended for guests who prefer a quieter spring pace than the main Soraniwa flow."
       },
       heroButtons: [
