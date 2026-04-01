@@ -2615,3 +2615,13 @@ a {
     font-size: 0.8rem !important;
   }
 }
+
+@media (max-width: 768px) {
+  .lang-btn,
+  .lang-btn:hover,
+  .lang-btn:active,
+  .lang-btn:focus {
+    transform: none !important;
+    transition: background-color 0.16s ease, color 0.16s ease !important;
+  }
+}
