@@ -1681,7 +1681,6 @@ main {
 }
 
 .site-nav a,
-.lang-btn,
 .btn,
 .hero-slider-btn,
 .widget-item,
@@ -1690,12 +1689,15 @@ a {
   transition: all 0.22s ease;
 }
 
+.lang-btn {
+  transition: background-color 0.16s ease, color 0.16s ease;
+}
+
 .site-nav a:hover {
   color: #1f2f73;
   opacity: 1;
 }
 
-.lang-btn:hover,
 .btn:hover,
 .hero-slider-btn:hover,
 .widget-item:hover,
@@ -1703,10 +1705,12 @@ a {
   transform: translateY(-1px);
 }
 
+.lang-btn:hover {
+  transform: none;
+}
+
 /* =========================================
    MOBILE TUNE-UP
-   PC 느낌 유지 + 모바일만 정리
-   style.css 맨 아래에 추가
 ========================================= */
 
 @media (max-width: 900px) {
@@ -1748,7 +1752,6 @@ a {
     line-height: 1.7;
   }
 
-  /* 공통 카드 간격 */
   .feature-body,
   .sakura-card-body,
   .courses-card-body,
@@ -1763,14 +1766,13 @@ a {
     padding: 16px;
   }
 
-  /* 호텔 사진 / 패널 */
   .hotel-photo-grid,
   .hotel-panels {
     grid-template-columns: 1fr;
     gap: 16px;
   }
 
-  /* 이벤트 */
+
   .event-card {
     grid-template-columns: 1fr;
   }
@@ -1779,7 +1781,7 @@ a {
     aspect-ratio: 1.45 / 1;
   }
 
-  /* 코스 / 사쿠라 / feature */
+
   .feature-grid,
   .sakura-grid,
   .courses-grid {
@@ -1787,12 +1789,11 @@ a {
     gap: 16px;
   }
 
-  /* 푸드 모달 카드 */
   .food-spot-grid {
     grid-template-columns: 1fr;
   }
 
-  /* crowd */
+
   .crowd-live-grid,
   .crowd-grid,
   .ai-grid {
@@ -1802,7 +1803,6 @@ a {
 }
 
 @media (max-width: 768px) {
-  /* 기본 폭 */
   .container,
   .page-shell,
   .footer-note,
