@@ -1690,7 +1690,7 @@ a {
 }
 
 .lang-btn {
-  transition: background-color 0.16s ease, color 0.16s ease;
+  transition: none;
 }
 
 .site-nav a:hover {
