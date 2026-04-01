@@ -260,9 +260,9 @@ function getHotelDataForCurrentPage(key) {
     return {
       ...base,
       name: {
-        jp: "Soraniwa Bettei",
-        kr: "Soraniwa Bettei",
-        en: "Soraniwa Bettei"
+        jp: "四条河原町温泉　空庭テラス京都 別邸",
+        kr: "소라니와 테라스 별저",
+        en: "Sora Niwa Terrace Kyoto Bettei"
       },
       tagline: {
         jp: "四条河原町温泉　空庭テラス京都 別邸でゆったり楽しむ京都の春",
