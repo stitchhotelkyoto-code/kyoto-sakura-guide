@@ -949,28 +949,66 @@ main {
 
   .site-header {
     position: static;
+    padding: 14px 0 0;
   }
 
   .site-header-inner {
-    flex-direction: column;
-    align-items: stretch;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "logo lang"
+      "nav nav";
+    align-items: center;
+    column-gap: 12px;
+    row-gap: 10px;
+    min-height: auto;
+    padding-bottom: 14px;
+  }
+
+  .site-logo {
+    grid-area: logo;
+    min-width: 0;
+    min-height: 32px;
+    font-size: 0.98rem;
+    line-height: 1.2;
   }
 
   .header-right,
   .site-header-right {
-    flex-direction: column;
-    align-items: stretch;
+    display: contents;
+  }
+
+  .lang-switcher,
+  .lang-switch {
+    grid-area: lang;
+    justify-self: end;
+    align-self: start;
+    gap: 4px;
+    padding: 3px;
+    min-height: auto;
+  }
+
+  .lang-btn {
+    min-width: 38px;
+    height: 30px;
+    padding: 0 10px;
+    font-size: 0.76rem;
   }
 
   .site-nav,
   .site-nav-links {
+    grid-area: nav;
+    display: flex;
+    flex-wrap: wrap;
     gap: 6px;
+    width: 100%;
   }
 
   .site-nav a,
   .site-nav-links a {
     padding: 7px 10px;
-    font-size: 0.84rem;
+    font-size: 0.82rem;
+    line-height: 1.1;
   }
 
   .page-heading,
