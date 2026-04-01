@@ -22,13 +22,20 @@
     -webkit-backdrop-filter: blur(10px);
   }
 
-  body[data-page="home"] .site-nav a,
-  body[data-page="home"] .lang-btn,
-  body[data-page="home"] .hero-slider-btn,
-  body[data-page="home"] .btn,
-  body[data-page="home"] .widget-grid.widget-grid-cards .widget-item.widget-card {
-    transition: all 0.22s ease;
-  }
+ body[data-page="home"] .site-nav a,
+body[data-page="home"] .hero-slider-btn,
+body[data-page="home"] .btn,
+body[data-page="home"] .widget-grid.widget-grid-cards .widget-item.widget-card {
+  transition: all 0.22s ease;
+}
+
+body[data-page="home"] .lang-btn {
+  transition: background-color 0.16s ease, color 0.16s ease;
+}
+
+body[data-page="home"] .lang-btn:hover {
+  transform: none;
+}
 
   body[data-page="home"] .site-nav a:hover {
     opacity: 1;
