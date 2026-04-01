@@ -2592,7 +2592,7 @@ a {
   .lang-btn:active,
   .lang-btn:focus {
     transform: none !important;
-    transition: background-color 0.16s ease, color 0.16s ease !important;
+    transition: none !important;
   }
 }
 
