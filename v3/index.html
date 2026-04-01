@@ -369,246 +369,261 @@
     </footer>
   </div>
 
-  <script>
-    (() => {
-      const translations = {
-        jp: {
-          nav_home: "Home",
-          nav_soraniwa: "Soraniwa",
-          nav_bettei: "Bettei",
-          nav_hiyori: "Hiyori",
-          nav_stitch: "STITCH",
+ <script>
+  (() => {
+    const STORAGE_KEY = 'siteLanguage';
 
-          heroLabel: "Spring Stay in Kyoto",
-          heroTitle: "Explore Kyoto,<br>Stay Your Way",
-          heroDesc: "京都の春を、それぞれの滞在スタイルで。<br>4つのホテルから、あなたに合う京都ステイを見つけてください。",
-          heroMeta: "2026 Spring Hotel Guide",
-          heroCta: "Explore Sakura",
+    const translations = {
+      jp: {
+        nav_home: "Home",
+        nav_soraniwa: "Soraniwa",
+        nav_bettei: "Bettei",
+        nav_hiyori: "Hiyori",
+        nav_stitch: "STITCH",
 
-          widgetTitle: "Explore Kyoto",
-          widgetLabel1: "Sakura Spots",
-          widgetDesc1: "京都の春らしい桜景色をエリア別にチェック。",
-          widgetLabel2: "Travel Courses",
-          widgetDesc2: "歩きやすい京都ルートを Google Maps と一緒に。",
-          widgetLabel3: "Events",
-          widgetDesc3: "ライトアップや春のイベントをまとめて確認。",
-          widgetLabel4: "Live Crowd",
-          widgetDesc4: "お出かけ前に現地の雰囲気をチェック。",
+        heroLabel: "Spring Stay in Kyoto",
+        heroTitle: "Explore Kyoto,<br>Stay Your Way",
+        heroDesc: "京都の春を、それぞれの滞在スタイルで。<br>4つのホテルから、あなたに合う京都ステイを見つけてください。",
+        heroMeta: "2026 Spring Hotel Guide",
+        heroCta: "Explore Sakura",
 
-          slideTitle1: "四条河原町温泉　空庭テラス京都",
-          slideDesc1: "開放感のある眺望とともに、ゆったりとした京都らしい時間を楽しめるスカイ温泉ステイ。",
-          slideTitle2: "四条河原町温泉　空庭テラス京都 別邸",
-          slideDesc2: "静けさと上質さを感じられる、より洗練されたプライベートラグジュアリーステイ。",
-          slideTitle3: "日和ステイ京都鴨川",
-          slideDesc3: "京都中心部の散策に便利な、実用的で快適なステイ。",
-          slideTitle4: "STITCH HOTEL Kyoto",
-          slideDesc4: "モダンな京都旅を楽しみたい方に向けた、都会的でスタイリッシュなステイ。"
-        },
-        en: {
-          nav_home: "Home",
-          nav_soraniwa: "Soraniwa",
-          nav_bettei: "Bettei",
-          nav_hiyori: "Hiyori",
-          nav_stitch: "STITCH",
+        widgetTitle: "Explore Kyoto",
+        widgetLabel1: "Sakura Spots",
+        widgetDesc1: "京都の春らしい桜景色をエリア別にチェック。",
+        widgetLabel2: "Travel Courses",
+        widgetDesc2: "歩きやすい京都ルートを Google Maps と一緒に。",
+        widgetLabel3: "Events",
+        widgetDesc3: "ライトアップや春のイベントをまとめて確認。",
+        widgetLabel4: "Live Crowd",
+        widgetDesc4: "お出かけ前に現地の雰囲気をチェック。",
 
-          heroLabel: "Spring Stay in KYOTO",
-          heroTitle: "Explore Kyoto,<br>Stay Your Way",
-          heroDesc: "Find your ideal Kyoto spring stay through four different hotel styles.",
-          heroMeta: "2026 Spring Hotel Guide",
-          heroCta: "Explore Sakura",
+        slideTitle1: "四条河原町温泉　空庭テラス京都",
+        slideDesc1: "開放感のある眺望とともに、ゆったりとした京都らしい時間を楽しめるスカイ温泉ステイ。",
+        slideTitle2: "四条河原町温泉　空庭テラス京都 別邸",
+        slideDesc2: "静けさと上質さを感じられる、より洗練されたプライベートラグジュアリーステイ。",
+        slideTitle3: "日和ステイ京都鴨川",
+        slideDesc3: "京都中心部の散策に便利な、実用的で快適なステイ。",
+        slideTitle4: "STITCH HOTEL Kyoto",
+        slideDesc4: "モダンな京都旅を楽しみたい方に向けた、都会的でスタイリッシュなステイ。"
+      },
+      en: {
+        nav_home: "Home",
+        nav_soraniwa: "Soraniwa",
+        nav_bettei: "Bettei",
+        nav_hiyori: "Hiyori",
+        nav_stitch: "STITCH",
 
-          widgetTitle: "Explore Kyoto",
-          widgetLabel1: "Sakura Spots",
-          widgetDesc1: "Discover Kyoto’s seasonal cherry blossom views.",
-          widgetLabel2: "Travel Courses",
-          widgetDesc2: "Walkable Kyoto routes with smooth map guidance.",
-          widgetLabel3: "Events",
-          widgetDesc3: "Seasonal illuminations and spring happenings in Kyoto.",
-          widgetLabel4: "Live Crowd",
-          widgetDesc4: "Check the atmosphere before heading out.",
+        heroLabel: "Spring Stay in KYOTO",
+        heroTitle: "Explore Kyoto,<br>Stay Your Way",
+        heroDesc: "Find your ideal Kyoto spring stay through four different hotel styles.",
+        heroMeta: "2026 Spring Hotel Guide",
+        heroCta: "Explore Sakura",
 
-          slideTitle1: "Sora Niwa Terrace Kyoto",
-          slideDesc1: "Sky onsen stay with open views and a relaxed Kyoto atmosphere.",
-          slideTitle2: "Sora Niwa Terrace Kyoto  Bettei",
-          slideDesc2: "Private luxury stay with a quieter and more refined Kyoto mood.",
-          slideTitle3: "HIYORI Stay Kyoto Kamogawa",
-          slideDesc3: "Practical and comfortable base for exploring central Kyoto.",
-          slideTitle4: "STITCH HOTEL KYOTO",
-          slideDesc4: "Urban and stylish stay for guests who want a modern Kyoto trip."
-        },
-        kr: {
-          nav_home: "Home",
-          nav_soraniwa: "Soraniwa",
-          nav_bettei: "Bettei",
-          nav_hiyori: "Hiyori",
-          nav_stitch: "STITCH",
+        widgetTitle: "Explore Kyoto",
+        widgetLabel1: "Sakura Spots",
+        widgetDesc1: "Discover Kyoto’s seasonal cherry blossom views.",
+        widgetLabel2: "Travel Courses",
+        widgetDesc2: "Walkable Kyoto routes with smooth map guidance.",
+        widgetLabel3: "Events",
+        widgetDesc3: "Seasonal illuminations and spring happenings in Kyoto.",
+        widgetLabel4: "Live Crowd",
+        widgetDesc4: "Check the atmosphere before heading out.",
 
-          heroLabel: "Spring Stay in Kyoto",
-          heroTitle: "Explore Kyoto,<br>Stay Your Way",
-          heroDesc: "교토의 봄을, 각각 다른 숙박 스타일로. 네 개의 호텔 중에서 당신에게 맞는 교토 스테이를 찾아보세요.",
-          heroMeta: "2026 Spring Hotel Guide",
-          heroCta: "Explore Sakura",
+        slideTitle1: "Sora Niwa Terrace Kyoto",
+        slideDesc1: "Sky onsen stay with open views and a relaxed Kyoto atmosphere.",
+        slideTitle2: "Sora Niwa Terrace Kyoto  Bettei",
+        slideDesc2: "Private luxury stay with a quieter and more refined Kyoto mood.",
+        slideTitle3: "HIYORI Stay Kyoto Kamogawa",
+        slideDesc3: "Practical and comfortable base for exploring central Kyoto.",
+        slideTitle4: "STITCH HOTEL KYOTO",
+        slideDesc4: "Urban and stylish stay for guests who want a modern Kyoto trip."
+      },
+      kr: {
+        nav_home: "Home",
+        nav_soraniwa: "Soraniwa",
+        nav_bettei: "Bettei",
+        nav_hiyori: "Hiyori",
+        nav_stitch: "STITCH",
 
-          widgetTitle: "Explore Kyoto",
-          widgetLabel1: "Sakura Spots",
-          widgetDesc1: "교토의 봄 벚꽃 풍경을 지역별로 살펴보세요.",
-          widgetLabel2: "Travel Courses",
-          widgetDesc2: "걷기 좋은 교토 코스를 Google Maps와 함께 확인하세요.",
-          widgetLabel3: "Events",
-          widgetDesc3: "라이트업과 봄 시즌 이벤트를 한눈에 확인하세요.",
-          widgetLabel4: "Live Crowd",
-          widgetDesc4: "외출 전에 현지 분위기를 먼저 확인해보세요.",
+        heroLabel: "Spring Stay in Kyoto",
+        heroTitle: "Explore Kyoto,<br>Stay Your Way",
+        heroDesc: "교토의 봄을, 각각 다른 숙박 스타일로. 네 개의 호텔 중에서 당신에게 맞는 교토 스테이를 찾아보세요.",
+        heroMeta: "2026 Spring Hotel Guide",
+        heroCta: "Explore Sakura",
 
-          slideTitle1: "소라니와 테라스 교토",
-          slideDesc1: "탁 트인 전망과 함께 여유로운 교토 분위기를 즐길 수 있는 스카이 온천 스테이.",
-          slideTitle2: "소라니와 테라스 교토 별저",
-          slideDesc2: "조용하고 세련된 교토 무드를 느낄 수 있는 프라이빗 럭셔리 스테이.",
-          slideTitle3: "히요리 스테이 교토 카모가와",
-          slideDesc3: "교토 중심을 둘러보기 좋은 실용적이고 편안한 스테이.",
-          slideTitle4: "STITCH HOTEL KYOTO",
-          slideDesc4: "모던한 교토 여행을 원하는 분들을 위한 도심형 스타일리시 스테이."
-        }
-      };
+        widgetTitle: "Explore Kyoto",
+        widgetLabel1: "Sakura Spots",
+        widgetDesc1: "교토의 봄 벚꽃 풍경을 지역별로 살펴보세요.",
+        widgetLabel2: "Travel Courses",
+        widgetDesc2: "걷기 좋은 교토 코스를 Google Maps와 함께 확인하세요.",
+        widgetLabel3: "Events",
+        widgetDesc3: "라이트업과 봄 시즌 이벤트를 한눈에 확인하세요.",
+        widgetLabel4: "Live Crowd",
+        widgetDesc4: "외출 전에 현지 분위기를 먼저 확인해보세요.",
 
-      const navMap = {
-        nav_home: '.site-nav a:nth-child(1)',
-        nav_soraniwa: '.site-nav a:nth-child(2)',
-        nav_bettei: '.site-nav a:nth-child(3)',
-        nav_hiyori: '.site-nav a:nth-child(4)',
-        nav_stitch: '.site-nav a:nth-child(5)'
-      };
-
-      const textMap = {
-        heroLabel: 'heroLabel',
-        heroTitle: 'heroTitle',
-        heroDesc: 'heroDesc',
-        heroMeta: 'heroMeta',
-        heroCta: 'heroCta',
-        widgetTitle: 'widgetTitle',
-        widgetLabel1: 'widgetLabel1',
-        widgetDesc1: 'widgetDesc1',
-        widgetLabel2: 'widgetLabel2',
-        widgetDesc2: 'widgetDesc2',
-        widgetLabel3: 'widgetLabel3',
-        widgetDesc3: 'widgetDesc3',
-        widgetLabel4: 'widgetLabel4',
-        widgetDesc4: 'widgetDesc4',
-        slideTitle1: 'slideTitle1',
-        slideDesc1: 'slideDesc1',
-        slideTitle2: 'slideTitle2',
-        slideDesc2: 'slideDesc2',
-        slideTitle3: 'slideTitle3',
-        slideDesc3: 'slideDesc3',
-        slideTitle4: 'slideTitle4',
-        slideDesc4: 'slideDesc4'
-      };
-
-      function applyLanguage(lang) {
-        const dict = translations[lang] || translations.jp;
-
-        Object.entries(navMap).forEach(([key, selector]) => {
-          const el = document.querySelector(selector);
-          if (el && dict[key]) el.textContent = dict[key];
-        });
-
-        Object.entries(textMap).forEach(([key, id]) => {
-          const el = document.getElementById(id);
-          if (!el || !dict[key]) return;
-
-          if (key === 'heroTitle' || key === 'heroDesc') {
-            el.innerHTML = dict[key];
-          } else {
-            el.textContent = dict[key];
-          }
-        });
-
-        document.querySelectorAll('.lang-btn').forEach((btn) => {
-          btn.classList.toggle('is-active', btn.dataset.lang === lang);
-        });
-
-        document.documentElement.lang = lang === 'jp' ? 'ja' : lang === 'kr' ? 'ko' : 'en';
+        slideTitle1: "소라니와 테라스 교토",
+        slideDesc1: "탁 트인 전망과 함께 여유로운 교토 분위기를 즐길 수 있는 스카이 온천 스테이.",
+        slideTitle2: "소라니와 테라스 교토 별저",
+        slideDesc2: "조용하고 세련된 교토 무드를 느낄 수 있는 프라이빗 럭셔리 스테이.",
+        slideTitle3: "히요리 스테이 교토 카모가와",
+        slideDesc3: "교토 중심을 둘러보기 좋은 실용적이고 편안한 스테이.",
+        slideTitle4: "STITCH HOTEL KYOTO",
+        slideDesc4: "모던한 교토 여행을 원하는 분들을 위한 도심형 스타일리시 스테이."
       }
+    };
 
-      const slides = Array.from(document.querySelectorAll('#heroSliderTrack .hero-slide'));
-      const prevBtn = document.getElementById('heroPrevBtn');
-      const nextBtn = document.getElementById('heroNextBtn');
-      const currentEl = document.getElementById('heroCurrent');
-      const totalEl = document.getElementById('heroTotal');
-      let currentIndex = 0;
-      let autoTimer = null;
+    const navMap = {
+      nav_home: '.site-nav a:nth-child(1)',
+      nav_soraniwa: '.site-nav a:nth-child(2)',
+      nav_bettei: '.site-nav a:nth-child(3)',
+      nav_hiyori: '.site-nav a:nth-child(4)',
+      nav_stitch: '.site-nav a:nth-child(5)'
+    };
 
-      function renderSlide(index) {
-        slides.forEach((slide, i) => {
-          slide.classList.toggle('is-active', i === index);
-          slide.setAttribute('aria-hidden', i === index ? 'false' : 'true');
-        });
+    const textMap = {
+      heroLabel: 'heroLabel',
+      heroTitle: 'heroTitle',
+      heroDesc: 'heroDesc',
+      heroMeta: 'heroMeta',
+      heroCta: 'heroCta',
+      widgetTitle: 'widgetTitle',
+      widgetLabel1: 'widgetLabel1',
+      widgetDesc1: 'widgetDesc1',
+      widgetLabel2: 'widgetLabel2',
+      widgetDesc2: 'widgetDesc2',
+      widgetLabel3: 'widgetLabel3',
+      widgetDesc3: 'widgetDesc3',
+      widgetLabel4: 'widgetLabel4',
+      widgetDesc4: 'widgetDesc4',
+      slideTitle1: 'slideTitle1',
+      slideDesc1: 'slideDesc1',
+      slideTitle2: 'slideTitle2',
+      slideDesc2: 'slideDesc2',
+      slideTitle3: 'slideTitle3',
+      slideDesc3: 'slideDesc3',
+      slideTitle4: 'slideTitle4',
+      slideDesc4: 'slideDesc4'
+    };
 
-        if (currentEl) currentEl.textContent = String(index + 1);
-      }
+    function normalizeLang(lang) {
+      if (lang === 'ko') return 'kr';
+      if (lang === 'ja') return 'jp';
+      if (['jp', 'en', 'kr'].includes(lang)) return lang;
+      return 'jp';
+    }
 
-      function goToSlide(index) {
-        if (!slides.length) return;
-        currentIndex = (index + slides.length) % slides.length;
-        renderSlide(currentIndex);
-      }
+    function getInitialLang() {
+      return normalizeLang(localStorage.getItem(STORAGE_KEY) || 'jp');
+    }
 
-      function nextSlide() {
-        goToSlide(currentIndex + 1);
-      }
+    function applyLanguage(lang) {
+      const safeLang = normalizeLang(lang);
+      const dict = translations[safeLang] || translations.jp;
 
-      function prevSlide() {
-        goToSlide(currentIndex - 1);
-      }
-
-      function startAuto() {
-        stopAuto();
-        autoTimer = setInterval(nextSlide, 2800);
-      }
-
-      function stopAuto() {
-        if (autoTimer) {
-          clearInterval(autoTimer);
-          autoTimer = null;
-        }
-      }
-
-      if (slides.length) {
-        if (totalEl) totalEl.textContent = String(slides.length);
-        renderSlide(currentIndex);
-
-        if (prevBtn) {
-          prevBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            prevSlide();
-            startAuto();
-          });
-        }
-
-        if (nextBtn) {
-          nextBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            nextSlide();
-            startAuto();
-          });
-        }
-
-        const sliderShell = document.querySelector('.hero-slider-shell');
-        if (sliderShell) {
-          sliderShell.addEventListener('mouseenter', stopAuto);
-          sliderShell.addEventListener('mouseleave', startAuto);
-        }
-
-        startAuto();
-      }
-
-      document.querySelectorAll('.lang-btn').forEach((btn) => {
-        btn.addEventListener('click', () => {
-          applyLanguage(btn.dataset.lang || 'jp');
-        });
+      Object.entries(navMap).forEach(([key, selector]) => {
+        const el = document.querySelector(selector);
+        if (el && dict[key]) el.textContent = dict[key];
       });
 
-      applyLanguage('jp');
-    })();
-  </script>
+      Object.entries(textMap).forEach(([key, id]) => {
+        const el = document.getElementById(id);
+        if (!el || !dict[key]) return;
+
+        if (key === 'heroTitle' || key === 'heroDesc') {
+          el.innerHTML = dict[key];
+        } else {
+          el.textContent = dict[key];
+        }
+      });
+
+      document.querySelectorAll('.lang-btn').forEach((btn) => {
+        btn.classList.toggle('is-active', btn.dataset.lang === safeLang);
+      });
+
+      document.documentElement.lang = safeLang === 'jp' ? 'ja' : safeLang === 'kr' ? 'ko' : 'en';
+      localStorage.setItem(STORAGE_KEY, safeLang);
+    }
+
+    const slides = Array.from(document.querySelectorAll('#heroSliderTrack .hero-slide'));
+    const prevBtn = document.getElementById('heroPrevBtn');
+    const nextBtn = document.getElementById('heroNextBtn');
+    const currentEl = document.getElementById('heroCurrent');
+    const totalEl = document.getElementById('heroTotal');
+    let currentIndex = 0;
+    let autoTimer = null;
+
+    function renderSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('is-active', i === index);
+        slide.setAttribute('aria-hidden', i === index ? 'false' : 'true');
+      });
+
+      if (currentEl) currentEl.textContent = String(index + 1);
+    }
+
+    function goToSlide(index) {
+      if (!slides.length) return;
+      currentIndex = (index + slides.length) % slides.length;
+      renderSlide(currentIndex);
+    }
+
+    function nextSlide() {
+      goToSlide(currentIndex + 1);
+    }
+
+    function prevSlide() {
+      goToSlide(currentIndex - 1);
+    }
+
+    function startAuto() {
+      stopAuto();
+      autoTimer = setInterval(nextSlide, 2800);
+    }
+
+    function stopAuto() {
+      if (autoTimer) {
+        clearInterval(autoTimer);
+        autoTimer = null;
+      }
+    }
+
+    if (slides.length) {
+      if (totalEl) totalEl.textContent = String(slides.length);
+      renderSlide(currentIndex);
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          prevSlide();
+          startAuto();
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          nextSlide();
+          startAuto();
+        });
+      }
+
+      const sliderShell = document.querySelector('.hero-slider-shell');
+      if (sliderShell) {
+        sliderShell.addEventListener('mouseenter', stopAuto);
+        sliderShell.addEventListener('mouseleave', startAuto);
+      }
+
+      startAuto();
+    }
+
+    document.querySelectorAll('.lang-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        applyLanguage(btn.dataset.lang || 'jp');
+      });
+    });
+
+    applyLanguage(getInitialLang());
+  })();
+</script>
 </body>
 </html>
